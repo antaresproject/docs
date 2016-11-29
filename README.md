@@ -1,2 +1,2 @@
 # docs
-Documentation of Antares Platform.  
+Documentation of Antares Project.  
