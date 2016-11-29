@@ -1,2 +1,2 @@
 # docs
-Documentation of Antares.  
+Documentation of Antares Project.
