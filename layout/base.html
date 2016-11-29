@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="INBS Software" />
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="theme-color" content="#00adee">
+    <meta name="theme-color" content="#00adee">
+    <meta name="msapplication-navbutton-color" content="#00adee">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#00adee"> {% if favicon %}
+    <link rel="shortcut icon" sizes="192x192" href="{{ favicon }}"> {% else %}
+    <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico"> {% endif %}
+    <link rel="stylesheet" href="{{ base_url }}/css/assets.css">
+    <link rel="stylesheet" href="{{ base_url }}/css/easy_docs.css">
+    <script src="{{ base_url }}/js/assets.js"></script>
+    <script src="{{ base_url }}/js/easy_docs.js"></script>
+    {% block extrahead %}
+    
+    {% endblock %}
+</head>
+
+<body>
+    <aside class="ardocs-menu ardocs-menu--offcanvas">
+            <header>
+                <div class="offcanvas-close"><i class="zmdi zmdi-arrow-left"></i><p class="ardocs-menu__title">Documentation</p></div>
+            </header>
+            <nav>
+                <p class="ardocs-menu__title">Documentation</p>
+            </nav>
+    </aside>
+    <div id="ardocs-container">
+        <section class="easy-nav">
+            <div class="set-width">
+                <a href="{{ base_url }}" class="logo"></a>
+                <div class="ardocs-mobile-toggle">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <nav class="ardocs-menu" role="navigation">
+                    
+                </nav>
+            </div>
+        </section>
+        <div class="set-width">
+            <div class="mobile-doc-toggle btn--mobile-doc-menu uppercase"><i class="zmdi zmdi-menu"></i>Documentation</div>
+        </div>
+        <section class="ardocs-search set-width">
+            <div role="search">
+
+
+                <form id="content_search" action="{{ base_url }}/search.html">
+                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                    <div class="input-grp">
+                        <input type="text" name="q" id="mkdocs-search-query" class="input-grp__input search_input search-query ui-autocomplete-input" placeholder="Search in documentation" required autofocus autocomplete="off">
+                        <div class="input-grp__icon"><i class="zmdi zmdi-search"></i></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="ardocs-content set-width">
+            <aside class="ardocs-menu table-of-contents">
+                <ul class="toc">
+                    {% for nav_item in nav %} {% include "nav.html" %} {% endfor %}
+                </ul>
+            </aside>
+            <div class="main-content">
+                {% block content %} {{ content }} {% endblock %}
+            </div>
+        </section>
+        <section class="easy-cta w100">
+            <div class="set-width">
+                <div class="hgroup">
+                    <p class="header-top">Do You Have Any Questions?</p>
+                    <p class="header-bottom">Give us the tough ones!</p>
+                </div>
+                <div class="button-group text-right">
+                    <a href="mailto:konrad@modulesgarden.com" target="_blank" class="btn btn--easy">Contact Us</a>
+                </div>
+            </div>
+        </section>        
+    </div>
+</body>
+
+</html>

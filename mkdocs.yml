@@ -1,0 +1,25 @@
+site_name: Antares Documentation
+site_description: Open Source Laravel User Management Platform for standalone and SaaS applications. Based on Laravel, PHP7 ready, using flexible design patterns that keep the code clean and elegant.Speed up your work even up to 50% by using built-in workflow improvements.
+site_url: http://docs.easydcim.com
+theme: null
+theme_dir: 'layout'
+site_favicon: favicon.ico
+markdown_extensions:
+ - abbr
+ - admonition
+ - attr_list
+ - smarty
+ - toc:
+    baselevel: '2'
+use_directory_urls: false
+pages:
+ - Getting Started:
+   - Introduction: index.md
+   - Release Notes: getting_started/release_notes.md
+   - Upgrade Guide: getting_started/upgrade_guide.md
+ - Installation:
+   - Requirements: installation/requirements.md
+   - Preconfiguration: installation/preconfiguration.md
+   - Installation Guide: installation/installation_guide.md 
+
+
