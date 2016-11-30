@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Release Notes - Antares Documentation</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="INBS Software" />
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="theme-color" content="#00adee">
+    <meta name="theme-color" content="#00adee">
+    <meta name="msapplication-navbutton-color" content="#00adee">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#00adee"> 
+    <link rel="shortcut icon" sizes="192x192" href="favicon.ico"> 
+    <link rel="stylesheet" href="../../css/assets.css">
+    <link rel="stylesheet" href="../../css/easy_docs.css">
+    <script src="../../js/assets.js"></script>
+    <script src="../../js/easy_docs.js"></script>
+    
+    
+    
+</head>
+
+<body>
+    <aside class="ardocs-menu ardocs-menu--offcanvas">
+            <header>
+                <div class="offcanvas-close"><i class="zmdi zmdi-arrow-left"></i><p class="ardocs-menu__title">Documentation</p></div>
+            </header>
+            <nav>
+                <p class="ardocs-menu__title">Documentation</p>
+            </nav>
+    </aside>
+    <div id="ardocs-container">
+        <section class="easy-nav">
+            <div class="set-width">
+                <a href="../.." class="logo"></a>
+                <div class="ardocs-mobile-toggle">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <nav class="ardocs-menu" role="navigation">
+                    
+                </nav>
+            </div>
+        </section>
+        <div class="set-width">
+            <div class="mobile-doc-toggle btn--mobile-doc-menu uppercase"><i class="zmdi zmdi-menu"></i>Documentation</div>
+        </div>
+        <section class="ardocs-search set-width">
+            <div role="search">
+
+
+                <form id="content_search" action="../../search.html">
+                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                    <div class="input-grp">
+                        <input type="text" name="q" id="mkdocs-search-query" class="input-grp__input search_input search-query ui-autocomplete-input" placeholder="Search in documentation" required autofocus autocomplete="off">
+                        <div class="input-grp__icon"><i class="zmdi zmdi-search"></i></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="ardocs-content set-width">
+            <aside class="ardocs-menu table-of-contents">
+                <ul class="toc">
+                     
+  <li>
+    <span>Getting Started</span>
+    <ul>
+        
+            
+<li >
+    <a href="../../index.html">Introduction</a>
+</li>
+
+        
+            
+<li class="is-active">
+    <a href="index.html">Release Notes</a>
+</li>
+
+        
+            
+<li >
+    <a href="../upgrade_guide/index.html">Upgrade Guide</a>
+</li>
+
+        
+    </ul>
+  </li>
+  
+  <li>
+    <span>Installation</span>
+    <ul>
+        
+            
+<li >
+    <a href="../../installation/requirements/index.html">Requirements</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../installation/preconfiguration/index.html">Preconfiguration</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../installation/installation_guide/index.html">Installation Guide</a>
+</li>
+
+        
+    </ul>
+  </li>
+ 
+                </ul>
+            </aside>
+            <div class="main-content">
+                 <h2 id="changelog">Changelog</h2>
+<div class="toc">
+<ul>
+<li><a href="#changelog">Changelog</a><ul>
+<li><a href="#version-120-stable">Version 1.2.0 Stable</a></li>
+<li><a href="#version-120-beta">Version 1.2.0 Beta</a></li>
+<li><a href="#version-112">Version 1.1.2</a></li>
+<li><a href="#version-111">Version 1.1.1</a></li>
+<li><a href="#version-110">Version 1.1.0</a></li>
+<li><a href="#version-103">Version 1.0.3</a></li>
+<li><a href="#version-102">Version 1.0.2</a></li>
+<li><a href="#version-101">Version 1.0.1</a></li>
+<li><a href="#version-100">Version 1.0.0</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="version-120-stable">Version 1.2.0 Stable</h3>
+<p>Oct 27th, 2016</p>
+<p>New Features:</p>
+<ul>
+<li>Additional IP Address field allowing to define extra IP addresses for a device </li>
+<li>Precise and highlighted position of a device on a rack with option to move to the rack quickly  </li>
+<li>Traffic aggregation per server can now be also counted from the server port not only from the switch port - Ticket #523192</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Unused files cleanup</li>
+<li>Numerous UX improvements</li>
+<li>Improved stability of the system</li>
+<li>Search option has been improved in sections Inventory and Item Models</li>
+<li>Standardized action buttons view in widgets</li>
+<li>The process of detecting incorrect API requests has been improved</li>
+<li>Traffic count is now more precise and accurate</li>
+<li>Device and models lists have been redesigned and now have the &lsquo;select&rsquo; form with autocomplete option</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>The process of assigning a new part has been corrected - Ticket #435420</li>
+<li>Floor is now correctly selected while being assigned to a rack</li>
+<li>Performance Time field has been removed to avoid database overload</li>
+</ul>
+<h3 id="version-120-beta">Version 1.2.0 Beta</h3>
+<p>Sep 29th, 2016</p>
+<p>New Features:</p>
+<ul>
+<li>OS Installation Module Based On NOC-PS enables automatic or manual installation of required operating systems on your servers</li>
+<li>Traffic Aggregation process allowing to combine traffic from multiple server ports connected to switch ports</li>
+<li>API v2.0 with new methods and documentation</li>
+<li>New servers provisioning flow:</li>
+<li>New form with precise criteria of searching server</li>
+<li>IP Address Management module integration</li>
+<li>Usage Collector module integration</li>
+<li>New meta tags for servers, used while ordering a matched server</li>
+<li>Troubleshooting Tool solving application issues reported in the past</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Rebuilt WHMCS integration allowing to order and manage servers from EasyDCIM inside your WHMCS</li>
+<li>Logout confirmation dialog box</li>
+<li>Access permissions to storage catalogs have been moved to a level higher</li>
+<li>System logs are now stored in a newly created separate database, not in files</li>
+<li>Licensing system has been improved to count devices and check license</li>
+<li>New version of system documentation including information on all crucial sections in the system</li>
+<li>Improved process of adding a new device model into the system form</li>
+<li>Improved process of adding devices or items in bulks into the system</li>
+<li>Improved SNMP and IPMI protocols with a test connection option</li>
+<li>Check if configuration data are correct with a Send Test Mail option</li>
+<li>Unused files cleanup</li>
+<li>Major UX improvements</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Logs and notifications in device summary are now correctly displayed</li>
+<li>Special characters in a password area are handled when a new user is created</li>
+<li>Assignment tab for components item type works now correctly</li>
+<li>Traffic graph is hidden when switch is not connected to server</li>
+<li>Validation of the Item ID field has been corrected</li>
+<li>Creating a few ACL groups with the same name is now possible</li>
+<li>Turning off a notification or a warnings with &lsquo;x&rsquo; button resulted in being incorrectly moved to dashboard</li>
+<li>Need to refresh the page to get the dashboard back when turning off a notification is no longer required</li>
+<li>End-users can now execute the Auto-Discovering process</li>
+<li>Correct type of SCSI disk is created during Auto-Discovering process</li>
+<li>Issue with traffic graphs displaying &ldquo;ERROR: Attempting to reuse &lsquo;outoctets&rsquo; &rdquo; has been solved</li>
+<li>Changing Inventory Status of servers, networks and power is now possible</li>
+<li>Pressing the &lsquo;Click to set a value&rsquo; button triggers appropriate action now</li>
+<li>Issue with appearing &lsquo;Error when loading list&rsquo; during assignment process in PDU Outlet has been solved</li>
+<li>Metadata of servers and switches can be deleted successfully</li>
+<li>Exception error appearing after typing in an ID in an invalid format when changing item unique ID has been solved</li>
+<li>Issue with storage folder permissions chmod -R &lt;777 - &ldquo;failed to open stream: Permission denied&rdquo; has been solved</li>
+<li>Customer is now automatically moved to the next step when creating a new model</li>
+<li>&ldquo;404Not Found!&rdquo; error that appeared when &lsquo;Fields&rsquo; tab was pressed has been solved</li>
+<li>Thumbnails in reports are now displayed correctly</li>
+<li>No need to refresh the page to edit the Devices &amp; Services page</li>
+<li>Issue with resetting the disabled poller settings after refreshing the page has been solved</li>
+<li>Adding purchase date into Additional Information section of Services &amp; Devices is now possible</li>
+<li>Log entries appear when actions on servers are performed</li>
+<li>Order is correctly assigned without the need to reload the page</li>
+<li>Password reminding emails are delivered without issues</li>
+<li>Rack names and images are visible in the right places</li>
+<li>Rack names and images are visible in the right places</li>
+<li>When order is edited or transaction is about to be finished, correct actions are triggered</li>
+<li>Device name is correctly displayed in notifications and warnings</li>
+<li>&lsquo;Remind Password&rsquo; missing unassigned option in &lsquo;Switch Device&rsquo; field has been added</li>
+<li>Actions Logs now moves to a correct site</li>
+<li>&lsquo;Delivery Transaction Log: Permission denied&rsquo; error message when adding new items has been solved</li>
+<li>Fixed mechanism for counting devices by the system license</li>
+<li>EasyDCIM is no longer blocked when &lsquo;Force to use&rsquo; is selected and &lsquo;Two-Factor Authentication&rsquo; use is disabled</li>
+</ul>
+<h3 id="version-112">Version 1.1.2</h3>
+<p>Jun 20th, 2016</p>
+<p>New Features:</p>
+<ul>
+<li>New DNS Management Module components</li>
+<li>Notifications informing about a port change</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Item client field is assigned basing on its parent if any has been specified</li>
+<li>Client fields are automatically filled out in the order form if the order is created for a specified user</li>
+<li>After a successfully completed delivery operation a confirmation message is displayed</li>
+<li>Numerous improvements in the module license verification cache</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Devices of blade type are automatically created when the application update command is used</li>
+<li>Default polling submodules are now properly marked as active after the first installation</li>
+<li>Issue with illegible device label when no device image was specified has been solved</li>
+<li>Special characters validation while adding a new type field has been corrected</li>
+<li>Design issues on location summary pop-up have been fixed</li>
+<li>Problem with adding a new entry to the To-Do widget has been solved</li>
+<li>Minor typo fixes</li>
+</ul>
+<h3 id="version-111">Version 1.1.1</h3>
+<p>May 19th, 2016</p>
+<p>New Features:</p>
+<ul>
+<li>Two-Factor Authentication Module</li>
+<li>Widget responsible for the management of children devices inside of blade servers</li>
+<li>Quick assignment and removal of children devices from blade devices</li>
+<li>Easy removal of devices assigned to a client from the Devices tab inside a User Summary</li>
+<li>New filters in Software section</li>
+<li>Breadcrumbs in the Reports section</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Redesigned and rewritten Monitors section</li>
+<li>Button style convention has been standardized</li>
+<li>Information on name and address added to the location pop-up</li>
+<li>New system notifications for successful delivery actions</li>
+<li>Redirection to the Item Summary page once data were edited successfully</li>
+<li>Labels inside the Metadata section of template edit form have been changed</li>
+<li>Adjusted button labels inside the Software section leading from Create Software to Create OS Group</li>
+<li>A success confirmation message is displayed after removing any To-Do widget entry</li>
+<li>Clear Module Log button is located in a new, visible position</li>
+<li>Buttons in the Location section have unified colors</li>
+<li>More precise placeholder of the Item Model dropdown on the delivery form</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Application might have crashed at some configurations when the SSH port was irrelevant - the port can be now manually specified</li>
+<li>Some of panel actions of Usage Collector Widget in the client area were not performed well</li>
+<li>Issues caused by missing validation of the Manager field, inside the Location creation form have been solved</li>
+<li>Problem with CSS in model selector dropdown on the Delivery form has been solved</li>
+<li>OS image in the Parent Device Selection dropdown is now scaled properly</li>
+<li>Number of Items was not validated accurately on the Delivery form</li>
+<li>Location name was not displayed properly on Location tooltip</li>
+<li>QR code item image in Item Summary section is no longer missing</li>
+<li>Breadcrumbs on the Admin Summary page are correct</li>
+<li>Price and setup fee validation on the Product edit form has been fixed</li>
+<li>Add Files button in Files widget is positioned properly</li>
+<li>Corrected validation while trying to create a currency with an already existing code</li>
+<li>Response shown to a user after removing a part from a device is now correct</li>
+<li>Language typos corrected and missing language entries added in the Item Models section</li>
+<li>Reports are now generated properly while using prefixed database tables</li>
+<li>Reports widget in the location summary showed &lsquo;null&rsquo; when there were no devices assigned to the location</li>
+<li>Content header is now refreshed properly after a successful device discovery action</li>
+<li>Incorrect title was displayed on modal when the product field was edited</li>
+<li>Price filtering on the Software list has been fixed</li>
+<li>Several language typos corrected</li>
+</ul>
+<h3 id="version-110">Version 1.1.0</h3>
+<p>May 4th, 2016</p>
+<p>New Features:</p>
+<ul>
+<li>Support for the Two-Sided racks and ‘Half Width’ devices with advanced position validation</li>
+<li>New Location Map View with a number of useful statistic data while hovering on specific location marker</li>
+<li>Stats added inside the Location Summary page</li>
+<li>Implemented queue processing engine for the time consuming tasks with a preconfigured beanstalk driver</li>
+<li>New proxy IPMITool driver added to the IPMI Module, gives the possibility to use a remote device (via SSH) to perform the IPMI command on device, without the requirement to connect to a target device directly</li>
+<li>Number of new notifications related to items, devices and other actions occurring inside the system and its environment</li>
+<li>New Device Edit Form - divided into sections</li>
+<li>New Single Item Edit Form</li>
+<li>Monthly device traffic is now collected and stored inside the device metadata with switch port assigned to it</li>
+<li>Hourly Cron Tasks Command added</li>
+<li>Possibility to sort devices basing on their Uptime</li>
+<li>Information about Available Storage inside the Device Metadata</li>
+<li>Support for 1.5 version of IPMI protocol in the IPMI ModuleADD: System is now trying to find the connection between the devices using FDB Table (if available)</li>
+<li>Quick Filters for the Device Graphs widget to let an administrator quickly see the data from the last day, week or month</li>
+<li>New dedicated single graph page</li>
+<li>Quick Links inside the Location summary section</li>
+<li>Permission Auto Fixer</li>
+<li>Console Command - automate the installation &amp; configuration of the supervisor and the queue workers</li>
+<li>New redesigned &amp; easier to use Delivery Form</li>
+<li>New Quick Discovery Form</li>
+<li>Internal API Caller for the developers use</li>
+<li>Manageable User Contacts with possibility to assign separate permissions for each contact</li>
+<li>New Discovering submodules for Raritan &amp; Dell Devices</li>
+<li>User Custom Fields management page</li>
+<li>Possibility to quickly assign an Item Type Field to a device</li>
+<li>Devices specified Log Files</li>
+<li>Simple ‘Configuration Verification’ widget in the Dashboard</li>
+<li>Added possibility to retrieve plain text data directly from the ‘Generator’ module of the RRDTool component</li>
+<li>Added methods inside the device model to retrieve the data set containing monthly bandwidth for the device</li>
+<li>Reports may now register their own widgets, for example Report Widget presenting devices with the highest load is now part of the dashboard</li>
+<li>Assign the environment specific variable using .env file</li>
+<li>Disable polling process via the environment variable</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Assets and their generation packages have been rewritten in every way giving up to 100% speed boost on the page load. Application is now less resources consuming</li>
+<li>Poller Threads when finished are now closed automatically - it is no longer required to complete all the child processes</li>
+<li>The file structure has been completely rewritten for better optimization and clearness of the application</li>
+<li>IPAM Module has been rewritten and redesigned which made it smoother and more apparent</li>
+<li>IPMI Module driver has been optimized which resulted in rapid execution of requests</li>
+<li>Numerous fixes and improvements implemented inside the drivers for the Dell Drac IPMI boards</li>
+<li>Usage collector module has been rewritten and optimized to be less resource and time consuming</li>
+<li>Test Code Coverage Unit has been improved making the application more stable</li>
+<li>Rewritten and optimized Thread Poller to be scalable and have the following options:</li>
+<li>Specify maximum number of concurrent threads</li>
+<li>Set a number of devices to process per single thread</li>
+<li>Select submodules to use for either device type or single device</li>
+<li>Automatically prevent itself from starting when the system load is too high</li>
+<li>Filters are presented in a more user friendly way</li>
+<li>Parts are by default assigned to the same location and rack as their parent devices</li>
+<li>WHMCS Module is now compatible with the latest changes</li>
+<li>Redesigned Reports Components - more reports coming soon!</li>
+<li>Ping monitor is now configurable and has the ability to specify warning threshold</li>
+<li>Changed the functionality &amp; interface of the search bar at the top of the page</li>
+<li>When Item Model cannot be assigned automatically, &lsquo;Generic&rsquo; model is assigned</li>
+<li>Notifications may now have entities assigned, which means that all of them can be linked with some data models like Item, Device, User etc.</li>
+<li>Staff Board Widget has been rewritten</li>
+<li>Application configuration files and base models are now decoded</li>
+<li>New drivers for the ACL component have been implemented</li>
+<li>Number of SQL Queries inside the application scope have been reduced</li>
+<li>All Forms have been redesigned - Form Builder component has been projected to make the application forms more scalable</li>
+<li>Client Area &amp; API are now separated from the system components with their own providers</li>
+<li>Composer dependencies are now preinstalled and the final package is unified</li>
+<li>System asks for permission when a user tries to manually perform dangerous or suspicious actions</li>
+<li>Multiple monitors of the same type but different configuration may be now assigned to a single device</li>
+<li>SNMP System Component has been redesigned and it may be now expanded with custom drivers</li>
+<li>GeoComplete plugin replaced with a lightweight auto-complete address based on OpenStreetMap Data</li>
+<li>Changed views of the PHPInfo &amp; Loaded Extensions sections</li>
+<li>Inventory List has been modified to show a parent device inside the Location column</li>
+<li>‘Discovery Device’ and ‘Device Poller’ buttons inside the device summary section are now using queue handler to perform their tasks</li>
+<li>Added possibility to dynamically register options for the item type specified fields with a dropdown type</li>
+<li>Widgets Sorting Engine has been modified to store data about widgets’ positions globally</li>
+<li>Device may be now automatically detected as service in case product &amp; order relation has been specified</li>
+<li>If the ‘Mountable’ property is not specified, Item is now automatically assigned to be part or device, basing on its type</li>
+<li>Item position is automatically revalidated each time ‘size’ or ‘width’ of the device is changed</li>
+<li>‘Assign Part’ form has been modified to be more user friendly, with the possibility to search for the parts by providing their serial number</li>
+<li>Device RRD directory is now automatically deleted while deleting the device itself</li>
+<li>When device is unassigned from location, the rack relation is also being automatically deleted</li>
+<li>Predefined Item Type Fields cannot be deleted, neither their name &amp; slug can be changed</li>
+<li>Product with Services assigned cannot be deleted</li>
+<li>Processor Name is now displayed on the Processors Load Graph instead of the numerical index</li>
+<li>Resource consuming JS plugins such as (Autocomplete, GeoComplete etc.) removed</li>
+<li>Unnecessary icon sets are replaced with standard font awesome library</li>
+<li>Global top header buttons style improvements</li>
+<li>Errors are displayed on graphs in a more user friendly manner</li>
+<li>Avatars CDN source has been changed</li>
+<li>Changed presenters for the &ldquo;Purchase Price&rdquo; and &ldquo;Purchase Date&rdquo; fields</li>
+<li>More detailed breadcrumbs added inside the device summary section</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Devices could not be discovered via graphical user interface nor with 3rd version SNMP access details</li>
+<li>Issues with fields processing when altered for the second time with &ldquo;Quick Edit&rdquo; option</li>
+<li>Out Bandwidth was not displayed correctly on the Traffic Graph</li>
+<li>Corrected filtering in the Server List section</li>
+<li>‘404 Not Found’ error thrown when ‘Quick Edit’ method was used to edit fields at some sections</li>
+<li>User birth date cannot be set to the future any more</li>
+<li>Type Fields were not filled out properly in the default table seeder</li>
+<li>Some common issues inside the import inventory section, mostly related to validation, have been solved</li>
+<li>Notification favicons overlaying one another corrected</li>
+<li>QR code is now shown properly inside the item summary section</li>
+<li>Too strict validation of a user last name has been changed</li>
+<li>Special chars issue with encoding or decoding inside ‘Currencies’ settings has been solved</li>
+<li>Models are now properly assigned to servers created via user order</li>
+<li>Problems with file upload validation &amp; permission occurring at some environments</li>
+<li>JSON is not presented to the user any more while they are trying to sign in to the client area</li>
+<li>Device counter would count deleted devices as active</li>
+<li>Issues with changing serial number in ‘Parts’ subsection in a device summary</li>
+<li>New order can be created with API request</li>
+<li>Custom RRD directory specification corrected</li>
+<li>‘hrProcessorLoad’ OID no longer causes errors while pulling information from some of the devices</li>
+<li>Language typos corrected</li>
+</ul>
+<h3 id="version-103">Version 1.0.3</h3>
+<p>Oct 12th, 2015</p>
+<p>Improvements:</p>
+<ul>
+<li>New Thread Poller based on process manager, substantially improving both stability and scalability</li>
+<li>Feature to set the number of processed devices per poller thread, which dramatically improves the amount of time required to poll devices</li>
+<li>Debug Mode for the Poller command in order to obtain additional information about the process</li>
+<li>Additional services and graphing support for the Client Area, in preparation for EasyDCIM to more fully support client ↔ staff interaction and grant clients (and their contacts) permissions for different features</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Checkbox display fix on high device-pixel-ratio devices</li>
+<li>Issue impacting model template data during new item creation</li>
+<li>&ldquo;No query results for model [Rack]&rdquo; error, which occurred infrequently during device discovery</li>
+<li>Issue causing graphs in the Client Area to not display properly for non-admin users.</li>
+</ul>
+<h3 id="version-102">Version 1.0.2</h3>
+<p>Sep 11th, 2015
+Improvements:</p>
+<ul>
+<li>Background image on first web page during install has been updated</li>
+<li>Text &amp; Descriptions &amp; Placements have been added and modified in the &ldquo;LOCATIONS&rdquo; section on the Floor Summary page, Add Rack page, &amp; Locations Summary page</li>
+<li>&ldquo;Ports&rdquo; tab on Server Overview page changed to &ldquo;Network Interfaces&rdquo;</li>
+<li>&ldquo;Servers&rdquo; listing page of EasyDCIM the top menu/action button was &ldquo;Add Item&rdquo;, changed to &ldquo;Add Server&rdquo;</li>
+<li>Polling now no longer strictly based on hostname resolution, if resolution fails, it will attempt to contact the IP address</li>
+<li>Using Drag and Drop on the Rack View to move servers around physically in a rack now contains a confirmation action to prevent mistakes</li>
+<li>Removed the &ldquo;Page Change Confirmation&rdquo; action when changing page away from the Item Creation page</li>
+<li>Error message &ldquo;There is no content here at the moment&rdquo; has been revised to &ldquo;No data has been input/imported yet.&rdquo;</li>
+<li>Item Creation status is now by default &ldquo;AVAILABLE&rdquo; instead of none selected</li>
+<li>Server Summary Page - Renamed &ldquo;Units&rdquo; to &ldquo;RU’s Occupied&rdquo;. RU’s Occupied and Rack Position were moved to Assignment Info box, plus other changes/enhancements</li>
+<li>Ajax based Error Page introduces a “Show Details” link which shows as much error / tracing information as possible</li>
+<li>IPMI &amp; PDU Reboots - If a server has IPMI configured, it will use IPMI to reboot/power off/power on by default. Currently PDU reboots for IPMI configured devices are only available to STAFF/ADMIN until further advanced logic is added to this function. PURPOSE: PDU power cuts can cause damage to hardware</li>
+<li>Network Interfaces tab v.s. Ports tab - Server devices have Network Interfaces tab, other devices (Switch, Router, PDU) use Ports tab</li>
+<li>Network Interfaces (Servers) - Add Interface (IE: NIC PORT 1) &ndash; assign Interfaces to Ports found on Switch/Router devices. IE: Server -&gt; Server Interface Creation &gt; Switch Device &gt; Switch Port</li>
+<li>Removed capability to &ldquo;Delete&rdquo; ports from Power Devices pulled via telnet/snmp/etc</li>
+<li>Removed capability to &ldquo;Delete&rdquo; ports from Switches/etc if port is marked/configured as &ldquo;Pullable&rdquo;</li>
+<li>&ldquo;Label&rdquo; field modified to be Optional for Components, continues to be required servers/switches/pdu</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>RackUnit number not displayed on &ldquo;Server Summary Page&rdquo;</li>
+<li>&ldquo;Locations&rdquo; section CSS revision for compatibility with greater number of resolutions/dimensions</li>
+<li>WHMCS Module would remove any pre-existing configured options already residing in the WHMCS instance when creating the new automatically generated configuration options</li>
+<li>An error realized when adding new orders</li>
+<li>Error sometimes received when adding a &ldquo;New Item&rdquo;</li>
+<li>Resolved issue encountered when assigning &ldquo;Serial Number 1, Service Tag, Location or Manufacturer&rdquo; (previously the field did not save inputted details)</li>
+<li>Previously saving a Memory component as anything but &ldquo;In Use&rdquo; caused an error</li>
+<li>Assigning a memory component from inventory to a server device now works properly</li>
+<li>Global Input Filter revised to prevent specific symbol characters from being re-written</li>
+<li>Assigning hostname to metadata would previously not save</li>
+<li>Discovery would put Serial Number in the wrong field (Example: S/N 2 instead of S/N 1); this has now been corrected</li>
+<li>Previously, drives from servers would sometimes erroneously be classified as PDUs</li>
+<li>500 error immediately after install completed has been resolved</li>
+<li>Action of assigning a server to a customer did not automatically change status to &ldquo;IN USE&rdquo; as it is designed to do; this has been resolved</li>
+<li>Symbol character &ldquo;+&rdquo; will no longer overwrite the Global Input Filter</li>
+<li>SSH Settings on Device/Server Metadata section was missing the &ldquo;PORT&rdquo; field</li>
+<li>WHMCS module would previously error when assigned to a WHMCS product in certain instances</li>
+<li>iDRAC5 now provides output, such as power; auto-discovery now detects any details</li>
+<li>Switch Management - &ldquo;Switch State&rdquo; now has &ldquo;Enable/Disable&rdquo; as possible port actions; &ldquo;Reboot&rdquo; has been removed</li>
+<li>Corrected initial permissions errors and misconfiguration for device RRD&rsquo;s and graphs</li>
+<li>Creating an Item with Multiple Quantities the &ldquo;Bulk Insert&rdquo; fields will now be automatically selected and active</li>
+<li>Locations are now able to have more than four (4) floors</li>
+<li>When adding a component and attempting to create a &ldquo;Manufacturer / Vendor&rdquo;, an error would sometimes be encountered when making your submission; this has been fixed</li>
+<li>The &ldquo;rack unit size&rdquo; field has been removed from certain components where it is not applicable (Examples: RAM, HDD, CPU, etc)</li>
+<li>Location assignment tracking based on &ldquo;Component/Item Status&rdquo;. Now, if &ldquo;Status = AVAILABLE&rdquo; the device can have its own unique location. If &ldquo;Status = IN USE&rdquo;, the device will use location assigned to its &ldquo;Parent&rdquo; device. In any other Status type, the device location will not be a selectable field</li>
+<li>PING MONITOR functionality has now been restored</li>
+<li>Corrected issue which now allows IPMI to be disabled on a server</li>
+<li>&ldquo;Switch Module&rdquo; can now auto-suspend (turn off) the NETWORK PORT associated to a server, once the associated service has been marked as suspended</li>
+<li>Notification/Log Entry for ports being turned ON/OFF (using Poller) will now display and track properly</li>
+<li>Switches &ldquo;Ports&rdquo; tab - if a device is assigned to one of the ports, there was previously no way to properly Unassign the device/port</li>
+<li>Auto-Discovery module/functionality repaired and improved</li>
+</ul>
+<h3 id="version-101">Version 1.0.1</h3>
+<p>Jul 20th, 2015</p>
+<p>New Features:</p>
+<ul>
+<li>WHMCS V6 support</li>
+<li>WHMCS module:</li>
+<li>Display text product fields as custom fields</li>
+<li>Domain, username and password synchronized with WHMCS</li>
+<li>Automatic servers provisioning</li>
+<li>DNS Management integration</li>
+<li>IP Management integration</li>
+<li>Usage Collector integration</li>
+<li>KVM console integration</li>
+<li>New drivers support in Auto-Discovering:</li>
+<li>PowerConnect 54xx</li>
+<li>Raritan Power PDU</li>
+<li>Device discoverer support for Windows Server</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Recent Activity widget enhancements</li>
+<li>Queries reduction and optimization in database</li>
+<li>Usage Collector For EasyDCIM:</li>
+<li>Main functionality optimized</li>
+<li>New API methods implemented</li>
+<li>IPMI power button enhancements</li>
+<li>General improvements in device polling process</li>
+<li>Security improvements while uploading files; mime type and file size detection</li>
+<li>Orders improvements:</li>
+<li>User and product fields being automatically completed</li>
+<li>User-friendly auto-provisioning</li>
+<li>Model name changed in favour of label in option list for connected items in Power Ports</li>
+<li>Settings section redesigned</li>
+<li>Default seeds in database changed</li>
+</ul>
+<p>Bug Fixes:</p>
+<ul>
+<li>Serial number validation in Mass Add Item form</li>
+<li>IPAM groups deletion</li>
+<li>Garbage collector session</li>
+<li>Device poller memory leak, causing problems with the server stability</li>
+<li>Monitor configuration edit form</li>
+<li>Incorrect redirection after device deletion</li>
+<li>Monitor assignment</li>
+<li>Currency HTML code</li>
+</ul>
+<h3 id="version-100">Version 1.0.0</h3>
+<p>Jun 25th, 2015</p>
+<p>New Features:</p>
+<ul>
+<li>Official Release Date Of Stable EasyDCIM Version</li>
+</ul> 
+            </div>
+        </section>
+        <section class="easy-cta w100">
+            <div class="set-width">
+                <div class="hgroup">
+                    <p class="header-top">Do You Have Any Questions?</p>
+                    <p class="header-bottom">Give us the tough ones!</p>
+                </div>
+                <div class="button-group text-right">
+                    <a href="mailto:konrad@modulesgarden.com" target="_blank" class="btn btn--easy">Contact Us</a>
+                </div>
+            </div>
+        </section>        
+    </div>
+</body>
+
+</html>
