@@ -32,3 +32,21 @@ Sample html
      </div>
 </div>
 ```
+
+
+## Credits
+
+- [AntaresProject][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The EU Public License. Please see [license.md](license.md) for more information.
+[ico-version]: https://img.shields.io/packagist/v/jeroen-g/laravel-packager.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-EUPL-yellow.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/jeroen-g/laravel-packager.svg?style=flat-square
+
+[link-packagist]: http://antaresproject.io
+[link-downloads]: http://antaresproject.io
+[link-author]: http://antaresproject.io
+[link-contributors]: ../../contributors]
