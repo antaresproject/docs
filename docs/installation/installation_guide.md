@@ -12,7 +12,7 @@ In this case, please remember about pointing the virtual machine at public proje
 <pre><code>vim /etc/apache2/sites-enabled/000-default.conf  
 DocumentRoot /var/www/html/public</code></pre>
   
-  ![AT_IG1](/img/docs/installation/installation guide/AT_IG1.png)
+  ![AT_IG1](/img/docs/basics/installation/common_problems/common_problems_1.png)
   
 2. Go to html catalogue and launch the installation command:  
 <pre><code>cd /var/www/html
