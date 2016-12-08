@@ -12,13 +12,13 @@ In this case, please remember about pointing the virtual machine at public proje
 <pre><code>vim /etc/apache2/sites-enabled/000-default.conf  
 DocumentRoot /var/www/html/public</code></pre>
   
-  ![AT_IG1](../img/docs/basics/installation/installation_guide/AT_IG1.png)
+  ![AT_IG1](../img/docs/installation/installation_guide/AT_IG1.png)
   
 2. Go to html catalogue and launch the installation command:  
 <pre><code>cd /var/www/html
 composer install</code></pre>
   
-  ![AT_IG2](../img/docs/installation/installation guide/At_IG2.png)  
+  ![AT_IG2](../img/docs/installation/installation_guide/At_IG2.png)  
   The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
 
 3. In the application's catalogue change the catalogues' entitlements.
