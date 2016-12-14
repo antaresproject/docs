@@ -1,4 +1,4 @@
-Damian to Antares to system stworzony w oparciu o framework Laravel. Składa się z ponad 28 składników umożliwiających wspomaganie budowania aplikacji internetowych. System wykorzystuje:
+Antares to system stworzony w oparciu o framework Laravel. Składa się z ponad 28 składników umożliwiających wspomaganie budowania aplikacji internetowych. System wykorzystuje:
 Komponenty i moduły - pożądana funkcjonalność służąca budowaniu skalowalnych systemów. Predefiniowane komponenty umożliwiają rozwiązanie znanych problemów związanych z logiką biznesową i stanowią wsparcie dla developerów redukując ilość czasu potrzebnego na realizację docelowej funkcjonalności.
 
 * Composer - wykorzystanie popularnego narzędzia do instalowania bibliotek stanowi nieodzowny element systemu. Umożliwia instalację dedykowanych funkcjonalności, dzięki którym developer redukuje czas potrzebny na realizację zamówienia klienta.
