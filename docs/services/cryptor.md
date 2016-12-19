@@ -44,7 +44,7 @@ Activation of the tables' coding in a database causes saving of the coded string
     ]
 ],</code></pre>
 
-The example above contains name of the table (key) and a board of columns which will be coded. For example, adding of a new user will cause adding of the following registration in a table:
+The example above contains the name of the table (the key) and a board of columns which will be coded. For example, adding of a new user will cause adding of the following registration in a table:
 
   ![AT_CRYPT1](/img/docs/services/cryptor/AT_CRYPT1.png)
   
