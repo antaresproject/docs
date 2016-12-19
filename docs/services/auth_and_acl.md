@@ -6,13 +6,15 @@
 
 System's architecture provides the users' access to the resources control mechanisms based on RBAC (Role Based Access Control). The RBAC consists of:
 
-Name Description
+  
+| Name       | Description   |
+| ---------- |:-------------| 
+| action     | Action is like an endpoint of route or activity which user can do or not | 
+| role       | Roles are the groups of users where the user belongs     | 
+| acl        | ACL is a map of values of the boolean type determining the relation between action and role, determining whether the role may have authorization to execute the given action      | 
 
-actions Action is like an endpoint of route or activity which user can do or not
 
-role Roles are the groups of users where the user belongs
 
-acl ACL is a map of values of the boolean type determining the relation between action and role, determining whether the role may have authorization to execute the given action
 
 ##Auth  
 
