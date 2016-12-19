@@ -48,12 +48,12 @@ The example above contains the name of the table (the key) and a board of column
 
   ![AT_CRYPT1](/img/docs/services/cryptor/AT_CRYPT1.png)
   
-The areas 'firstname' and 'lastname' in the edition form are presented in the decoded form, as below:
+The areas 'firstname' and 'lastname' in the edition form are presented in the decoded form as below:
 
   ![AT_CRYPT2](/img/docs/services/cryptor/AT_CRYPT2.png)
   
-Deactivation of coding in turn, will display:
+Deactivation of coding in turn will display:
 
   ![AT_CRYPT3](/img/docs/services/cryptor/AT_CRYPT3.png)
   
-When you work with the cryptor, remember about determining the coding configuration in the main module's configuration file under the 'cast' key.
+When you work with the cryptor remember about determining the coding configuration in the main module's configuration file under the 'cast' key.
