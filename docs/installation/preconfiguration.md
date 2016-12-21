@@ -8,333 +8,137 @@
 Here is the description of libraries installation which are a part of system's environment:
   
 1. Apache 2.4.x or higher (modules: mod_filter, mod_alias, mod_deflate, mod_env, mod_headers, mod_mime, mod_rewrite)  
-```
-apt-get -y install apache2
-```
 
-```php
-<?php
-
-namespace Antares\Brands;
-
-use Antares\Foundation\Support\Providers\ModuleServiceProvider;
-use Antares\Brands\Contracts\BrandsRepositoryContract;
-use Antares\Brands\Repositories\BrandsRepository;
-use Antares\Brands\Http\Handlers\BrandsPane;
-use Antares\Brands\BrandStyler;
-use Illuminate\Routing\Router;
-
-class BrandsServiceProvider extends ModuleServiceProvider
-{
-
-    /**
-     * The application or extension namespace.
-     *
-     * @var string|null
-     */
-    protected $namespace = 'Antares\Brands\Http\Controllers\Admin';
-
-    /**
-     * The application or extension group namespace.
-     *
-     * @var string|null
-     */
-    protected $routeGroup = 'antares/brands';
-
-    /**
-     * The event handler mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        'antares.ready: admin' => ['Antares\Brands\Composers\BrandPlaceHolder@onBootExtension']
-    ];
-
-    /**
-     * registering component
-     */
-    public function register()
-    {
-        parent::register();
-        $this->registerFacades();
-        $this->registerRepositories();
-        $this->registerBrandsTeller();
-        $this->registerBrandEloquent();
-    }
-
-    /**
-     * registering component facades
-     */
-    protected function registerFacades()
-    {
-        $this->app->singleton(BrandStyler::class);
-        $this->app->alias(BrandStyler::class, 'brand-styler');
-    }
-
-    /**
-     * registering repositories
-     */
-    protected function registerRepositories()
-    {
-        $this->app->bind(BrandsRepositoryContract::class, BrandsRepository::class);
-    }
-
-    /**
-     * register service provider.
-     * 
-     * @return void
-     */
-    protected function registerBrandsTeller()
-    {
-        $this->app->singleton(BrandsTeller::class);
-        $this->app->alias(BrandsTeller::class, 'antares.brands');
-    }
-
-    /**
-     * register the service provider for brand.
-     * 
-     * @return void
-     */
-    protected function registerBrandEloquent()
-    {
-        $this->app->bind('antares.brand', function () {
-            return new Model\Brands();
+```javascript
+$(document).ready(function () {
+    if ($('.richtext').length) {
+        $('.richtext').each(function (index, item) {
+            CKEDITOR.replace($(item).attr('name'), {
+                height: 500,
+                width: '99%',
+                allowedContent: true
+            });
         });
     }
-
-    /**
-     * boots components
-     * 
-     * @param Router $router
-     */
-    public function boot(Router $router)
-    {
-        parent::boot($router);
-        $this->app->make('view')->composer(['antares/foundation::brands.email', 'antares/foundation::brands.edit'], BrandsPane::class);
-    }
-
-    /**
-     * boot the service provider.
-     * 
-     * @return void
-     */
-    public function bootExtensionComponents()
-    {
-        if (app_installed()) {
-            $this->setDefaultBrand();
+    $('#template-source a').click(function (e) {
+        e.preventDefault();
+        ckInstance = CKEDITOR.instances['content-rich'];
+        if ($(this).attr('data-target') === '#template-wysiwyg') {
+            ckInstance.setData($('#template-source-code').val());
         }
-        $path = __DIR__ . '/../';
-        $this->addViewComponent('antares/brands', 'antares/brands', "{$path}/resources/views");
-        $this->loadBackendRoutesFrom(__DIR__ . "/routes.php");
-    }
-
-    /**
-     * default brand setting when not attach
-     */
-    protected function setDefaultBrand()
-    {
-        $memory  = $this->app->make('antares.memory');
-        $primary = $memory->make('primary');
-        $model   = app('antares.brand');
-
-
-        if (is_null($primary->get('brand.default'))) {
-            $primary->put('brand.default', $model::defaultBrand()->id);
+        if ($(this).attr('data-target') === '#template-html') {
+            $('#template-source-code').val(ckInstance.getData());
         }
-        $default  = $this->getBrand();
-        $template = current(array_get($default, 'templates'));
-        unset($default['templates']);
-        $registry = $memory->make('registry');
-        $registry->put('brand.configuration', $default);
-        $registry->put('brand.configuration.template', $template);
-    }
-
-    /**
-     * Brand getter
-     * 
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    protected function getBrand()
-    {
-        $baseUrl = basename(url('/'));
-        $appUrl  = basename(env('APP_URL'));
-        if (!str_contains($baseUrl, $appUrl)) {
-            $return = app('antares.brand')->default()->first()->toArray();
-        } else {
-            $model = app('antares.brand')->newQuery()->whereHas('options', function($query) use($baseUrl) {
-                        $query->where('url', 'like', $baseUrl . '%');
-                    })->with(['options', 'templates' => function($query) {
-                            $query->where('area', area());
-                        }])->first();
-            $return = !is_null($model) ? $model->toArray() : app('antares.brand')->default()->first()->toArray();
+        $(this).tab('show');
+    });
+    function Inserter(textarea) {
+        this.textarea = textarea;
+        this.isHtmlTab = function () {
+            return $('#template-source li.active a').attr('data-target') == "#template-html";
         }
-        return $return;
+        this.appendTextarea = function (data) {
+            var cursorPos = textarea.prop('selectionStart');
+            var v = textarea.val();
+            var textBefore = v.substring(0, cursorPos);
+            var textAfter = v.substring(cursorPos, v.length);
+            textarea.val(textBefore + data + textAfter);
+        }
+        this.toggleInstruction = function (handler) {
+            if (this.isHtmlTab()) {
+                this.appendTextarea(handler.attr('title'));
+            } else {
+                var name = handler.closest('.mdl-tabs').find('textarea').attr('name');
+                CKEDITOR.instances[name].insertText(handler.attr('title'));
+            }
+        }
+        this.toggleVariable = function (handler) {
+            if (this.isHtmlTab()) {
+                this.appendTextarea('[[ ' + handler.attr('title') + ' ]]');
+            } else {
+                var name = handler.closest('.mdl-tabs').find('textarea').attr('name');
+                CKEDITOR.instances[name].insertHtml('<p>[[ ' + handler.attr('title') + ' ]]</p>');
+            }
+        }
     }
+    inserter = new Inserter($('#template-source-code'));
+    $('.insert-instruction').click(function (e) {
+        e.preventDefault();
+        inserter.toggleInstruction($(this));
+        return false;
+    });
+    $('.insert-variable').click(function (e) {
+        e.preventDefault();
+        inserter.toggleVariable($(this));
+        return false;
+    });
+});
 
-}
 ```
 
-
 ```
-<?php
-
-namespace Antares\Brands;
-
-use Antares\Foundation\Support\Providers\ModuleServiceProvider;
-use Antares\Brands\Contracts\BrandsRepositoryContract;
-use Antares\Brands\Repositories\BrandsRepository;
-use Antares\Brands\Http\Handlers\BrandsPane;
-use Antares\Brands\BrandStyler;
-use Illuminate\Routing\Router;
-
-class BrandsServiceProvider extends ModuleServiceProvider
-{
-
-    /**
-     * The application or extension namespace.
-     *
-     * @var string|null
-     */
-    protected $namespace = 'Antares\Brands\Http\Controllers\Admin';
-
-    /**
-     * The application or extension group namespace.
-     *
-     * @var string|null
-     */
-    protected $routeGroup = 'antares/brands';
-
-    /**
-     * The event handler mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        'antares.ready: admin' => ['Antares\Brands\Composers\BrandPlaceHolder@onBootExtension']
-    ];
-
-    /**
-     * registering component
-     */
-    public function register()
-    {
-        parent::register();
-        $this->registerFacades();
-        $this->registerRepositories();
-        $this->registerBrandsTeller();
-        $this->registerBrandEloquent();
-    }
-
-    /**
-     * registering component facades
-     */
-    protected function registerFacades()
-    {
-        $this->app->singleton(BrandStyler::class);
-        $this->app->alias(BrandStyler::class, 'brand-styler');
-    }
-
-    /**
-     * registering repositories
-     */
-    protected function registerRepositories()
-    {
-        $this->app->bind(BrandsRepositoryContract::class, BrandsRepository::class);
-    }
-
-    /**
-     * register service provider.
-     * 
-     * @return void
-     */
-    protected function registerBrandsTeller()
-    {
-        $this->app->singleton(BrandsTeller::class);
-        $this->app->alias(BrandsTeller::class, 'antares.brands');
-    }
-
-    /**
-     * register the service provider for brand.
-     * 
-     * @return void
-     */
-    protected function registerBrandEloquent()
-    {
-        $this->app->bind('antares.brand', function () {
-            return new Model\Brands();
+$(document).ready(function () {
+    if ($('.richtext').length) {
+        $('.richtext').each(function (index, item) {
+            CKEDITOR.replace($(item).attr('name'), {
+                height: 500,
+                width: '99%',
+                allowedContent: true
+            });
         });
     }
-
-    /**
-     * boots components
-     * 
-     * @param Router $router
-     */
-    public function boot(Router $router)
-    {
-        parent::boot($router);
-        $this->app->make('view')->composer(['antares/foundation::brands.email', 'antares/foundation::brands.edit'], BrandsPane::class);
-    }
-
-    /**
-     * boot the service provider.
-     * 
-     * @return void
-     */
-    public function bootExtensionComponents()
-    {
-        if (app_installed()) {
-            $this->setDefaultBrand();
+    $('#template-source a').click(function (e) {
+        e.preventDefault();
+        ckInstance = CKEDITOR.instances['content-rich'];
+        if ($(this).attr('data-target') === '#template-wysiwyg') {
+            ckInstance.setData($('#template-source-code').val());
         }
-        $path = __DIR__ . '/../';
-        $this->addViewComponent('antares/brands', 'antares/brands', "{$path}/resources/views");
-        $this->loadBackendRoutesFrom(__DIR__ . "/routes.php");
-    }
-
-    /**
-     * default brand setting when not attach
-     */
-    protected function setDefaultBrand()
-    {
-        $memory  = $this->app->make('antares.memory');
-        $primary = $memory->make('primary');
-        $model   = app('antares.brand');
-
-
-        if (is_null($primary->get('brand.default'))) {
-            $primary->put('brand.default', $model::defaultBrand()->id);
+        if ($(this).attr('data-target') === '#template-html') {
+            $('#template-source-code').val(ckInstance.getData());
         }
-        $default  = $this->getBrand();
-        $template = current(array_get($default, 'templates'));
-        unset($default['templates']);
-        $registry = $memory->make('registry');
-        $registry->put('brand.configuration', $default);
-        $registry->put('brand.configuration.template', $template);
-    }
-
-    /**
-     * Brand getter
-     * 
-     * @return \Illuminate\Database\Eloquent\Model
-     */
-    protected function getBrand()
-    {
-        $baseUrl = basename(url('/'));
-        $appUrl  = basename(env('APP_URL'));
-        if (!str_contains($baseUrl, $appUrl)) {
-            $return = app('antares.brand')->default()->first()->toArray();
-        } else {
-            $model = app('antares.brand')->newQuery()->whereHas('options', function($query) use($baseUrl) {
-                        $query->where('url', 'like', $baseUrl . '%');
-                    })->with(['options', 'templates' => function($query) {
-                            $query->where('area', area());
-                        }])->first();
-            $return = !is_null($model) ? $model->toArray() : app('antares.brand')->default()->first()->toArray();
+        $(this).tab('show');
+    });
+    function Inserter(textarea) {
+        this.textarea = textarea;
+        this.isHtmlTab = function () {
+            return $('#template-source li.active a').attr('data-target') == "#template-html";
         }
-        return $return;
+        this.appendTextarea = function (data) {
+            var cursorPos = textarea.prop('selectionStart');
+            var v = textarea.val();
+            var textBefore = v.substring(0, cursorPos);
+            var textAfter = v.substring(cursorPos, v.length);
+            textarea.val(textBefore + data + textAfter);
+        }
+        this.toggleInstruction = function (handler) {
+            if (this.isHtmlTab()) {
+                this.appendTextarea(handler.attr('title'));
+            } else {
+                var name = handler.closest('.mdl-tabs').find('textarea').attr('name');
+                CKEDITOR.instances[name].insertText(handler.attr('title'));
+            }
+        }
+        this.toggleVariable = function (handler) {
+            if (this.isHtmlTab()) {
+                this.appendTextarea('[[ ' + handler.attr('title') + ' ]]');
+            } else {
+                var name = handler.closest('.mdl-tabs').find('textarea').attr('name');
+                CKEDITOR.instances[name].insertHtml('<p>[[ ' + handler.attr('title') + ' ]]</p>');
+            }
+        }
     }
+    inserter = new Inserter($('#template-source-code'));
+    $('.insert-instruction').click(function (e) {
+        e.preventDefault();
+        inserter.toggleInstruction($(this));
+        return false;
+    });
+    $('.insert-variable').click(function (e) {
+        e.preventDefault();
+        inserter.toggleVariable($(this));
+        return false;
+    });
+});
 
-}
 
 ```
 
