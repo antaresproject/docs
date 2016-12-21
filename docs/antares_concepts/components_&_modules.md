@@ -79,7 +79,7 @@ In the abovementioned example service provider must inherit from the class Modul
 
 The full component's catalogue structure should be determined in a manner depicted below:
 
-  ![AT_COMP&MODS2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS2.png)
+  ![AT_COMP&MODS2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_and_modules/AT_COMP&MODS2.PNG)
   
 4 main subcatalogues may be distinguished: public, resources, src, tests.
 
