@@ -31,7 +31,7 @@ A component should consist of the minimal structure:
 * name - determines the name - identifier of a component in a repository. The name must be unique within a repository group.
 
 A description of the remaining variables can be found [here](https://getcomposer.org/doc/04-schema.md).
-
+ 
 **manifest.json** file's content:
 
 ```php
