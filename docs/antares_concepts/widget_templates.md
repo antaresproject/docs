@@ -127,7 +127,7 @@ class TableFooWidget extends WidgetTemplate
 
 And the result:
 
-  ![AT_widtemp2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp2.png)
+  ![AT_widtemp2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp2.PNG)
   
 It is worth noticing that the pointed object '**TableFooWidget**' inherits from 'WidgetTemplate' that is '**Antares\Widgets\Templates\DatatablesWidget**'. The 'render' method will cause widget's data publication, that is the view containing 'Datatables' instance in this case. The file's structure which is responsible for widget's content rendering, is the following:
 
