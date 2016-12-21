@@ -113,9 +113,11 @@ Event::listen('datatables:admin/users/index:column.id', function(&$attributes) {
 
 Adding an action before the existing position in the row's context menu: datatables:{route}:before.action.{action}. An example:
 
-<pre><code>Event::listen('datatables:admin/users/index:before.action.edit', function($actions, $row) {
+```php
+Event::listen('datatables:admin/users/index:before.action.edit', function($actions, $row) {
             $actions->push(app('html')->link(handles("antares::users/{$row->id}/playground"), 'From playground module'));
-});</code></pre>
+});
+```
 
 Value's modification within the row's cell: datatables:rows.{route}. An example:
 
