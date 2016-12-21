@@ -87,11 +87,11 @@ Verification in a view uses specially prepared twig engine function, as an exten
 
 When using the url address /admin/control/roles/index one can notice a register of users' groups (roles). To edit a group and authorizations click the right mouse button on a line and choose the edit option. The edition contains the details of ascribed authorizations for a group. To change the authorizations of a role, check or uncheck the checkboxes placed next to the action's name:
 
-  ![AT_ACL1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL1.png)
+  ![AT_ACL1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL1.PNG)
   
 Remember that for other user's group these settings may look different and for example the 'Redactor' group has no access to the component at all:
 
-  ![AT_ACL2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL2.png)
+  ![AT_ACL2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL2.PNG)
   
 Keep in mind that the access settings are realized 'per brand' and for different brands the access settings may be different. this means that the access to a component may be active in one brand, but not active in the other. Access configuration for each of the brand is possible when switching to other brand only.
 
