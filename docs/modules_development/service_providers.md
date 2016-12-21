@@ -4,6 +4,7 @@
 
 Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection. An example of Service Provider for the component's needs is depicted below:
 
+```php
     <?php
      
     namespace Antares\Foo;
@@ -105,37 +106,47 @@ Service Provider is a class responsible for the component's initialization. It c
             return $permissions;
         }      
     }
-    
+```
+
 ##Namespace Attribute  
 
-<pre><code>protected $namespace = 'Antares\Foo\Http\Controllers';</code></pre>
+```php
+protected $namespace = 'Antares\Foo\Http\Controllers';
+```
 
 Determines controller's name space in the component.
 
 ##routeGroup Attribute  
 
-<pre><code>protected $routeGroup = 'antares/foo';</code></pre>
+```php
+protected $routeGroup = 'antares/foo';
+```
 
 Determines routing's name which must be unique within all components.
 
 ##The Listen Attribute  
 
-<pre><code>protected $listen = [
+```php
+protected $listen = [
         'antares.ready: admin' => [FooPlaceholder::class],
-];</code></pre>
+];
+```
 
 This is the events' list where the component's objects will listen out.
 
 ##The 'register' Method  
 
-<pre><code>public function register()
+```php
+public function register()
 {
     parent::register();
-}</code></pre>
+}
+```
 
 Registers service provider in the application's memory. Usually, in this method, other objects and aliases belonging to the application's environment are registered, just like in the example below:
 
-<pre><code>public function register()
+```php
+public function register()
 {
     parent::register();
     /** Singleton **/
@@ -151,7 +162,8 @@ Registers service provider in the application's memory. Usually, in this method,
  
     /** ascribing the interface to the processor's class **/
     $this->app->bind('Antares\Foo\Contracts\FooContract', 'Antares\Foo\Processor\FooProcessor');
-}</code></pre>
+}
+```
 
 ##The 'boot' Method  
 
@@ -161,19 +173,25 @@ It is started after the 'register' method. Once it is started, the component is 
 
 The methods: loadFrontendRoutesFrom and loadBackendRoutesFrom are predefined in ModuleServiceProvider. They can be overwritten:
 
-<pre><code>if (!$this->app->routesAreCached()) {
+```php
+if (!$this->app->routesAreCached()) {
    require "frontend.php";
-}</code></pre>
+}
+```
 
 ###Configuration  
 
 In the 'boot' method, definition of configuration file ascribed to the component also occures. The code:
 
-<pre><code>$this->addConfigComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/config");</code></pre>
+```php
+$this->addConfigComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/config");
+```
 
 will register component's configuration in the application, so referring to it will be possible through:
 
-<pre><code>$value=config('antares/foo::keyname');</code></pre>
+```php
+$value=config('antares/foo::keyname');
+```
 
 The configuration files will be downloaded from the path '{$path}/resources/config'.
 
@@ -181,29 +199,39 @@ The configuration files will be downloaded from the path '{$path}/resources/conf
 
 The visibility of the translations available for the component are enabled by the code:
 
-<pre><code>$this->addLanguageComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/lang");</code></pre>
+```php
+$this->addLanguageComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/lang");
+```
 
 which will download the language files from the location '{$path}/resources/lang'.
 
 Referring to the translated phrase will be possible through:
 
-<pre><code>$messageTranslated = trans('antares/foo::messages.user_updated');</code></pre>
+```php
+$messageTranslated = trans('antares/foo::messages.user_updated');
+```
 
 The translator is searching for the file named as messages.php in the location '{$path}/resources/lang/<current_language_code>'. An example of the messages.php file:
 
-<pre><code>/resources/lang/en/messages.php</code></pre>
+/resources/lang/en/messages.php</code></pre>
 
+```php
     <?php
     return ['user_updated' => 'User has been updated.'];
+```    
 
 ##Views  
 
 To make the component work with the views, insert to the 'boot' method the code:
 
-<pre><code>$this->addViewComponent($this->routeGroup, $this->routeGroup, __DIR__ . '/../resources/views');</code></pre>
+```php
+$this->addViewComponent($this->routeGroup, $this->routeGroup, __DIR__ . '/../resources/views');
+```
 
 which will ascribe to the component the path where the 'twig' view files will be read. Referring to, as well as rendering the view file is possible with the use of:
 
 <pre><code>resources/views/index/index.twig</code></pre>
 
-<pre><code>view('antares/foo::admin.foo.index');</code></pre>
+```php
+view('antares/foo::admin.foo.index');
+```
