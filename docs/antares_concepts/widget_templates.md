@@ -47,7 +47,7 @@ class DefaultFooWidget extends AbstractWidget
 
 And the result is:
 
-  ![AT_WIDTEMP1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP1.PNG)
+  ![AT_widtemp1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp1.PNG)
   
 Widget's file 'layout' content, located in 'src\components\widgets\resources\views\templates\default\index.twig':
 
