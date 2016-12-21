@@ -1,15 +1,21 @@
-Antares to system stworzony w oparciu o framework Laravel. Składa się z ponad 28 składników umożliwiających wspomaganie budowania aplikacji internetowych. System wykorzystuje:
-Komponenty i moduły - pożądana funkcjonalność służąca budowaniu skalowalnych systemów. Predefiniowane komponenty umożliwiają rozwiązanie znanych problemów związanych z logiką biznesową i stanowią wsparcie dla developerów redukując ilość czasu potrzebnego na realizację docelowej funkcjonalności.
+#Introduction  
 
-* Composer - wykorzystanie popularnego narzędzia do instalowania bibliotek stanowi nieodzowny element systemu. Umożliwia instalację dedykowanych funkcjonalności, dzięki którym developer redukuje czas potrzebny na realizację zamówienia klienta.
+[TOC]
 
-* Konfiguracja oparta na bazie danych i plikach - pliki jako miejsce zapisu stricte ustawień komponentów i modułów oraz konfiguracji samej aplikacji w których ingerencja klienta nie jest dopuszczalna. Z kolei zapis konfiguracji w bazie danych umożliwia zmianę konfiguracji przez klienta i dostosowanie ustawień "w locie".
-
-* Użytkownicy i dostęp do zasobów - zarządzanie dostępem do zasobów dla różnych grup użytkowników w połączeniu ze implementacją zdarzeń stanowi potężne narzędzie do kontroli działań wykonywanych przez różnych użytkowników
-
-* Separacja warstwy klienta od warstwy administracyjnej - panel administracyjny odpowiedzialny za kontrolę aplikacji jest w całości oddzielony od warstwy klienckiej - użytkowników którzy nie mają uprawnień administracyjnych. Takie rozwiązanie umożliwia dowolną implementację panelu klienta i dostosowanie rozwiązania do potrzeb zamówienia.
-
-* Responsywność - całość została zaimplementowania przy użyciu material design lite (https://getmdl.io/started/) jako jednym z czołowych frameworków frontendowych. Dzięki takiemu rozwiązaniu aplikacja jest dostępna na większość urządzeń wspierających interpretację HTML5.
-
-* HMVC - system wspiera hierarchiczny wzorzec architektury projektowej stanowiący wariację wzorca MVC. Oznacza to podział systemu na odseparowane warstwy: odpowiedzialną za komunikację z bazą danych, odpowiedzialną za prezentację widoku strony, oraz odpowiedzialną za odpowiednią kontrolę (translację) żądania przychodzącego z przeglądarki na odpowiedni widok. Takie rozwiązanie wspiera skalowalność i znacząco ułatwia implementację widgetów.
-
+Antares is a system created on the basis of Laravel framework. It consist of 28 components enabling the support of building internet applications.  
+  
+The system uses:
+  
+1. **Components and modules** - a desirable functionality serving the building of scaled systems. Predefined components facilitate solving already known problems connected with business logic and support the developers by reducing the time needed for realization of target functionality.  
+  
+2. **Composer** - usage of a popular tool to install libraries is an indispensable system's element. It facilitates installation of dedicated functionalities, which helps the developer in reducing time needed for realization of client's order.  
+  
+3. **Configuration based on database and files** - precisely speaking, files as a place of saving the components' and modules' settings and configurations of the application itself in which client's intervention is not permissible. Configurations' record in database in turn, facilitates changing the configuration by a client and adjusting the settings immediately.  
+  
+4. **Users and access to resources** - resources' access management for different groups of users in combination with events' implementation is a powerful tool in controlling the actions performed by different users.  
+  
+5. **Separation of client's layer from administrative layer** - administrative layer which is responsible for application's control is entirely separated from client's layer - users who have no administrative power. Such a solution facilitates any client's panel implementation and adjusting the solution to order's needs.  
+  
+6. **Responsiveness** - the entire system has been implemented with the use of [Material Design Lite](https://getmdl.io/started/) as one of frontal frontend frameworks. Thanks to such a solution the application is available to most devices supporting the interpretation of HTML5.  
+  
+7. **HMVC** - the system supports hierarchical pattern of design architecture which is a variant of MVC pattern. This means system's division into the following separated layers: responsible for communication with data base, responsible for presentation of website's view, and responsible for appropriate control (translation) of incoming request (from browser) into appropriate view. Such a solution supports scalability and facilitates widgets' implementation significantly.
