@@ -48,10 +48,10 @@ DB_PASSWORD=foo
 8. In the next step, set up the application's instance name, username and password of the main administrator.
 9. The final step in the installation is a definition of components and modules which will be a part of yours application's version. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the Daemon that will watch over the execution of 'jobs' which the application will submit during the work (e.g. notifications, demanding computational procedures, etc.).
   
-  ![AT_IG4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG4.png)
+  ![AT_IG4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG4.PNG)
   
 10. In the next step the application will inform you about the end of installation, so move to the logging-in website. Log in using the created earlier account and move to the website /admin/extensions where you can install and uninstall the components and modules (right button).
   
-  ![AT_IG5](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG5.png)
+  ![AT_IG5](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG5.PNG)
   
 11. The application is ready to work.
