@@ -20,19 +20,24 @@ System's architecture provides the users' access to the resources control mechan
 
 Auth is a set of tools broadening Laravel's base functionality Illuminate\Auth in order to provide user's instance and the ascribed groups. The aim of this functionality is to provide measures and tools for efficient users' access to resources control (ACL -  Access Control List). The facade connected with ACL instance is:
 
-<pre><code>Antares\Support\Facades\ACL</code></pre>
+```php
+Antares\Support\Facades\ACL
+```
 
 In order to use the facade in the application determine the class' alias in the configuration:
 
-<pre><code>'aliases' => [
+```php
+'aliases' => [
     'ACL' => Antares\Support\Facades\ACL::class,
-],</code></pre>
+],
+```
 
 ###Roles  
 
 In order to create a new role:
 
-<pre><code>$roleAdmin              = new \Antares\Model\Role();
+```php
+$roleAdmin              = new \Antares\Model\Role();
 $roleAdmin->name        = 'administrator';
 $roleAdmin->area        = 'administrators';
 $roleAdmin->full_name   = 'Administrator';
@@ -47,22 +52,26 @@ $roleAdmin = $role->create([
     'area'        => 'administrators',
     'full_name'   => 'Administrator',
     'description' => 'Manage administration privileges'
-]);</code></pre>
+]);
+```
 
 In order to create a new hierarchic role (having a superior role):
 
-<pre><code>$role      = new \Antares\Model\Role();
+```php
+$role      = new \Antares\Model\Role();
 $roleModerator = $role->create([
     'parent_id'=>$role->newQuery()->where('name','administrator')->firstOrFail()->id,
     'name'        => 'moderator',
     'area'        => 'administrators',
     'full_name'   => 'Moderator',
     'description' => 'Manage moderator privileges'
-]);</code></pre>
+]);
+```
 
 In order to ascribe a role to a new user:
 
-<pre><code>$user = user()->newInstance([
+```php
+$user = user()->newInstance([
     'email'    => 'foo@bar.com',
     'firstname' > 'Foo',
     'lastname' => 'Bar',
@@ -71,18 +80,21 @@ In order to ascribe a role to a new user:
 $user->save();
 $user->roles()->sync([
     \Antares\Model\Role::members()->lists('id')->toArray()
-]);</code></pre>
+]);
+```
 
 To change a role of the existing user:
 
-<pre><code>$user  = user()->newQuery()->where('email', 'foo@bar.com')->firstOrFail();
+```php
+$user  = user()->newQuery()->where('email', 'foo@bar.com')->firstOrFail();
 $roles = $user->roles->lists('id')->toArray();
 $admin = \Antares\Model\Role::admin()->id;
 $map   = array_merge($roles, (array) $admin);
  
 $user->roles()->sync([
     $map
-]);</code></pre>
+]);
+```
 
 Each of the system's user is ascribed to a specific role (group) which is connected with particular authorizations.
 To download the list of available roles ascribed to a user:
@@ -91,45 +103,59 @@ To download the list of available roles ascribed to a user:
 
 or:
 
-<pre><code>$roles = auth()->roles();</code></pre>
+```php
+$roles = auth()->roles();
+```
 
 In order to check whether a user is ascribed to a role (roles):
 
-<pre><code>if (Auth::is(['admin', 'editor'])) {
+```php
+if (Auth::is(['admin', 'editor'])) {
     echo "Is an admin and editor";
-}</code></pre>
+}
+```
 
 In order to check whether a user is ascribed to any of the given roles:
 
-<pre><code>if (Auth::isAny(['admin', 'editor'])) {
+```php
+if (Auth::isAny(['admin', 'editor'])) {
     echo "Is a member or admin";
-}</code></pre>
+}
+```
 
 In order to check whether a user is not ascribed to the given roles:
 
-<pre><code>if (Auth::isNot(['admin', 'editor'])) {
+```php
+if (Auth::isNot(['admin', 'editor'])) {
     echo "Isn't an admin and editor";
-}</code></pre>
+}
+```
 
 In order to check whether a user is not ascribed to any of the given roles:
 
-<pre><code>if (Auth::isNotAny(['admin', 'editor'])) {
+```php
+if (Auth::isNotAny(['admin', 'editor'])) {
     echo "Isn't a member or admin";
-}</code></pre>
+}
+```
 
 ##ACL and Metrics  
 
 Owing to application's modularity each module can decide independently about which resources (within module's space) are accessible to the logged in user. More information about building the ACL migration files can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Migrations). Information about controllers' (resources) action access verification can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/ACL).
 In order to download the ACL instance ascribed to a module:
 
-<pre><code>$acl = ACL::make('antares/foo');</code></pre>
+```php
+$acl = ACL::make('antares/foo');
+```
 
 In order to verify whether a user has access to a resource:
 
-<pre><code>$acl = ACL::make('antares/foo');
+```php
+$acl = ACL::make('antares/foo');
  
  
 if (!$acl->can('foo-index')) {
      return redirect()->to(handles('antares::login'));
-}</code></pre>
+}
+```
 
