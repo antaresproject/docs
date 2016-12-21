@@ -6,15 +6,19 @@ Within each mode (production, development, testing, staging) an application may 
 
 In order to switch the application over the maintenance mode, type the following command:
 
-<pre><code>php artisan down</code></pre>
+```php
+php artisan down
+```
 
 The following confirmation will be displayed: *Application is now in maintenance mode.* As a result, during the attempt of entering the system, the following website will be shown:
 
-  ![AT_MAINT01](/img/docs/antares_concepts/maintenance/AT_MAINT01.png)
+  ![AT_maint01](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/maintenance/AT_maint01.png)
   
 In order to restart system's operation, type the command:
 
-<pre><code>php artisan up</code></pre>
+```php
+php artisan up
+```
 
 The confirmation *Application is now live.* will be displayed and the application will return to work.
 
@@ -22,11 +26,14 @@ The confirmation *Application is now live.* will be displayed and the applicatio
 
 In order to keep the application up-to-date, type the following command:
 
-<pre><code>composer update</code></pre>
+```php
+composer update
+```
 
 The task of the command is to download the source code belonging to the individual components, modules and to download the latest 'core' version and frontend sources. Keep in mind that the command will download the code from the branch which will be defined in the *composer.json* file, e.g.:
 
-<pre><code>{
+```php
+{
     "repositories": [
         {
             "type": "git",
@@ -36,11 +43,13 @@ The task of the command is to download the source code belonging to the individu
     "require": {
         "components/foo": "master"
     },   
-}</code></pre>
+}
+```
 
 In the abovementioned example the source code will be downloaded from the *foo* component of the *master* branch. To indicate other branch, indicate that name in the *require* section:
 
-<pre><code>{
+```php
+{
     "repositories": [
         {
             "type": "git",
@@ -50,7 +59,8 @@ In the abovementioned example the source code will be downloaded from the *foo* 
     "require": {
         "components/foo": "0.7-dev"
     },   
-}</code></pre>
+}
+```
 
 In the abovementioned example the *0.7-dev* branch of the *foo* component has been indicated.
 
@@ -78,7 +88,8 @@ The *core* catalogue, which is the core of application and which is placed in th
 
 Frontend (determined by the javascript and css files) is subordinate to another procedure as in the case of components and modules. Only the command 'composer update' can currently download the latest frontend version. In order to execute the update by hand, download the repository determined in the composer.json file, e.g.:
 
-<pre><code>{
+```php
+{
     "type": "package",
     "package": {
         "name": "antares-frontend",
@@ -89,11 +100,14 @@ Frontend (determined by the javascript and css files) is subordinate to another 
             "reference": "master"
         }
     }
-}</code></pre>
+}
+```
 
 The command:
 
-<pre><code>git clone http://git.mglocal/billevo/antares-frontend.git</code></pre>
+```php
+git clone http://git.mglocal/billevo/antares-frontend.git
+```
 
 will download project's repository to the catalogue antares-frontend. Copy the following source codes, from the downloaded repository:
 
