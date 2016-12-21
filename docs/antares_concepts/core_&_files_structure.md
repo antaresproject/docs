@@ -26,7 +26,7 @@ Error: 404
 
 Filesystem structure is the following:
 
-  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU2.png)
+  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU2.PNG)
   
 It consist of catalogues divided thematically according to destination.
 
@@ -40,13 +40,13 @@ It consist of catalogues divided thematically according to destination.
 
 SRC catalogue content:
   
-  ![AT_C&FSTRU3](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU3.png)
+  ![AT_C&FSTRU3](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU3.PNG)
   
 components - in this catalogue there are application's components, as depicted in the example below:
 
 core - source code
 
-  ![AT_C&FSTRU4](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU4.png)
+  ![AT_C&FSTRU4](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU4.PNG)
   
 The components required for system's work:
 
@@ -60,7 +60,7 @@ Please turn your attention to the existence of the file .gitignore. Its presence
 
 core - contains system's main functions. Catalogue content is the following:
 
-  ![AT_C&FSTRU5](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU5.png)
+  ![AT_C&FSTRU5](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU5.PNG)
   
 The description of respective catalogues:
 
@@ -105,6 +105,6 @@ The description of respective catalogues:
 Modules - similarly to components, consist of dedicated modules. As opposed to components, the modules are a part of application and can be shared independently. They do not interfere with system work. 
 Catalogue:
 
-  ![AT_C&FSTRU6](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU6.png)
+  ![AT_C&FSTRU6](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU6.PNG)
   
 It consist of catalogues divided thematically, in which dedicated modules are placed.
