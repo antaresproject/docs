@@ -47,8 +47,8 @@ Reload privilege tables now? [Y/n] <-- y</code></pre>
 In order to check installation's correctness, type the following command:
 <pre><code>mysql -u root -p</code></pre>
 Once logged in, you should achieve the following result:
-  
-  ![AT_precon1](../img/docs/installation/preconfiguration/AT_precon1.png)
+ 
+  ![AT_precon1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/preconfiguration/AT_precon1.PNG)
   
 4. Composer 1.x.x or higher:
 <pre><code>curl -sS https://getcomposer.org/installer | php
