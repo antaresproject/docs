@@ -9,7 +9,7 @@ To make a component work within its own routing, insert the configuration in the
 If a component is using client's panel, it is good to split routers into two files, in order to increase readability. So, to exemplify a file defining frontal (client's) routing, may be the following:
 
 <pre><code>frontend.php</code></pre>
-
+```php
     <?php
      
     use Illuminate\Routing\Router;
@@ -19,7 +19,8 @@ If a component is using client's panel, it is good to split routers into two fil
             $router->resource('/', 'IndexController');
         });
     });
-    
+```
+
 The abovementioned definition will ascribe routing to the controller IndexController in the space Foo\Http\Controllers\IndexController. The following set of endpoints will be created:
 
 * /foo/index
@@ -31,15 +32,16 @@ The abovementioned definition will ascribe routing to the controller IndexContro
 ##Backend  
 
 <pre><code>backend.php</code></pre>
-
-    <?php
+```php  
+  <?php
      
     use Illuminate\Routing\Router;
      
     $router->group(['prefix' => 'foo'], function (Router $router) {
         $router->resource('index', 'Admin\IndexController');   
     });
-    
+ ```
+ 
 The abovementioned definition will ascribe routing to the controller IndexController in the space Foo\Http\Controllers\Admin\IndexController. The following set of endpoints will be created:
 
 * /admin/foo/index
