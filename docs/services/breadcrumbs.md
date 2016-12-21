@@ -5,6 +5,7 @@
 Breadcrumbs are the website's elements and their task is to facilitate the user's navigation at the website. Thanks to the additional navigation in the form of **breadcrumbs** the user can see in which service's section he is located and without any problem he may return to the superior website's section.
 A class defining a new breadcrumb is the following:
 
+```php
     <?php
      
     namespace Antares\Foo\Http\Breadcrumb;
@@ -44,10 +45,12 @@ A class defining a new breadcrumb is the following:
             $this->shareOnView('foo-action');
         }
     }
+```    
     
 This type of implementation needs to start in the class responsible for providing a view (e.g. in a processor, a presenter, or a controller). An example is the following:
 
-<pre><code>/**
+```php
+/**
  * Breadcrumb instance
  *
  * @var Breadcrumb
@@ -74,17 +77,20 @@ public function index(Collection $collection)
 {
     $this->breadcrumb->onFooList();
     return view('antares/foo::admin.foo.index', ['data' => $collection]);
-}</code></pre>
+}
+```
 
 The result:
 
-  ![AT_BREAD1](/img/docs/services/breadcrumbs/AT_BREAD1.png)
+  ![AT_BREAD1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD1.png)
   
 For edition:
 
-  ![AT_BREAD2](/img/docs/services/breadcrumbs/AT_BREAD2.png)
+  ![AT_BREAD2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD2.png)
   
 The breadcrumbs configuration is in the following file:
 
-<pre><code>resources\config\breadcrumbs.php</code></pre>
+```php
+resources\config\breadcrumbs.php
+```
 
