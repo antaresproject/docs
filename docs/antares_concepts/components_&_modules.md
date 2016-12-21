@@ -8,7 +8,7 @@
 
 A component should consist of the minimal structure:
 
-  ![AT_COMP&MODS1](/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS1.png)
+  ![AT_COMP&MODS1](/docs/img/docs/antares_concepts/components_and_modules/AT_COMP&MODS1.PNG)
   
 **composer.json** file's content:
 
