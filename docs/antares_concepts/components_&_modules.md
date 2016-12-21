@@ -89,13 +89,13 @@ In this catalogue can be found all essential javascript, css, and img files used
 
 An example of the content:
 
-  ![AT_COMP&MODS3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS3.png)
+  ![AT_COMP&MODS3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS3.PNG)
   
 ###Resources  
 
 The files that are used by a component, or to which it refers during its operation are located in this catalogue.
 
-  ![AT_COMP&MODS4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS4.png)
+  ![AT_COMP&MODS4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS4.PNG)
   
 * config - the very name of this catalogue indicates its purpose. It stores files configuring a component
 * database - contains the migration files for creating (and removing) the tables used by a component and filling them with data
@@ -108,7 +108,7 @@ The files that are used by a component, or to which it refers during its operati
 
 In this catalogue, component's business logic is placed.
 
-  ![AT_COMP&MODS5](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS5.png)
+  ![AT_COMP&MODS5](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS5.PNG)
   
 Please notice that in this folder, catalogues' names start with a capital letter.
 
@@ -129,7 +129,7 @@ Please notice that in this folder, catalogues' names start with a capital letter
 
 Http catalogue (within src catalogue):
 
-  ![AT_COMP&MODS6](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS6.png)
+  ![AT_COMP&MODS6](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS6.PNG)
   
 Description of the content:
 * Controllers - component controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subcatalogue,
@@ -152,7 +152,7 @@ Within the project's framework the following types of repositories can be distin
 
 **app** - the repository contains official application's versions (branch master), which in turn determine components'' and vendors' versions which are a part of the whole system  
 
-  ![AT_COMP&MODS7](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS7.png)
+  ![AT_COMP&MODS7](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS7.PNG)
   
 **core** - the repository contains main system component's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
   
@@ -183,13 +183,13 @@ After the personalization:
           
 **components** - a repository group containing the components which can be a part of target product pack.
   
-  ![AT_COMP&MODS8](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS8.png)
+  ![AT_COMP&MODS8](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS8.PNG)
     
 Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which components' branches must be taken into consideration during the project's creation
   
 **modules repositories' group** containing the modules which similarly to components can become a part of target product
   
-  ![AT_COMP&MODS9](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS9.png)
+  ![AT_COMP&MODS9](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS9.PNG)
   
 **antares-frontend** - a repository containing realization's frontend project. It consist of javascript and css files which are used by the application. Master version contains the most actual default version. Other versions can become dedicated solutions created for separate projects. During installation process, the files from this repository are copied to public catalogue.
 
