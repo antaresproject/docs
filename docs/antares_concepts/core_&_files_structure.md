@@ -26,7 +26,7 @@ Error: 404
 
 Filesystem structure is the following:
 
-  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU2.PNG)
+  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU2.PNG)
   
 It consist of catalogues divided thematically according to destination.
 
