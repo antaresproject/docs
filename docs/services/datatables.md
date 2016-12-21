@@ -61,7 +61,7 @@ This is a minimal class' version enabling data presentation in the tabular form.
 
 The '**query**' method is defined as a dataprovider because it is responsible for providing the data to the table. The most important types are:
 * queries (on the basis of a query builder)
-* collections (n the basis of the Collection object)
+* collections (on the basis of the Collection object)
 
 ###Queries  
 
@@ -101,7 +101,7 @@ It is possible to execute an operation on data within a single column. Taking in
                     })->make(true);
 }</code></pre>
 
-The '**editColumn**' method receives two arguments, the first one is the name of the column (coming from the 'html()' method the 'data' key's value when specifying the particular columns) and the second one is anonymous function determining the cell's value for a column. The effect:
+The '**editColumn**' method receives two arguments, the first one is the name of the column (coming from the 'html()' method, the 'data' key's value when specifying the particular columns) and the second one is anonymous function determining the cell's value for a column. The effect:
 
   ![AT_DATAS02](/img/docs/services/datatables/AT_DATAS02.png)
   
@@ -271,7 +271,7 @@ By default, the sorting is on in all the columns. In order to turn it off, deter
 
 <pre><code>$this->setName('Foo List')->addColumn(['data' => 'description', 'name' => 'description', 'title' => trans('antares/foo::datagrid.header.description'), 'orderable' => false]);</code></pre>
 
-In a situation when table's data are downloaded from more complex data structure keeping the sorting correctly may be problematic. During the sorting an event named as `datatables.order.<column_name>` is thrown. An example:
+In a situation when table's data are downloaded from more complex data structure keeping the sorting correctly may be problematic. During the sorting an event named as **datatables.order.&lt;column_name&gt;** is thrown. An example:
 
 <pre><code>public function query()
 {
