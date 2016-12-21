@@ -190,7 +190,7 @@ It will add to the 'foo' container the javascript code:
     
 which as a result will cause notification's display:
 
-  ![AT_ASS01](/img/docs/services/assets/AT_ASS01.png)
+  ![AT_ASS01](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/assets/AT_ASS01.png)
   
 ##Versioning  
 
