@@ -127,7 +127,7 @@ class TableFooWidget extends WidgetTemplate
 
 And the result:
 
-  ![AT_WIDTEMP2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP2.png)
+  ![AT_widtemp2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp2.png)
   
 It is worth noticing that the pointed object '**TableFooWidget**' inherits from 'WidgetTemplate' that is '**Antares\Widgets\Templates\DatatablesWidget**'. The 'render' method will cause widget's data publication, that is the view containing 'Datatables' instance in this case. The file's structure which is responsible for widget's content rendering, is the following:
 
@@ -251,7 +251,7 @@ antares/foo::widgets.ajax
 
 It will cause content's display before the loading of the ajax content:
 
-  ![AT_WIDTEMP3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP3.png)
+  ![AT_widtemp3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp3.png)
   
 View's file within the 'routes' method, is the content downloaded by ajax:
 
@@ -268,7 +268,7 @@ antares/foo::widgets.ajax
 
 As a result, a widget will be created:
 
-  ![AT_WIDTEMP4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP4.png)
+  ![AT_widtemp4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp4.png)
   
 'layout' file's content, located in
 'src\components\widgets\resources\views\templates\ajax\index.twig':
