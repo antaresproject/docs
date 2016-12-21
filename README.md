@@ -5,33 +5,28 @@
 
 Documentation of Antares Project.
 [Introduction](http://192.168.1.219/docs/site/)
+#Introduction  
 
-Sample php code
-```php
-JeroenG\Packager\PackagerServiceProvider::class,
-```
-Sample javascript code
-```javascript
-$(function() {
-    window.AntaresForms = new AntaresForms, AntaresForms.init()
-});
-```
+[TOC]
 
-Sample html
-```html
-<div class="form-block">
-	<label>Select2 With Flag</label>
-     <div class="input-field input-field--icon"> 
-          <span class="input-field__icon"><span class="flag-icon"></span></span>
-           <select name="select" data-flag-select data-selectar="true">
-             <option data-country="pl" value="value1" selected="selected"><span class="flag-icon flag-icon-pl"></span>Option 1</option>
-             <option data-country="us" value="value2">Option two... </option>
-             <option data-country="fr" value="value3">Option three...</option>
-             <option data-country="nl" value="value4">Option 4</option>
-           </select>
-     </div>
-</div>
-```
+Antares is a system created on the basis of Laravel framework. It consist of 28 components enabling the support of building internet applications.  
+  
+The system uses:
+  
+1. **Components and modules** - a desirable functionality serving the building of scaled systems. Predefined components facilitate solving already known problems connected with business logic and support the developers by reducing the time needed for realization of target functionality.  
+  
+2. **Composer** - usage of a popular tool to install libraries is an indispensable system's element. It facilitates installation of dedicated functionalities, which helps the developer in reducing time needed for realization of client's order.  
+  
+3. **Configuration based on database and files** - precisely speaking, files as a place of saving the components' and modules' settings and configurations of the application itself in which client's intervention is not permissible. Configurations' record in database in turn, facilitates changing the configuration by a client and adjusting the settings immediately.  
+  
+4. **Users and access to resources** - resources' access management for different groups of users in combination with events' implementation is a powerful tool in controlling the actions performed by different users.  
+  
+5. **Separation of client's layer from administrative layer** - administrative layer which is responsible for application's control is entirely separated from client's layer - users who have no administrative power. Such a solution facilitates any client's panel implementation and adjusting the solution to order's needs.  
+  
+6. **Responsiveness** - the entire system has been implemented with the use of [Material Design Lite](https://getmdl.io/started/) as one of frontal frontend frameworks. Thanks to such a solution the application is available to most devices supporting the interpretation of HTML5.  
+  
+7. **HMVC** - the system supports hierarchical pattern of design architecture which is a variant of MVC pattern. This means system's division into the following separated layers: responsible for communication with data base, responsible for presentation of website's view, and responsible for appropriate control (translation) of incoming request (from browser) into appropriate view. Such a solution supports scalability and facilitates widgets' implementation significantly.
+
 
 
 ## Credits
