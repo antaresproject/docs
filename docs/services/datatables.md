@@ -283,7 +283,7 @@ public function html()
 
 This is a definition of the '**html**' method, which is responsible for table's prototype preparation (including mass actions). Within the implementation the '**addMassAction**' method is placed which (in an argument) receives the reference to action where the identifiers (multiple ids) of the marked rows are send. It is good to notice the parameterization of the reference. The result of the code above:
 
-  ![AT_DATAS05](https://raw.githubusercontent.com/antaresproject/docs/master/docs/png/docs/services/datatables/AT_DATAS05.png)
+   ![AT_DATAS05](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/services/datatables/AT_DATAS05.png)
   
 You can notice that the '**addMassAction**' method adds a new button (dropdown) in the upper right corner of the table. If two rows at least are marked, the button becomes active.
 
