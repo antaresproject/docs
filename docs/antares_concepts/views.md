@@ -155,7 +155,7 @@ Another way is inside the **getPositionAttribute()** method:
 var_dump($this->handler->items());
 ```    
 
-#####Access' Control  
+#####Access' Control   
 
 The method:
 
