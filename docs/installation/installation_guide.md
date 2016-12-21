@@ -15,7 +15,7 @@ vim /etc/apache2/sites-enabled/000-default.conf
 DocumentRoot /var/www/html/public
 ```
   
-  ![AT_IG1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG1.png)
+  ![AT_IG1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG1.PNG)
   
 2. Go to html catalogue and launch the installation command:  
 ```
