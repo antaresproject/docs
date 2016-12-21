@@ -8,7 +8,9 @@
 Here is the description of libraries installation which are a part of system's environment:
   
 1. Apache 2.4.x or higher (modules: mod_filter, mod_alias, mod_deflate, mod_env, mod_headers, mod_mime, mod_rewrite)  
-<pre><code>apt-get -y install apache2</code></pre>
+```
+apt-get -y install apache2
+```
 The installation of dedicated modules is performed via a command (an example for mod_headers):
 <pre><code>a2enmod headers</code></pre>  
 After the modules' installation, it is necessary to restart:
