@@ -8,6 +8,7 @@ The migration files do not need to be a part of a component if the component doe
 
 Example of use (file 2015_07_24_082030_foo_table):
 
+```php
     <?php
      
     use Illuminate\Database\Migrations\Migration;
@@ -49,6 +50,7 @@ Example of use (file 2015_07_24_082030_foo_table):
         }
      
     }
+```    
     
 * The 'up' method is responsible for creation of a structure and is launched during component's installation.
 * The 'down' method is responsible for removal of a structure and is launched during component's uninstall.
@@ -61,6 +63,7 @@ Sometimes, the process of creating migration files may become tiring because of 
 
 Example of use (file 2015_07_24_082030_foo_schema.php):
 
+```php
     <?php
      
     use Illuminate\Database\Migrations\Migration;
@@ -110,13 +113,15 @@ Example of use (file 2015_07_24_082030_foo_schema.php):
         }
      
     }
-    
+```
+
 ##ACL Migration File  
 
 The task of ACL migration file is the arrangement of access rules facilitating the use of application's resources by different groups of users. The arrangement of rules are available directly after the component's installation.
 
 The structure of such a file may be presented as below:
 
+```php
     <?php
      
     use Illuminate\Database\Migrations\Migration;
@@ -157,7 +162,8 @@ The structure of such a file may be presented as below:
         }
      
     }
-    
+```
+
 In the constructor of the migration class, creation of an object which will import the rules takes place. The 'up' method is responsible for the rules' import to the data base, whereas the 'down' method removes the rules. The 'up' method is done during the component's installation, whereas the 'down' method is applied while uninstalling. More information about the construction of the 'acl' method in the service provider, can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Service+Providers)
 
 ##Seeder  
@@ -169,6 +175,7 @@ The seeder is responsible for filling the base's structure with data. It consist
 
 An example of a solution:
 
+```php
     <?php
      
     use Illuminate\Database\Seeder;
@@ -203,3 +210,4 @@ An example of a solution:
         }
      
     }
+```    
