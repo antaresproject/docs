@@ -47,7 +47,7 @@ class DefaultFooWidget extends AbstractWidget
 
 And the result is:
 
-  ![AT_WIDTEMP1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP1.png)
+  ![AT_WIDTEMP1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_WIDTEMP1.PNG)
   
 Widget's file 'layout' content, located in 'src\components\widgets\resources\views\templates\default\index.twig':
 
@@ -101,7 +101,7 @@ class TableFooWidget extends WidgetTemplate
     public $name = 'Foo Table Widget';
 
     /**
-     * Definicja routingu w obrębie widgetu
+     * Routing's definition within the widget
      * 
      * @return \Symfony\Component\Routing\Router
      */
@@ -113,7 +113,7 @@ class TableFooWidget extends WidgetTemplate
     }
 
     /**
-     * Publikacja treści widgetu
+     * Widget's content publication
      * 
      * @return String | mixed
      */
@@ -193,7 +193,7 @@ class AjaxFooWidget extends WidgetTemplate
 {
 
     /**
-     * Nazwa widgetu
+     * Name of the widget
      * 
      * @var String
      */
@@ -209,7 +209,7 @@ class AjaxFooWidget extends WidgetTemplate
     ];
 
     /**
-     * Definicja routingu
+     * Routing definition
      * 
      * @return \Symfony\Component\Routing\Router
      */
@@ -221,7 +221,7 @@ class AjaxFooWidget extends WidgetTemplate
     }
 
     /**
-     * Publikacja treści widgetu, która zostanie pobrana ajaxem
+     * Widget's content publication, which will be downloaded by ajax
      * 
      * @return String | mixed
      */
