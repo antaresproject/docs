@@ -6,6 +6,7 @@
 
 Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters. An example defining a controller:
 
+```php
     <?php
      
     namespace Antares\Foo\Http\Controllers;
@@ -64,25 +65,29 @@ Controllers are used to process the requests coming from a browser and declare t
         }
      
     }
+```    
     
 It is worth noticing that the (frontend) controller inherits from the BaseController class.
 A file defining routing is with the abovementioned controller's actions:
 
 <pre><code>frontend.php</code></pre>
 
+```php
     <?php
      
     $router->resource('foo', 'FrontController');
+```
     
 
 In case we deal with admin area controller should inherit from AdminController class:
 
-
+```php
     use Antares\Foundation\Http\Controllers\AdminController;
      
     class FooController extends AdminController{
     ...
-    
+```
+
 ##Processors  
 
 A processor is used to operate the processing of a request coming from the controller's action. Usually, such an
@@ -94,6 +99,7 @@ A processor is used to operate the processing of a request coming from the contr
 
 A code of illustrative processor may be the following:
 
+```php
     <?php
      
     namespace Antares\Foo\Processor;
@@ -134,13 +140,15 @@ A code of illustrative processor may be the following:
         }
      
     }
-    
+```
+
 In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The 'index()' method corresponds to the 'index()' method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
 
 ###Operation in a Controller  
 
 An example of implementation, injection of a processor to a controller:
 
+```php    
     <?php
      
     namespace Antares\Foo\Http\Controllers\Admin;
@@ -182,21 +190,26 @@ An example of implementation, injection of a processor to a controller:
         }
      
     }
+```    
     
 In the case above, it is the processor which is responsible for index's action operation. The abovementioned implementation may also be executed by injecting the processor directly to action's method, so:
 
-<pre><code>public function index(FooProcessor $processor)
+```php
+public function index(FooProcessor $processor)
 {
     return $processor->index();       
-}</code></pre>
+}
+```
 
 The index action may also operate the view which will be sent to a browser, so:
 
-<pre><code>public function index(FooProcessor $processor)
+```php
+public function index(FooProcessor $processor)
 {
     $data=$processor->index();
     return view('antares/foo::admin.foo.index',  compact('data'));       
-}</code></pre>
+}
+```
 
 The choice of the actual method of transmitting the data to the controller depends on a programmer.
 
@@ -206,7 +219,8 @@ A presenter - as the name suggests - is an object responsible for presentation's
 
 An example of a definition:
 
-    <?php
+```php  
+  <?php
      
     namespace Antares\Foo\Http\Presenters;
      
@@ -226,13 +240,15 @@ An example of a definition:
             return view('antares/foo::admin.foo.index', ['data' => $collection]);
         }
     }
-    
+```
+
 As it is shown, the presenter's definition is very simple. Its function focuses on data presentation. In the presenter the data processing is not executed. The presenter's methods may return the objects of the 'Response' type (e.g. JsonResponse).
 
 ###Presenter's Operation in the Processor  
 
 A presenter, similarly to repository is injected to the processor's object:
 
+```php
     <?php
      
     namespace Antares\Foo\Processor;
@@ -278,14 +294,17 @@ A presenter, similarly to repository is injected to the processor's object:
             return $this->presenter->index($data);               
         }
     }
+```    
     
 There is no requirement concerning the injection use. Thus, processor's class constructor may be the follwoing:
 
-<pre><code>public function __construct(FooRepository $repository)
+```php
+public function __construct(FooRepository $repository)
 {
         $this->repository = $repository;
         $this->presenter=app(FooPresenter::class);
-}</code></pre>
+}
+```
 
 However, it is good to use the same solutions everywhere, for the sake of readability.
 
@@ -293,12 +312,14 @@ In the processor, the **index()** method refers to the index() method in the pre
 
 The view's file applied in the example has the following structure:
 
-<pre><code>{% extends "antares/foundation::layouts.antares.index" %}
+```php
+{% extends "antares/foundation::layouts.antares.index" %}
 {% block content %}   
     <h1>Hello World from Foo Component</h1>
-{% endblock %}</code></pre>
+{% endblock %}
+```
 
 The result:
 
-  ![AT_CONTRS&PROCS1](/img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.png)
+  ![AT_CONTRS&PROCS1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.png)
   
