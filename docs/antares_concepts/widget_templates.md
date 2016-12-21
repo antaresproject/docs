@@ -251,7 +251,7 @@ antares/foo::widgets.ajax
 
 It will cause content's display before the loading of the ajax content:
 
-  ![AT_widtemp3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp3.png)
+  ![AT_widtemp3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp3.PNG)
   
 View's file within the 'routes' method, is the content downloaded by ajax:
 
@@ -268,7 +268,7 @@ antares/foo::widgets.ajax
 
 As a result, a widget will be created:
 
-  ![AT_widtemp4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp4.png)
+  ![AT_widtemp4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp4.PNG)
   
 'layout' file's content, located in
 'src\components\widgets\resources\views\templates\ajax\index.twig':
