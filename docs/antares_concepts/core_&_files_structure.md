@@ -6,7 +6,7 @@
  
 The system has been designed on the basis of **HMVC** which stands for hierarchical - model - view - controller. This type of architecture can be described with the use of the following graph:
 
-  ![AT_C&FSTRU1](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU1.PNG)
+  ![AT_C&FSTRU1](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU1.png)
   
 The above mentioned graph describes:
 
@@ -26,7 +26,7 @@ Error: 404
 
 Filesystem structure is the following:
 
-  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU2.PNG)
+  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_&_files_structure/AT_C&FSTRU2.PNG)
   
 It consist of catalogues divided thematically according to destination.
 
