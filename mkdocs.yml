@@ -1,6 +1,6 @@
 site_name: Antares Documentation
 site_description: Open Source Laravel User Management Platform for standalone and SaaS applications. Based on Laravel, PHP7 ready, using flexible design patterns that keep the code clean and elegant.Speed up your work even up to 50% by using built-in workflow improvements.
-site_url: http://docs.easydcim.com
+site_url: http://antaresproject.io/docs
 theme: null
 theme_dir: 'layout'
 site_favicon: favicon.ico
@@ -21,5 +21,50 @@ pages:
    - Requirements: installation/requirements.md
    - Preconfiguration: installation/preconfiguration.md
    - Installation Guide: installation/installation_guide.md 
+ - Antares Concepts:
+   - Core & Files structure: antares_concepts/core_&_files_structure.md
+   - Components & Modules: antares_concepts/components_&_modules.md
+   - Widget Templates: antares_concepts/widget_templates.md 
+   - Views: antares_concepts/views.md
+   - Maintenance: antares_concepts/maintenance.md
+ - Modules Development:
+   - Migrations: modules_development/migrations.md
+   - Service Providers: modules_development/service_providers.md
+   - Routing: modules_development/routing.md
+   - Controllers and Processors: modules_development/controllers_and_processors.md
+   - ACL: modules_development/acl.md
+   - Module Events: modules_development/module_events.md
+   - Configuration: modules_development/configuration.md
+ - Services:
+   - Assets: services/assets.md
+   - Auth & ACL: services/auth_and_acl.md
+   - Breadcrumbs: services/breadcrumbs.md
+   - Cryptor: services/cryptor.md
+   - Datatables: services/datatables.md
+   - Events: services/events.md
+   - Filters: services/filters.md  
+   - Formatters: services/formatters.md  
+   - Form Builder: services/form_builder.md
+   - Logs: services/logs.md  
+   - Notifier: services/notifier.md  
+   - Pagination: services/pagination.md  
+   - Test benchmark: services/test_benchmark.md  
+   - Translator: services/translator.md  
+   - Twig: services/twig.md  
+   - Validation benchmark: services/validation.md
+   - Webpack: services/webpack.md  
+   - Widget: services/widget.md  
+ - Core modules:
+   - Automation: core_modules/automation.md
+   - Control: core_modules/control.md
+   - Logger: core_modules/logger.md
+   - Multibrand: core_modules/multibrand.md
+   - Notifications: core_modules/notifications.md
+   - Translations: core_modules/translations.md
+   - Updater: core_modules/updater.md  
+   - Widgets: core_modules/widgets.md  
+ - Tutorials:
+   - Sample module: core_modules/sample_module.md
+   - Sample widget template: core_modules/sample_widget_template.md
 
 
