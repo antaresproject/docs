@@ -11,6 +11,18 @@ Here is the description of libraries installation which are a part of system's e
 ```
 apt-get -y install apache2
 ```
+
+```php
+<?php
+$test=new Test();
+```
+
+
+```
+<?php
+$test=new Test();
+```
+
 The installation of dedicated modules is performed via a command (an example for mod_headers):
 <pre><code>a2enmod headers</code></pre>  
 After the modules' installation, it is necessary to restart:
