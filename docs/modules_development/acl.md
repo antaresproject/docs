@@ -97,5 +97,5 @@ Keep in mind that the access settings are realized 'per brand' and for different
 
 If the action is provided with forms, then there is a possibility of visibility configuration and edition of specific form's box depending on a brand, action and user's group:
 
-  ![AT_ACL3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL3.png)
+  ![AT_ACL3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/acl/AT_ACL3.PNG)
    
