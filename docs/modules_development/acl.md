@@ -11,7 +11,7 @@ ACL's implementation occurs at the controller's level in the '**setupMiddleware(
 All logged in users (regardless of the role) have access:
 
 
-``php
+```php
 /** All logged in (authorized) users have access **/
 $this->middleware('antares.auth');
 ```
