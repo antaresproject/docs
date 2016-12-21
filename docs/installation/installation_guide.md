@@ -1,6 +1,5 @@
 #Installation Guide  
 
-[TOC]
 
 Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](https://inbssoftware.atlassian.net/wiki/display/AS/Requirements) ones.  
   
