@@ -23,7 +23,7 @@ cd /var/www/html
 composer install
 ```
   
-  ![AT_IG2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/At_IG2.png)  
+  ![AT_IG2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/At_IG2.PNG)  
   The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
 
 3. In the application's catalogue change the catalogues' entitlements.
@@ -43,7 +43,7 @@ DB_PASSWORD=foo
 6. In the first installation step, there is an environment set-up verification - if everything is correct please continue. If the application states that something has not been set properly, the continuation will not be possible.
 7. In the next step please fill the license data. If the license form's blanks are off, proceed to the next step. Otherwise, enter the [website](http://192.168.1.217/license), copy the key and save the license file. Use these data to fill the form concerning the license.
   
-  ![AT_IG3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG3.png)
+  ![AT_IG3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG3.PNG)
   
 8. In the next step, set up the application's instance name, username and password of the main administrator.
 9. The final step in the installation is a definition of components and modules which will be a part of yours application's version. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the Daemon that will watch over the execution of 'jobs' which the application will submit during the work (e.g. notifications, demanding computational procedures, etc.).
