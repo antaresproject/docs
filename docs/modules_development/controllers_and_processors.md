@@ -321,5 +321,5 @@ The view's file applied in the example has the following structure:
 
 The result:
 
-  ![AT_CONTRS&PROCS1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.png)
+  ![AT_CONTRS&PROCS1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.PNG)
   
