@@ -23,7 +23,7 @@ cd /var/www/html
 composer install
 ```
   
-  ![AT_IG2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/At_IG2.PNG)  
+  ![AT_IG2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG2.PNG)  
   The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
 
 3. In the application's catalogue change the catalogues' entitlements.
