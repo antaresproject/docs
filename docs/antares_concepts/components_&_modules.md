@@ -8,11 +8,12 @@
 
 A component should consist of the minimal structure:
 
-  ![AT_COMP&MODS1](/docs/img/docs/antares_concepts/components_and_modules/AT_COMP&MODS1.PNG)
+  ![AT_COMP&MODS1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_and_modules/AT_COMP&MODS1.PNG)
   
 **composer.json** file's content:
 
-<pre><code>{
+```php
+{
     "name": "components/foo",
     "description": "Antares Foo Component",
     "authors": [
@@ -24,7 +25,8 @@ A component should consist of the minimal structure:
     "require": {
         "php": ">=5.5.9"
     }
-}</code></pre>
+}
+```
 
 * name - determines the name - identifier of a component in a repository. The name must be unique within a repository group.
 
@@ -32,7 +34,8 @@ A description of the remaining variables can be found [here](https://getcomposer
 
 **manifest.json** file's content:
 
-<pre><code>{
+```php
+{
     "name": "foo",
     "full_name": "Foo Component",
     "description": "Foo Component",
@@ -42,7 +45,8 @@ A description of the remaining variables can be found [here](https://getcomposer
     "provides": [
         "Antares\\Foo\\FooServiceProvider"
     ]
-}</code></pre>
+}
+```
 
 * name - determines a component's name abbreviation. It cannot contain special characters, spaces.
 * full_name - full name of a component
@@ -51,22 +55,23 @@ A description of the remaining variables can be found [here](https://getcomposer
 
 Service provider's file structure:
 
-    <php
- 
-    namespace Antares\Foo;
- 
-    use Antares\Foundation\Support\Providers\ModuleServiceProvider;
-    use Illuminate\Routing\Router;
- 
-    class FooServiceProvider extends ModuleServiceProvider
-    {
- 
-        public function boot(Router $router)
-        {
-        parent::boot($router);
-        }
-    }
+```php
+<?php
 
+namespace Antares\Foo;
+
+use Antares\Foundation\Support\Providers\ModuleServiceProvider;
+use Illuminate\Routing\Router;
+
+class FooServiceProvider extends ModuleServiceProvider
+{
+
+public function boot(Router $router)
+{
+parent::boot($router);
+}
+}
+```
 
 In the abovementioned example service provider must inherit from the class ModuleServiceProvider.
 
@@ -74,7 +79,7 @@ In the abovementioned example service provider must inherit from the class Modul
 
 The full component's catalogue structure should be determined in a manner depicted below:
 
-  ![AT_COMP&MODS2](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS2.png)
+  ![AT_COMP&MODS2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS2.png)
   
 4 main subcatalogues may be distinguished: public, resources, src, tests.
 
@@ -84,13 +89,13 @@ In this catalogue can be found all essential javascript, css, and img files used
 
 An example of the content:
 
-  ![AT_COMP&MODS3](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS3.png)
+  ![AT_COMP&MODS3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS3.png)
   
 ###Resources  
 
 The files that are used by a component, or to which it refers during its operation are located in this catalogue.
 
-  ![AT_COMP&MODS4](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS4.png)
+  ![AT_COMP&MODS4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS4.png)
   
 * config - the very name of this catalogue indicates its purpose. It stores files configuring a component
 * database - contains the migration files for creating (and removing) the tables used by a component and filling them with data
@@ -103,11 +108,11 @@ The files that are used by a component, or to which it refers during its operati
 
 In this catalogue, component's business logic is placed.
 
-  ![AT_COMP&MODS5](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS5.png)
+  ![AT_COMP&MODS5](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS5.png)
   
 Please notice that in this folder, catalogues' names start with a capital letter.
 
-* Console - classes responsible for commands which are made accessible by a component. They are usually launched by means of: 'php artisan &lt;name_of_the_component>:<name_of_the_command&gt;',
+* Console - classes responsible for commands which are made accessible by a component. They are usually launched by means of: php artisan <name_of_the_component>:<name_of_the_command>,
 * Contracts - interfaces used by a component,
 * Exception - exception's classes',
 * Facades - facades as a popular form of referring to a class,
@@ -124,7 +129,7 @@ Please notice that in this folder, catalogues' names start with a capital letter
 
 Http catalogue (within src catalogue):
 
-  ![AT_COMP&MODS6](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS6.png)
+  ![AT_COMP&MODS6](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS6.png)
   
 Description of the content:
 * Controllers - component controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subcatalogue,
@@ -147,39 +152,44 @@ Within the project's framework the following types of repositories can be distin
 
 **app** - the repository contains official application's versions (branch master), which in turn determine components'' and vendors' versions which are a part of the whole system  
 
-  ![AT_COMP&MODS7](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS7.png)
+  ![AT_COMP&MODS7](https://raw.githubusercontent.com/antaresproject/docs/master/docs//img/docs/antares_concepts/components_&_modules/AT_COMP&MODS7.png)
   
 **core** - the repository contains main system component's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
   
-<pre><code>"repositories": [
+```
+php
+"repositories": [
         {
             "type": "git",
             "url": "http://git.mglocal/core/core.git"
         },
 ...
 "require": {
-        "antares/core": "master", --> default branch name</code></pre>
-        
+        "antares/core": "master", --> default branch name
+```
+
 After the personalization:
 
-<pre><code>"repositories": [
+```php
+"repositories": [
         {
             "type": "git",
             "url": "http://git.mglocal/core/core.git"
         },
 ...
 "require": {
-        "antares/core": "product-1", --> personalized branch for specific product having modifications which are not available in the official version</code></pre>
+        "antares/core": "product-1", --> personalized branch for specific product having modifications which are not available in the official version
+```
           
 **components** - a repository group containing the components which can be a part of target product pack.
   
-  ![AT_COMP&MODS8](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS8.png)
+  ![AT_COMP&MODS8](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS8.png)
     
 Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which components' branches must be taken into consideration during the project's creation
   
 **modules repositories' group** containing the modules which similarly to components can become a part of target product
   
-  ![AT_COMP&MODS9](/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS9.png)
+  ![AT_COMP&MODS9](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/components_&_modules/AT_COMP&MODS9.png)
   
 **antares-frontend** - a repository containing realization's frontend project. It consist of javascript and css files which are used by the application. Master version contains the most actual default version. Other versions can become dedicated solutions created for separate projects. During installation process, the files from this repository are copied to public catalogue.
 
@@ -190,7 +200,8 @@ In order to create a new component which will be compatible with master componen
 3. Add a configuration in the composer.json file. 
 composer.json file's example:
 
-<pre><code>{
+```php
+{
     "type": "project",
     "repositories": [
         {
@@ -213,29 +224,39 @@ composer.json file's example:
     },
     "prefer-stable": true,
     "minimum-stability": "dev"   
-}</code></pre>
+}
+```
 
 In the abovementioned example, the component named as 'foo' has been added from the [repository](http://git.mglocal/components/foo.git) and project's branch master. Thus, if several developers work on  the 'foo' component and save its changes, the command
 
-<pre><code>composer update</code></pre>
+```
+composer update
+```
 
 will always download the latest components version. The same procedure concerns 'core' and the remaining components and vendors which belong to application. Please remember about adding a vendor
 
-<pre><code>mnsami/composer-custom-directory-installer</code></pre>
+```
+mnsami/composer-custom-directory-installer
+```
 
 which will download to the catalogue:
 
-<pre><code>./src/components/foo</code></pre>
+```
+./src/components/foo
+```
 
 the 'foo' component's source code. In the case when several developers work on one file, the command
 
-<pre><code>composer update</code></pre>
+```
+composer update
+```
 
 will ask you about file's migration.
 
 An example of the whole file defining project's settings is depicted below:
 
-<pre><code>{
+```php
+{
     "description": "Antares Platform Provides Functionalities For Custom Products Development",
     "homepage": "http://example.com/docs/latest/",
     "keywords": [
@@ -494,6 +515,7 @@ An example of the whole file defining project's settings is depicted below:
         }
     ],
     "name": "Antares Platform"
-}</code></pre>
+}
+```
 
 In the file composer.json which belongs to a project you can control the components which you want to be installed in your application. You can also control component's versions by specifying the branches, as it was described above.
