@@ -28,10 +28,10 @@ List of existing Bundles: (CV stands for Complete View)
 + swal 
 + match-height
 + hammer.js 
-  - jquery plugin
+  - jquery adapter plugin
 + underscore.js
 + perfect-scrollbar
-  - jquery plugin
+  - jquery adapter plugin
 + modernizr
 
 #### webpack.CV_all.js ( Bundle containing all other CV Bundles - serves a testing purpose only) 
