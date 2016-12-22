@@ -16,10 +16,10 @@ public/webpack/
  
 List of existing Bundles: (CV stands for Complete View)
 
-### webpack.app_cache.js ( cache bundle)
-### webpack.CV_all.js ( Bundle containing all other CV Bundles - serves a testing purpose only) 
-### webpack.CV_brand_settings ( Brand Settings View, including Email Templates )
-### webpack.CV_comments ( Demo of Vue Comment )
-### webpack.CV_dashboard (Dashboard View, including gridstack and D3 library)
-### webpack.CV_datatables (Datatables View, including Context Menu)
-### webpack.CV_settings ( Forms and App Settings View - containing all basic forms plugins)
+#### webpack.app_cache.js ( cache bundle)
+#### webpack.CV_all.js ( Bundle containing all other CV Bundles - serves a testing purpose only) 
+#### webpack.CV_brand_settings ( Brand Settings View, including Email Templates )
+#### webpack.CV_comments ( Demo of Vue Comments Component )
+#### webpack.CV_dashboard (Dashboard View, including gridstack and D3 library)
+#### webpack.CV_datatables (Datatables View, including Context Menu)
+#### webpack.CV_settings ( Forms and App Settings View - containing all basic forms plugins)
