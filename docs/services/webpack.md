@@ -17,6 +17,23 @@ public/webpack/
 List of existing Bundles: (CV stands for Complete View)
 
 #### webpack.app_cache.js ( cache bundle)
++ jQuery
++ jQuery-UI 
++ pace.js
++ globalize
++ enquire.js
++ moment.js
++ noty
++ qTip2
++ swal 
++ match-height
++ hammer.js 
+- jquery plugin
++ underscore.js
++ perfect-scrollbar
+- jquery plugin
++ modernizr
+
 #### webpack.CV_all.js ( Bundle containing all other CV Bundles - serves a testing purpose only) 
 #### webpack.CV_brand_settings ( Brand Settings View, including Email Templates )
 #### webpack.CV_comments ( Demo of Vue Comments Component )
