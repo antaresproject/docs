@@ -64,7 +64,7 @@ pages:
    - Updater: core_modules/updater.md  
    - Widgets: core_modules/widgets.md  
  - Tutorials:
-   - Sample module: core_modules/sample_module.md
-   - Sample widget template: core_modules/sample_widget_template.md
+   - Sample module: tutorials/sample_module.md
+   - Sample widget template: tutorials/sample_widget_template.md
 
 
