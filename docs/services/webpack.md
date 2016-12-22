@@ -40,3 +40,6 @@ List of existing Bundles: (CV stands for Complete View)
 #### webpack.CV_dashboard (Dashboard View, including gridstack and D3 library)
 #### webpack.CV_datatables (Datatables View, including Context Menu)
 #### webpack.CV_settings ( Forms and App Settings View - containing all basic forms plugins)
+
+
+### Detailed source files for all the Bundles, is avaiable [here](http://s.codepen.io/tehaiks/debug/3d9252d8b7315e0e4788b02d928cc544)
