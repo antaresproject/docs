@@ -35,11 +35,11 @@ List of existing Bundles: (CV stands for Complete View)
 + modernizr
 
 #### webpack.CV_all.js ( Bundle containing all other CV Bundles - serves a testing purpose only) 
-#### webpack.CV_brand_settings ( Brand Settings View, including Email Templates )
-#### webpack.CV_comments ( Demo of Vue Comments Component )
-#### webpack.CV_dashboard (Dashboard View, including gridstack and D3 library)
-#### webpack.CV_datatables (Datatables View, including Context Menu)
-#### webpack.CV_settings ( Forms and App Settings View - containing all basic forms plugins)
+#### webpack.CV_brand_settings.js ( Brand Settings View, including Email Templates )
+#### webpack.CV_comments.js ( Demo of Vue Comments Component )
+#### webpack.CV_dashboard.js (Dashboard View, including gridstack and D3 library)
+#### webpack.CV_datatables.js (Datatables View, including Context Menu)
+#### webpack.CV_settings.js ( Forms and App Settings View - containing all basic forms plugins)
 
 
 ### Detailed info, about what given bundle consists of, [is avaiable here](http://s.codepen.io/tehaiks/debug/3d9252d8b7315e0e4788b02d928cc544). (update: 22.12.2016)
