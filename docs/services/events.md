@@ -20,7 +20,7 @@ Events constitute system events delegated in different parts of the system which
 * antares.install: {name}
 * antares.install: {name}
 
-###Modules and Components  
+###Modules And Components  
 
 * extension.started
 * extension.started: {name}  (e.g. extension.started: multibrand)
