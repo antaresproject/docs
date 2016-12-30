@@ -78,7 +78,7 @@ Keep in mind that application's repository should be treated as a kind of a patt
 
 The information concerning application's update with the latest repository version can be found [here](https://inbssoftware.atlassian.net/wiki/pages/createpage.action?spaceKey=AS&title=Merging+with+latest+Antares+release&linkCreation=true&fromPageId=21069877), whereas the information concerning updater component's operation can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Updater).
 
-###Components and Modules  
+###Components And Modules  
 
 Each of the component belonging to the application may be updated individually due to the fact that it is a separate repository. This means that each of the application's components and modules has its own catalogue named as *.git.* During committing and pushing the changes within a component the changes will be sent to the branch where the component comes from.
 
