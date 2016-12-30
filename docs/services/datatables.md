@@ -92,7 +92,7 @@ public function query()
 }
 ```
 
-###Data Decoration in the Columns  
+###Data Decoration In The Columns  
 
 It is possible to execute an operation on data within a single column. Taking into consideration the example above the '**ajax**' method facilitates the data cell's building with the aid of the '**editColumn**' method. Here is an example:
 
@@ -446,7 +446,7 @@ And the effect:
 
   ![AT_DATAS09](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/datatables/AT_DATAS09.png)
   
-###Adding a New Filter  
+###Adding A New Filter  
 
 Pinning a new filter to the topical Datatables' instance, before: `'datatables:filters.<route_name>.<filter_name>.before'`, after: `'datatables:filters.<route_name>.<filter_name>.after'` and the example:
 
@@ -460,7 +460,7 @@ The effect:
 
   ![AT_DATAS10](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/datatables/AT_DATAS10.png)
   
-###Adding a New Column  
+###Adding A New Column  
 
 Pinning a new column to the existing Datatables' instance, before: `'datatables:<route_name>:before.<column_name>'`, after: `'datatables:<route_name>:after.<column_name>'`, an example:
 
@@ -484,7 +484,7 @@ The effect:
 
   ![AT_DATA11](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/datatables/AT_DATAS11.png)
   
-###Change of the Cell's Value  
+###Change Of The Cell's Value  
 
 Pinning of the value to the Datatables' instance existing cell: `'datatables.value.<route_name>'`, an example:
 
