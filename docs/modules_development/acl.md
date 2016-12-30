@@ -4,7 +4,7 @@
 
 ACL - Access Control List, as the name suggests, is a layer responsible for decision-making concerning user's access to a resource (a website, a file, etc...).
 
-##Verification at the Controller's Level  
+##Verification At The Controller's Level  
 
 ACL's implementation occurs at the controller's level in the '**setupMiddleware()**' method. The rules determining whether a user can be admitted to the website (action) are located in this method. In the case of controllers the whole verification takes place at the Middleware stage (before entering the action). The following, predefined types of access can be distinguished:
 
@@ -73,7 +73,7 @@ The abovementioned code is identical with:
 app('antares.acl')->make('antares/foo')->can('index-action')
 ```
 
-##Verification at the View's Level  
+##Verification At The View's Level  
 
 Verification in a view uses specially prepared twig engine function, as an extension. An example of use:
 
@@ -83,7 +83,7 @@ Verification in a view uses specially prepared twig engine function, as an exten
 {% endif %}
 ```
 
-##Access Control at the Interface Level  
+##Access Control At The Interface Level  
 
 When using the url address /admin/control/roles/index one can notice a register of users' groups (roles). To edit a group and authorizations click the right mouse button on a line and choose the edit option. The edition contains the details of ascribed authorizations for a group. To change the authorizations of a role, check or uncheck the checkboxes placed next to the action's name:
 
