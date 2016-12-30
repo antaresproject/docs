@@ -57,7 +57,7 @@ The implementation above will create the following form:
 
 The following types of attributes which determine the form's initial parameters can be distinguished:
 
-###Url and Parameters  
+###Url And Parameters  
 
 ####Simple  
 
@@ -79,7 +79,7 @@ The method takes the url address as the first parameter. Model is an instance of
 
 The final parameter is optional. It can be used to transfer the form's method - if it is not delivered by hand, it will be determined automatically. Other attributes are for instance css class of tag `<form`
 
-####Connected with a Presenter  
+####Connected With A Presenter  
 
 ```php
 $form->setup(Presenter $listener, $url, $model, array $attributes = []);
@@ -269,7 +269,7 @@ It will wrap as below:
 
 Keep in mind that css wxx classes (e.g. w100, w200) are used to control the width of the control's structure.
 
-###Types of Controls  
+###Types Of Controls  
 
 ####Select  
 
