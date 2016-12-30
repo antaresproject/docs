@@ -139,7 +139,7 @@ if (Auth::isNotAny(['admin', 'editor'])) {
 }
 ```
 
-##ACL and Metrics  
+##ACL And Metrics  
 
 Owing to application's modularity each module can decide independently about which resources (within module's space) are accessible to the logged in user. More information about building the ACL migration files can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Migrations). Information about controllers' (resources) action access verification can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/ACL).
 In order to download the ACL instance ascribed to a module:
