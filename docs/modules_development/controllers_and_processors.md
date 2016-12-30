@@ -144,7 +144,7 @@ A code of illustrative processor may be the following:
 
 In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The 'index()' method corresponds to the 'index()' method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
 
-###Operation in a Controller  
+###Operation In A Controller  
 
 An example of implementation, injection of a processor to a controller:
 
@@ -213,7 +213,7 @@ public function index(FooProcessor $processor)
 
 The choice of the actual method of transmitting the data to the controller depends on a programmer.
 
-##Presenters (option)  
+##Presenters (Option)  
 
 A presenter - as the name suggests - is an object responsible for presentation's operation - the view. **It is totally optional and there is no requirement connected with necessity of its use.** It is another layer (behind the processor) of data processing, before sending them to a view. The advantage of its use is a separation of computational layer from presentation's layer, but the drawback is unnecessary degree of simple solutions' complexity. In the case of more complex applications, the existence of the presenter may be helpful.
 
@@ -244,7 +244,7 @@ An example of a definition:
 
 As it is shown, the presenter's definition is very simple. Its function focuses on data presentation. In the presenter the data processing is not executed. The presenter's methods may return the objects of the 'Response' type (e.g. JsonResponse).
 
-###Presenter's Operation in the Processor  
+###Presenter's Operation In The Processor  
 
 A presenter, similarly to repository is injected to the processor's object:
 
