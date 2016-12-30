@@ -55,7 +55,7 @@ Example of use (file 2015_07_24_082030_foo_table):
 * The 'up' method is responsible for creation of a structure and is launched during component's installation.
 * The 'down' method is responsible for removal of a structure and is launched during component's uninstall.
 
-##Structure's Import Based on the SQL File  
+##Structure's Import Based On The SQL File  
 
 In one of the migration files it is possible to determine any quantity of tables to create, therefore, it is possible to create any quantity of migration files.
 
