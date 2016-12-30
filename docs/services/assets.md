@@ -145,7 +145,7 @@ It will create:
 
     <link media="all" type="text/css" rel="stylesheet" href="http://billevo.local/css/foo.css">
     
-##Support for CDN  
+##Support For CDN  
 
 The implementation:
 
