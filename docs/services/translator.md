@@ -13,7 +13,7 @@ $this->addLanguageComponent('antares/foo', 'antares/foo', "{$path}/lang");
 
 where the $path variable determines the location of language files' catalogue. You have to remember about retaining the correct structure as below:
 
-  ![AT_TRANS01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/transaltor/AT_TRANS01.PNG)
+  ![AT_TRANS01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/translator/AT_TRANS01.PNG)
   
 It is also possible to use a global catalogue located in:
 
