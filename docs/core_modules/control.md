@@ -15,7 +15,7 @@ e.g. /administrators/control/roles/index or when you choose the *Staff* position
 
   ![AT_CTRL01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/control/AT_CTRL01.PNG)
   
-In order to edit a group, click twice on a row and choose the *Edit* position in the context menu. Edition of a group consists of the form:
+In order to edit a group, click twice on a row and choose the *Edit* position in the context menu. Editing a group is based on the form:
 
   ![AT_CTRL02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/control/AT_CTRL02.PNG)
   
