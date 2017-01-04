@@ -65,11 +65,10 @@ use Illuminate\Routing\Router;
 
 class FooServiceProvider extends ModuleServiceProvider
 {
-
-public function boot(Router $router)
-{
-parent::boot($router);
-}
+    public function boot(Router $router)
+    {
+        parent::boot($router);
+    }
 }
 ```
 
@@ -156,8 +155,7 @@ Within the project's framework the following types of repositories can be distin
   
 **core** - the repository contains main system component's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
   
-```
-php
+```php
 "repositories": [
         {
             "type": "git",
@@ -229,25 +227,25 @@ composer.json file's example:
 
 In the abovementioned example, the component named as 'foo' has been added from the [repository](http://git.mglocal/components/foo.git) and project's branch master. Thus, if several developers work on  the 'foo' component and save its changes, the command
 
-```
+```console
 composer update
 ```
 
 will always download the latest components version. The same procedure concerns 'core' and the remaining components and vendors which belong to application. Please remember about adding a vendor
 
-```
+```console
 mnsami/composer-custom-directory-installer
 ```
 
 which will download to the catalogue:
 
-```
+```console
 ./src/components/foo
 ```
 
 the 'foo' component's source code. In the case when several developers work on one file, the command
 
-```
+```console
 composer update
 ```
 
