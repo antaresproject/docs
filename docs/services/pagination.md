@@ -15,7 +15,7 @@ Antares\Pagination\PaginationAjaxPresenter
 
 which can be found in the system's core.
 
-"render" is a crucial class method and it is responsible for paginator's presentation:
+"Render" is a crucial class method and it is responsible for paginator's presentation:
 
 ```php
 public function render()
@@ -96,7 +96,7 @@ This view should be edited depending on demand on the product. View's source cod
 
 ##Usage  
 
-If data are obtained from database, it is good to use the 'paginate' method in order to create paginator's object:
+If data is obtained from database, it is good to use the 'paginate' method in order to create paginator's object:
 
 ```php
 /**
