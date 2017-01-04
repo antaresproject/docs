@@ -77,7 +77,7 @@ app('antares.acl')->make('antares/foo')->can('index-action')
 
 Verification in a view uses specially prepared twig engine function, as an extension. An example of use:
 
-```php
+```html
 {% if can('antares/foo::index-action') %}   
     <div>User has access to Index</div>
 {% endif %}

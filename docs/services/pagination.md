@@ -10,7 +10,6 @@ The class responsible for this definition is:
 
 ```php
 Antares\Pagination\PaginationAjaxPresenter
-
 ```
 
 which can be found in the system's core.
@@ -41,19 +40,17 @@ public function render()
                 'perPageScale'   => $this->perPageScale
             ])->render();
 }
-
 ```
 
 It is worth noticing that the method is using the following view for presentation:
 
 ```php
 antares/foundation::layouts.antares.partials.pagination._pagination
-
 ```
 
 This view should be edited depending on demand on the product. View's source code:
 
-```
+```html
 <div class="pagination mb16 mt16">
     <div class="pagination-pages">
         <div class="pagination-pages__prev">
@@ -91,7 +88,6 @@ This view should be edited depending on demand on the product. View's source cod
         </ul>
     </div>
 </div>
-
 ```
 
 ##Usage  
@@ -109,7 +105,6 @@ public function paginationEloquent() {
     $links = $paginator->links(new PaginationAjaxPresenter($paginator));
     return view('antares/foo::index.index', compact('paginator', 'links'));
 }
-
 ```
 
 If a collection is dataprovider, the construction is somewhat different:
@@ -130,19 +125,17 @@ public function paginationCollection() {
     $links      = $paginator->links(new PaginationAjaxPresenter($paginator));
     return view('antares/foo::index.index', compact('paginator', 'links'));       
 }
-
 ```
 
 In both cases view's object is methods' value:
 
 ```php
 antares/foo::index.index
-
 ```
 
 View's object source code is the following:
 
-```
+```html
 {% extends "antares/foundation::layouts.antares.index" %}  
 {% block content %}    
     <div class="col-16">
@@ -171,14 +164,12 @@ View's object source code is the following:
         </div>
     </div>
 {% endblock %}
-
 ```
 
 In the example above it is good to notice the calling:
 
-```
+```html
 {{ links|raw }}
-
 ```
 
 which is responsible for pagination's section display.

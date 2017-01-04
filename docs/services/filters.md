@@ -236,7 +236,7 @@ In the case above the '**form**' method is responsible for providing the form's 
 
 <pre><code>antares/foo::admin.partials._filter_form</code></pre>
 
-```
+```html
     {{ Form.open(form)|raw }}
     {% for fieldset in fieldsets %}
         <fieldset name="inputs">               

@@ -36,7 +36,6 @@ class FooWidget extends AbstractWidget
         return "foo widget content";
     }
 }
-
 ```
 
 The basic widget's structure consist of the 'render' method and the 'name' attribute. Both the attribute and the method are required for proper widget's interpretation as a specific type of object in the system. The name attribute should be unique within all widgets. The 'render' method is responsible for displaying the widget's content. 
@@ -45,11 +44,10 @@ The basic widget's structure consist of the 'render' method and the 'name' attri
 
 The widget described in the case above have to be added 'manually' on a website because it does not defines property of automatic presentation. In order to add the widget, firstly, the view - which is responsible for displaying the website where the widget will be presented - must inherit from the 'widgetable' layout, so:
 
-```
+```html
 {% extends "antares/foundation::layouts.antares.widgetable" %}
 {% block content %}       
 {% endblock %}
-
 ```
 
 On the top of the website, the following button ![AT_WIDG01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG01.PNG) is available which opens the widget selection panel:
@@ -70,7 +68,7 @@ Press the button labeled with the ![AT_WIDG06.PNG](https://raw.githubusercontent
 
 The solution described in the previous paragraph enables dynamic widget management on the website. In a case when it is necessary to determine the widgets permanently without the possibility of changing their parameters on user's website use the force mode. An example:
 
-```
+```html
 {% extends 'antares/foundation::layouts.antares.main' %}
 {% block main_content %}   
     <section class="main-content">
@@ -83,7 +81,6 @@ The solution described in the previous paragraph enables dynamic widget manageme
         {% endblock %}
     </section>
 {% endblock %}
-
 ```
 
 The code above will generate the following website:
@@ -101,7 +98,6 @@ public function render()
 {
     return "foo widget content";
 }
-
 ```
 
 will display the content of the 'foo widget content'. Whereas the code:
@@ -113,19 +109,16 @@ public function render()
     $content = 'Sample content';
     return view('antares/foo::widgets.foo', ['content' => $content]);
 }
-
 ```
 
 will publish the content defined in the view 'antares/foo::widgets.foo'
 
-```
+```php
 antares/foo::widgets.foo
-
 ```
 
-```
+```html
 {{ content|raw }}
-
 ```
 
 and add asset's file named 'widget_logic.js' which will be activated each time whenever the widget will be published. The effect:
@@ -143,17 +136,15 @@ Each widget may use layout for wrapping the content presented by means of the 'r
  * @var String
  */
 public $template = 'dark';
-
 ```
 
 Usually the 'default' layout is used and its structure is the following:
 
-```
+```console
 default/index.twig
-
 ```
 
-```
+```html
 {% extends 'antares/widgets::templates.layouts.template' %}
 {% block content %}
     <div class="card card--info card--padding24">
@@ -175,7 +166,6 @@ default/index.twig
         </div>
     </div>
 {% endblock %}
-
 ```
 
 In the case shown above the 'dark' layout has been indicated and its use will display:
@@ -184,9 +174,8 @@ In the case shown above the 'dark' layout has been indicated and its use will di
   
 The list of all available layouts is located inside the 'widgets' components, in the catalogue:
 
-```
+```console
 \src\components\widgets\resources\views\templates
-
 ```
 
 The files responsible for layouts are the index.twig files.
@@ -195,19 +184,17 @@ The files responsible for layouts are the index.twig files.
 
 In order to add own layout go to the catalogue:
 
-```
+```console
 \src\components\widgets\resources\views\templates
-
 ```
 
 and create a subcatalogue which has a name adequate to the name of the layout. Create a manifest file (manifest.json) inside the created catalogue, an example:
 
-```
+```console
 \src\components\widgets\resources\views\templates\foo\index.twig
-
 ```
 
-```
+```php
 {
     "package": "foo",
     "name": "Foo Template",
@@ -217,7 +204,6 @@ and create a subcatalogue which has a name adequate to the name of the layout. C
     "type": [],
     "autoload": []
 }
-
 ```
 
 Description of the parameters:
@@ -230,19 +216,17 @@ Description of the parameters:
 
 Once the manifest file is created create the layout main file named index.twig. Here is an illustrative structure of such a file:
 
-```
+```console
 \src\components\widgets\resources\views\templates\foo\index.twig
-
 ```
 
-```
+```html
 {% extends 'antares/widgets::templates.layouts.template' %}
 {% block content %}
     <div style="background-color:red;padding:10px;height:100%;">
         {{ content|raw }}
     </div>
 {% endblock %}
-
 ```
 
 As a result it will display:
@@ -266,7 +250,6 @@ To make the widget possess upper beam with a title it is necessary to set the at
 protected $attributes = [
     'titlable' => true,
 ];
-
 ```
 
 The attribute will cause widget's title display as in the example below:
@@ -286,7 +269,6 @@ The parameter determines widget's description:
  * @var String
  */
 public $description = 'Foo Ajax Widget Description';
-
 ```
 
 ###Widget's Availability  
@@ -302,7 +284,6 @@ Widgets' configuration enables adapting the widget's structure and functionality
 protected $views = [
     'antares/foo::admin.foo.index'
 ];
-
 ```
 
 The 'views' parameter determines on which 'views' the widget will be available. Such a solution enables widget's availablity control by a module or a component or a programmer. In the aforementioned example  during the 'index.twig' view presentation placed in the location 'src\components\foo\resources\views\admin\foo' the widget will appear in the upper widget selection beam. When this parameter is not determined it will be available in all views (the '*' value) by default. The 'disabled' parameter is connected with this one and it is the opposite of the 'views' parameter:
@@ -316,7 +297,6 @@ The 'views' parameter determines on which 'views' the widget will be available. 
 protected $disabled = [
     'antares/foundation::dashboard.index'
 ];
-
 ```
 
 It will cause widget's availability deactivation during 'dashboard' view's rendering. Both parameters - the 'views' and the 'disabled' - will recognize the values of the 'wildcard' type, an example:
@@ -330,7 +310,6 @@ It will cause widget's availability deactivation during 'dashboard' view's rende
 protected $views = [
     'antares/foo::*'
 ];
-
 ```
 
 It will render the widget available only during the presentation of views which belong to the 'foo' component.
@@ -452,7 +431,6 @@ class FooWidget extends AbstractWidget
     }
  
 }
-
 ```
 
 Below - the effect:
@@ -461,7 +439,7 @@ Below - the effect:
   
 In other words, this is a form placed in a widget. Take note of form's layout syntax which is the file '**antares/foo::widgets.form**':
 
-```
+```html
 {% extends "antares/foundation::layouts.antares.partials.form.vertical" %}
 {% block fieldsets %}
     {% for fieldset in fieldsets %}
@@ -484,7 +462,6 @@ In other words, this is a form placed in a widget. Take note of form's layout sy
         {{ button.getField(row, button, [])|raw }}       
     {% endfor %}
 {% endblock %}
-
 ```
 
 Form's layout inherits from the default layout and extends the individual sections in order to obtain proper appearance.
@@ -501,7 +478,6 @@ $form->rules([
     'foo_textarea' => ['required'],
     'foo_select'   => ['required'],
 ]);
-
 ```
 
 In the above-mentioned example form's action url address and the validation rules have been indicated. By means of the '**routes**' method it is possible to ascribe the answer once the form is sent, so:
@@ -521,7 +497,6 @@ public static function routes()
                     }
                 }]);
 }
-
 ```
 
 The effect:
@@ -534,7 +509,6 @@ A form in a widget may use ajax validation. This is a desirable solution especia
 
 ```php
 $form->ajaxable();
-
 ```
 
 Do not forget about proper form's data operation after the validation.
@@ -550,7 +524,6 @@ $fieldset->control('input:text', 'foo_text')
             'placeholder' => 'Provide the value beginning from https...',
             'required'    => 'required', 'pattern'     => "https?://.+"
 ]);
-
 ```
 
 The result:
@@ -569,7 +542,6 @@ $fieldset->control('input:text', 'foo_text')
         ->attributes([
             'class' => 'w200',
 ]);
-
 ```
 
 or:
@@ -577,8 +549,7 @@ or:
 ```php
 $fieldset->control('input:text', 'foo_text')
          ->label('Foo Text')
-         ->wrapper(['class' => 'w200']);
-         
+         ->wrapper(['class' => 'w200']);         
 ```
 
 It will create:

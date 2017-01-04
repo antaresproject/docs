@@ -8,7 +8,7 @@ Bundles are named in pretty straightforward way - the name of the bundle suggest
 One exception from this rule, is cache bundle (webpack.app_cache.js) - which should be used in all application views, prior to given view bundle. Cache Bundle serve the puprose of speeding up the application - it contains all frequently used plugin across all views.  
 
 Location of bundles in the system:
-```
+```console
 public/webpack/
 ```
 

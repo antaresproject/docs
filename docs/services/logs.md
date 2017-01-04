@@ -12,14 +12,12 @@ try {
 } catch (Exception $e) {
     \Illuminate\Support\Facades\Log::warning($e);
 }
-
 ```
 
 Details concerning the settings can be found in [documentation](https://laravel.com/docs/5.2/errors). Logs' files are stored in the location:
 
-```php
+```console
 storage\logs
-
 ```
 
 Loggers' operation is strictly connected with a component of the same name. More information can be found here.

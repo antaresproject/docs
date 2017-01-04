@@ -14,14 +14,12 @@ The adapter below is responsible for sending all e-mail notifications:
 
 ```php
 Antares\Notifier\Adapter\EmailAdapter
-
 ```
 
 Access to the adapter is possible through the synonym below:
 
 ```php
 antares.notifier.email
-
 ```
 
 The code below presents solutions sending e-mail message to the currently logged in user:
@@ -39,7 +37,6 @@ public function sendEmailNotification(){
                 $m->subject('Sample notification from foo');
             });
 }
-
 ```
 
 In the case above the argument of anonymous funtion is '$m', which is Swiftmailer's object. In order to send a message the user's object should have 'email' attribute. It is also possible to send a message to many recipients:
@@ -47,14 +44,12 @@ In the case above the argument of anonymous funtion is '$m', which is Swiftmaile
 ```php
 $recipients=User::where('active',1)->get();
 $m->to($recipients);
-
 ```
 
 as well as sending a message directly to e-mail address:
 
 ```php
 $m->to(['user.foo@example.com]);
-
 ```
 
 More information about the parameters of sending a message can be found in the [SwiftMailer](http://swiftmailer.org/) documentation which is used by Laravel.
@@ -65,14 +60,12 @@ In the case of sms, the class is an adapter:
 
 ```php
 Antares\Notifier\Adapter\FastSmsAdapter
-
 ```
 
 The synonym is:
 
 ```php
 antares.notifier.sms
-
 ```
 
 Sending the message is executed by the code below:
@@ -90,7 +83,6 @@ public function sendSmsNotification(){
                 $m->subject('Sample notification from foo');
             });
 }
-
 ```
 
 In the case above user's object should have the 'phone' attribute. Similarly as in the case of e-mail it is possible to send an sms to many recipients and sending the message directely to the recipient's telephone number.
@@ -101,9 +93,8 @@ In the case above user's object should have the 'phone' attribute. Similarly as 
 
 Configuration of the default adapter for sending e-mail messages is described in the configuration file in the following location:
 
-```php
+```console
 core\notifier\resources\config\config.php
-
 ```
 
 Sections responsible for configuration are:
@@ -130,27 +121,24 @@ Sections responsible for configuration are:
 
 On the basis of the aforementioned code you can notice that in order to send e-mail messages and system notifications EmailAdapter is being used. Such configuration enables upgrading the system with other adapters. Furthermore, EmailAdapter uses outgoing email server configuration and its settings can be found at the address:
 
-```
+```console
 /administrators/settings/mail
-
 ```
 
   ![AT_NOTI01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/notifier/AT_NOTI01.PNG)
   
 Saving the settings of the form above will cause filling the 'tbl_antares_options' table where global settings of the whole application are gathered. The default configuration is determined in configuration file of the '.env' environment or in the configuration file in the location:
 
-```
+```console
 resources\config\mail.php
-
 ```
 
 ###Sms  
 
 Similarly to the case of e-mail the configuration of the sms adapter is located in the file:
 
-```php
+```console
 core\notifier\resources\config\config.php
-
 ```
 
 Section responsible for sending settings is:
@@ -222,7 +210,6 @@ Section responsible for sending settings is:
         ]
     ]
 ]
-
 ```
 
 More information about how notifications operate can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Notifications).

@@ -10,7 +10,7 @@
 
 A structure of the class responsible for main menu's generation can be depicted in the following manner:
 
-```
+```console
 Antares\Foo\Http\Handler\FooMainMenu
 ```
 

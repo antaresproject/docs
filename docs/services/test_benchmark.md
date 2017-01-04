@@ -8,7 +8,6 @@ Benchmark test (Testbench) is a set of tools which support unit tests writing. I
 
 ```php
 \Antares\Testbench\TestCase
-
 ```
 
 in the test class instead of PHPUnit_Framework_TestCase. Such a solution enables loading the application prepared for unit tests (fixture) and serves as a basic application's framework in Laravel so:
@@ -20,7 +19,6 @@ class TestCase extends \Antares\Testbench\TestCase
 {
     //
 }
-
 ```
 
 The whole solution has been taken from the [github website](https://github.com/orchestral/testbench) and developed for the project's purposes.
@@ -34,7 +32,6 @@ protected function getPackageProviders($app)
 {
     return ['Foo\FooServiceProvider'];
 }
-
 ```
 
 ##Aliases  
@@ -48,7 +45,6 @@ protected function getPackageAliases($app)
         'Acme' => 'Foo\Facade'
     ];
 }
-
 ```
 
 ##Setup  
@@ -65,7 +61,6 @@ public function setUp()
  
     // Your code here
 }
-
 ```
 
 ##Environment  
@@ -89,7 +84,6 @@ protected function getEnvironmentSetUp($app)
         'prefix'   => '',
     ]);
 }
-
 ```
 
 ##Kernel Consoles  
@@ -107,7 +101,6 @@ protected function resolveApplicationConsoleKernel($app)
 {
     $app->singleton('Illuminate\Contracts\Console\Kernel', 'Foo\Testbench\Console\Kernel');
 }
-
 ```
 
 ##Http Kernel  
@@ -125,7 +118,6 @@ protected function resolveApplicationHttpKernel($app)
 {
     $app->singleton('Illuminate\Contracts\Http\Kernel', 'Foo\Testbench\Http\Kernel');
 }
-
 ```
 
 ##Timezone  
@@ -143,7 +135,6 @@ protected function getApplicationTimezone($app)
 {
     return 'Europe/Warsaw';
 }
-
 ```
 
 ##Migrations  
@@ -155,7 +146,6 @@ $this->artisan('migrate', [
     '--database' => 'testbench',
     '--realpath' => realpath(__DIR__.'/../migrations'),
 ]);
-
 ```
 
 ##3rd Party  
@@ -171,12 +161,11 @@ When writing the tests draw your attention to the following error:
 
 ```php
 RuntimeException: No supported encrypter found. The cipher and / or key length are invalid.
-
 ```
 
 This error is connected with the lack of APP_KEY. Therefore, you have to point this key in the *phpunit.xml* file:
 
-```php
+```xml
 <phpunit>
  
     // ...
@@ -186,20 +175,17 @@ This error is connected with the lack of APP_KEY. Therefore, you have to point t
     </php>
  
 </phpunit>
-
 ```
 
 Another error:
 
 ```php
 Session not set on request
-
 ```
 
 The error above is connected with the use of the *old()* method for the *request* object and lack of middleware which is responsible for starting the session. The code below is a solution for the problem:
 
 ```php
 $app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
-
 ```
 

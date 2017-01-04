@@ -4,13 +4,16 @@
 Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](https://inbssoftware.atlassian.net/wiki/display/AS/Requirements) ones.  
   
 1. Firstly, it is relevant to clone repository:  
-```
+
+```console
 cd /var/www
 git clone http://git.mglocal/app/v0.5 html
 ```
+
 The above command will install the application in 0.5 version with git repository in html catalogue. 
 In this case, please remember about pointing the virtual machine at public project catalogue:  
-```
+
+```console
 vim /etc/apache2/sites-enabled/000-default.conf  
 DocumentRoot /var/www/html/public
 ```
@@ -18,7 +21,8 @@ DocumentRoot /var/www/html/public
   ![AT_IG1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/installation_guide/AT_IG1.PNG)
   
 2. Go to html catalogue and launch the installation command:  
-```
+
+```console
 cd /var/www/html
 composer install
 ```
@@ -27,12 +31,14 @@ composer install
   The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
 
 3. In the application's catalogue change the catalogues' entitlements.
-```
+
+```console
 chmod -R 777 storage && chmod -R 777 builds && chmod -R 777 public && chmod -R 777 bootstrap
 ```
   
 4.  Edit the file /var/www/html/.env by setting the access to data base:
-```
+
+```console
 DB_HOST=127.0.0.1
 DB_DATABASE=foo
 DB_USERNAME=foo

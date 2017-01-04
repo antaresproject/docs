@@ -8,7 +8,6 @@ The platform supports application's multilingualism through language files deter
 
 ```php
 $this->addLanguageComponent('antares/foo', 'antares/foo', "{$path}/lang");
-
 ```
 
 where the $path variable determines the location of language files' catalogue. You have to remember about retaining the correct structure as below:
@@ -17,16 +16,14 @@ where the $path variable determines the location of language files' catalogue. Y
   
 It is also possible to use a global catalogue located in:
 
-```php
+```console
 resources/lang
-
 ```
 
 or user's per level:
 
-```php
+```console
 resources/lang/administrators
-
 ```
 
 Remember that such a solution will cause that translations will no longer be available in the 'translations' component and may be overwritten by publication.
@@ -35,9 +32,8 @@ Remember that such a solution will cause that translations will no longer be ava
 
 Referring to the translation contained by the configuration file is possible with the use of:
 
-```
+```html
 {{ trans('antares/foo::messages.foo_test') }}
-
 ```
 
 where 'antares/foo' is the name of the module, 'messages' is the name of the file, whereas 'foo_test' is the translated phrase. More information about how the translator works can be found [here](https://laravel.com/docs/5.2/localization).

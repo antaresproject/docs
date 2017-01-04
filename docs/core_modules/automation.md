@@ -4,9 +4,8 @@
 
 Automation is used to execute cyclic operation based on [scheduler](https://laravel.com/docs/5.2/scheduling). The operation is defined as a class which inherits from the Antares\View\Console\Command object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
 
-```php
+```console
 php artisan queue:start
-
 ```
 
 Activation of the command causes launching all operations (jobs) from the *jobs* table. The process ascribed to the command is a demon and operates in the continuous mode monitoring the *jobs* table from an angle of new operations.
@@ -81,14 +80,12 @@ class FooCommand extends Command
         $this->line('Sample foo command has been launched.');
     }
 }
-
 ```
 
 To make the command visible in the *automation* space execute the following command:
 
-```php
+```console
 php artisan automation:sync
-
 ```
 
 which is responsible for all commands' instances synchronization in the system. This process is usually launched automatically when the system works within the confines of the *WatchDog* service. The command causes adding an instance to the *tbl_jobs* table which is responsible for preserving all system commands:
@@ -99,14 +96,12 @@ There is a possibility of launching only the command from the console's level. T
 
 ```php
 $this->commands(FooCommand::class);
-
 ```
 
 Then, on the basis of the command's example indicated above, the launching is:
 
-```php
+```console
 php artisan foo
-
 ```
 
 And the result:

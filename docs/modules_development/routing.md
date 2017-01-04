@@ -7,8 +7,9 @@ To make a component work within its own routing, insert the configuration in the
 ##Frontend  
 
 If a component is using client's panel, it is good to split routers into two files, in order to increase readability. So, to exemplify a file defining frontal (client's) routing, may be the following:
-
-<pre><code>frontend.php</code></pre>
+```console
+frontend.php
+```
 ```php
     <?php
      
@@ -31,7 +32,9 @@ The abovementioned definition will ascribe routing to the controller IndexContro
 
 ##Backend  
 
-<pre><code>backend.php</code></pre>
+```console
+backend.php
+```
 ```php  
   <?php
      

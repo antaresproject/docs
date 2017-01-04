@@ -6,7 +6,7 @@ Within each mode (production, development, testing, staging) an application may 
 
 In order to switch the application over the maintenance mode, type the following command:
 
-```php
+```console
 php artisan down
 ```
 
@@ -16,7 +16,7 @@ The following confirmation will be displayed: *Application is now in maintenance
   
 In order to restart system's operation, type the command:
 
-```php
+```console
 php artisan up
 ```
 
@@ -26,7 +26,7 @@ The confirmation *Application is now live.* will be displayed and the applicatio
 
 In order to keep the application up-to-date, type the following command:
 
-```php
+```console
 composer update
 ```
 
@@ -105,7 +105,7 @@ Frontend (determined by the javascript and css files) is subordinate to another 
 
 The command:
 
-```php
+```console
 git clone http://git.mglocal/billevo/antares-frontend.git
 ```
 

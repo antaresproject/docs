@@ -6,9 +6,8 @@
 
 Control is a component for users' resources rights service. The panel is available at the address below:
 
-```php
+```console
 /{area}/control/roles/index
-
 ```
 
 e.g. /administrators/control/roles/index or when you choose the *Staff* position in the *Configuration* menu. It consists of the *Groups* and *Users* sections. *Groups* - which is groups of users (in other words - role). To find more about groups go to the [ACL](https://inbssoftware.atlassian.net/wiki/pages/viewpage.action?pageId=21856278) section. The list of available groups is the following:

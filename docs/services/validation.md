@@ -48,7 +48,6 @@ protected function form()
                 ]);
             });
 }
-
 ```
 
 Verification of these rules occurs once the data are sent and when the 'isValid' method is used for the form. An example of validation inside a processor:
@@ -62,7 +61,6 @@ public function create()
         }
         return ['form' => $form];
 }
-
 ```
 
 Operation in a controller:
@@ -76,14 +74,12 @@ public function create(FooProcessor $processor)
         }
         return view('antares/foo::admin.foo.create', $data);
 }
-
 ```
 
 It is worth mentioning that if the form will be sent by ajax, the validator's response will be transformed in the json format immediately:
 
-```
+```html
 {"checkbox":["The checkbox field is required."],"radio":["The radio field is required."],"text":["The text field is required."],"textarea":["The textarea field is required."]}
-
 ```
 
 Validator's operation effect is presented by the screen below:
@@ -98,7 +94,6 @@ There is a possibility of determining your own form's error contents after the v
 $form->phrases([
     'required' => 'This is custom message.'
 ]);
-
 ```
 
 And the effect:
@@ -168,14 +163,12 @@ class FooValidator extends Validator
     }
  
 }
-
 ```
 
 Do not forget to provide information for the application about which method in which class will be responsible for validation that is acc. to the case above it is:
 
 ```php
 ValidatorFacade::extend('customValidation', '\Antares\Foo\Validation\FooValidator@validateCustomValidation');
-
 ```
 
 Such a validator must be transmitted to form's object, so (injection to the processor in the constructor):
@@ -190,14 +183,12 @@ public function __construct(FooValidator $validator)
 {
     $this->validator = $validator;
 }
-
 ```
 
 Ascribing to the form:
 
 ```php
 $form->rules($this->validator->getValidationRules())->phrases($this->validator->getValidationPhrases());
-
 ```
 
 The effect of sending the form and validation:

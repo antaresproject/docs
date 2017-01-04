@@ -23,6 +23,6 @@ When you place the mouse cursor on a value you will be able to see the full date
 
 In the twig, the use of formatter is the same, so:
 
-```
+```html
 {{ format_x_days('2016-07-19 17:00:00') }}
 ```

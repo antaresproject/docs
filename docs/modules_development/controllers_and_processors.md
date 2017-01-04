@@ -312,7 +312,7 @@ In the processor, the **index()** method refers to the index() method in the pre
 
 The view's file applied in the example has the following structure:
 
-```php
+```html
 {% extends "antares/foundation::layouts.antares.index" %}
 {% block content %}   
     <h1>Hello World from Foo Component</h1>
