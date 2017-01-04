@@ -4,7 +4,7 @@
 
 ##Definition  
 
-Notifier is a set of tools supporting design of the notifications which are sen to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
+Notifier is a set of tools supporting design of the notifications which are sent to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
 
 ##Usage  
 
@@ -42,7 +42,7 @@ public function sendEmailNotification(){
 
 ```
 
-In the case above the argument of anonymous funtion is '$m' which is Swiftmailer's object. In order to send a message the users object should have 'email' attribute. It is also possible to send a message to many recipients:
+In the case above the argument of anonymous funtion is '$m', which is Swiftmailer's object. In order to send a message the user's object should have 'email' attribute. It is also possible to send a message to many recipients:
 
 ```php
 $recipients=User::where('active',1)->get();
@@ -57,7 +57,7 @@ $m->to(['user.foo@example.com]);
 
 ```
 
-More information about the parameters of sending a message can be foun in the [SwiftMailer](http://swiftmailer.org/) documentation which is used by Laravel.
+More information about the parameters of sending a message can be found in the [SwiftMailer](http://swiftmailer.org/) documentation which is used by Laravel.
 
 ###Sms  
 
@@ -75,7 +75,7 @@ antares.notifier.sms
 
 ```
 
-Sending of the message is executed by the code below:
+Sending the message is executed by the code below:
 
 ```php
 /**
