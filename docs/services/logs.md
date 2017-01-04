@@ -2,7 +2,7 @@
 
 [TOC]
 
-Logger is a set of functionalities which enables following the actions undertaken by the users of the system as well as the system itself and process which are connected with it. A standard mechanism made accessible by the Laravel environment based on collecting logs into a file is used inside the system:
+Logger is a set of functionalities which enables following the actions undertaken by the users of the system as well as the system itself and processes which are connected with it. A standard mechanism made accessible by the Laravel environment based on collecting logs into a file is used inside the system:
 
 ```php
 try {
