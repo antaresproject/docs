@@ -139,7 +139,7 @@ protected function getApplicationTimezone($app)
 
 ##Migrations  
 
-Quite frequently there is a need to use a database or its prototype in the form of sqllite base. Therefore, the environment renders available the command which operates absolute path instead of relative one in order to facilitate migration files' boot during the testing as a parameter containing module's or component's path to the migration file:
+Quite frequently there is a need to use a database or its prototype in the form of sqllite base. Therefore, the environment provides the command which supports an absolute path instead of a relative one, in order to facilitate migration files' boot during the testing, as a parameter containing module's or component's path to the migration file:
 
 ```php
 $this->artisan('migrate', [
