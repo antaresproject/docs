@@ -26,11 +26,11 @@ or user's per level:
 resources/lang/administrators
 ```
 
-Remember that such a solution will cause that translations will no longer be available in the 'translations' component and may be overwritten by publication.
+Remember that such solution will cause that translations will no longer be available in the 'translations' component and may be overwritten by publication.
 
 ##Usage  
 
-Referring to the translation contained by the configuration file is possible with the use of:
+Referring to the translation contained in the configuration file is possible with the use of:
 
 ```html
 {{ trans('antares/foo::messages.foo_test') }}
