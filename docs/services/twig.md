@@ -4,7 +4,7 @@
 
 ##Definition  
 
-Twig is a system of templates that support application's presentation layer design. It is characterized by reliability, simplicity, and complex configuration. More information can be found on the [website](http://twig.sensiolabs.org/documentation).
+Twig is a system of templates that support designing the presentation layer of applications. It is characterized by reliability, simplicity, and complex configuration. More information can be found on the [website](http://twig.sensiolabs.org/documentation).
 
 ##Configuration  
 
@@ -26,7 +26,7 @@ To meet the requirements, the following extensions are available in the system:
 assetm('jquery','https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js')
 ```
 
-Provides assets' operation in application's head section. The code causes adding a jquery handle to the head section in the application. More information about the assets can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Assets).
+Provides assets' operation in application's head section. The code causes adding a jquery gripper to the head section in the application. More information about the assets can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Assets).
 
 ###profile_picture  
 
@@ -50,7 +50,7 @@ Verifies whether a module is installed or active.
 memorize($key,$default)
 ```
 
-Downloads the value to the ascribed one to the $key key from application's main memory.
+Downloads the value to the one ascribed to the $key key from application's main memory.
 
 ###view  
 
@@ -66,7 +66,7 @@ Builds view's object, an activity identical with Laravel's helper view.
 base_path($path=null)
 ```
 
-Provides absolute path to the application.
+Provides an absolute path to the application.
 
 ###unset  
 
@@ -186,7 +186,7 @@ Displays date in the 'humanized' format. It uses the [helper](https://inbssoftwa
 hostname()
 ```
 
-Provides application's name of the host.
+Provides a name of the application's host.
 
 ###user_meta  
 
@@ -194,7 +194,7 @@ Provides application's name of the host.
 user_meta($name, $default = null)
 ```
 
-Provides metadata of the currently logged in user ascribed to the $name key.
+Provides metadata, ascribed to the $name key, of the currently logged in user.
 
 ###isAjaxRequest  
 
