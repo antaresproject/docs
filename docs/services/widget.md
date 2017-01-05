@@ -6,7 +6,7 @@
 
 ###Basic Implementation  
 
-Widgets - are objects in the application which (because of their behavior and functionality) are used for data presentation only. They work closely with user's interface. An example of a widget may be a table presenting users' list. Widget's property is the ability of being placed on any application's website. Widgets consist of attributes which determine their behavior in the interface space. An example of an attribute can be 'resizable' which determines whether a widget on a website will be calibrated or not. In the hierarchy of widget's structure the widget is placed the lowest. Widget template is above the widget and it determines the frames of presentation and widget's operation. This means that you can build for instance 10 different widgets with users' tables in the system but each one of them must inherit the widget template structure named 'Datatables'. Each widget may define its own layout which by default is ascribed by widget template. On the top of the widget hierarchy is abstraction layer which determines common features and behaviors of all widgets in the system.
+Widgets - objects in the application which (because of their behavior and functionality) are used for data presentation only. They work closely with user's interface. An example of a widget may be a table presenting users' list. Widget's property is the ability of being placed on any application's website. Widgets consist of attributes which determine their behavior in the interface space. An example of an attribute can be 'resizable' which determines whether a widget on a website will be calibrated or not. In the hierarchy of widget's structure the widget is placed the lowest. Widget template is above the widget and it determines the frames of presentation and widget's operation. This means that you can build for instance 10 different widgets with users' tables in the system but each one of them must inherit the widget template structure named 'Datatables'. Each widget may define its own layout which by default is ascribed by widget template. On the top of the widget hierarchy is an abstraction layer which determines common features and behaviors of all widgets in the system.
 Minimal structure of the class defining a widget:
 
 ```php
@@ -42,7 +42,7 @@ The basic widget's structure consist of the 'render' method and the 'name' attri
 
 ###Placing The Widget On A Website  
 
-The widget described in the case above have to be added 'manually' on a website because it does not defines property of automatic presentation. In order to add the widget, firstly, the view - which is responsible for displaying the website where the widget will be presented - must inherit from the 'widgetable' layout, so:
+The widget described in the case above has to be added 'manually' on a website because it does not define property of automatic presentation. In order to add the widget, firstly, the view - which is responsible for displaying the website where the widget will be presented - must inherit from the 'widgetable' layout, so:
 
 ```html
 {% extends "antares/foundation::layouts.antares.widgetable" %}
@@ -54,11 +54,11 @@ On the top of the website, the following button ![AT_WIDG01.PNG](https://raw.git
 
   ![AT_WIDG02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG02.PNG)
   
-The 'Foo Widget'is avaialable as on the screen above. If you click the 'FW' picture (which stands for two first letters of the widget's name), the widget will  be placed on the website as below:
+The 'Foo Widget' is avaialable as on the screen above. If you click the 'FW' picture (which stands for two first letters of the widget's name), the widget will be placed on the website as below:
 
   ![AT_WIDG03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG03.PNG)
 
-It is worth noticing that pressing the ![AT_WIDG04.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG04.PNG) button enables widgets' edition on the website. Apart from adding the widgets it is also possible to change widget's parameters at any moment, so the widget shown above can be removed, its position may be changed, or scaled, as shown below:
+It is worth noticing that pressing the ![AT_WIDG04.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG04.PNG) button enables widgets' edition on the website. Apart from adding the widgets it is also possible to change widget's parameters at any moment, so the widget shown above can be removed, its position may be changed or scaled, as presented below:
 
   ![AT_WIDG05.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG05.PNG)
   
@@ -66,7 +66,7 @@ Press the button labeled with the ![AT_WIDG06.PNG](https://raw.githubusercontent
 
 ###Placing The Widget On A Website (The Force Mode)  
 
-The solution described in the previous paragraph enables dynamic widget management on the website. In a case when it is necessary to determine the widgets permanently without the possibility of changing their parameters on user's website use the force mode. An example:
+The solution described in the previous paragraph enables dynamic widget management on the website. In case when it is necessary to determine the widgets permanently without the possibility of changing their parameters on user's website use the force mode. An example:
 
 ```html
 {% extends 'antares/foundation::layouts.antares.main' %}
@@ -91,7 +91,7 @@ The whole operation happens by means of 'widget_forced' twig engine extension. T
 
 ##Views  
 
-The method responsible for displaying widget's content is the '**render**' method. The method should respond with an object which renders available the '__toString' magic method or respond independently with a value of the 'String' type. Otherwise, the widget will not be displayed. The code in the example:
+The method responsible for displaying widget's content is the '**render**' method. The method should respond with an object providing the '__toString' magic method or respond independently with a value of the 'String' type. Otherwise, the widget will not be displayed. The code in the example:
 
 ```php
 public function render()
@@ -127,7 +127,7 @@ and add asset's file named 'widget_logic.js' which will be activated each time w
   
 ##Layouts  
 
-Each widget may use layout for wrapping the content presented by means of the 'render' method. Such a solution makes the programmer free from necessity of repeating the same activities when generating the widget's content. Determining which layout will be used by the widget is possible through the 'template' parameter:
+Each widget may use layout for wrapping the content presented by means of the 'render' method. Such solution makes the programmer free from necessity of repeating the same activities while generating the widget's content. Determining which layout will be used by the widget is possible through the 'template' parameter:
 
 ```php
 /**
@@ -182,7 +182,7 @@ The files responsible for layouts are the index.twig files.
 
 ###Creating Own Layout  
 
-In order to add own layout go to the catalogue:
+In order to add your own layout go to the catalogue:
 
 ```console
 \src\components\widgets\resources\views\templates
@@ -214,7 +214,7 @@ Description of the parameters:
 * url - usually the url address to the documentation,
 * autoload - php scripts used during loading
 
-Once the manifest file is created create the layout main file named index.twig. Here is an illustrative structure of such a file:
+Once the manifest file is created, create the layout main file named index.twig. Here is an illustrative structure of such a file:
 
 ```console
 \src\components\widgets\resources\views\templates\foo\index.twig
@@ -286,7 +286,7 @@ protected $views = [
 ];
 ```
 
-The 'views' parameter determines on which 'views' the widget will be available. Such a solution enables widget's availablity control by a module or a component or a programmer. In the aforementioned example  during the 'index.twig' view presentation placed in the location 'src\components\foo\resources\views\admin\foo' the widget will appear in the upper widget selection beam. When this parameter is not determined it will be available in all views (the '*' value) by default. The 'disabled' parameter is connected with this one and it is the opposite of the 'views' parameter:
+The 'views' parameter determines on which 'views' the widget will be available. Such solution enables widget's availablity control by a module or a component or a programmer. In the aforementioned example during the 'index.twig' view presentation placed in the location 'src\components\foo\resources\views\admin\foo' the widget will appear in the upper widget selection beam. When this parameter is not determined it will be available in all views (the '*' value) by default. The 'disabled' parameter is connected with this one and it is the opposite of the 'views' parameter:
 
 ```php
 /**
