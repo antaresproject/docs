@@ -76,7 +76,7 @@ public function create(FooProcessor $processor)
 }
 ```
 
-It is worth mentioning that if the form will be sent by ajax, the validator's response will be transformed in the json format immediately:
+It is worth mentioning that if the form is sent by ajax, the validator's response will be transformed in the json format immediately:
 
 ```html
 {"checkbox":["The checkbox field is required."],"radio":["The radio field is required."],"text":["The text field is required."],"textarea":["The textarea field is required."]}
@@ -165,13 +165,13 @@ class FooValidator extends Validator
 }
 ```
 
-Do not forget to provide information for the application about which method in which class will be responsible for validation that is acc. to the case above it is:
+Do not forget to provide the application with the information about which method in which class will be responsible for validation that is, according to the case above:
 
 ```php
 ValidatorFacade::extend('customValidation', '\Antares\Foo\Validation\FooValidator@validateCustomValidation');
 ```
 
-Such a validator must be transmitted to form's object, so (injection to the processor in the constructor):
+Such validator must be transmitted to form's object, so (injection to the processor in the constructor):
 
 ```php
 /**
