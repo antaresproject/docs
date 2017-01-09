@@ -246,11 +246,11 @@ notify('notification.foo_has_been_created', ['model' => $model, 'user' => user()
 
 As the first parameter the function takes the event's name, the second is a board containing variables prepared for the template's needs. The effect of notification's operation is the appearance of the notification:
 
-  ![AT_NOTIFI07.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI06.PNG)
+  ![AT_NOTIFI07.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI07.PNG)
   
 In the case of save data error (that is when the *foo_has_not_been_created* notification occurs):
 
-  ![AT_NOTIFI08.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI07.PNG)
+  ![AT_NOTIFI08.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI08.PNG)
   
 ###E-mail Notifications  
 
@@ -265,7 +265,7 @@ The first method's argument is name of the event, the second is message recipien
 
 System notification informing whether the dispatch succeeded or not is connected with e-mail notifications dispatch. An example:
 
-  ![AT_NOTIFI09.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI08.PNG)
+  ![AT_NOTIFI09.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI09.PNG)
   
 ###Sms Notifications  
 
@@ -278,7 +278,7 @@ sms_notification('email.foo_notification', [user()], ['model' => $model, 'user' 
 
 Similarly to e-mail notifications, in situations when an error occurs, the system notification is being sent:
 
-  ![AT_NOTIFI10.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI09.PNG)
+  ![AT_NOTIFI10.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI10.PNG)
   
 ##Templates  
 
@@ -301,12 +301,12 @@ listen('notifications:notification.variables', function(&$variables) {
 
 The template's form is modified by the variables as shown below:
 
-  ![AT_NOTIFI11.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI10.PNG)
+  ![AT_NOTIFI11.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI11.PNG)
   
 After filling the content by using the variable:
 
-  ![AT_NOTIFI12.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI11.PNG)
+  ![AT_NOTIFI12.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI12.PNG)
   
 Preview of the message:
 
-  ![AT_NOTIFI13.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI12.PNG)
+  ![AT_NOTIFI13.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/notifications/AT_NOTIFI13.PNG)
