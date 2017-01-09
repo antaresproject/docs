@@ -142,7 +142,7 @@ protected $availableLaunches = [
 * disablable - whether the command can be deactivated at the GUI interface level by a user (default value: true)
 * category - a category determining where the command belongs (default value: system), created solely for the purposes of grouping
 
-Each of the commands may overwrite the edition form, which allows full freedom when it comes to configuration of a command. By default the edition form appears in the following manner:
+Each of the command may overwrite the edition form, which allows full freedom when it comes to configuration of a command. By default the edition form appears in the following manner:
 
   ![AT_AUTO03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO03.PNG)
   
