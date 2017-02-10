@@ -1,7 +1,7 @@
-# docs
+# Documentation of Antares Project.
+--
 
-Documentation of Antares Project.
-#Introduction  
+##Introduction  
 
 [TOC]
 
