@@ -1,10 +1,6 @@
 # docs
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Software License][ico-license]](license.md)
 
 Documentation of Antares Project.
-[Introduction](http://192.168.1.219/docs/site/)
 #Introduction  
 
 [TOC]
