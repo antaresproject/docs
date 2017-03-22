@@ -2,3 +2,5 @@ site/
 !.gitignore
 site
 /nbproject
+.idea
+/.idea
