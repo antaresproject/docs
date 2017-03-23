@@ -1,12 +1,12 @@
-#Core & Files Structure  
+# Core & Files Structure  
 
 [TOC]
 
-##Introduction  
+## Introduction  
  
 The system has been designed on the basis of **HMVC** which stands for hierarchical - model - view - controller. This type of architecture can be described with the use of the following graph:
 
-  ![AT_C&FSTRU1](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU1.png)
+  ![AT_C&FSTRU1](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU1.png)
   
 The above mentioned graph describes:
 
@@ -18,11 +18,11 @@ The above mentioned graph describes:
 
 The hierarchy in this type of architecture relies on data exchange between individual layer groups. One layer may (but not necessarily must) transfer the data to the next layer as long as the proper website's content is produced.  
 
-##General System Architecture  
+## General System Architecture  
 
 Error: 404
 
-##Filesystem Structure  
+## Filesystem Structure  
 
 Filesystem structure is the following:
 

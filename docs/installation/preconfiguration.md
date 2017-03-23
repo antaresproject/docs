@@ -41,7 +41,16 @@ Here is the description of libraries installation which are a part of system's e
     </Directory>
     ```
 2. ##### PHP 7.1.*   
-    PHP 7.1.* or higher ([more info](requirements.md#####PHP 7.1.x))  
+    PHP 7.1.* or higher ([more info](requirements.md#####PHP 7.1.x))
+    ```console
+    apt-get install software-properties-common
+    ```
+    ```console
+    add-apt-repository ppa:ondrej/php
+    ```
+    ```console
+    apt-get update
+    ```
     ```console
     apt-get -y install php7.1 libapache2-mod-php7.1
     ```
@@ -99,11 +108,18 @@ Here is the description of libraries installation which are a part of system's e
     Configure database for phpmyadmin with dbconfig-common? <-- Yes
     MySQL application password for phpmyadmin: <-- enter
     ```
-      
+    
+    After phpmyadmin installation, remove invalid php5 config files:
+    ```console
+    cd /etc/apache2/mods-enabled
+    rm php5.conf
+    rm php5.load
+    service apache2 restart
+    ```      
     ```console
     echo "update user set plugin='' where User='root'; flush privileges;" | mysql -u root -p mysql
     ```
-
+  
 4. ##### Composer 1.3.x
     Composer 1.3.x or higher
     ```console
