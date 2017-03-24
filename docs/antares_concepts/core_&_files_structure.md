@@ -26,7 +26,7 @@ Error: 404
 
 Filesystem structure is the following:
 
-  ![AT_C&FSTRU2](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU2.PNG)
+  ![AT_C&FSTRU2](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU2.PNG)
   
 It consist of catalogues divided thematically according to destination.
 
@@ -40,13 +40,11 @@ It consist of catalogues divided thematically according to destination.
 
 SRC catalogue content:
   
-  ![AT_C&FSTRU3](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU3.PNG)
+  ![AT_C&FSTRU3](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU3.PNG)
   
 components - in this catalogue there are application's components, as depicted in the example below:
 
-core - source code
-
-  ![AT_C&FSTRU4](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU4.PNG)
+  ![AT_C&FSTRU4](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU4.PNG)
   
 The components required for system's work:
 
@@ -60,7 +58,7 @@ Please turn your attention to the existence of the file .gitignore. Its presence
 
 core - contains system's main functions. Catalogue content is the following:
 
-  ![AT_C&FSTRU5](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU5.PNG)
+  ![AT_C&FSTRU5](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU5.PNG)
   
 The description of respective catalogues:
 
@@ -82,12 +80,9 @@ The description of respective catalogues:
 * html - contains the tools assisting in html design
 * installer - system's installer
 * kernel - contains extended Laravel classes
-* licensing - a pack facilitating system's licensing
 * messages - functions assisting in notifications flash only design (short duration messages - to the next request)
 * model - contains main data base business models used by the system
 * notifier - assist in sending notifications to system's users
-* optimize - a set of functions having system's operation optimization in view
-* performance - a set of functions used for system's operation efficiency verification
 * publisher - functions facilitating executing components' and modules' migration files which are a part of the system
 * registry - implementation of the registry design pattern as a base class for extending by the components and modules
 * scaffolding - a register of generators used in prototyping components and modules, widgets and prototypes datatables
@@ -105,6 +100,6 @@ The description of respective catalogues:
 Modules - similarly to components, consist of dedicated modules. As opposed to components, the modules are a part of application and can be shared independently. They do not interfere with system work. 
 Catalogue:
 
-  ![AT_C&FSTRU6](https://raw.githubusercontent.com/antaresproject/docs/master/img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU6.PNG)
+  ![AT_C&FSTRU6](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU6.PNG)
   
 It consist of catalogues divided thematically, in which dedicated modules are placed.

@@ -14,17 +14,13 @@ A component should consist of the minimal structure:
 
 ```json
 {
-    "name": "components/foo",
+    "name": "antaresproject/component-foo",
     "description": "Antares Foo Component",
     "authors": [
         {
-            "name": "Łukasz Cirut",
-            "email": "lukasz.cirut@inbs.software"
+            "name": "Foo Bar"
         }
-    ],
-    "require": {
-        "php": ">=5.5.9"
-    }
+    ]
 }
 ```
 
@@ -39,9 +35,9 @@ A description of the remaining variables can be found [here](https://getcomposer
     "name": "foo",
     "full_name": "Foo Component",
     "description": "Foo Component",
-    "author": "Łukasz Cirut",
-    "url": "https://antares.com/docs/foo",
-    "version": "0.5",
+    "author": "Antares Developer",
+    "url": "https://<server_name>.com/docs/foo",
+    "version": "0.9.2",
     "provides": [
         "Antares\\Foo\\FooServiceProvider"
     ]

@@ -1,4 +1,4 @@
-#Maintenance  
+# Maintenance  
 
 [TOC]
 
@@ -12,7 +12,7 @@ php artisan down
 
 The following confirmation will be displayed: *Application is now in maintenance mode.* As a result, during the attempt of entering the system, the following website will be shown:
 
-  ![AT_maint01](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/maintenance/AT_maint01.png)
+  ![AT_maint01](../img/docs/antares_concepts/maintenance/AT_maint01.PNG)
   
 In order to restart system's operation, type the command:
 
@@ -22,7 +22,7 @@ php artisan up
 
 The confirmation *Application is now live.* will be displayed and the application will return to work.
 
-##Merging With Latest Antares Release  
+## Merging With Latest Antares Release  
 
 In order to keep the application up-to-date, type the following command:
 
@@ -37,11 +37,11 @@ The task of the command is to download the source code belonging to the individu
     "repositories": [
         {
             "type": "git",
-            "url": "http://git.mglocal/components/foo.git"
+            "url": "https://github.com/antaresproject/foo.git"
         }
     ],
     "require": {
-        "components/foo": "master"
+        "antaresproject/component-foo": "master"
     },   
 }
 ```
@@ -53,18 +53,18 @@ In the abovementioned example the source code will be downloaded from the *foo* 
     "repositories": [
         {
             "type": "git",
-            "url": "http://git.mglocal/components/foo.git"
+            "url": "https://github.com/antaresproject/foo.git"
         }
     ],
     "require": {
-        "components/foo": "0.7-dev"
+        "antaresproject/component-foo": "0.9.2-dev"
     },   
 }
 ```
 
-In the abovementioned example the *0.7-dev* branch of the *foo* component has been indicated.
+In the abovementioned example the *0.9.2-dev* branch of the *foo* component has been indicated.
 
-The remaining part of application is subordinate to its own update within http://git.mglocal/app/v0.5 and should be executed on your own. The reasons of such a solution are the far-reaching differences in different projects created on the basis of the system. When thinking about the application think about the files belonging to the repository i.e. the catalogues:
+The remaining part of application is subordinate to its own update within [https://github.com/antaresproject/project](https://github.com/antaresproject/project) and should be executed on your own. The reasons of such a solution are the far-reaching differences in different projects created on the basis of the system. When thinking about the application think about the files belonging to the repository i.e. the catalogues:
 
 1. /app
 2. /public/packages/core
@@ -74,17 +74,17 @@ The remaining part of application is subordinate to its own update within http:/
 
 Keep in mind that application's repository should be treated as a kind of a pattern, not as last resort while creating the custom project. Each of such a project should have its own repository with defined configuration files' and composer.json file's settings.
 
-##Updating Application  
+## Updating Application  
 
-The information concerning application's update with the latest repository version can be found [here](https://inbssoftware.atlassian.net/wiki/pages/createpage.action?spaceKey=AS&title=Merging+with+latest+Antares+release&linkCreation=true&fromPageId=21069877), whereas the information concerning updater component's operation can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Updater).
+The information concerning updater component's operation can be found [here](../core_modules/updater.md).
 
-###Components And Modules  
+### Components And Modules  
 
 Each of the component belonging to the application may be updated individually due to the fact that it is a separate repository. This means that each of the application's components and modules has its own catalogue named as *.git.* During committing and pushing the changes within a component the changes will be sent to the branch where the component comes from.
 
 The *core* catalogue, which is the core of application and which is placed in the src catalogue in the main application's path, is subordinate to the similar procedures.
 
-###Frontend  
+### Frontend  
 
 Frontend (determined by the javascript and css files) is subordinate to another procedure as in the case of components and modules. Only the command 'composer update' can currently download the latest frontend version. In order to execute the update by hand, download the repository determined in the composer.json file, e.g.:
 
