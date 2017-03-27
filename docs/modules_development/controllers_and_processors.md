@@ -1,8 +1,8 @@
-#Controllers and Processors  
+# Controllers and Processors  
 
 [TOC]
 
-##Controllers  
+## Controllers  
 
 Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters. An example defining a controller:
 
@@ -67,18 +67,16 @@ Controllers are used to process the requests coming from a browser and declare t
     }
 ```    
     
-It is worth noticing that the (frontend) controller inherits from the BaseController class.
+It is worth noticing that the (frontend) controller inherits from the `BaseController` class.
 A file defining routing is with the abovementioned controller's actions:
 
-<pre><code>frontend.php</code></pre>
+`frontend.php`:
 
 ```php
-    <?php
-     
+<?php     
     $router->resource('foo', 'FrontController');
 ```
     
-
 In case we deal with admin area controller should inherit from AdminController class:
 
 ```php
@@ -88,14 +86,11 @@ In case we deal with admin area controller should inherit from AdminController c
     ...
 ```
 
-##Processors  
+## Processors  
 
 A processor is used to operate the processing of a request coming from the controller's action. Usually, such an
-##Processors  
 
-A processor is used to operate the processing of a request coming from the controller's action. Usually, such an operation takes place in the action itself, but such a solution is not the best idea. The processor may be understood as a layer mediating between a controller and a view (or relatively, a presenter). It mostly operates forms' validation, as well as creates models' entity objects, on the basis of given parameters, it executes initial data formatting before transmitting it to a view or to a presenter.
-
-###Definition  
+### Definition  
 
 A code of illustrative processor may be the following:
 
@@ -142,14 +137,14 @@ A code of illustrative processor may be the following:
     }
 ```
 
-In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The 'index()' method corresponds to the 'index()' method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
+In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The `index()` method corresponds to the `index()` method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
 
-###Operation In A Controller  
+### Operation In A Controller  
 
 An example of implementation, injection of a processor to a controller:
 
-```php    
-    <?php
+```php
+<?php
      
     namespace Antares\Foo\Http\Controllers\Admin;
      
@@ -213,13 +208,14 @@ public function index(FooProcessor $processor)
 
 The choice of the actual method of transmitting the data to the controller depends on a programmer.
 
-##Presenters (Option)  
+## Presenters (Option)  
 
 A presenter - as the name suggests - is an object responsible for presentation's operation - the view. **It is totally optional and there is no requirement connected with necessity of its use.** It is another layer (behind the processor) of data processing, before sending them to a view. The advantage of its use is a separation of computational layer from presentation's layer, but the drawback is unnecessary degree of simple solutions' complexity. In the case of more complex applications, the existence of the presenter may be helpful.
 
 An example of a definition:
 
-```php  
+```php
+  
   <?php
      
     namespace Antares\Foo\Http\Presenters;
@@ -242,9 +238,9 @@ An example of a definition:
     }
 ```
 
-As it is shown, the presenter's definition is very simple. Its function focuses on data presentation. In the presenter the data processing is not executed. The presenter's methods may return the objects of the 'Response' type (e.g. JsonResponse).
+As it is shown, the presenter's definition is very simple. Its function focuses on data presentation. In the presenter the data processing is not executed. The presenter's methods may return the objects of the *Response* type (e.g. *JsonResponse*).
 
-###Presenter's Operation In The Processor  
+### Presenter's Operation In The Processor  
 
 A presenter, similarly to repository is injected to the processor's object:
 
@@ -308,7 +304,7 @@ public function __construct(FooRepository $repository)
 
 However, it is good to use the same solutions everywhere, for the sake of readability.
 
-In the processor, the **index()** method refers to the index() method in the presenter, which in turn is responisble for data presentation.
+In the processor, the `index()` method refers to the `index()` method in the presenter, which in turn is responisble for data presentation.
 
 The view's file applied in the example has the following structure:
 
@@ -321,5 +317,5 @@ The view's file applied in the example has the following structure:
 
 The result:
 
-  ![AT_CONTRS&PROCS1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.PNG)
+![AT_CONTRS&PROCS1](../img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.PNG)
   

@@ -1,8 +1,8 @@
-#Widget Templates  
+# Widget Templates  
 
 [TOC]
 
-##Widget Templates  
+## Widget Templates  
 
 Widget Template is a structure creating decoration of existing widget instance. This means that, if there is a need for constructing a widget containing 'Datatables', one can use a set of predefined solutions known as widget templates. 
   
@@ -12,7 +12,7 @@ The following widget templates (that are currently supported) can be distinguish
 * datatables  
 * ajax  
   
-###Default  
+### Default  
 
 A template used for general destination content's publication:
 
@@ -47,7 +47,7 @@ class DefaultFooWidget extends AbstractWidget
 
 And the result is:
 
-  ![AT_widtemp1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp1.PNG)
+  ![AT_widtemp1](../img/docs/antares_concepts/widget_templates/AT_widtemp1.PNG)
   
 Widget's file 'layout' content, located in 'src\components\widgets\resources\views\templates\default\index.twig':
 
@@ -79,13 +79,12 @@ src\components\widgets\resources\views\templates\default\index.twig
 {% endblock %}
 ```
 
-###Datatables  
+### Datatables  
 
 Template is used for content's publication in the tabular form. An example of the structure:
 
 ```php
 <?php
-
 namespace Antares\Foo\Widgets;
 
 use Antares\Widgets\Templates\DatatablesWidget as WidgetTemplate;
@@ -127,7 +126,7 @@ class TableFooWidget extends WidgetTemplate
 
 And the result:
 
-  ![AT_widtemp2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp2.PNG)
+  ![AT_widtemp2](../img/docs/antares_concepts/widget_templates/AT_widtemp2.PNG)
   
 It is worth noticing that the pointed object '**TableFooWidget**' inherits from 'WidgetTemplate' that is '**Antares\Widgets\Templates\DatatablesWidget**'. The 'render' method will cause widget's data publication, that is the view containing 'Datatables' instance in this case. The file's structure which is responsible for widget's content rendering, is the following:
 
@@ -176,7 +175,7 @@ src\components\widgets\resources\views\templates\datatables\index.twig
 {% endblock %}
 ```
 
-###Ajax  
+### Ajax  
 
 Ajax widget template is a group of widgets in which, as the name suggests, content is loaded dynamically. This means that once the main container appears (its parameters are determined by widget's attributes) it will be downloaded by the ajax way.
 Widget's example which uses a template:
@@ -233,7 +232,7 @@ class AjaxFooWidget extends WidgetTemplate
 }
 ```
 
-Please notice widget's attributes. The '**remote**' attribute defines url address and its content will be downloaded. The class inherits from '**Antares\Widgets\Templates\AjaxWidget**' that is from template class of the ajax type. File's view in the 'render' method has the following syntax:
+Please notice widget's attributes. The **remote** attribute defines url address and its content will be downloaded. The class inherits from `Antares\Widgets\Templates\AjaxWidget` that is from template class of the ajax type. File's view in the 'render' method has the following syntax:
 
 ```console
 antares/foo::widgets.ajax
@@ -251,7 +250,7 @@ antares/foo::widgets.ajax
 
 It will cause content's display before the loading of the ajax content:
 
-  ![AT_widtemp3](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp3.PNG)
+  ![AT_widtemp3](../img/docs/antares_concepts/widget_templates/AT_widtemp3.PNG)
   
 View's file within the 'routes' method, is the content downloaded by ajax:
 
@@ -268,7 +267,7 @@ antares/foo::widgets.ajax
 
 As a result, a widget will be created:
 
-  ![AT_widtemp4](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/widget_templates/AT_widtemp4.PNG)
+  ![AT_widtemp4](../img/docs/antares_concepts/widget_templates/AT_widtemp4.PNG)
   
 'layout' file's content, located in
 'src\components\widgets\resources\views\templates\ajax\index.twig':

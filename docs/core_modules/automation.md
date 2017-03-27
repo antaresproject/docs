@@ -1,4 +1,4 @@
-#Automation  
+# Automation  
 
 [TOC]
 
@@ -90,7 +90,7 @@ php artisan automation:sync
 
 which is responsible for all commands' instances synchronization in the system. This process is usually launched automatically when the system works within the confines of the *WatchDog* service. The command causes adding an instance to the *tbl_jobs* table which is responsible for preserving all system commands:
 
-  ![AT_AUTO01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO01.PNG)
+  ![AT_AUTO01.PNG](../img/docs/core_modules/automation/AT_AUTO01.PNG)
   
 There is a possibility of launching only the command from the console's level. To this end, you have to inform the Laravel environment about such a command (the *boot* method) in the service provider:
 
@@ -106,7 +106,7 @@ php artisan foo
 
 And the result:
 
-  ![AT_AUTO02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO02.PNG)
+  ![AT_AUTO02.PNG](../img/docs/core_modules/automation/AT_AUTO02.PNG)
   
 The table which is responsible for preserving the results of particular commands' operations is *tbl_job_results*, in the case of errors it is: *tbl_job_errors*. The table which is responsible for commands' categories is *tbl_jobs_category*. Categories are added automatically supposing that they were not defined earlier within the frameworks of the *automation:sync* process.
 
@@ -144,10 +144,10 @@ protected $availableLaunches = [
 
 Each of the command may overwrite the edition form, which allows full freedom when it comes to configuration of a command. By default the edition form appears in the following manner:
 
-  ![AT_AUTO03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO03.PNG)
+  ![AT_AUTO03.PNG](../img/docs/core_modules/automation/AT_AUTO03.PNG)
   
 Overwriting the form is possible through overwriting the *form()* method - its definition can be found in the base class. The following options are available on particular line which is a command in automation:
 
-  ![AT_AUTO04.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO04.PNG)
+  ![AT_AUTO04.PNG](../img/docs/core_modules/automation/AT_AUTO04.PNG)
   
 'Show logs' is used to preview the results of commands operation, 'Run' activates the command at the interface level (adding to task execution queue), whereas 'edit' displays command's parameters edition form.

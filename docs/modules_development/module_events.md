@@ -1,10 +1,10 @@
-#Module Events  
+# Module Events  
 
 [TOC]
 
-Below is the list of available events connected with the components only. More information about event's operations in a system can be found in the [services](https://inbssoftware.atlassian.net/wiki/display/AS/Services) section.
+Below is the list of available events connected with the components only. More information about event's operations in a system can be found in the [services](../services/services.md) section.
 
-##Views  
+## Views  
 
 The creation of all the foo component's views:
 
@@ -18,7 +18,7 @@ The creation of the foo component's admin.foo.index view:
 composing: antares/foo::admin.foo.index
 ```
 
-##Component's Start  
+## Component's Start  
 
 A registration of a component (the **register()** method in a service provider):
 
@@ -32,7 +32,7 @@ Component's start (the **boot()** method in a service provider):
 extension.booted: components/foo
 ```
 
-##Placeholder  
+## Placeholder  
 
 The creation of the placeholder's view:
 
@@ -52,7 +52,7 @@ After the foo component's placeholder:
 placeholder.after.foo
 ```
 
-##Main Menu  
+## Main Menu  
 
 Before the creation of an element in the main menu:
 
@@ -66,7 +66,7 @@ After the creation of an element in the main menu:
 antares.ready: menu.after.foo
 ```
 
-##Breadcrumb  
+## Breadcrumb  
 
 Before the creation of an element in a breadcrumb:
 
@@ -92,7 +92,7 @@ After the creation of a submenu's element in a breadcrumb:
 antares.ready: menu.after.foo-add
 ```
 
-##Pane Menu  
+## Pane Menu  
 
 Before the creation of a menu's element in a pane:
 
@@ -130,7 +130,7 @@ After the creation of a submenu's element in a pane:
 antares.ready: menu.after.foo-item-submenu-element
 ```
 
-##Pane  
+## Pane  
 
 Before the creation of a pane's view:
 
@@ -144,7 +144,7 @@ After the creation of a pane's view:
 composing: antares/foundation::components.placeholder_left
 ```
 
-##Eloquent  
+## Eloquent  
 
 Before the start of the Foo component's Eloquent model:
 

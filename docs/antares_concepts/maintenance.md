@@ -84,39 +84,6 @@ Each of the component belonging to the application may be updated individually d
 
 The *core* catalogue, which is the core of application and which is placed in the src catalogue in the main application's path, is subordinate to the similar procedures.
 
-### Frontend  
-
-Frontend (determined by the javascript and css files) is subordinate to another procedure as in the case of components and modules. Only the command 'composer update' can currently download the latest frontend version. In order to execute the update by hand, download the repository determined in the composer.json file, e.g.:
-
-```php
-{
-    "type": "package",
-    "package": {
-        "name": "antares-frontend",
-        "version": "master",
-        "source": {
-            "url": "http://git.mglocal/billevo/antares-frontend.git",
-            "type": "git",
-            "reference": "master"
-        }
-    }
-}
-```
-
-The command:
-
-```console
-git clone http://git.mglocal/billevo/antares-frontend.git
-```
-
-will download project's repository to the catalogue antares-frontend. Copy the following source codes, from the downloaded repository:
-
-1. _dist
-2. assets
-3. gzip_assets
-
-to the public catalogue in the main application's path.
-
 ##Staging Environments  
 
 The application may work in several modes:
@@ -126,15 +93,13 @@ The application may work in several modes:
 3. testing
 4. staging (i.e. pre-production)
 
-Furthermore, within each mode the application may switch to the maintenance mode - more information can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Maintenance).
-
 The production mode (production server) is a mode and the server where client's application is maintained (the one which has the smallest number of submitted errors and the one where the system works in the real mode) is usually connected with it. On this server, the real clients data, not subordinate to test, are also maintained.
 
 **The development mode (developer server) is the programmers server and on this server the application's instance subordinate to development is maintained. The instance should have error reporting on and as a rule, should not be seen outside (beyond the area of the company's network) for safety's sake.**
 
-The staging mode is rendering the application available for the application tests. The constituent part are unit tests which should have the coverage not lower than 50% of the code. For more information about  testing environment operation click [here](https://inbssoftware.atlassian.net/wiki/display/AS/Test+benchmark). The server's configuration which is responsible for maintaining the application for the tests' needs, should be compatible with development server, that is the one where the programmer works. Preparation of the testing server is in fact associated with preparation of the [development server](https://inbssoftware.atlassian.net/wiki/display/AS/Installation). Such prepared testing environment should contain functioning application's version with the minimal number of errors and be subordinate to the rules determined within the process of Continuous Integration (CI). CI is a kind of practice used during the software's development, which depends on frequent, regular activation (integration) of current changes in the code to the main repository. The correctly made, constant integration should lead to:
+The staging mode is rendering the application available for the application tests. The constituent part are unit tests which should have the coverage not lower than 50% of the code. For more information about  testing environment operation click [here](../services/test_benchmark.md). The server's configuration which is responsible for maintaining the application for the tests' needs, should be compatible with development server, that is the one where the programmer works. Preparation of the testing server is in fact associated with preparation of the [development server](../installation/installation_guide.md). Such prepared testing environment should contain functioning application's version with the minimal number of errors and be subordinate to the rules determined within the process of Continuous Integration (CI). CI is a kind of practice used during the software's development, which depends on frequent, regular activation (integration) of current changes in the code to the main repository. The correctly made, constant integration should lead to:
 
 * the reduction of costs and the reduction of the amount of work necessary in combining the work made by different people,
 * earlier error detection.
 
-Within the work based on CI, the environment supporting realization is [Jenkins](https://inbssoftware.atlassian.net/wiki/display/MAN/How+to+install+Jenkins).
+Within the work based on CI, the environment supporting realization is [Travis CI](https://travis-ci.org).

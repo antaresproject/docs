@@ -1,14 +1,14 @@
-#Notifier  
+# Notifier  
 
 [TOC]
 
-##Definition  
+## Definition  
 
 Notifier is a set of tools supporting design of the notifications which are sent to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
 
-##Usage  
+## Usage  
 
-###E-mail  
+### E-mail  
 
 The adapter below is responsible for sending all e-mail notifications:
 
@@ -39,7 +39,7 @@ public function sendEmailNotification(){
 }
 ```
 
-In the case above the argument of anonymous funtion is '$m', which is Swiftmailer's object. In order to send a message the user's object should have 'email' attribute. It is also possible to send a message to many recipients:
+In the case above the argument of anonymous funtion is `$m`, which is Swiftmailer's object. In order to send a message the user's object should have 'email' attribute. It is also possible to send a message to many recipients:
 
 ```php
 $recipients=User::where('active',1)->get();
@@ -54,7 +54,7 @@ $m->to(['user.foo@example.com]);
 
 More information about the parameters of sending a message can be found in the [SwiftMailer](http://swiftmailer.org/) documentation which is used by Laravel.
 
-###Sms  
+### Sms  
 
 In the case of sms, the class is an adapter:
 
@@ -85,11 +85,11 @@ public function sendSmsNotification(){
 }
 ```
 
-In the case above user's object should have the 'phone' attribute. Similarly as in the case of e-mail it is possible to send an sms to many recipients and sending the message directely to the recipient's telephone number.
+In the case above user's object should have the `phone` attribute. Similarly as in the case of e-mail it is possible to send an sms to many recipients and sending the message directely to the recipient's telephone number.
 
-##Configuration  
+## Configuration  
 
-###E-mail  
+### E-mail  
 
 Configuration of the default adapter for sending e-mail messages is described in the configuration file in the following location:
 
@@ -125,15 +125,15 @@ On the basis of the aforementioned code you can notice that in order to send e-m
 /administrators/settings/mail
 ```
 
-  ![AT_NOTI01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/notifier/AT_NOTI01.PNG)
+![AT_NOTI01.PNG](../img/docs/services/notifier/AT_NOTI01.PNG)
   
-Saving the settings of the form above will cause filling the 'tbl_antares_options' table where global settings of the whole application are gathered. The default configuration is determined in configuration file of the '.env' environment or in the configuration file in the location:
+Saving the settings of the form above will cause filling the `tbl_antares_options` table where global settings of the whole application are gathered. The default configuration is determined in configuration file of the `.env` environment or in the configuration file in the location:
 
 ```console
 resources\config\mail.php
 ```
 
-###Sms  
+### Sms  
 
 Similarly to the case of e-mail the configuration of the sms adapter is located in the file:
 
@@ -212,4 +212,4 @@ Section responsible for sending settings is:
 ]
 ```
 
-More information about how notifications operate can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Notifications).
+More information about how notifications operate can be found [here](../core_modules/notifications.md).

@@ -1,12 +1,12 @@
-#Views  
+# Views  
 
 [TOC]
 
-##Menus  
+## Menus  
 
-###Main Menu  
+### Main Menu  
 
-####Attributes  
+#### Attributes  
 
 A structure of the class responsible for main menu's generation can be depicted in the following manner:
 
@@ -47,7 +47,7 @@ class FooMainMenu extends MenuHandler
     }
 
     /**
-     * acl access verification
+     * Acl access verification
      * 
      * @return bool
      */
@@ -68,7 +68,7 @@ Menu attribute consists of:
 
 Menu's parameters are constituents of the **Fluent** object. Thanks to such a solution there is a possibility for free parameters' manipulation.
 
-####Position  
+#### Position  
 
 The **getPositionAttribute()** method enables menu positioning within already existing main menu. 
 The following position's quantifiers can be distinguished:
@@ -77,7 +77,7 @@ The following position's quantifiers can be distinguished:
 '<:' - before the element  
 '^:' - inside the element (sub menu)  
   
-#####Behind  
+##### Behind  
 
 Position: 
 
@@ -89,9 +89,9 @@ public function getPositionAttribute()
 ```    
 Menu's position will be placed behind the 'reports' element, just like on the screen below:
 
-  ![AT_VIS01](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS01.png)
+  ![AT_VIS01](../img/docs/antares_concepts/views/AT_VIS01.png)
   
-#####Before  
+##### Before  
 
 Position:
 ```php
@@ -103,9 +103,9 @@ public function getPositionAttribute()
 
 Menu's position will be placed before the 'reports' element, just like on the screen below:
 
-  ![AT_VIS02](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS02.png)
+  ![AT_VIS02](../img/docs/antares_concepts/views/AT_VIS02.png)
   
-#####Inside (Submenu)  
+##### Inside (Submenu)  
 
 Position:
 ```php
@@ -116,9 +116,9 @@ public function getPositionAttribute()
 ```    
 The position will be placed inside the 'reports' element and is established as submenu:
 
-  ![AT_VIS03](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS03.png)
+  ![AT_VIS03](../img/docs/antares_concepts/views/AT_VIS03.png)
   
-#####Behind/ Before in Submenu  
+##### Behind/ Before in Submenu  
 
 Position:
 
@@ -130,9 +130,9 @@ public function getPositionAttribute()
 ```    
 The element will be placed behind the 'sandboxes' element, inside the 'system' menu:
 
-  ![AT_VIS04](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS04.png)
+  ![AT_VIS04](../img/docs/antares_concepts/views/AT_VIS04.png)
   
-#####Conditioning  
+##### Conditioning  
 
 There is a possibility of conditioning the menu position, depending on the installed components:
 
@@ -155,7 +155,7 @@ Another way is inside the **getPositionAttribute()** method:
 var_dump($this->handler->items());
 ```    
 
-#####Access' Control   
+##### Access' Control   
 
 The method:
 
@@ -167,28 +167,27 @@ public function authorize()
 ```    
 verifies whether the logged in user has access to the specific resource. If not, the menu's position will not be displayed.
 
-#####Translation of a Title  
+##### Translation of a Title  
 
 The method:
 
 ```php
 public function getTitleAttribute($value)
 {
-        return trans("antares/foo::messages.menu_" . $value);
+    return trans("antares/foo::messages.menu_" . $value);
 }
 ```
 
 will translate title's position according to the selected language.
 
-####Start  
+#### Start  
 
-To make the position visible, add menu's class to global configuration /resources/config/menu.php.
+To make the position visible, add menu's class to global configuration `/resources/config/menu.php`.
 This file is a general configuration created for the needs of custom solutions. 
 The content of the file:
 
 ```php
 <?php
-
 return [
     'antares.started: admin'                     => [
         \Antares\Foundation\Http\Handlers\DashboardMenu::class      => 1000,       
@@ -204,9 +203,9 @@ return [
 
 determines in which events in the system specific menu positions will be presented. The number being key's value is the priority - order of start.
 
-###Breadcrumbs Menu  
+### Breadcrumbs Menu  
 
-####Attributes  
+#### Attributes  
 
 Breadcrumb is a type of menu started during the 'composing' event. Syntactically, menu's class is very similar to the class from main menu. The differences rely on the form of start and attributes.
 
@@ -235,12 +234,13 @@ contains additional 'boot' attribute, defining start's parameters:
 * group - name of the group that has the menu presented within. This attribute is essential due to the fact that positions coming from other components can pin to a group.
 * on - name of a view identified with a menu means that during rendering of the view 'antares/foo::admin.foo.index' (composition) the menu must be started.
 
-####Submenu  
+#### Submenu  
 
 Adding a submenu within the breadcrumbs menu is associated with the 'handle' method, as in the example below:
 
 ```php
-	/**
+	
+    /**
      * The method released during the rendering of a view, adding and building menu as breadcrumbs submenu
      * 
      * @return void
@@ -264,7 +264,7 @@ Adding a submenu within the breadcrumbs menu is associated with the 'handle' met
 
 The method not only verifies whether the user has acces to the position, but also responds to adding a position.
 
-####Start  
+#### Start  
 
 The start is done through the agency of the code:
 
@@ -276,10 +276,10 @@ placed in the 'boot' method of the component's service provider.
 
 The efect of the created menu, is depicted by the picture below:
 
-  ![AT_VIS05](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS05.png)
+  ![AT_VIS05](../img/docs/antares_concepts/views/AT_VIS05.png)
 
 
-##Pane  
+## Pane  
 
 Pane is a type of a widget which can be placed in view's component. It enables for separation of view's section in order to separate the data section, separating one section from another, creating personalized menu for section etc.
 An example of implementation is the following:
@@ -295,7 +295,7 @@ class FooPane extends LeftPane
 {
 
     /**
-     * Kompozycja obiektu pane
+     * Pane composition
      *
      * @return void
      */
@@ -320,7 +320,7 @@ should be placed in service provider, in the 'boot' method and it is the start o
 
 **Result**:
 
-  ![AT_VIS06](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS06.png)
+  ![AT_VIS06](../img/docs/antares_concepts/views/AT_VIS06.png)
   
 The menu can be ascribed to the pane object and the example is the following:
 
@@ -347,11 +347,11 @@ The menu can be ascribed to the pane object and the example is the following:
 
 The effect:
 
-  ![AT_VIS07](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_concepts/views/AT_VIS07.png)
+  ![AT_VIS07](../img/docs/antares_concepts/views/AT_VIS07.png)
   
 Please remember that contents coming from other components and modules can be pinned to the pane objects.
 
-##Placeholder  
+## Placeholder  
 
 As opposed to pane type widget, the placeholder's task is to present partial type view in any place at the system. As opposed to the pane object, the example:
 
@@ -364,7 +364,7 @@ class FooPlaceholder
 {
 
     /**
-     * Kompozycja placeholdera
+     * Placeholder composition
      * 
      * @return void
      */
@@ -379,7 +379,7 @@ class FooPlaceholder
 }
 ```
 
-consist of the 'handle' method listening out for appearing of the right event and does not depend on the view which is being presented. The 'handle' method adds to the widget's object a new object of the 'placeholder' type and ascribes a name to it and value in the form of the view. If the event with an ascribed placeholder is picked out, the view will be rendered. Ascribing to an event is usually made in service provider:
+consist of the `handle` method listening out for appearing of the right event and does not depend on the view which is being presented. The 'handle' method adds to the widget's object a new object of the 'placeholder' type and ascribes a name to it and value in the form of the view. If the event with an ascribed placeholder is picked out, the view will be rendered. Ascribing to an event is usually made in service provider:
 
 ```php
     protected $listen = [
@@ -389,12 +389,12 @@ consist of the 'handle' method listening out for appearing of the right event an
 
 **The placeholder will be displayed in a place, where the helper twig will be placed:**
 
-```php
+```html
     {{ placeholder('foo') }}
 ```
 
 which will render the content declared by the 'handle' method. The effect:
 
-  ![AT_VIS08](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/antares_conceps/views/AT_VIS08.png)
+  ![AT_VIS08](../img/docs/antares_concepts/views/AT_VIS08.png)
   
-Please remember that the contents coming from other components and modules may be pinned to the 'placeholder' objects.
+Please remember that the contents coming from other components and modules may be pinned to the `placeholder` objects.

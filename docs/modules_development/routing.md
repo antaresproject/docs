@@ -1,17 +1,17 @@
-#Routing  
+# Routing  
 
 [TOC]
 
-To make a component work within its own routing, insert the configuration in the Service provider's 'boot' method. More information can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Service+Providers).
+To make a component work within its own routing, insert the configuration in the Service provider's 'boot' method. More information can be found [here](service_providers.md).
 
-##Frontend  
+## Frontend  
 
 If a component is using client's panel, it is good to split routers into two files, in order to increase readability. So, to exemplify a file defining frontal (client's) routing, may be the following:
 ```console
 frontend.php
 ```
 ```php
-    <?php
+<?php
      
     use Illuminate\Routing\Router;
      
@@ -22,7 +22,7 @@ frontend.php
     });
 ```
 
-The abovementioned definition will ascribe routing to the controller IndexController in the space Foo\Http\Controllers\IndexController. The following set of endpoints will be created:
+The abovementioned definition will ascribe routing to the controller `IndexController` in the space `Foo\Http\Controllers`. The following set of endpoints will be created:
 
 * /foo/index
 * /foo/show
@@ -30,13 +30,14 @@ The abovementioned definition will ascribe routing to the controller IndexContro
 * /foo/store
 * /foo/destroy
 
-##Backend  
+## Backend  
 
 ```console
 backend.php
 ```
-```php  
-  <?php
+```php
+  
+<?php
      
     use Illuminate\Routing\Router;
      
@@ -45,7 +46,7 @@ backend.php
     });
  ```
  
-The abovementioned definition will ascribe routing to the controller IndexController in the space Foo\Http\Controllers\Admin\IndexController. The following set of endpoints will be created:
+The abovementioned definition will ascribe routing to the controller `IndexController` in the space `Foo\Http\Controllers\Admin`. The following set of endpoints will be created:
 
 * /admin/foo/index
 * /admin/foo/show

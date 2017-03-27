@@ -1,12 +1,14 @@
-#Migrations  
+# Migrations  
 
 [TOC]
 
-##Basic Migration File  
+## Basic Migration File  
 
-The migration files do not need to be a part of a component if the component does not require appropriate structure in database to operate. More information about catalogues' structure for the migration files can be found [here](https://inbssoftware.atlassian.net/wiki/pages/createpage.action?spaceKey=AS&title=Creating+new+component&linkCreation=true&fromPageId=21856335).
+The migration files do not need to be a part of a component if the component does not require 
+appropriate structure in database to operate. More information about catalogues' structure 
+for the migration files can be found [here](../antares_concepts/core_&_files_structure.md).
 
-Example of use (file 2015_07_24_082030_foo_table):
+Example of use (`file 2015_07_24_082030_foo_table`):
 
 ```php
     <?php
@@ -52,16 +54,16 @@ Example of use (file 2015_07_24_082030_foo_table):
     }
 ```    
     
-* The 'up' method is responsible for creation of a structure and is launched during component's installation.
-* The 'down' method is responsible for removal of a structure and is launched during component's uninstall.
+* The *up* method is responsible for creation of a structure and is launched during component's installation.
+* The *down* method is responsible for removal of a structure and is launched during component's uninstall.
 
-##Structure's Import Based On The SQL File  
+## Structure's Import Based On The SQL File  
 
 In one of the migration files it is possible to determine any quantity of tables to create, therefore, it is possible to create any quantity of migration files.
 
 Sometimes, the process of creating migration files may become tiring because of the complex structure. In such a situation it is possible to import a scheme using sql files.
 
-Example of use (file 2015_07_24_082030_foo_schema.php):
+Example of use (`file 2015_07_24_082030_foo_schema.php`):
 
 ```php
     <?php
@@ -115,7 +117,7 @@ Example of use (file 2015_07_24_082030_foo_schema.php):
     }
 ```
 
-##ACL Migration File  
+## ACL Migration File  
 
 The task of ACL migration file is the arrangement of access rules facilitating the use of application's resources by different groups of users. The arrangement of rules are available directly after the component's installation.
 
@@ -164,14 +166,14 @@ The structure of such a file may be presented as below:
     }
 ```
 
-In the constructor of the migration class, creation of an object which will import the rules takes place. The 'up' method is responsible for the rules' import to the data base, whereas the 'down' method removes the rules. The 'up' method is done during the component's installation, whereas the 'down' method is applied while uninstalling. More information about the construction of the 'acl' method in the service provider, can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Service+Providers)
+In the constructor of the migration class, creation of an object which will import the rules takes place. The 'up' method is responsible for the rules' import to the data base, whereas the 'down' method removes the rules. The 'up' method is done during the component's installation, whereas the 'down' method is applied while uninstalling. More information about the construction of the 'acl' method in the service provider, can be found [here](service_providers.md)
 
-##Seeder  
+## Seeder  
 
 The seeder is responsible for filling the base's structure with data. It consists of two methods:
 
-* 'run' - responsible for adding the data, which is launched during the component's installation
-* 'down' - responsible for data removal, which is launched when the component is uninstalled
+* *run* - responsible for adding the data, which is launched during the component's installation
+* *down* - responsible for data removal, which is launched when the component is uninstalled
 
 An example of a solution:
 

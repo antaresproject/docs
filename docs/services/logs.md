@@ -1,4 +1,4 @@
-#Logs  
+# Logs  
 
 [TOC]
 
@@ -20,4 +20,4 @@ Details concerning the settings can be found in [documentation](https://laravel.
 storage\logs
 ```
 
-Loggers' operation is strictly connected with a component of the same name. More information can be found here.
+Loggers' operation is strictly connected with a component of the same name. More information can be found [here](../core_modules/logger.md).

@@ -1,4 +1,4 @@
-#Breadcrumbs  
+# Breadcrumbs  
 
 [TOC]
 
@@ -6,7 +6,7 @@ Breadcrumbs are the website's elements and their task is to facilitate the user'
 A class defining a new breadcrumb is the following:
 
 ```php
-    <?php
+<?php
      
     namespace Antares\Foo\Http\Breadcrumb;
      
@@ -82,11 +82,11 @@ public function index(Collection $collection)
 
 The result:
 
-  ![AT_BREAD1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD1.png)
+![AT_BREAD1](../img/docs/services/breadcrumbs/AT_BREAD1.png)
   
 For edition:
 
-  ![AT_BREAD2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD2.png)
+![AT_BREAD2](../img/docs/services/breadcrumbs/AT_BREAD2.png)
   
 The breadcrumbs configuration is in the following file:
 

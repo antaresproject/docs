@@ -1,10 +1,10 @@
-#Widget  
+# Widget  
 
 [TOC]
 
-##Introduction  
+## Introduction  
 
-###Basic Implementation  
+###  Basic Implementation  
 
 Widgets - objects in the application which (because of their behavior and functionality) are used for data presentation only. They work closely with user's interface. An example of a widget may be a table presenting users' list. Widget's property is the ability of being placed on any application's website. Widgets consist of attributes which determine their behavior in the interface space. An example of an attribute can be 'resizable' which determines whether a widget on a website will be calibrated or not. In the hierarchy of widget's structure the widget is placed the lowest. Widget template is above the widget and it determines the frames of presentation and widget's operation. This means that you can build for instance 10 different widgets with users' tables in the system but each one of them must inherit the widget template structure named 'Datatables'. Each widget may define its own layout which by default is ascribed by widget template. On the top of the widget hierarchy is an abstraction layer which determines common features and behaviors of all widgets in the system.
 Minimal structure of the class defining a widget:
@@ -38,9 +38,9 @@ class FooWidget extends AbstractWidget
 }
 ```
 
-The basic widget's structure consist of the 'render' method and the 'name' attribute. Both the attribute and the method are required for proper widget's interpretation as a specific type of object in the system. The name attribute should be unique within all widgets. The 'render' method is responsible for displaying the widget's content. 
+The basic widget's structure consist of the `render` method and the `name` attribute. Both the attribute and the method are required for proper widget's interpretation as a specific type of object in the system. The name attribute should be unique within all widgets. The `render` method is responsible for displaying the widget's content. 
 
-###Placing The Widget On A Website  
+### Placing The Widget On A Website  
 
 The widget described in the case above has to be added 'manually' on a website because it does not define property of automatic presentation. In order to add the widget, firstly, the view - which is responsible for displaying the website where the widget will be presented - must inherit from the 'widgetable' layout, so:
 
@@ -50,21 +50,21 @@ The widget described in the case above has to be added 'manually' on a website b
 {% endblock %}
 ```
 
-On the top of the website, the following button ![AT_WIDG01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG01.PNG) is available which opens the widget selection panel:
+On the top of the website, the following button ![AT_WIDG01.PNG](../img/docs/services/widget/AT_WIDG01.PNG) is available which opens the widget selection panel:
 
-  ![AT_WIDG02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG02.PNG)
+  ![AT_WIDG02.PNG](../img/docs/services/widget/AT_WIDG02.PNG)
   
 The 'Foo Widget' is avaialable as on the screen above. If you click the 'FW' picture (which stands for two first letters of the widget's name), the widget will be placed on the website as below:
 
-  ![AT_WIDG03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG03.PNG)
+  ![AT_WIDG03.PNG](../img/docs/services/widget/AT_WIDG03.PNG)
 
-It is worth noticing that pressing the ![AT_WIDG04.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG04.PNG) button enables widgets' edition on the website. Apart from adding the widgets it is also possible to change widget's parameters at any moment, so the widget shown above can be removed, its position may be changed or scaled, as presented below:
+It is worth noticing that pressing the ![AT_WIDG04.PNG](../img/docs/services/widget/AT_WIDG04.PNG) button enables widgets' edition on the website. Apart from adding the widgets it is also possible to change widget's parameters at any moment, so the widget shown above can be removed, its position may be changed or scaled, as presented below:
 
-  ![AT_WIDG05.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG05.PNG)
+  ![AT_WIDG05.PNG](../img/docs/services/widget/AT_WIDG05.PNG)
   
-Press the button labeled with the ![AT_WIDG06.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG06.PNG) icon in order to remove the widget from the website (which in turn will appear in widget's selection bar) whereas the ![AT_WIDG07.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG07.PNG) button enables widget's container size change.
+Press the button labeled with the ![AT_WIDG06.PNG](../img/docs/services/widget/AT_WIDG06.PNG) icon in order to remove the widget from the website (which in turn will appear in widget's selection bar) whereas the ![AT_WIDG07.PNG](../img/docs/services/widget/AT_WIDG07.PNG) button enables widget's container size change.
 
-###Placing The Widget On A Website (The Force Mode)  
+### Placing The Widget On A Website (The Force Mode)  
 
 The solution described in the previous paragraph enables dynamic widget management on the website. In case when it is necessary to determine the widgets permanently without the possibility of changing their parameters on user's website use the force mode. An example:
 
@@ -85,13 +85,13 @@ The solution described in the previous paragraph enables dynamic widget manageme
 
 The code above will generate the following website:
 
-  ![AT_WIDG08.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG08.PNG)
+  ![AT_WIDG08.PNG](../img/docs/services/widget/AT_WIDG08.PNG)
   
-The whole operation happens by means of 'widget_forced' twig engine extension. The 'widget_forced' function as a first argument takes the name of the widget in the form of underscore (that is Foo Widget => foo_widget), whereas the second argument are widgets' attributes. More information about widgets' attributes may be found [here](https://inbssoftware.atlassian.net/wiki/pages/createpage.action?spaceKey=AS&title=Atrybuty&linkCreation=true&fromPageId=21856275).
+The whole operation happens by means of `widget_forced` twig engine extension. The `widget_forced` function as a first argument takes the name of the widget in the form of underscore (that is Foo Widget => foo_widget), whereas the second argument are widgets' attributes. More information about widgets' attributes may be found [here](../core_modules/widgets.md).
 
-##Views  
+## Views  
 
-The method responsible for displaying widget's content is the '**render**' method. The method should respond with an object providing the '__toString' magic method or respond independently with a value of the 'String' type. Otherwise, the widget will not be displayed. The code in the example:
+The method responsible for displaying widget's content is the `render` method. The method should respond with an object providing the `__toString` magic method or respond independently with a value of the 'String' type. Otherwise, the widget will not be displayed. The code in the example:
 
 ```php
 public function render()
@@ -111,7 +111,7 @@ public function render()
 }
 ```
 
-will publish the content defined in the view 'antares/foo::widgets.foo'
+will publish the content defined in the view `antares/foo::widgets.foo`
 
 ```php
 antares/foo::widgets.foo
@@ -123,11 +123,11 @@ antares/foo::widgets.foo
 
 and add asset's file named 'widget_logic.js' which will be activated each time whenever the widget will be published. The effect:
 
-  ![AT_WIDG09.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG09.PNG)
+  ![AT_WIDG09.PNG](../img/docs/services/widget/AT_WIDG09.PNG)
   
-##Layouts  
+## Layouts  
 
-Each widget may use layout for wrapping the content presented by means of the 'render' method. Such solution makes the programmer free from necessity of repeating the same activities while generating the widget's content. Determining which layout will be used by the widget is possible through the 'template' parameter:
+Each widget may use layout for wrapping the content presented by means of the `render` method. Such solution makes the programmer free from necessity of repeating the same activities while generating the widget's content. Determining which layout will be used by the widget is possible through the `template` parameter:
 
 ```php
 /**
@@ -170,7 +170,7 @@ default/index.twig
 
 In the case shown above the 'dark' layout has been indicated and its use will display:
 
-  ![AT_WIDG09.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG09.PNG)
+  ![AT_WIDG09.PNG](../img/docs/services/widget/AT_WIDG09.PNG)
   
 The list of all available layouts is located inside the 'widgets' components, in the catalogue:
 
@@ -180,7 +180,7 @@ The list of all available layouts is located inside the 'widgets' components, in
 
 The files responsible for layouts are the index.twig files.
 
-###Creating Own Layout  
+### Creating Own Layout  
 
 In order to add your own layout go to the catalogue:
 
@@ -231,13 +231,13 @@ Once the manifest file is created, create the layout main file named index.twig.
 
 As a result it will display:
 
-  ![AT_WIDG10.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG10.PNG)
+  ![AT_WIDG10.PNG](../img/docs/services/widget/AT_WIDG10.PNG)
   
 In the case above the css inline has been applied for the needs of the code example only. In target solutions inline should not occur.
 
-##Configuration  
+## Configuration  
 
-###Title  
+### Title  
 
 To make the widget possess upper beam with a title it is necessary to set the attribute named 'titlable':
 
@@ -254,11 +254,11 @@ protected $attributes = [
 
 The attribute will cause widget's title display as in the example below:
 
-  ![AT_WIDG11.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG11.PNG)
+![AT_WIDG11.PNG](../img/docs/services/widget/AT_WIDG11.PNG)
   
-By default, the title's content will be downloaded from the 'name' parameter. However, if the 'title' parameter has been determined, the value of this parameter will be taken into consideration in the first place. More information about widget's attributes can be found [here](https://inbssoftware.atlassian.net/wiki/pages/createpage.action?spaceKey=AS&title=Atrybuty&linkCreation=true&fromPageId=21856275).
+By default, the title's content will be downloaded from the `name` parameter. However, if the 'title' parameter has been determined, the value of this parameter will be taken into consideration in the first place. More information about widget's attributes can be found [here](../core_modules/widgets.md).
 
-###Description  
+### Description  
 
 The parameter determines widget's description:
 
@@ -271,7 +271,7 @@ The parameter determines widget's description:
 public $description = 'Foo Ajax Widget Description';
 ```
 
-###Widget's Availability  
+### Widget's Availability  
 
 Widgets' configuration enables adapting the widget's structure and functionality to the demand in the system. Widget may take the following parameters:
 
@@ -286,7 +286,7 @@ protected $views = [
 ];
 ```
 
-The 'views' parameter determines on which 'views' the widget will be available. Such solution enables widget's availablity control by a module or a component or a programmer. In the aforementioned example during the 'index.twig' view presentation placed in the location 'src\components\foo\resources\views\admin\foo' the widget will appear in the upper widget selection beam. When this parameter is not determined it will be available in all views (the '*' value) by default. The 'disabled' parameter is connected with this one and it is the opposite of the 'views' parameter:
+The `views` parameter determines on which 'views' the widget will be available. Such solution enables widget's availablity control by a module or a component or a programmer. In the aforementioned example during the 'index.twig' view presentation placed in the location `src\components\foo\resources\views\admin\foo` the widget will appear in the upper widget selection beam. When this parameter is not determined it will be available in all views (the '*' value) by default. The 'disabled' parameter is connected with this one and it is the opposite of the `views` parameter:
 
 ```php
 /**
@@ -299,7 +299,7 @@ protected $disabled = [
 ];
 ```
 
-It will cause widget's availability deactivation during 'dashboard' view's rendering. Both parameters - the 'views' and the 'disabled' - will recognize the values of the 'wildcard' type, an example:
+It will cause widget's availability deactivation during 'dashboard' view's rendering. Both parameters - the `views` and the `disabled` - will recognize the values of the 'wildcard' type, an example:
 
 ```php
 /**
@@ -314,7 +314,7 @@ protected $views = [
 
 It will render the widget available only during the presentation of views which belong to the 'foo' component.
 
-##Attributes  
+## Attributes  
 
 Attributes enables being in control of widget's behavior on a website. The list of attributes:
 
@@ -339,7 +339,7 @@ Attributes enables being in control of widget's behavior on a website. The list 
 * manually_disabled
 * actions
 
-##Forms  
+## Forms  
 
 A widget may define forms belonging to website's presentation. This means that the whole content of which the website is composed may be dictated by widgets. An example of a widget with form's definition:
 
@@ -435,9 +435,9 @@ class FooWidget extends AbstractWidget
 
 Below - the effect:
 
-  ![AT_WIDG12.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG12.PNG)
+  ![AT_WIDG12.PNG](../img/docs/services/widget/AT_WIDG12.PNG)
   
-In other words, this is a form placed in a widget. Take note of form's layout syntax which is the file '**antares/foo::widgets.form**':
+In other words, this is a form placed in a widget. Take note of form's layout syntax which is the file `antares/foo::widgets.form`:
 
 ```html
 {% extends "antares/foundation::layouts.antares.partials.form.vertical" %}
@@ -466,7 +466,7 @@ In other words, this is a form placed in a widget. Take note of form's layout sy
 
 Form's layout inherits from the default layout and extends the individual sections in order to obtain proper appearance.
 
-###Validation  
+### Validation  
 
 A form located inside a widget may be validated. In order to achieve this goal you have to define form's validation rules, so:
 
@@ -480,7 +480,7 @@ $form->rules([
 ]);
 ```
 
-In the above-mentioned example form's action url address and the validation rules have been indicated. By means of the '**routes**' method it is possible to ascribe the answer once the form is sent, so:
+In the above-mentioned example form's action url address and the validation rules have been indicated. By means of the `routes` method it is possible to ascribe the answer once the form is sent, so:
 
 ```php
 /**
@@ -501,9 +501,9 @@ public static function routes()
 
 The effect:
 
-  ![AT_WIDG13.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG13.PNG)
+  ![AT_WIDG13.PNG](../img/docs/services/widget/AT_WIDG13.PNG)
   
-###Ajax Validation  
+### Ajax Validation  
 
 A form in a widget may use ajax validation. This is a desirable solution especially when there is more than one widget on a website. Ajax validation activation occurs by means of the code:
 
@@ -513,7 +513,7 @@ $form->ajaxable();
 
 Do not forget about proper form's data operation after the validation.
 
-###HTML5 Validation  
+### HTML5 Validation  
 
 The use of validation determined at the side of the browser is possible when the control's attributes are introduced in the first place, an example:
 
@@ -528,11 +528,11 @@ $fieldset->control('input:text', 'foo_text')
 
 The result:
 
-  ![AT_WIDG14.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG14.PNG)
+  ![AT_WIDG14.PNG](../img/docs/services/widget/AT_WIDG14.PNG)
   
 **It is not possible** to use both the ajax validation and the validation with the use of html5 attributes on one form.
 
-###Controls' Width Control  
+### Controls' Width Control  
 
 By means of well-matched classes which are used to determine the width of the container in which the control is placed it is possible to adapt widget's appearance for the needs of specification, so:
 
@@ -554,6 +554,6 @@ $fieldset->control('input:text', 'foo_text')
 
 It will create:
 
-  ![AT_WIDG15.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/widget/AT_WIDG15.PNG)
+  ![AT_WIDG15.PNG](../img/docs/services/widget/AT_WIDG15.PNG)
   
 
