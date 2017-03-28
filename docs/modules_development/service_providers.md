@@ -212,7 +212,7 @@ $messageTranslated = trans('antares/foo::messages.user_updated');
 ```
 
 The translator is searching for the file named as messages.php in the location `{$path}/resources/lang/<current_language_code>`. An example of the *messages.php* file:
-```console
+```bash
 /resources/lang/en/messages.php
 ```
 ```php
@@ -230,7 +230,7 @@ $this->addViewComponent($this->routeGroup, $this->routeGroup, __DIR__ . '/../res
 
 which will ascribe to the component the path where the *twig* view files will be read. Referring to, as well as rendering the view file is possible with the use of:
 
-```console
+```bash
 resources/views/index/index.twig
 ```
 

@@ -135,445 +135,446 @@ $form->fieldset('Fieldset two', function (Fieldset $fieldset) {
 
 The basic parameters of the fieldset are:
 
-* #### Fieldset Legend  
+#### Fieldset Legend  
 
-  A legend is visible above the fieldset in a view and determines the name of the controls' group:
+A legend is visible above the fieldset in a view and determines the name of the controls' group:
 
-  ```php
-  $fieldset->legend('Fieldset legend 1');
-  ```
+```php
+$fieldset->legend('Fieldset legend 1');
+```
 
-* #### Fieldset Layout  
+#### Fieldset Layout  
 
-  Layout determines fieldset's dedicated view:
+Layout determines fieldset's dedicated view:
 
-  ```php
-  $fieldset->layout('antares/foo::admin.partials._fieldset');
-  ```
-  
-  Therefore, the implementation above will cause the display of the following form:
+```php
+$fieldset->layout('antares/foo::admin.partials._fieldset');
+```
 
-  ![AT_FORMB02.PNG](../img/docs/services/form_builder/AT_FORMB02.PNG)
+Therefore, the implementation above will cause the display of the following form:
+
+![AT_FORMB02.PNG](../img/docs/services/form_builder/AT_FORMB02.PNG)
   
 ## Controls  
 
 The controls constitute form's areas (e.g. the *textarea* box). All the controls are invoked by means of the `control` method. The `control` method takes two attributes:
 
-* #### Structure  
+#### Structure  
 
-  ```php
-  $fieldset->control('select', 'name');
-  ```
-  The first one is type. The second one is name. Therefore, the code above will create:
+```php
+$fieldset->control('select', 'name');
+```
+The first one is type. The second one is name. Therefore, the code above will create:
 
-  ```html
-  <select name="name"></select>
-  ```
+```html
+<select name="name"></select>
+```
 
-* #### Attributes  
+#### Attributes  
 
-  Control's attributes are determined by means of the `attributes` method:
+Control's attributes are determined by means of the `attributes` method:
 
-  ```php
-  $fieldset->control('select', 'name')->attributes(['class' => 'foo-select']);
-  ```
-  Which in turn will create:
+```php
+$fieldset->control('select', 'name')->attributes(['class' => 'foo-select']);
+```
+Which in turn will create:
 
-  ```html
-  <select name="name" class="foo-select"></select>
-  ```
+```html
+<select name="name" class="foo-select"></select>
+```
 
-* #### Value  
-  The `value` method is used to grant value to the control that is filling the `value` attribute in html. An example:
+#### Value
+  
+The `value` method is used to grant value to the control that is filling the `value` attribute in html. An example:
 
-  ```php
-  $fieldset->control('input:text', 'text_field')->value('test');  
-  ```
+```php
+$fieldset->control('input:text', 'text_field')->value('test');  
+```
 
-  The html effect:
-  ```html
-  <input type="text" name="text_field" value="text" />
-  ```
+The html effect:
+```html
+<input type="text" name="text_field" value="text" />
+```
 
-* #### Label  
-  The `label` method is used to determine the name of the label belonging to area's structure:
-  ```php
-    $fieldset->control('select', 'select')->options([0 => 'Option 1', 1 => 'Option 2'])->attributes(['class' => 'foo-select'])->label('Foo select'); 
-  ```
+#### Label  
+The `label` method is used to determine the name of the label belonging to area's structure:
+```php
+$fieldset->control('select', 'select')->options([0 => 'Option 1', 1 => 'Option 2'])->attributes(['class' => 'foo-select'])->label('Foo select'); 
+```
 
-  It will create code's segment on the basis of defined by default control's view:
+It will create code's segment on the basis of defined by default control's view:
 
-  ```html
-  <div class="col-16 mb2">
-      <label for="select" class="form-block__name">Foo select</label>   
+```html
+<div class="col-16 mb2">
+  <label for="select" class="form-block__name">Foo select</label>   
+</div>
+<div class="col-16">
+  <div class="input-field input-field--desc">
+       <select class="foo-select" data-selectar="1" id="select" name="select"><option value="0">Option 1</option><option value="1">Option 2</option></select>
+       <div class="col-16"></div>
   </div>
-  <div class="col-16">
-      <div class="input-field input-field--desc">
-           <select class="foo-select" data-selectar="1" id="select" name="select"><option value="0">Option 1</option><option value="1">Option 2</option></select>
-           <div class="col-16"></div>
-      </div>
-  </div>
-  <span id="select_error" class="error col-13 col-mb-11"></span>
-  ```
+</div>
+<span id="select_error" class="error col-13 col-mb-11"></span>
+```
 
-* #### Wrapper  
+#### Wrapper  
 
-  The `wrapper` method is used to wrap the control's structure in additional html tag (div). An example: 
+The `wrapper` method is used to wrap the control's structure in additional html tag (div). An example: 
 
-  ```php
-  $fieldset->control('select', 'select')
-    ->options([0 => 'Option 1', 1 => 'Option 2'])
-    ->attributes(['class' => 'foo-select'])
-    ->label('Foo select')
-    ->wrapper(['class' => 'w100']);
-  ```
+```php
+$fieldset->control('select', 'select')
+->options([0 => 'Option 1', 1 => 'Option 2'])
+->attributes(['class' => 'foo-select'])
+->label('Foo select')
+->wrapper(['class' => 'w100']);
+```
 
-  It will wrap as below:
-    
-  ```html
-    <div class="w100">
-        <div class="col-16 mb2">
-            <label for="select" class="form-block__name">Foo select</label>   
-        </div>
-        <div class="col-16">
-            <div class="input-field input-field--desc">
-                <select class="foo-select" data-selectar="1" id="select" name="select"><option value="0">Option 1</option><option value="1">Option 2</option></select>
-                <div class="col-16"></div>
-            </div>
-        </div>
-        <span id="select_error" class="error col-13 col-mb-11"></span>
+It will wrap as below:
+
+```html
+<div class="w100">
+    <div class="col-16 mb2">
+        <label for="select" class="form-block__name">Foo select</label>   
     </div>
-  ```
+    <div class="col-16">
+        <div class="input-field input-field--desc">
+            <select class="foo-select" data-selectar="1" id="select" name="select"><option value="0">Option 1</option><option value="1">Option 2</option></select>
+            <div class="col-16"></div>
+        </div>
+    </div>
+    <span id="select_error" class="error col-13 col-mb-11"></span>
+</div>
+```
 
-  Keep in mind that css wxx classes (e.g. w100, w200) are used to control the width of the control's structure.
+Keep in mind that css wxx classes (e.g. w100, w200) are used to control the width of the control's structure.
 
 ### Types Of Controls  
 
-* #### Select  
+#### Select  
 
-  Parameters:
+Parameters:
+
+Options - contains a list of values ascribed to a control. It may contain a board as in the example below:
+
+```php
+$fieldset->control('select', 'select')->options(['option 1','option 2'])
+```
+It may contain the anonymous function and its task is to set the value (e.g. downloading the value from base):
+
+```php
+$fieldset->control('select', 'select')
+       ->options(function() {
+             return [0 => 'Option 1', 1 => 'Option 2'];
+        })
+       ->label('Foo Select')
+       ->wrapper(['class' => 'w200']);                                    
+```
+
+The effect is shown below:
+
+![AT_FORMB03.PNG](../img/docs/services/form_builder/AT_FORMB03.PNG)
   
-  Options - contains a list of values ascribed to a control. It may contain a board as in the example below:
+#### Textfield  
 
-  ```php
-  $fieldset->control('select', 'select')->options(['option 1','option 2'])
-  ```
-  It may contain the anonymous function and its task is to set the value (e.g. downloading the value from base):
+Textfield of the input:text type:
 
-  ```php
-  $fieldset->control('select', 'select')
-           ->options(function() {
-                 return [0 => 'Option 1', 1 => 'Option 2'];
-            })
-           ->label('Foo Select')
-           ->wrapper(['class' => 'w200']);                                    
-  ```
+```php
+$fieldset->control('input:text', 'foo_text')->label('Foo text')->attributes(['class' => 'foo-text'])->wrapper(['class' => 'w200']);
+```
+The effect:
 
-  The effect is shown below:
-
-  ![AT_FORMB03.PNG](../img/docs/services/form_builder/AT_FORMB03.PNG)
+![AT_FORMB04.PNG](../img/docs/services/form_builder/AT_FORMB04.PNG)
   
-* #### Textfield  
+#### Textarea  
 
-  Textfield of the input:text type:
+Textfield of the textarea type:
 
-  ```php
-  $fieldset->control('input:text', 'foo_text')->label('Foo text')->attributes(['class' => 'foo-text'])->wrapper(['class' => 'w200']);
-  ```
-  The effect:
+```php
+$fieldset->control('textarea', 'foo_textarea')
+       ->label('Foo textarea')
+       ->attributes(['class' => 'foo-text', 'rows' => 3, 'cols' => 10])
+       ->wrapper(['class' => 'w900']);
+```
 
-  ![AT_FORMB04.PNG](../img/docs/services/form_builder/AT_FORMB04.PNG)
+The effect:
+
+![AT_FORMB05.PNG](../img/docs/services/form_builder/AT_FORMB05.PNG)
   
-* #### Textarea  
+#### Checkbox  
 
-  Textfield of the textarea type:
+A control of the checkbox type, input:checkbox:
 
-  ```php
-  $fieldset->control('textarea', 'foo_textarea')
-           ->label('Foo textarea')
-           ->attributes(['class' => 'foo-text', 'rows' => 3, 'cols' => 10])
-           ->wrapper(['class' => 'w900']);
-  ```
+```php
+$fieldset->control('checkbox', 'foo_checkbox')
+       ->label('Foo checkbox')
+       ->attributes(['class' => 'foo-checkbox'])
+       ->value(1);                                
+```
 
-  The effect:
+The effect:
 
-  ![AT_FORMB05.PNG](../img/docs/services/form_builder/AT_FORMB05.PNG)
+![AT_FORMB06.PNG](../img/docs/services/form_builder/AT_FORMB06.PNG)
+
+Optionally it is possible to select the control:
+
+```php
+$fieldset->control('checkbox', 'foo_checkbox')
+       ->label('Foo checkbox')
+       ->attributes(['class' => 'foo-checkbox'])
+       ->value(1)
+       ->checked();                                
+```
+
+Multi checkboxes are characteristic for this type of areas:
+
+```php
+$fieldset->control('checkbox', 'foo_checkbox[]')
+       ->label('Option 1')
+       ->value(1)  
+       ->attributes(['class' => 'foo-checkbox']);
+ 
+$fieldset->control('checkbox', 'foo_checkbox[]')
+       ->label('Option 2')
+       ->value(2)
+       ->attributes(['class' => 'foo-checkbox']);                               
+```
+
+The effect:
+
+![AT_FORMB07.PNG](../img/docs/services/form_builder/AT_FORMB07.PNG)
   
-* #### Checkbox  
+#### Radio  
 
-  A control of the checkbox type, input:checkbox:
+Areas of the radio type, input:radio:
 
-  ```php
-  $fieldset->control('checkbox', 'foo_checkbox')
-           ->label('Foo checkbox')
-           ->attributes(['class' => 'foo-checkbox'])
-           ->value(1);                                
-  ```
+```php
+$fieldset->control('checkbox', 'foo_checkbox')
+       ->label('Foo checkbox')
+       ->value(1)
+       ->attributes(['class' => 'foo-checkbox']);                                
+```
 
-  The effect:
+The effect:
 
-  ![AT_FORMB06.PNG](../img/docs/services/form_builder/AT_FORMB06.PNG)
+![AT_FORMB08.PNG](../img/docs/services/form_builder/AT_FORMB08.PNG)
+
+Selection is done similarly as in the case of checkbox:
+
+```php
+$fieldset->control('checkbox', 'foo_checkbox')
+         ->label('Foo checkbox')
+         ->attributes(['class' => 'foo-checkbox'])
+         ->value(1)
+         ->checked();                                
+```
+
+The multi version:
+
+```php
+$fieldset->control('radio', 'foo_radio[]')
+       ->label('Foo radio 1')
+       ->attributes(['class' => 'foo-radio'])
+       ->value(1);
+ 
+$fieldset->control('radio', 'foo_radio[]')
+       ->label('Foo radio 2')
+       ->attributes(['class' => 'foo-radio'])
+       ->value(2);
+ 
+$fieldset->control('radio', 'foo_radio[]')
+       ->label('Foo radio 3')
+       ->attributes(['class' => 'foo-radio'])
+       ->value(3)
+       ->checked();         
+```
+
+The effect:
+
+![AT_FORMB09.PNG](../img/docs/services/form_builder/AT_FORMB09.PNG)
   
-  Optionally it is possible to select the control:
+Specific type of a radio control is a form containing buttons instead of options. Definition of this type of control is described below:
 
-  ```php
-  $fieldset->control('checkbox', 'foo_checkbox')
-           ->label('Foo checkbox')
-           ->attributes(['class' => 'foo-checkbox'])
-           ->value(1)
-           ->checked();                                
-  ```
+```php
+$fieldset->control('radio_btns', 'name')
+       ->label('Radio Buttons')
+       ->options(['0' => 'Element 1', '1' => 'Element 2', '2' => 'Element 3', '3' => 'Element 4'])
+       ->value('1');         
+```
 
-  Multi checkboxes are characteristic for this type of areas:
+The result will be the following:
 
-  ```php
-  $fieldset->control('checkbox', 'foo_checkbox[]')
-           ->label('Option 1')
-           ->value(1)  
-           ->attributes(['class' => 'foo-checkbox']);
-     
-  $fieldset->control('checkbox', 'foo_checkbox[]')
-           ->label('Option 2')
-           ->value(2)
-           ->attributes(['class' => 'foo-checkbox']);                               
-  ```
-
-  The effect:
-
-  ![AT_FORMB07.PNG](../img/docs/services/form_builder/AT_FORMB07.PNG)
+![AT_FORMB10.PNG](../img/docs/services/form_builder/AT_FORMB10.PNG)
   
-* #### Radio  
+#### Tabular Inputs  
 
-  Areas of the radio type, input:radio:
+It is possible to group the controls on the basis of the control's 'name' attribute. Here is an example:
 
-  ```php
-  $fieldset->control('checkbox', 'foo_checkbox')
-           ->label('Foo checkbox')
-           ->value(1)
-           ->attributes(['class' => 'foo-checkbox']);                                
-  ```
+```php
+$fieldset->control('input:text', 'text[foo][]')
+         ->label('Foo text 1')
+         ->attributes(['class' => 'foo-radio']);
+ 
+$fieldset->control('input:text', 'text[foo][]')
+         ->label('Foo text 2')
+         ->attributes(['class' => 'foo-radio']);
+       
+$fieldset->control('checkbox', 'checkbox[foo][]')
+         ->label('Foo checkbox 1')
+         ->attributes(['class' => 'foo-radio'])
+         ->value(1);
+ 
+$fieldset->control('checkbox', 'checkbox[foo][]')
+         ->label('Foo checkbox 2')
+         ->attributes(['class' => 'foo-radio'])
+         ->value(2);                                
+```
 
-  The effect:
+The effect:
 
-  ![AT_FORMB08.PNG](../img/docs/services/form_builder/AT_FORMB08.PNG)
-
-  Selection is done similarly as in the case of checkbox:
-
-    ```php
-    $fieldset->control('checkbox', 'foo_checkbox')
-             ->label('Foo checkbox')
-             ->attributes(['class' => 'foo-checkbox'])
-             ->value(1)
-             ->checked();                                
-    ```
-    
-    The multi version:
-
-  ```php
-  $fieldset->control('radio', 'foo_radio[]')
-           ->label('Foo radio 1')
-           ->attributes(['class' => 'foo-radio'])
-           ->value(1);
-     
-  $fieldset->control('radio', 'foo_radio[]')
-           ->label('Foo radio 2')
-           ->attributes(['class' => 'foo-radio'])
-           ->value(2);
-     
-  $fieldset->control('radio', 'foo_radio[]')
-           ->label('Foo radio 3')
-           ->attributes(['class' => 'foo-radio'])
-           ->value(3)
-           ->checked();         
-  ```
-
-  The effect:
-    
-  ![AT_FORMB09.PNG](../img/docs/services/form_builder/AT_FORMB09.PNG)
-      
-  Specific type of a radio control is a form containing buttons instead of options. Definition of this type of control is described below:
-
-  ```php
-  $fieldset->control('radio_btns', 'name')
-           ->label('Radio Buttons')
-           ->options(['0' => 'Element 1', '1' => 'Element 2', '2' => 'Element 3', '3' => 'Element 4'])
-           ->value('1');         
-  ```
-
-  The result will be the following:
-
-  ![AT_FORMB10.PNG](../img/docs/services/form_builder/AT_FORMB10.PNG)
+![AT_FORMB11.PNG](../img/docs/services/form_builder/AT_FORMB11.PNG)
   
-* #### Tabular Inputs  
+The form will send data divided in a tabular manner, an example:
 
-    It is possible to group the controls on the basis of the control's 'name' attribute. Here is an example:
-    
-    ```php
-    $fieldset->control('input:text', 'text[foo][]')
-             ->label('Foo text 1')
-             ->attributes(['class' => 'foo-radio']);
-     
-    $fieldset->control('input:text', 'text[foo][]')
-             ->label('Foo text 2')
-             ->attributes(['class' => 'foo-radio']);
-           
-    $fieldset->control('checkbox', 'checkbox[foo][]')
-             ->label('Foo checkbox 1')
-             ->attributes(['class' => 'foo-radio'])
-             ->value(1);
-     
-    $fieldset->control('checkbox', 'checkbox[foo][]')
-             ->label('Foo checkbox 2')
-             ->attributes(['class' => 'foo-radio'])
-             ->value(2);                                
-    ```
-    
-    The effect:
-    
-    ![AT_FORMB11.PNG](../img/docs/services/form_builder/AT_FORMB11.PNG)
-      
-    The form will send data divided in a tabular manner, an example:
-    
-    ```php
-    [text] => Array
-            (
-                [foo] => Array(
-                        [0] => just test
-                        [1] =>
-                    )
-     
-            )
-    [checkbox] => Array
-            (
-                [foo] => Array
-                    (
-                        [0] => 1
-                    )
-     
-            )        
-    ```
+```php
+[text] => Array
+        (
+            [foo] => Array(
+                    [0] => just test
+                    [1] =>
+                )
+ 
+        )
+[checkbox] => Array
+        (
+            [foo] => Array
+                (
+                    [0] => 1
+                )
+ 
+        )        
+```
 
-* #### Dropzone  
+#### Dropzone  
 
-    Dropzone is an area used to add files. It uses the well-known javascript library named as [dropzone](http://www.dropzonejs.com). The use:
-    
-    ```php
-    $attributes = [
-        "container"       => "dropzoneLogo",
-        "paramName"       => "logo",
-        'thumbnailWidth'  => 220,
-        'thumbnailHeight' => 121,
-        "url"             => handles("antares::foo/upload"),
-        'destination'     => public_path('img/logos'),
-        'rules'           => [
-            "acceptedFiles" => ['jpg', 'png', 'jpeg'],
-            "maxFilesize"   => 9.76,
-            "minFilesize"   => 0.0009,
-    ]];
-     
-    $fieldset->control('dropzone', $attributes['container'])
-            ->attributes($attributes)
-            ->label('Logo')
-            ->value(public_path('img/logos/foo.png'));        
-    ```
-    
-    Attributes are the reflection of the parameters described in the [dropzone documentation](http://www.dropzonejs.com/#configuration). Furthermore, the 'container' attribute determines id diva used by the dropzone. It is important because of the possibility of having many dropzone instances on a single website. By default, the control's structure uses the view's file from the location: antares/foundation::widgets.forms.dropzone. If there is a necessity of defining another dropzone container appearance, it is possible to determine your own view by adding the 'view' attribute. In addition to this, it would be possible to determine the behavior if the file's upload had succeeded, so:
-    
-    ```php
-    $attributes = [
-        "container"       => "dropzoneLogo",
-        "paramName"       => "logo",
-        'thumbnailWidth'  => 220,
-        'thumbnailHeight' => 121,
-        "url"             => handles("antares::foo/upload"),
-        'destination'     => public_path('img/logos'),
-        'rules'           => [
-            "acceptedFiles" => ['jpg', 'png', 'jpeg'],
-            "maxFilesize"   => 9.76,
-            "minFilesize"   => 0.0009,
-        ],
-        'view'=>'antares/foo::partials._dropzone',
-        'onSuccess'       => '$('.main-sidebar .main-sidebar__logo').css('background-image','url(/img/logos/'+response.path+')');',
-    ];
-     
-    $fieldset->control('dropzone', $attributes['container'])
-            ->attributes($attributes)
-            ->label('Logo');        
-    ```
-    
-    The implementation above gives the following result:
-    
-    ![AT_FORMB12.PNG](../img/docs/services/form_builder/AT_FORMB12.PNG)
-      
-    After the upload:
-    
-    ![AT_FORMB13.PNG](../img/docs/services/form_builder/AT_FORMB13.PNG)
+Dropzone is an area used to add files. It uses the well-known javascript library named as [dropzone](http://www.dropzonejs.com). The use:
+
+```php
+$attributes = [
+    "container"       => "dropzoneLogo",
+    "paramName"       => "logo",
+    'thumbnailWidth'  => 220,
+    'thumbnailHeight' => 121,
+    "url"             => handles("antares::foo/upload"),
+    'destination'     => public_path('img/logos'),
+    'rules'           => [
+        "acceptedFiles" => ['jpg', 'png', 'jpeg'],
+        "maxFilesize"   => 9.76,
+        "minFilesize"   => 0.0009,
+]];
+ 
+$fieldset->control('dropzone', $attributes['container'])
+        ->attributes($attributes)
+        ->label('Logo')
+        ->value(public_path('img/logos/foo.png'));        
+```
+
+Attributes are the reflection of the parameters described in the [dropzone documentation](http://www.dropzonejs.com/#configuration). Furthermore, the 'container' attribute determines id diva used by the dropzone. It is important because of the possibility of having many dropzone instances on a single website. By default, the control's structure uses the view's file from the location: antares/foundation::widgets.forms.dropzone. If there is a necessity of defining another dropzone container appearance, it is possible to determine your own view by adding the 'view' attribute. In addition to this, it would be possible to determine the behavior if the file's upload had succeeded, so:
+
+```php
+$attributes = [
+    "container"       => "dropzoneLogo",
+    "paramName"       => "logo",
+    'thumbnailWidth'  => 220,
+    'thumbnailHeight' => 121,
+    "url"             => handles("antares::foo/upload"),
+    'destination'     => public_path('img/logos'),
+    'rules'           => [
+        "acceptedFiles" => ['jpg', 'png', 'jpeg'],
+        "maxFilesize"   => 9.76,
+        "minFilesize"   => 0.0009,
+    ],
+    'view'=>'antares/foo::partials._dropzone',
+    'onSuccess'       => '$('.main-sidebar .main-sidebar__logo').css('background-image','url(/img/logos/'+response.path+')');',
+];
+ 
+$fieldset->control('dropzone', $attributes['container'])
+        ->attributes($attributes)
+        ->label('Logo');        
+```
+
+The implementation above gives the following result:
+
+![AT_FORMB12.PNG](../img/docs/services/form_builder/AT_FORMB12.PNG)
   
-* #### Remote Select  
+After the upload:
 
-    Remote Select is used to build the controls of the select type with independently obtained values (ajax). An example of implementation:
-    
-    ```php
-    $fieldset->control('remote_select', 'select_name')
-             ->label('Remote Select')
-             ->options([
-                ['0' => 'please select option...']
-             ])
-             ->attributes([
-                'fieldname'     => 'fullname',
-                'id'            => 'select-infinity',
-                'options'       => ['placeholder' => 'Search for a foo ...'],
-                'pluginOptions' => [
-                    'allowClear'              => true,
-                    'minimumInputLength'      => 1,
-                    'minimumResultsForSearch' => 'Infinity',
-                    'ajax'                    => [
-                        'url'      => handles('antares/foo::elements'),
-                        'dataType' => 'json',
-                        'delay'    => 250,
-                        'cache'    => true
-                    ],
+![AT_FORMB13.PNG](../img/docs/services/form_builder/AT_FORMB13.PNG)
+  
+#### Remote Select  
+
+Remote Select is used to build the controls of the select type with independently obtained values (ajax). An example of implementation:
+
+```php
+$fieldset->control('remote_select', 'select_name')
+         ->label('Remote Select')
+         ->options([
+            ['0' => 'please select option...']
+         ])
+         ->attributes([
+            'fieldname'     => 'fullname',
+            'id'            => 'select-infinity',
+            'options'       => ['placeholder' => 'Search for a foo ...'],
+            'pluginOptions' => [
+                'allowClear'              => true,
+                'minimumInputLength'      => 1,
+                'minimumResultsForSearch' => 'Infinity',
+                'ajax'                    => [
+                    'url'      => handles('antares/foo::elements'),
+                    'dataType' => 'json',
+                    'delay'    => 250,
+                    'cache'    => true
                 ],
-    ]);
-    ```
-    
-    The `fieldname` attribute determines the name of the search field. If it is not determined, the name parameter is used by default that is `select_name` in the case above. The remaining parameters of use are in accord with the parameters which are used by the '**select2**' javascript library. The description of parameters can be found in the [link](https://select2.github.io/examples.html#data-ajax). The effect of the code shown in the last example:
-    
-    ![AT_FORMB14.PNG](../img/docs/services/form_builder/AT_FORMB14.PNG)
+            ],
+]);
+```
+
+The `fieldname` attribute determines the name of the search field. If it is not determined, the name parameter is used by default that is `select_name` in the case above. The remaining parameters of use are in accord with the parameters which are used by the '**select2**' javascript library. The description of parameters can be found in the [link](https://select2.github.io/examples.html#data-ajax). The effect of the code shown in the last example:
+
+![AT_FORMB14.PNG](../img/docs/services/form_builder/AT_FORMB14.PNG)
   
-* #### Ckeditor  
+#### Ckeditor  
 
-    Ckeditor is a complex editor of the '**wysiwyg**' type. Use the code below:
-    
-    ```php
-    $fieldset->control('ckeditor', 'content')
-             ->label('Foo content')
-             ->attributes(['id' => 'foo-content']);        
-    ```
-    
-    To generate the following textfield:
-    
-    ![AT_FORMB15.PNG](../img/docs/services/form_builder/AT_FORMB15.PNG)
-      
-    The parameters of this control are identical with parameters of the textarea field.
+Ckeditor is a complex editor of the '**wysiwyg**' type. Use the code below:
 
-* #### Customfields  
+```php
+$fieldset->control('ckeditor', 'content')
+         ->label('Foo content')
+         ->attributes(['id' => 'foo-content']);        
+```
 
-    It is possible to create fully dedicated structure inside a form. The code:
-    
-    ```php
-    $fieldset->control('placeholder', 'custom_field')
-             ->field(function() {
-                return '<div class="col-group">'
-                        . '<div class="col-16">' . '<input type="text" name="foo_customfield" />' . '</div>'
-                        . '<div class="col-16">' . app('html')->link(handles("#"), 'Custom Field') . '</div>'
-                        . '</div>';
-             });        
-    ```
-    
-    will create:
-    
-    ![AT_FORMB16.PNG](../img/docs/services/form_builder/AT_FORMB16.PNG)
+To generate the following textfield:
+
+![AT_FORMB15.PNG](../img/docs/services/form_builder/AT_FORMB15.PNG)
+  
+The parameters of this control are identical with parameters of the textarea field.
+
+#### Customfields  
+
+It is possible to create fully dedicated structure inside a form. The code:
+
+```php
+$fieldset->control('placeholder', 'custom_field')
+         ->field(function() {
+            return '<div class="col-group">'
+                    . '<div class="col-16">' . '<input type="text" name="foo_customfield" />' . '</div>'
+                    . '<div class="col-16">' . app('html')->link(handles("#"), 'Custom Field') . '</div>'
+                    . '</div>';
+         });        
+```
+
+will create:
+
+![AT_FORMB16.PNG](../img/docs/services/form_builder/AT_FORMB16.PNG)
   
 ##Form Layouts  
 

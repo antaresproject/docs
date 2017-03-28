@@ -93,7 +93,7 @@ In the case above user's object should have the `phone` attribute. Similarly as 
 
 Configuration of the default adapter for sending e-mail messages is described in the configuration file in the following location:
 
-```console
+```bash
 core\notifier\resources\config\config.php
 ```
 
@@ -121,7 +121,7 @@ Sections responsible for configuration are:
 
 On the basis of the aforementioned code you can notice that in order to send e-mail messages and system notifications EmailAdapter is being used. Such configuration enables upgrading the system with other adapters. Furthermore, EmailAdapter uses outgoing email server configuration and its settings can be found at the address:
 
-```console
+```bash
 /administrators/settings/mail
 ```
 
@@ -129,7 +129,7 @@ On the basis of the aforementioned code you can notice that in order to send e-m
   
 Saving the settings of the form above will cause filling the `tbl_antares_options` table where global settings of the whole application are gathered. The default configuration is determined in configuration file of the `.env` environment or in the configuration file in the location:
 
-```console
+```bash
 resources\config\mail.php
 ```
 
@@ -137,7 +137,7 @@ resources\config\mail.php
 
 Similarly to the case of e-mail the configuration of the sms adapter is located in the file:
 
-```console
+```bash
 core\notifier\resources\config\config.php
 ```
 

@@ -1,6 +1,5 @@
 # Breadcrumbs  
 
-[TOC]
 
 Breadcrumbs are the website's elements and their task is to facilitate the user's navigation at the website. Thanks to the additional navigation in the form of **breadcrumbs** the user can see in which service's section he is located and without any problem he may return to the superior website's section.
 A class defining a new breadcrumb is the following:

@@ -6,7 +6,7 @@
 
 Control is a component for users' resources rights service. The panel is available at the address below:
 
-```console
+```bash
 /{area}/control/roles/index
 ```
 

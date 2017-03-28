@@ -81,7 +81,7 @@ protected $auditableTypes = ['created', 'saved', 'deleted'];
 
 By default, the content of the executed action is subordinate to trial of translation on the basis of the language file found in the location:
 
-```console
+```bash
 src\components\logger\resources\lang\en\operations.php
 ```
 

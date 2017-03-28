@@ -140,7 +140,7 @@ public $template = 'dark';
 
 Usually the 'default' layout is used and its structure is the following:
 
-```console
+```bash
 default/index.twig
 ```
 
@@ -174,7 +174,7 @@ In the case shown above the 'dark' layout has been indicated and its use will di
   
 The list of all available layouts is located inside the 'widgets' components, in the catalogue:
 
-```console
+```bash
 \src\components\widgets\resources\views\templates
 ```
 
@@ -184,13 +184,13 @@ The files responsible for layouts are the index.twig files.
 
 In order to add your own layout go to the catalogue:
 
-```console
+```bash
 \src\components\widgets\resources\views\templates
 ```
 
 and create a subcatalogue which has a name adequate to the name of the layout. Create a manifest file (manifest.json) inside the created catalogue, an example:
 
-```console
+```bash
 \src\components\widgets\resources\views\templates\foo\index.twig
 ```
 
@@ -216,7 +216,7 @@ Description of the parameters:
 
 Once the manifest file is created, create the layout main file named index.twig. Here is an illustrative structure of such a file:
 
-```console
+```bash
 \src\components\widgets\resources\views\templates\foo\index.twig
 ```
 

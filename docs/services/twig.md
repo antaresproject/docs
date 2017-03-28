@@ -10,7 +10,7 @@ Twig is a system of templates that support designing the presentation layer of a
 
 The configuration file which is responsible for the twig's setup can be found in the location:
 
-```console
+```bash
 resources\config\twigbridge.php
 ```
 
@@ -20,264 +20,264 @@ Implementation in the system is using a [vendor](https://github.com/rcrowe/TwigB
 
 To meet the requirements, the following extensions are available in the system:
 
-* ### assetm  
+### assetm  
 
-    ```php
-    assetm('jquery','https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js')
-    ```    
-    Provides assets' operation in application's head section. The code causes adding a jquery gripper to the head section in the application. More information about the assets can be found [here](assets.md).
+```php
+assetm('jquery','https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js')
+```    
+Provides assets' operation in application's head section. The code causes adding a jquery gripper to the head section in the application. More information about the assets can be found [here](assets.md).
 
-* ### profile_picture  
+### profile_picture  
 
-    ```php
-    profile_picture($email, $width = 40, $height = 40)
-    ```
-    
-    Displays gravatar ascribed to an e-mail address. Synonym of extension is also 'gravatar'.
+```php
+profile_picture($email, $width = 40, $height = 40)
+```
 
-* ### extension_active  
+Displays gravatar ascribed to an e-mail address. Synonym of extension is also 'gravatar'.
 
-    ```php
-    extension_active($name)
-    ```
-    
-    Verifies whether a module is installed or active.
+### extension_active  
 
-* ### memorize  
+```php
+extension_active($name)
+```
 
-    ```php
-    memorize($key,$default)
-    ```
-    
-    Downloads the value to the one ascribed to the $key key from application's main memory.
+Verifies whether a module is installed or active.
 
-* ### view  
+### memorize  
 
-    ```php
-    view($view = null, $data = [], $mergeData = [])
-    ```
-    
-    Builds view's object, an activity identical with Laravel's helper view.
+```php
+memorize($key,$default)
+```
 
-* ### base_path  
+Downloads the value to the one ascribed to the $key key from application's main memory.
 
-    ```php
-    base_path($path=null)
-    ```
-    
-    Provides an absolute path to the application.
+### view  
 
-* ### unset  
+```php
+view($view = null, $data = [], $mergeData = [])
+```
 
-    ```php
-    unset($data, $keynames)
-    ```
-    
-    Removes the keys determined in `$keynames` from `$data` board.
+Builds view's object, an activity identical with Laravel's helper view.
 
-* ### handles  
+### base_path  
 
-    ```php
-    handles($url, $attributes = null)
-    ```
-    
-    Provides wrapped url address which is recognizable in the system.
+```php
+base_path($path=null)
+```
 
-* ### call_user_func  
+Provides an absolute path to the application.
 
-    ```php
-    call_user_func($callable, $row)
-    ```
-    
-    Synonym of the php call_user_func function.
+### unset  
 
-* ### fluent  
+```php
+unset($data, $keynames)
+```
 
-    ```php
-    fluent($arguments)
-    ```
-    
-    Creates Laravel's fluent object.
+Removes the keys determined in `$keynames` from `$data` board.
 
-* ### set_meta  
+### handles  
 
-    ```php
-    set_meta($name)
-    ```
-    
-    Sets meta tags in application's head section.
+```php
+handles($url, $attributes = null)
+```
 
-* ### get_meta  
+Provides wrapped url address which is recognizable in the system.
 
-    ```php
-    get_meta($name)
-    ```
-    
-    Downloads meta tags in application's head section.
+### call_user_func  
 
-* ### placeholder  
+```php
+call_user_func($callable, $row)
+```
 
-    ```php
-    placeholder($name)
-    ```
-    
-    It is responsible for injecting placeholder's object into the view. More information about placeholders can be found [here](../core_modules/widgets.md).
+Synonym of the php call_user_func function.
 
-* ### closure  
+### fluent  
 
-    ```php
-    closure($closure)
-    ```
-    
-    Starts the anonymous function.
+```php
+fluent($arguments)
+```
 
-* ###can  
+Creates Laravel's fluent object.
 
-    ```php
-    can($resourceName)
-    ```
-    
-    Verifies whether the currently logged in user has access to the resource determined in `$resourceName`.
+### set_meta  
 
-* ### has_errors  
+```php
+set_meta($name)
+```
 
-    ```php
-    has_error($errors, $control)
-    ```
-    
-    Verifies whether the `$control` control has forms' errors transferred in the $errors board.
+Sets meta tags in application's head section.
 
-* ### event  
+### get_meta  
 
-    ```php
-    event($name)
-    ```
-    
-    Starts the event on the view level.
+```php
+get_meta($name)
+```
 
-* ### event_gridable  
+Downloads meta tags in application's head section.
 
-    ```php
-    event_gridable()
-    ```
-    
-    Starts the event `widgets:render.{path}.right` during widget generation. It is used to fill optionally the widget's content.
+### placeholder  
 
-* ### control_error  
+```php
+placeholder($name)
+```
 
-    ```php
-    control_error($errors, $control)
-    ```
-    
-    Displays form's errors which are ascribed to the `$control` control on the basis of the `$errors` board.
+It is responsible for injecting placeholder's object into the view. More information about placeholders can be found [here](../core_modules/widgets.md).
 
-* ### format_x_days  
+### closure  
 
-    ```php
-    format_x_days($date, $html = true)
-    ```
-    
-    Displays date in the 'humanized' format. It uses the [helper](formatters.md).
+```php
+closure($closure)
+```
 
-* ### hostname  
+Starts the anonymous function.
 
-    ```php
-    hostname()
-    ```
-    
-    Provides a name of the application's host.
+###can  
 
-* ### user_meta  
+```php
+can($resourceName)
+```
 
-    ```php
-    user_meta($name, $default = null)
-    ```
-    
-    Provides metadata, ascribed to the $name key, of the currently logged in user.
+Verifies whether the currently logged in user has access to the resource determined in `$resourceName`.
 
-* ### isAjaxRequest  
+### has_errors  
 
-    ```php
-    isAjaxRequest()
-    ```
-    
-    Provides information whether the request which has been sent from a browser is an ajax request.
+```php
+has_error($errors, $control)
+```
 
-* ### anchor  
+Verifies whether the `$control` control has forms' errors transferred in the $errors board.
 
-    ```php
-    anchor($url, $title, $attributes = [])
-    ```
-    
-    Provides the html reference to the address defined in the `$url` parameter.
+### event  
 
-* ### url_external  
+```php
+event($name)
+```
 
-    ```php
-    url_external($to)
-    ```
-    
-    Provides the url address containing the domain connected with the application.
+Starts the event on the view level.
 
-* ### remote_select  
+### event_gridable  
 
-    ```php
-    remote_select($params = null)
-    ```
-    
-    Provides the wrapped select control in the form of html. More information about the control's structure can be found [here](form_builder.md).
+```php
+event_gridable()
+```
 
-* ### tooltip  
+Starts the event `widgets:render.{path}.right` during widget generation. It is used to fill optionally the widget's content.
 
-    ```php
-    tooltip($params = null)
-    ```
-    
-    Provides the html containing the zmdi-info-outline information icon with tooltip.
+### control_error  
+
+```php
+control_error($errors, $control)
+```
+
+Displays form's errors which are ascribed to the `$control` control on the basis of the `$errors` board.
+
+### format_x_days  
+
+```php
+format_x_days($date, $html = true)
+```
+
+Displays date in the 'humanized' format. It uses the [helper](formatters.md).
+
+### hostname  
+
+```php
+hostname()
+```
+
+Provides a name of the application's host.
+
+### user_meta  
+
+```php
+user_meta($name, $default = null)
+```
+
+Provides metadata, ascribed to the $name key, of the currently logged in user.
+
+### isAjaxRequest  
+
+```php
+isAjaxRequest()
+```
+
+Provides information whether the request which has been sent from a browser is an ajax request.
+
+### anchor  
+
+```php
+anchor($url, $title, $attributes = [])
+```
+
+Provides the html reference to the address defined in the `$url` parameter.
+
+### url_external  
+
+```php
+url_external($to)
+```
+
+Provides the url address containing the domain connected with the application.
+
+### remote_select  
+
+```php
+remote_select($params = null)
+```
+
+Provides the wrapped select control in the form of html. More information about the control's structure can be found [here](form_builder.md).
+
+### tooltip  
+
+```php
+tooltip($params = null)
+```
+
+Provides the html containing the zmdi-info-outline information icon with tooltip.
 
 ## Filters  
 
-* ### wordwrap  
-    
-  ```php
-  str|wordwrap ($width = 75,$break = "\n",$cut = false)
-  ```
-    
-  Makes the assigned string cut to the size defined in the parameters. The filter uses the [wordwrap](http://php.net/manual/en/function.wordwrap.php) function which is build in php.
+### wordwrap  
 
-* ### str_*  
+```php
+str|wordwrap ($width = 75,$break = "\n",$cut = false)
+```
 
-    ```php
-    'foo object'|str_contains('foo')
-    ```
-    
-    It operates all Laravel helpers which in turn operate on strings. More information can be found [here](https://laravel.com/docs/5.2/helpers).
+Makes the assigned string cut to the size defined in the parameters. The filter uses the [wordwrap](http://php.net/manual/en/function.wordwrap.php) function which is build in php.
 
-* ### array_*  
+### str_*  
 
-    ```php
-    products|array_get('products.desk')
-    ```
-    
-    It operates all Laravel helpers which in turn operate on boards. More information can be found [here](https://laravel.com/docs/5.2/helpers).
+```php
+'foo object'|str_contains('foo')
+```
 
-* ### stringify  
+It operates all Laravel helpers which in turn operate on strings. More information can be found [here](https://laravel.com/docs/5.2/helpers).
 
-    ```php
-    {'foo'=>'string'}|stringify
-    ```
-    
-    Provides board data conversion to the string in the 'key1-value1 key2-value2' format.
+### array_*  
+
+```php
+products|array_get('products.desk')
+```
+
+It operates all Laravel helpers which in turn operate on boards. More information can be found [here](https://laravel.com/docs/5.2/helpers).
+
+### stringify  
+
+```php
+{'foo'=>'string'}|stringify
+```
+
+Provides board data conversion to the string in the 'key1-value1 key2-value2' format.
 
 ## Tests  
 
-* ### instanceof  
+### instanceof  
 
-    ```php
-    FooObject is instanceof('Antares\\Foo\\FooObject')
-    ```
-    
-    Executes the test which checks whether the class object is an object's instance whose name (class) is being transmitted in the argument.
+```php
+FooObject is instanceof('Antares\\Foo\\FooObject')
+```
+
+Executes the test which checks whether the class object is an object's instance whose name (class) is being transmitted in the argument.
 
 ## Function's Structure  
 
@@ -285,43 +285,43 @@ Due to the project's needs it may be essential to implement dedicated twig funct
 
 ```php
 <?php
- 
+
 namespace Antares\Foo\Twig;
- 
+
 use Twig_Extension;
- 
+
 /**
- * Access Laravels asset class in your Twig templates.
- */
+* Access Laravels asset class in your Twig templates.
+*/
 class FooTwigExtension extends Twig_Extension
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function getName()
-    {
-        return 'Antares_Twig_Extension_Foo';
-    }
- 
-    /**
-     * {@inheritDoc}
-     */
-    public function getFunctions()
-    {
-        return [
-            new Twig_SimpleFunction('foo', function ($params=null) {
-                        /**
-                         * my own foo logic implementation
-                         */
-                    }),
-        ];
-    }
+/**
+ * {@inheritDoc}
+ */
+public function getName()
+{
+    return 'Antares_Twig_Extension_Foo';
+}
+
+/**
+ * {@inheritDoc}
+ */
+public function getFunctions()
+{
+    return [
+        new Twig_SimpleFunction('foo', function ($params=null) {
+                    /**
+                     * my own foo logic implementation
+                     */
+                }),
+    ];
+}
 }
 ```
 
 Name of the function (which is later used in a view) is the first constructor's argument of the class `Twig_SimpleFunction`, the second parameter is anonymous function which should contain function's operating logic. Remember about the name of the method defining twig function known as `getFunctions`, and once the extension's class is created, in the configuration file:
 
-```console
+```bash
 resources\config\twigbridge.php
 ```
 
@@ -343,16 +343,16 @@ The filter has a structure which is similar to the function, and its use predomi
 
 ```php
 /**
- * {@inheritDoc}
- */
+* {@inheritDoc}
+*/
 public function getFilters()
 {
-    return [
-        new Twig_SimpleFilter('foo_touppercase', function () {               
-            $arguments = array_slice(func_get_args(), 1);
-            return strtoupper($arguments);
-        })
-    ];
+return [
+    new Twig_SimpleFilter('foo_touppercase', function () {               
+        $arguments = array_slice(func_get_args(), 1);
+        return strtoupper($arguments);
+    })
+];
 }
 ```
 
@@ -369,15 +369,15 @@ The twig tests are responsible for comparing two values. Here is an example of a
 
 ```php
 /**
- * {@inheritDoc}
- */
+* {@inheritDoc}
+*/
 public function getTests()
 {
-    return [
-        'foo_test' => new Twig_Function_Method($this, function($var, $instance) {
-                return $var instanceof $instance;
-        })
-    ];
+return [
+    'foo_test' => new Twig_Function_Method($this, function($var, $instance) {
+            return $var instanceof $instance;
+    })
+];
 }
 ```
 
@@ -386,7 +386,7 @@ Usage in the view:
 
 ```html
 {% if(user is instanceof('Antares\\Model\\User') %}                   
-    <div>User is instance of Antares user</div>
+<div>User is instance of Antares user</div>
 {% endif %}
 ```
 

@@ -1,7 +1,5 @@
 # Widgets 
 
-[TOC]
-
 This component is used to operate widgets presented in the application. More information about the implementation of widgets can be found [here](../services/widget.md). Configuration file connected with the component is placed in the location:
 
 ```php

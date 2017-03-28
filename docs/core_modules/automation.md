@@ -1,10 +1,9 @@
 # Automation  
 
-[TOC]
 
 Automation is used to execute cyclic operation based on [scheduler](https://laravel.com/docs/5.2/scheduling). The operation is defined as a class which inherits from the Antares\View\Console\Command object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
 
-```console
+```bash
 php artisan queue:start
 ```
 
@@ -84,7 +83,7 @@ class FooCommand extends Command
 
 To make the command visible in the *automation* space execute the following command:
 
-```console
+```bash
 php artisan automation:sync
 ```
 
@@ -100,7 +99,7 @@ $this->commands(FooCommand::class);
 
 Then, on the basis of the command's example indicated above, the launching is:
 
-```console
+```bash
 php artisan foo
 ```
 

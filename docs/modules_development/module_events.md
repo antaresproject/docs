@@ -2,7 +2,7 @@
 
 [TOC]
 
-Below is the list of available events connected with the components only. More information about event's operations in a system can be found in the [services](../services/services.md) section.
+Below is the list of available events connected with the components only. More information about event's operations in a system can be found in the [events](../services/events.md) section.
 
 ## Views  
 

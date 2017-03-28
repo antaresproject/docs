@@ -221,25 +221,25 @@ composer.json file's example:
 
 In the abovementioned example, the component named as 'foo' has been added from the [repository](https://github.com/antaresproject/foo) and project's branch master. Thus, if several developers work on  the 'foo' component and save its changes, the command
 
-```console
+```bash
 composer update
 ```
 
 will always download the latest components version. The same procedure concerns 'core' and the remaining components and vendors which belong to application. Please remember about adding a vendor
 
-```console
+```bash
 mnsami/composer-custom-directory-installer
 ```
 
 which will download to the catalogue:
 
-```console
+```bash
 ./src/components/foo
 ```
 
 the 'foo' component's source code. In the case when several developers work on one file, the command
 
-```console
+```bash
 composer update
 ```
 

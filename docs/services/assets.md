@@ -304,10 +304,12 @@ APP.modules.show = (function () {
 In the fourth line you can notice that the '`APP.modules.mod` attribute has been ascribed to the `mod` local variable. This is the manner which should always have been applied when defining all the interrelations to other modules and in the further part of the module using the local variables. Thanks to that the users are informed about what functionalities are required for the modules proper operation. Furthermore, the use of local variables is always faster than the use of global variables and especially global variables' attributes (as in this case).
 
 Once you have all the required modules for your application, you are ready to use them - but first of all - scripts' declaration:
+
 ```html
 <script src="/Scripts/init.js"></script>
 <script src="/Scripts/mod.js"></script>
 <script src="/Scripts/show.js"></script>
+
 ```
     
     
@@ -351,77 +353,78 @@ Configuration file's content:
     
 The description of configuration table's keys:
 
-* **cache** - JavaScript scripts caching. If it is on, the application is not adding an additional parameter in the url address determining timestamp, as in the example below:
-  ```html
-   <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js"></script>
-  ```
-   In case when the following cache is on:
-  ```html
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js?antares=1477570617320"></script>
-  ```
-  the *antares* parameter is added.
+**cache** - JavaScript scripts caching. If it is on, the application is not adding an additional parameter in the url address determining timestamp, as in the example below:
 
-* **main** - it determines the location of the file containing the individual scripts' paths configuration:
-  ```js
-   define("jquery", [], function () {
-       return jQuery;
-   }), requirejs.config({
-       baseUrl: "js/require/",
-       paths: {
-           select2: "/gzip_assets/select2/dist/js/select2.min.gz",
-           ...
-       },
-       map: {
-           "*": {
-               "jquery-ui/core": "jquery-ui",
-               "jquery-ui/widget": "jquery-ui",
-               "jquery-ui/mouse": "jquery-ui",
-               "jquery-ui/draggable": "jquery-ui",
-               "jquery-ui/resizable": "jquery-ui"
-           }
+```html
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js"></script>
+```
+In case when the following cache is on:
+```html
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js?antares=1477570617320"></script>
+```
+the *antares* parameter is added.
+
+**main** - determines the location of the file containing the individual scripts' paths configuration:
+```js
+define("jquery", [], function () {
+   return jQuery;
+}), requirejs.config({
+   baseUrl: "js/require/",
+   paths: {
+       select2: "/gzip_assets/select2/dist/js/select2.min.gz",
+       ...
+   },
+   map: {
+       "*": {
+           "jquery-ui/core": "jquery-ui",
+           "jquery-ui/widget": "jquery-ui",
+           "jquery-ui/mouse": "jquery-ui",
+           "jquery-ui/draggable": "jquery-ui",
+           "jquery-ui/resizable": "jquery-ui"
        }
-   });
-  ```
-  In the code above note that when determining the location, the (*.js) files' extensions are not given.
+   }
+});
+```
+In the code above note that when determining the location, the (*.js) files' extensions are not given.
 
-* **default** - determines the default set of packages which the application uses. The names contained in this table are an equivalent of the keys with the ascribed paths from the */js/require/main.js* file.
+**default** - determines the default set of packages which the application uses. The names contained in this table are an equivalent of the keys with the ascribed paths from the */js/require/main.js* file.
 
-* **childs** - a set of scripts which will be loaded when scripts determined in default are loaded. The result is the following:
-  ```js
-    require(['/js/require/main.js'], function () {
-        require(["jquery", "jquery-ui", "datetimepicker"], function ($) {
-            require(['moment','datetimepicker','globalize',[...]], function () {
-                require(['app_material','app_forms',[...]], function () {
-                     
-                });
+**childs** - a set of scripts which will be loaded when scripts determined in default are loaded. The result is the following:
+```js
+require(['/js/require/main.js'], function () {
+    require(["jquery", "jquery-ui", "datetimepicker"], function ($) {
+        require(['moment','datetimepicker','globalize',[...]], function () {
+            require(['app_material','app_forms',[...]], function () {
+                 
             });
         });
-    });   
-  ```
-  The code above is a cascade of scripts and their order of loading is dependent on others. It is connected with a situation when functionality of one can use the functionality of another, as in the example below:
-  ```js
-    require(["jquery", "ckeditor"], function ($) {
-            CKEDITOR.replace('#textarea',{
-            width:'100%'
-        });
     });
-  ```
-  In the example above the code's fragment:
-  ```js
-    CKEDITOR.replace('#textarea',{
+});   
+```
+The code above is a cascade of scripts and their order of loading is dependent on others. It is connected with a situation when functionality of one can use the functionality of another, as in the example below:
+```js
+require(["jquery", "ckeditor"], function ($) {
+        CKEDITOR.replace('#textarea',{
         width:'100%'
     });
-  ```
-  starts when '*jquery*' and '*ckeditor*' scripts are read. Then the '*CKEDITOR*' and '*jQuery*' instances are visible within the script.
+});
+```
+In the example above the code's fragment:
+```js
+CKEDITOR.replace('#textarea',{
+    width:'100%'
+});
+```
+starts when '*jquery*' and '*ckeditor*' scripts are read. Then the '*CKEDITOR*' and '*jQuery*' instances are visible within the script.
 
-  There is a possibility of determining the configuration for the read library, e.g.:
-  ```js
-      require.config({
-          packages: [{
-                  name: "ckeditor",
-                  location: "/packages/ckeditor",
-                  main: "ckeditor"
-              }]
-      });
-    ```
-  The code above determines that the package named as *ckeditor* is placed in the `/packages/ckeditor` location, whereas the main package's file is *ckeditor.js* (the value ascribed to the main key, without the '*js*' end).
+There is a possibility of determining the configuration for the read library, e.g.:
+```js
+  require.config({
+      packages: [{
+              name: "ckeditor",
+              location: "/packages/ckeditor",
+              main: "ckeditor"
+          }]
+  });
+```
+The code above determines that the package named as *ckeditor* is placed in the `/packages/ckeditor` location, whereas the main package's file is *ckeditor.js* (the value ascribed to the main key, without the '*js*' end).

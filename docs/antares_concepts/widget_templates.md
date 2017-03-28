@@ -51,11 +51,11 @@ And the result is:
   
 Widget's file 'layout' content, located in 'src\components\widgets\resources\views\templates\default\index.twig':
 
-```console
+```bash
 src\components\widgets\resources\views\templates\default\index.twig
 ```
 
-```html
+```twig
 {% extends 'antares/widgets::templates.layouts.template' %}
 {% block content %}
     <div class="card card--info card--padding24">
@@ -147,7 +147,7 @@ The 'Datatables' object is transferred to the view and in such a situation the '
 Thus, only the content is generated, which is widget's response. Setting of individual sections responsible for displaying the buttons such as 'Filter' or 'Mass actions' are done by Datatables' definition. More information about Datatables objects' construction can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Datatables). 
 Layout file's content located in 'src\components\widgets\resources\views\templates\datatables\index.twig':
 
-```console
+```bash
 src\components\widgets\resources\views\templates\datatables\index.twig
 ```
 
@@ -234,7 +234,7 @@ class AjaxFooWidget extends WidgetTemplate
 
 Please notice widget's attributes. The **remote** attribute defines url address and its content will be downloaded. The class inherits from `Antares\Widgets\Templates\AjaxWidget` that is from template class of the ajax type. File's view in the 'render' method has the following syntax:
 
-```console
+```bash
 antares/foo::widgets.ajax
 ```
 
@@ -254,7 +254,7 @@ It will cause content's display before the loading of the ajax content:
   
 View's file within the 'routes' method, is the content downloaded by ajax:
 
-```console
+```bash
 antares/foo::widgets.ajax
 ```
 
@@ -267,12 +267,12 @@ antares/foo::widgets.ajax
 
 As a result, a widget will be created:
 
-  ![AT_widtemp4](../img/docs/antares_concepts/widget_templates/AT_widtemp4.PNG)
+![AT_widtemp4](../img/docs/antares_concepts/widget_templates/AT_widtemp4.PNG)
   
-'layout' file's content, located in
-'src\components\widgets\resources\views\templates\ajax\index.twig':
 
-```html
+layout file's content, located in `src\components\widgets\resources\views\templates\ajax\index.twig`:
+
+```twig
 {% extends 'antares/widgets::templates.layouts.template' %}
 {% block content %}
     <div class="card card--info card--padding24">
@@ -297,4 +297,4 @@ As a result, a widget will be created:
         </div>
     </div>
 {% endblock %}
- ```   
+```   

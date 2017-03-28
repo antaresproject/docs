@@ -1,7 +1,5 @@
 # Updater  
 
-[TOC]
-
 Updater is a component which provides information about present system's state, which facilitates application's update and reports' generation concerning system's state. The following sections may be distinguished within the system:
 1. System information
 2. Updates

@@ -16,13 +16,13 @@ where the `$path` variable determines the location of language files' catalogue.
   
 It is also possible to use a global catalogue located in:
 
-```console
+```bash
 resources/lang
 ```
 
 or user's per level:
 
-```console
+```bash
 resources/lang/administrators
 ```
 

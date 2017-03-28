@@ -16,7 +16,7 @@ try {
 
 Details concerning the settings can be found in [documentation](https://laravel.com/docs/5.2/errors). Logs' files are stored in the location:
 
-```console
+```bash
 storage\logs
 ```
 

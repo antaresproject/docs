@@ -7,9 +7,11 @@ To make a component work within its own routing, insert the configuration in the
 ## Frontend  
 
 If a component is using client's panel, it is good to split routers into two files, in order to increase readability. So, to exemplify a file defining frontal (client's) routing, may be the following:
-```console
+
+```bash
 frontend.php
 ```
+
 ```php
 <?php
      
@@ -32,9 +34,10 @@ The abovementioned definition will ascribe routing to the controller `IndexContr
 
 ## Backend  
 
-```console
+```bash
 backend.php
 ```
+
 ```php
   
 <?php
@@ -44,7 +47,7 @@ backend.php
     $router->group(['prefix' => 'foo'], function (Router $router) {
         $router->resource('index', 'Admin\IndexController');   
     });
- ```
+```
  
 The abovementioned definition will ascribe routing to the controller `IndexController` in the space `Foo\Http\Controllers\Admin`. The following set of endpoints will be created:
 

@@ -3,20 +3,19 @@ site_description: Open Source Laravel User Management Platform for standalone an
 site_url: http://antaresproject.io/docs
 theme: null
 theme_dir: 'layout'
-site_favicon: favicon.ico
+site_favicon: favicon.png
 markdown_extensions:
- - abbr
- - admonition
- - attr_list
+ - codehilite
  - smarty
  - toc:
-    baselevel: '2'
+    baselevel: '3'
 use_directory_urls: false
 pages:
  - Getting Started:
    - Introduction: index.md
-   - Release Notes: getting_started/release_notes.md
-   - Upgrade Guide: getting_started/upgrade_guide.md
+   - Changelog: getting_started/changelog.md
+   - Contribution Guide: getting_started/contributing.md
+   - License: getting_started/license.md
  - Installation:
    - Requirements: installation/requirements.md
    - Preconfiguration: installation/preconfiguration.md
@@ -34,7 +33,6 @@ pages:
    - Controllers and Processors: modules_development/controllers_and_processors.md
    - ACL: modules_development/acl.md
    - Module Events: modules_development/module_events.md
-   - Configuration: modules_development/configuration.md
  - Services:
    - Assets: services/assets.md
    - Auth & ACL: services/auth_and_acl.md
@@ -51,14 +49,14 @@ pages:
    - Test benchmark: services/test_benchmark.md  
    - Translator: services/translator.md  
    - Twig: services/twig.md  
-   - Validation benchmark: services/validation.md
+   - Validation: services/validation.md
    - Webpack: services/webpack.md  
    - Widget: services/widget.md  
  - Core modules:
    - Automation: core_modules/automation.md
    - Control: core_modules/control.md
    - Logger: core_modules/logger.md
-   - Multibrand: core_modules/multibrand.md
+   - Branding: core_modules/brands.md
    - Notifications: core_modules/notifications.md
    - Translations: core_modules/translations.md
    - Updater: core_modules/updater.md  

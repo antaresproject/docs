@@ -1,7 +1,5 @@
 # Brands  
 
-[TOC]
-
 The component gives a possibility of dividing the application into brands. By default, one main brand which is simultaneously the default brand is set during the system installation. Brands' functionalities provides the possibility of defining own color settings for the whole application, default composition of e-mail templates (header, style, footer), url, date and language settings. Dividing the application into areas is a superior function in relation to brands. Area is a level of system's operation, which means that different groups of users may have different settings of the same brands. For instance, the users at the *resellers* level may have different color settings, footer and heading for outgoing e-mails, whereas the *administrators* level may have different settings of the same brand. Users' and widgets' settings are related to brand. This means that a group of users e.g. *resellers* may have different resource access settings in one brand, in other brand these settings may be different. Thus, widgets' settings (e.g. location) in one brand may be different in another.
   
 Brand's edit is available on following url:

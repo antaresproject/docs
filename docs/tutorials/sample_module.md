@@ -1,16 +1,7 @@
+# Sample Module  
 
-#Sample Module  
 
-[TOC]
-
-An exemplary component may be downloaded from the git location:
-
-```php
-http://git.mglocal/components/foo.git
-
-```
-
-or installation appearance may be added to the composer file:
+An exemplary component may be downloaded from the git location: `https://github.com/antaresproject/foo.git` or installation appearance may be added to the composer file:
 
 ```php
 {  
@@ -18,13 +9,13 @@ or installation appearance may be added to the composer file:
         ...
         {
             "type": "git",
-            "url": "http://git.mglocal/components/foo.git"
+            "url": "https://github.com/antaresproject/foo.git"
         }
         ...
     ],
     "require": {
         ...
-        "components/foo": "master",
+        "antaresproject/component-foo": "master",
         ...
     },
     ...
