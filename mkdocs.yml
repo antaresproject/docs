@@ -17,9 +17,11 @@ pages:
    - Contribution Guide: getting_started/contributing.md
    - License: getting_started/license.md
  - Installation:
-   - Requirements: installation/requirements.md
-   - Preconfiguration: installation/preconfiguration.md
-   - Installation Guide: installation/installation_guide.md 
+   - Automatic Installation Guide: installation/installation_auto.md 
+   - Manual Installation Guide: 
+       - Requirements: installation/requirements.md
+       - Preconfiguration: installation/preconfiguration.md
+       - Installation Guide: installation/installation_manual.md    
  - Antares Concepts:
    - Core & Files structure: antares_concepts/core_&_files_structure.md
    - Components & Modules: antares_concepts/components_&_modules.md
