@@ -113,17 +113,13 @@ public function render()
 
 will publish the content defined in the view `antares/foo::widgets.foo`
 
-```php
-antares/foo::widgets.foo
-```
-
 ```html
 {{ content|raw }}
 ```
 
 and add asset's file named 'widget_logic.js' which will be activated each time whenever the widget will be published. The effect:
 
-  ![AT_WIDG09.PNG](../img/docs/services/widget/AT_WIDG09.PNG)
+  ![widget_1](../img/docs/services/widget/widget_1.png)
   
 ## Layouts  
 
@@ -170,7 +166,7 @@ default/index.twig
 
 In the case shown above the 'dark' layout has been indicated and its use will display:
 
-  ![AT_WIDG09.PNG](../img/docs/services/widget/AT_WIDG09.PNG)
+  ![AT_WIDG09.PNG](../img/docs/services/widget/widget_2.png)
   
 The list of all available layouts is located inside the 'widgets' components, in the catalogue:
 
@@ -231,7 +227,7 @@ Once the manifest file is created, create the layout main file named index.twig.
 
 As a result it will display:
 
-  ![AT_WIDG10.PNG](../img/docs/services/widget/AT_WIDG10.PNG)
+  ![widget_3](../img/docs/services/widget/widget_3.png)
   
 In the case above the css inline has been applied for the needs of the code example only. In target solutions inline should not occur.
 
@@ -435,7 +431,7 @@ class FooWidget extends AbstractWidget
 
 Below - the effect:
 
-  ![AT_WIDG12.PNG](../img/docs/services/widget/AT_WIDG12.PNG)
+  ![widget_4](../img/docs/services/widget/widget_4.png)
   
 In other words, this is a form placed in a widget. Take note of form's layout syntax which is the file `antares/foo::widgets.form`:
 
@@ -501,7 +497,7 @@ public static function routes()
 
 The effect:
 
-  ![AT_WIDG13.PNG](../img/docs/services/widget/AT_WIDG13.PNG)
+  ![widget_5](../img/docs/services/widget/widget_5.png)
   
 ### Ajax Validation  
 
@@ -528,7 +524,7 @@ $fieldset->control('input:text', 'foo_text')
 
 The result:
 
-  ![AT_WIDG14.PNG](../img/docs/services/widget/AT_WIDG14.PNG)
+  ![widget_6](../img/docs/services/widget/widget_6.png)
   
 **It is not possible** to use both the ajax validation and the validation with the use of html5 attributes on one form.
 
@@ -554,6 +550,6 @@ $fieldset->control('input:text', 'foo_text')
 
 It will create:
 
-  ![AT_WIDG15.PNG](../img/docs/services/widget/AT_WIDG15.PNG)
+  ![widget_7](../img/docs/services/widget/widget_7.png)
   
 
