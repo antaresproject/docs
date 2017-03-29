@@ -4,13 +4,13 @@ Before the installation, it is worth to make sure that all environment's compone
 
 Follow the steps below to install Antares Project successfully.  Find here precise instruction on how to install your Antares and how to configure it later on.
 
-1. In order to install your Antares, log into your Console as a Super-User and proceed to /var/www directory:
+1. In order to install your Antares Project, log into your Console as a Super-User and proceed to /var/www directory:
 
 ```bash
 cd /var/www
 ```
    
-    If directory not exists, create it:
+If directory not exists, create it:
 ```bash
 mkdir -p /var/www
 ```
@@ -38,8 +38,12 @@ sudo bash installer.sh
 
 ![installation_step_3](../img/docs/installation/installation_guide/installation_step_3.png)
 
-5. Configure the database for Antares Project:
+5. Configure the database for Antares Project
+  
+![installation_step_4](../img/docs/installation/installation_guide/installation_step_4.png)    
     
 6. Proceed to: http://Your IP Address/install do continue components and modules installation.
+
+![installation_step_5](../img/docs/installation/installation_guide/installation_step_5.png)
 
 7. The application is ready to work.
