@@ -17,7 +17,7 @@ If directory not exists, create it:
 mkdir -p /var/www
 ```
 
-Automatic installation is based on a script. You can download installer script from following [location](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh):
+Automatic installation is based on a script. You can download installer script from following [location](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh)
 It is recommended to place installer script into `/var/www` server directory.
 
 Run the command:
