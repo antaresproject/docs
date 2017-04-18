@@ -56,16 +56,16 @@ To install Antares Project, one of the following operating systems can be used:
 
 1. Development, testing environment:
 
-  1. Minimum 2GB free disk space form system resources and external vendors,      
-  2. Minimum 2GB of RAM,      
-  3. HDD disks (5400 or 7200 RPM) or SSD,       
+    1.1. Minimum 2GB free disk space form system resources and external vendors,      
+    1.2. Minimum 2GB of RAM,      
+    1.3. HDD disks (5400 or 7200 RPM) or SSD,       
 
 2. Production environment:
 
-  1. Minimum 10GB free disk space form system resources, external vendors and internal system logs,       
-  2. Minimum 4GB of RAM      
-  3. Several processor cores (recommended 4) that will help to quicken loading assets simultaneously,      
-  4. SSDs disks which provide considerable efficiency increase.
+    2.1. Minimum 10GB free disk space form system resources, external vendors and internal system logs,       
+    2.2. Minimum 4GB of RAM      
+    2.3. Several processor cores (recommended 4) that will help to quicken loading assets simultaneously,      
+    2.4. SSDs disks which provide considerable efficiency increase.
       
       
         

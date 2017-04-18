@@ -1,6 +1,8 @@
 # Installation Guide  
 
-Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones.  
+Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones.
+In case you don't have the required libraries installed, you can find pre-installation commands [here](preconfiguration.md).    
+
   
 1. Firstly, it is relevant to clone repository:  
 
