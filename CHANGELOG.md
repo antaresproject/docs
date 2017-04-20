@@ -17,7 +17,10 @@ This project follows [Semantic Versioning](CONTRIBUTING.md).
 * Staff management frontend implementation
 * Filters/sorting in datatables saving (browser cache) and remembered after refreshing the page
 * Translations improvements - frontend implementation
-* 50% code coverage of unit tests for core  
+* 50% code coverage of unit tests for core
+* Artisan commands to reload ACL for core and components, and doing operations for components.
+* Dedicated configuration for each component with an automatically form builder.
+* Installation progress with console preview during installing Antares and components.
 
 ##### Updates:
 
@@ -79,7 +82,18 @@ This project follows [Semantic Versioning](CONTRIBUTING.md).
   + It should be also possible to remove a pending task which will remove the task from the queue,
   + If the backup is already in progress, it should be visible as “in progress” status without an option to remove/delete it,
   + Once the backup is complete, the status should be “completed”
-        
+  
+* Extensions (components)
+  + Refactored actions to allows do the same thing using UI and Artisan console commands.
+  + Removed unused actions for modules (which are not extensions).
+  + Removed manifest.json file.
+  + Refactored extensions ACL which will be not stored in migration but in the dedicated file.
+  + More consistent information about each component in the UI page.
+  + Supports for vendor name of components.
+  + No need to use custom composer path for components. They will be installed using the custom type of Composer plugin.
+  
+* Installation
+  + Removed page where components can be chosen.
     
 ##### Fixes:
 * 40x i 50x errors have bad placement of the default logo
@@ -94,6 +108,8 @@ This project follows [Semantic Versioning](CONTRIBUTING.md).
 * Created At row seems to not sort properly (it’s the default sorting)
 * No breadcrumbs in API Log
 * Creating sandbox throws Twig Error Runtime
+* During component development outdated ACL might not be reloaded.
+* Service providers of components with enabled deferred registration ignored that option.
 
 
 ### v0.9.0 {#v0-9-0}
