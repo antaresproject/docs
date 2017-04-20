@@ -679,3 +679,20 @@ php artisan extension:acl:reload <vendor>/<package>
 ```
 
 Will reload ACL for all components (the first command) or for the given one (the second one).
+
+### Useful methods for components
+
+Using the ```\Antares\Extension\Manager``` object of the ```\Antares\Extension\Facade\Extension``` facade you can access to these methods:
+
+* ```getAvailableExtensions()``` - Returns a collection of available in file system extensions.
+* ```isInstalled(string $name)``` - Checks if the given extension is installed. **(\*)**
+* ```isActive(string $name)``` - Checks if the given extension is active. **(\*)**
+* ```getExtensionPathByName(string $name)``` - Returns the absolute absolute path to the extension directory. **(\*)**
+* ```getExtensionByVendorAndName(string $vendor, string $name)``` - Returns the extension by the given vendor and package name, for example: antaresproject is the vendor part and component-example is the package name part.
+* ```getSettings(string $name)``` - Returns the collection of settings for the given extension name. **(\*)**
+* ```hasSettingsForm(string $name)``` - Checks if the given extension has dedicated settings for or associated custom URL to the custom configuration page. **(\*)**
+
+**(\*)** - the name can be passed in two different ways:
+
+* standard way - In vendor/package format name just like the Composer supports.
+* backward way - To be compatible with previous releases of Antares, you can pass only last package name without vendor name and ```component-``` prefix. For example the ```antaresproject/component-ban-management``` name can be simplified by just ```ban_management```. The underscore will be replaced by the "-" char. This method can be used only for components which belong to the ```antaresproject``` vendor.
