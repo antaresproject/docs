@@ -4,6 +4,66 @@
 
 ACL - Access Control List, as the name suggests, is a layer responsible for decision-making concerning user's access to a resource (a website, a file, etc...).
 
+## Setup inside component
+
+If you want to make permissions which belongs to the component, you must create a new file called ```acl.php``` in the same directory where are ```providers.php``` and ```composer.json``` files. The file must have the content:
+
+```php
+<?php
+
+use Antares\Acl\RoleActionList;
+use Antares\Model\Role;
+use Antares\Acl\Action;
+
+$actions = [
+    new Action('', 'Do Something'),
+    new Action('', 'Do Another Thing'),
+];
+
+$adminActions = array_merge($actions, [
+    new Action('', 'Manage That'),
+]);
+
+$permissions = new RoleActionList;
+$permissions->add(Role::admin()->name, $adminActions);
+$permissions->add(Role::member()->name, $actions);
+
+return $permissions;
+```
+
+Important is that the file should returns the object of ```Antares\Acl\RoleActionList``` type. Only in that case permissions will be stored in the system.
+
+#### How to use it
+
+The ```Antares\Acl\RoleActionList``` has method ```add``` which allows to associate user roles with an actions list.  In the example above the admin role will be bonded with 3 type of actions. The each action object needs two arguments.
+                                                                                                                      
+First of them is the route name. For now it can be an empty string. This name will be used in the next release and will allow to automatically control access based on the route.
+
+The second one is the human-friendly name of action. It may contain white spaces and capital letters but inside the system will be available in the sluggable format - where whitespaces are replaced by ```-``` dash character and all letters are lower cases.
+
+The ACL will be stored after activating an component. Deactivating will flush them from the system. If you do not want to activated manually component to see changes of ACL, you can use the Artisan console to do that.
+
+```bash
+php artisan extension:acl:reload antaresproject/component-example
+```
+
+In this case for the given component name the ACL will be reloaded. Or just:
+
+```bash
+php artisan extension:acl:reload
+```
+
+to reload ACL for all activated components in the system.
+
+Sometimes you may need to reload ACL for core (not components) by some reason. The command is similar just like last one.
+
+```bash
+php artisan foundation:acl:reload
+```
+
+It will remove permissions for all brands of administrator role and set up them again with default values. Just like after fresh installation of the whole system.
+
+
 ## Verification At The Controller's Level  
 
 ACL's implementation occurs at the controller's level in the `setupMiddleware()` method. The rules determining whether a user can be admitted to the website (action) are located in this method. In the case of controllers the whole verification takes place at the Middleware stage (before entering the action). The following, predefined types of access can be distinguished:

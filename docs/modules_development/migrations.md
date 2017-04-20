@@ -117,56 +117,9 @@ Example of use (`file 2015_07_24_082030_foo_schema.php`):
     }
 ```
 
-## ACL Migration File  
+## ACL Migration File  (removed)
 
-The task of ACL migration file is the arrangement of access rules facilitating the use of application's resources by different groups of users. The arrangement of rules are available directly after the component's installation.
-
-The structure of such a file may be presented as below:
-
-```php
-    <?php
-     
-    use Illuminate\Database\Migrations\Migration;
-    use Antares\Acl\Database\Migration as AclMigration;
-    use Antares\FooServiceProvider\FooServiceProvider;
-     
-    class FooAcl extends Migration
-    {
-     
-        /**
-         * @var AclMigration
-         */
-        protected $aclMigration;
-     
-        /**
-         * a constructor, creation of the migration file for a component
-         */
-        public function __construct()
-        {
-            /** name "foo" is a brief component's name, identical just like in the manifest.json file **/
-            $this->aclMigration = new AclMigration(app(), 'foo');
-        }
-     
-        /**
-         * downloading of the access rules from the static acl() method from the service provider and import
-         */
-        public function up()
-        {
-            $this->aclMigration->up(FooServiceProvider::acl());
-        }
-     
-        /**
-         * removal of the access rules
-         */
-        public function down()
-        {
-            $this->aclMigration->down();
-        }
-     
-    }
-```
-
-In the constructor of the migration class, creation of an object which will import the rules takes place. The 'up' method is responsible for the rules' import to the data base, whereas the 'down' method removes the rules. The 'up' method is done during the component's installation, whereas the 'down' method is applied while uninstalling. More information about the construction of the 'acl' method in the service provider, can be found [here](service_providers.md)
+This way to migrating ACL has been removed and should be done in the new way describes in the dedicated section about ACL.
 
 ## Seeder  
 
