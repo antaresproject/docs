@@ -3,8 +3,8 @@
 Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones.  
 Follow the steps below to install Antares Project successfully.  Find here precise instruction on how to install your Antares and how to configure it later on.
 
-**Please note**: Automatic installation is the fastest way to install Antares Project on your server in case that you have Ubuntu 14.04/16.06 or CentOS 7.2.x
-In case that you are not able to automatically install Antares successfully, please follow [Manual Installation Guide](installation_manual.md).
+***Please note**: Automatic installation is the fastest way to install Antares Project on your server in case that you have Ubuntu 14.04/16.06 or CentOS 7.2.x
+In case that you are not able to automatically install Antares successfully, please follow [Manual Installation Guide](installation_manual.md).*
 
 In order to install your Antares Project, log into your Console as a Super-User and proceed to `/var/www` directory:
 
