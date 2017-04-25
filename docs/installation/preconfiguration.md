@@ -39,7 +39,8 @@ Require all granted
 
 is changed into:
 ```bash
-<Directory /var/www/> Options Indexes FollowSymLinks
+<Directory /var/www/> 
+Options Indexes FollowSymLinks
 AllowOverride All
 Require all granted
 </Directory>
@@ -128,7 +129,7 @@ echo "update user set plugin='' where User='root'; flush privileges;" | mysql -u
 ### Composer 1.3.x
 Composer 1.3.x or higher
 ```bash
-curl -sS https://getcomposer.org/installer | php
+curl -sS https://getcomposer.org/installer | php 
 mv composer.phar /usr/local/bin/composer
 ```
 ### Git 1.9.x

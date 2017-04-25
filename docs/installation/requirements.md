@@ -36,6 +36,7 @@ PHP 7.1.x or higher. PHP must have the following extensions installed:
 13. php7.1-gettext,
 14. php7.1-sqlite
 15. php7.1-tokenizer    
+16. php7.1-mysql
 
 In the Windows OS an optional extension is php_com_dotnet which facilitates html conversion tool's operation (wkhtmltopdf).
 
