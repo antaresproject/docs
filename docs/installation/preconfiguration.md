@@ -64,9 +64,9 @@ Restart after the installation:
 ```bash
 service apache2 restart
 ```
-Installation of additional extensions (the case of mbstring):
+Installation of additional extensions:
 ```bash
-apt-get -y install php7.1-mbstring
+apt-get -y install php7.1-bz2 php7.1-curl php7.1-fileinfo php7.1-mcrypt php7.1-gd php7.1-bcmath php7.1-xml php7.1-zip php7.1-pdo php7.1-dom php7.1-tokenizer php7.1-sqlite php7.1-gettext php7.1-mbstring php7.1-mysql
 ```
 Searching for available extensions:
 ```bash
@@ -95,6 +95,7 @@ Remove anonymous users? [Y/n] <-- y
 Disallow root login remotely? [Y/n] <-- n
 Reload privilege tables now? [Y/n] <-- y
 ```
+
 In order to check installation's correctness, type the following command:
 ```bash
 mysql -u root -p
@@ -102,6 +103,22 @@ mysql -u root -p
 Once logged in, you should achieve the following result:
  
   ![AT_precon1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/preconfiguration/AT_precon1.PNG)
+  
+It is recommended to create new database user, instead of root:
+
+ 1. Log into MYSQL as root:    
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">apt-get</span> -y <span class="token function">install</span> mariadb-server mariadb-client</code></pre>
+ 2. Grant privileges to a new user, execute as follows:
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
+    GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
+    FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
+ 3. Bind to all addresses:
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">nano</span> /etc/mysql/mariadb.conf.d/50-server.cnf</code></pre>
+ 4. Comment following line:
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token comment" spellcheck="true">#bind-address = 127.0.0.1</span></code></pre>
+ 5. Exit mysql and restart mysql:
+    <pre class="codehilite language-bash code-toolbar"><code class="language-bash hljs"><span class="token keyword keyword-exit"><span class="hljs-built_in">exit</span></span>
+    <span class="token function">service</span> mysql restart</code></pre>
 
 Optionally, [phpMyAdmin](https://www.phpmyadmin.net/) can also be installed:
   
@@ -117,9 +134,7 @@ MySQL application password for phpmyadmin: <-- enter
 
 After phpmyadmin installation, remove invalid php5 config files:
 ```bash
-cd /etc/apache2/mods-enabled
-rm php5.conf
-rm php5.load
+rm -rf /etc/apache2/mods-enabled/php5.conf /etc/apache2/mods-enabled/php5.load
 service apache2 restart
 ```      
 ```bash
