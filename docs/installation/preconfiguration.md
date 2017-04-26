@@ -104,7 +104,7 @@ Once logged in, you should achieve the following result:
  
   ![AT_precon1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/preconfiguration/AT_precon1.PNG)
   
-It is recommended to create new database user, instead of root:
+Sometimes there may be a problem with connection to database via root user. It is recommended to create new database user, instead of root:
 
  1. Log into MYSQL as root:    
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">apt-get</span> -y <span class="token function">install</span> mariadb-server mariadb-client</code></pre>
