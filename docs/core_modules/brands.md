@@ -4,9 +4,9 @@ The component gives a possibility of dividing the application into brands. By de
   
 Brand's edit is available on following url:
 
-`{area}/brands/{brand_id}/edit`
+`{area}/branding`
 for example:
-`administrators/brands/1/edit`
+`admin/branding`
 
 ![AT_MULTIB02.PNG](../img/docs/core_modules/multibrand/AT_MULTIB02.PNG)
    
@@ -27,8 +27,8 @@ Inline code editor is placed on the left. Each change is visible in the preview 
 3. Footer - message footer
 
 The variables which can be pinned directly to content of the created template can be found at the top. The menu on the left has the following positions:
-1. Administrators Area
-2. Users Area
+1. Admin Area
+2. User Area
 
 These positions are areas (levels) of particular user groups. Each group enables color edit and the general application's design:
 ![AT_MULTIB04.PNG](../img/docs/core_modules/multibrand/AT_MULTIB04.PNG)

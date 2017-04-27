@@ -1,4 +1,4 @@
-# Components & Modules  
+# Modules  
 
 [TOC]
 
@@ -6,7 +6,7 @@
 
 ### Minimal Structure
   
-A component should consist of the minimal structure:
+A module should consist of the minimal structure:
 
 ![AT_COMP&MODS1](../img/docs/antares_concepts/components_and_modules/minimal_structure_1.png)
   
@@ -38,8 +38,8 @@ A component should consist of the minimal structure:
 
 Required attributes:
 
-* name - determines the name - identifier of a component in a repository. Just like the regular composer package, the name must be in \<vendor\>/\<package name\> format. The important is that, the last part of name must be prefixed by ```component-``` word.
-* type - a special type for composer package which determines how the component must be installed in the system.
+* name - determines the name - identifier of a module in a repository. Just like the regular composer package, the name must be in \<vendor\>/\<package name\> format. The important is that, the last part of name must be prefixed by ```component-``` word.
+* type - a special type for composer package which determines how the module must be installed in the system.
 * version - the version of package.
 * authors - an array of collaborators' names and emails. At least one author must be presented.
 * require ```antaresproject/component-installer-plugin``` - required package which allows to install the package in proper way.
@@ -80,8 +80,8 @@ We recommend that you should fill the ```composer.json``` file with additional i
 
 Structure contains two additional attributes:
 
-* homepage - the HTTP address to your component homepage. If presents when in the Component page by clicking the component name the URL will be opened in the browser.
-* friendly-name - must be placed in ```extra``` attribute. In the components page, the name will be overridden by the given value.
+* homepage - the HTTP address to your module homepage. If presents when in the Module page by clicking the module name the URL will be opened in the browser.
+* friendly-name - must be placed in ```extra``` attribute. In the modules page, the name will be overridden by the given value.
 
 #### Service Providers
 
@@ -96,7 +96,7 @@ return [
 
 ```
 
-In this file must be an array with service providers which are required to run component in the application. At least one service provider must be declared with a content as below:
+In this file must be an array with service providers which are required to run module in the application. At least one service provider must be declared with a content as below:
 
 Service provider's file structure:
 
@@ -118,8 +118,8 @@ In the above mentioned example service provider must inherit from the class Modu
 
 #### Dedicated Configuration
 
-You can consider that the component should has its dedicated configuration which can be rewritten or just used to fetch some information. For example API HOST with possibility of end-point customization. 
-Instead of storing this data in regular config file or as hardcoded, you can create a dedicated file named ```settings.php``` and place in inside the ```resources/config``` path in the component root directory. 
+You can consider that the module should has its dedicated configuration which can be rewritten or just used to fetch some information. For example API HOST with possibility of end-point customization. 
+Instead of storing this data in regular config file or as hardcoded, you can create a dedicated file named ```settings.php``` and place in inside the ```resources/config``` path in the module root directory. 
 The file looks like other configuration files, so it returns an array just like example below.
 
 ```php
@@ -140,7 +140,7 @@ return [
 ];
 ```
 
-* data - this array stores settings of the component. Must be provided in the ```key => value``` format, where a value is always a default one.
+* data - this array stores settings of the module. Must be provided in the ```key => value``` format, where a value is always a default one.
 * rules - (optional) Laravel's way validation rules used by the form.
 * phrases - (optional) Laravel's way validation phrases used as the messages for failed validation.
 
@@ -188,7 +188,7 @@ This is why in the example there are also arrays of rules and phrases, which are
 
 #### How to build a dedicated Configuration Form?
 
-Inside the component src path create a ```SettingsForm.php``` file in ```Config``` directory.
+Inside the module src path create a ```SettingsForm.php``` file in ```Config``` directory.
 
 ```php
 <?php
@@ -225,7 +225,7 @@ The class must implement the ```SettingsFormContract``` interface. Inside the ``
 
 #### What about custom form?
 
-If you have already created form for the component and want to use it within the components page instead of the automatically built, you should open the ```settings.php``` file and add an extra key.
+If you have already created form for the module and want to use it within the modules page instead of the automatically built, you should open the ```settings.php``` file and add an extra key.
 
 ```php
 <?php
@@ -244,7 +244,7 @@ The value of that key must be URL to the page, where should be a form placed.
 
 ### Full Structure  
 
-The full component's catalogue structure should be determined in a manner depicted below:
+The full module's catalogue structure should be determined in a manner depicted below:
 
   ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS2.PNG)
   
@@ -252,7 +252,7 @@ The full component's catalogue structure should be determined in a manner depict
 
 ### Public  
 
-In this catalogue can be found all essential javascript, css, and img files used by a component. Preprocessors such less, sass, scss may be equally used for conversion [(click here for details)](https://github.com/kriswallsmith/assetic).
+In this catalogue can be found all essential javascript, css, and img files used by a module. Preprocessors such less, sass, scss may be equally used for conversion [(click here for details)](https://github.com/kriswallsmith/assetic).
 
 An example of the content:
 
@@ -260,66 +260,66 @@ An example of the content:
   
 ### Resources  
 
-The files that are used by a component, or to which it refers during its operation are located in this catalogue.
+The files that are used by a module, or to which it refers during its operation are located in this catalogue.
 
   ![AT_COMP&MODS4](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS4.PNG)
   
-* config - the very name of this catalogue indicates its purpose. It stores files configuring a component
-* database - contains the migration files for creating (and removing) the tables used by a component and filling them with data
+* config - the very name of this catalogue indicates its purpose. It stores files configuring a module
+* database - contains the migration files for creating (and removing) the tables used by a module and filling them with data
  * migrations - strictly speaking, these files build an appropriate table scheme
  * seeds - class' files for filling the tables with the data
-* lang - it consist of files with phrases' translation used by a component. The subcatalogue is always the language code.
-* views - views' files used by a component. The subcatalogue is controller's name, while file's name is the name of the action in a controller.
+* lang - it consist of files with phrases' translation used by a module. The subcatalogue is always the language code.
+* views - views' files used by a module. The subcatalogue is controller's name, while file's name is the name of the action in a controller.
 
 ### Src  
 
-In this catalogue, component's business logic is placed.
+In this catalogue, module's business logic is placed.
 
   ![AT_COMP&MODS5](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS5.PNG)
   
 Please notice that in this folder, catalogues' names start with a capital letter.
 
-* Console - classes responsible for commands which are made accessible by a component. They are usually launched by means of: php artisan <name_of_the_component>:<name_of_the_command>,
-* Contracts - interfaces used by a component,
+* Console - classes responsible for commands which are made accessible by a module. They are usually launched by means of: php artisan <name_of_the_component>:<name_of_the_command>,
+* Contracts - interfaces used by a module,
 * Exception - exception's classes',
 * Facades - facades as a popular form of referring to a class,
 * Http - stores incoming request's processing logic and data preparation for display,
 * Model - contains models' classes (from the mapped tables) within the framework of Eloquent engine (Active Record),
-* Notifications - contains the notification templates (e.g. email, sms) which the component will send to the users,
+* Notifications - contains the notification templates (e.g. email, sms) which the module will send to the users,
 * Observers - observers' definitions applied to other classes (usually to models)
 * Processor - processor's classes, which interpret and process incoming data,
 * Repositories - repositories classes (combining several models into one),
-* Traits - traits used by a component,
+* Traits - traits used by a module,
 * Twig - extension classes for Twig view engine,
 * Validation - forms' dedicated validator classes,
-* Widgets - component's widget classes
+* Widgets - module's widget classes
 
 Http catalogue (within src catalogue):
 
   ![AT_COMP&MODS6](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS6.PNG)
   
 Description of the content:
-* Controllers - component controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subcatalogue,
+* Controllers - module controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subcatalogue,
 * Datatables - tables' presenting classes within datatables,
-* Filters - data filters used in a component,
-* Form - component's forms classes,
-* Handler - event class service thrown by other applications' components as well as by the framework itself. In this catalogue, equal classes are placed, responsible for breadcrumb, main menu, left beam and placeholder presentation,
+* Filters - data filters used in a module,
+* Form - module's forms classes,
+* Handler - event class service thrown by other applications' modules as well as by the framework itself. In this catalogue, equal classes are placed, responsible for breadcrumb, main menu, left beam and placeholder presentation,
 * Middleware - middleware’s classes i.e. filters serving the events before sending a request to the action and after receiving the processed data,
 * Presenters - presenters’ classes, i.e. the layer responsible for data return into a view and presentation in a browser
 
 ### Tests  
 
-A catalogue containing component’s unit tests. Usually, the structure of such a catalogue is identical with src catalogue.
+A catalogue containing module’s unit tests. Usually, the structure of such a catalogue is identical with src catalogue.
 
 ## Compatibility  
 
-The project consists of packs - components which have their own repositories in git. Within the project's framework the following types of repositories can be distinguished in which the components of the whole system are stored:  
+The project consists of packs - modules which have their own repositories in git. Within the project's framework the following types of repositories can be distinguished in which the components of the whole system are stored:  
 
 **project** - the repository contains official application's versions (branch master), which in turn determine components'' and vendors' versions which are a part of the whole system  
 
   ![AT_COMP&MODS7](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS7.PNG)
   
-**core** - the repository contains main system component's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
+**core** - the repository contains main system module's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
   
 ```json
 "repositories": [
@@ -345,22 +345,22 @@ After the personalization:
         "antaresproject/core": "0.9.2.1-dev", --> personalized branch for specific product having modifications which are not available in the official version
 ```
           
-**components** - a repository group containing the components which can be a part of target product pack.
+**components** - a repository group containing the modules which can be a part of target product pack.
   
   ![AT_COMP&MODS8](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS8.PNG)
     
-Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which components' branches must be taken into consideration during the project's creation
+Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which modules' branches must be taken into consideration during the project's creation
   
-**modules repositories' group** containing the modules which similarly to components can become a part of target product
+**modules repositories' group** containing the modules which similarly to modules can become a part of target product
   
   ![AT_COMP&MODS9](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS9.PNG)
   
 **antares-frontend** - a repository containing realization's frontend project. It consist of javascript and css files which are used by the application. Master version contains the most actual default version. Other versions can become dedicated solutions created for separate projects. During installation process, the files from this repository are copied to public catalogue.
 
-In order to create a new component which will be compatible with master component's packs and core and frontend, you should:
+In order to create a new module which will be compatible with master module's packs and core and frontend, you should:
 
 1. Create a new project repository in the github
-2. Add component's file to the repository
+2. Add module's file to the repository
 3. Add a configuration in the composer.json file. 
 composer.json file's example:
 
@@ -386,13 +386,13 @@ composer.json file's example:
 }
 ```
 
-In the abovementioned example, the component named as 'foo' has been added from the [repository](https://github.com/antaresproject/foo) and project's branch master. Thus, if several developers work on  the 'foo' component and save its changes, the command
+In the abovementioned example, the module named as 'foo' has been added from the [repository](https://github.com/antaresproject/foo) and project's branch master. Thus, if several developers work on  the 'foo' module and save its changes, the command
 
 ```bash
 composer update
 ```
 
-will always download the latest components version. The same procedure concerns 'core' and the remaining components and vendors which belong to application.
+will always download the latest modules version. The same procedure concerns 'core' and the remaining modules and vendors which belong to application.
 
 An example of the whole file defining project's settings is depicted below:
 
@@ -560,9 +560,9 @@ An example of the whole file defining project's settings is depicted below:
 }
 ```
 
-In the file composer.json which belongs to a project you can control the components which you want to be installed in your application. You can also control component's versions by specifying the branches, as it was described above.
+In the file composer.json which belongs to a project you can control the modules which you want to be installed in your application. You can also control module's versions by specifying the branches, as it was described above.
 
-## Component methods
+## Module methods
 
 This section describes possible methods after that the system has been installed already.
 
@@ -570,39 +570,39 @@ This section describes possible methods after that the system has been installed
 
 ![AT_COMP&MODS10](../img/docs/antares_concepts/components_and_modules/components_page_all.png)
 
-Each of components have status which describes:
+Each of modules have status which describes:
 
-* ![#available](https://placehold.it/15/0292ea/000000?text=+) **available** - component is in the file system but is not installed nor activated.
-* ![#available](https://placehold.it/15/f44336/000000?text=+) **inactive** - component is installed but not activated.
-* ![#available](https://placehold.it/15/27ae60/000000?text=+) **active** - component is activated.
+* ![#available](https://placehold.it/15/0292ea/000000?text=+) **available** - module is in the file system but is not installed nor activated.
+* ![#available](https://placehold.it/15/f44336/000000?text=+) **inactive** - module is installed but not activated.
+* ![#available](https://placehold.it/15/27ae60/000000?text=+) **active** - module is activated.
 
 #### Installation
 
-Only available in file system components can be installed. Installation means that all Composer requirements will be put and installed. Also migration and assets will be published.
+Only available in file system modules can be installed. Installation means that all Composer requirements will be put and installed. Also migration and assets will be published.
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_install.png)
 
 #### Uninstallation
 
-Installed components can be uninstalled. It is reverse method to the installation process so it will remove migrations and assets but the Composer dependencies will be stay in the system. 
+Installed modules can be uninstalled. It is reverse method to the installation process so it will remove migrations and assets but the Composer dependencies will be stay in the system. 
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_uninstall_activate.png)
 
 #### Activation
 
-Only installed components can be activated. Components which have been not activated cannot be used by the system. In this operation the dedicated ACL will be stored.
+Only installed modules can be activated. Modules which have been not activated cannot be used by the system. In this operation the dedicated ACL will be stored.
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_uninstall_activate.png)
 
 #### Deactivation
 
-Only activated components can be deactivated. This operation will remove dedicated ACL of the component.
+Only activated modules can be deactivated. This operation will remove dedicated ACL of the module.
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate.png)
 
 #### Configuration
 
-Some components may have dedicated Configuration Form.
+Some modules may have dedicated Configuration Form.
 In that case by clicking the **Configure** button you will be redirected to the page with form which can be created dynamically or not - in this case you will be redirected to the custom URL.
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate_configure.png)
@@ -613,7 +613,7 @@ In that case by clicking the **Configure** button you will be redirected to the 
 php artisan extension:list
 ```
 
-Will output basic information about available components in file system.
+Will output basic information about available modules in file system.
 
 ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_artisan_list.png)
 
@@ -678,9 +678,9 @@ php artisan extension:acl:reload
 php artisan extension:acl:reload <vendor>/<package>
 ```
 
-Will reload ACL for all components (the first command) or for the given one (the second one).
+Will reload ACL for all modules (the first command) or for the given one (the second one).
 
-### Useful methods for components
+### Useful methods for modules
 
 Using the ```\Antares\Extension\Manager``` object of the ```\Antares\Extension\Facade\Extension``` facade you can access to these methods:
 
@@ -688,11 +688,11 @@ Using the ```\Antares\Extension\Manager``` object of the ```\Antares\Extension\F
 * ```isInstalled(string $name)``` - Checks if the given extension is installed. **(\*)**
 * ```isActive(string $name)``` - Checks if the given extension is active. **(\*)**
 * ```getExtensionPathByName(string $name)``` - Returns the absolute absolute path to the extension directory. **(\*)**
-* ```getExtensionByVendorAndName(string $vendor, string $name)``` - Returns the extension by the given vendor and package name, for example: antaresproject is the vendor part and component-example is the package name part.
+* ```getExtensionByVendorAndName(string $vendor, string $name)``` - Returns the extension by the given vendor and package name, for example: antaresproject is the vendor part and module-example is the package name part.
 * ```getSettings(string $name)``` - Returns the collection of settings for the given extension name. **(\*)**
 * ```hasSettingsForm(string $name)``` - Checks if the given extension has dedicated settings for or associated custom URL to the custom configuration page. **(\*)**
 
 **(\*)** - the name can be passed in two different ways:
 
 * standard way - In vendor/package format name just like the Composer supports.
-* backward way - To be compatible with previous releases of Antares, you can pass only last package name without vendor name and ```component-``` prefix. For example the ```antaresproject/component-ban-management``` name can be simplified by just ```ban_management```. The underscore will be replaced by the "-" char. This method can be used only for components which belong to the ```antaresproject``` vendor.
+* backward way - To be compatible with previous releases of Antares, you can pass only last package name without vendor name and ```component-``` prefix. For example the ```antaresproject/component-ban-management``` name can be simplified by just ```ban_management```. The underscore will be replaced by the "-" char. This method can be used only for modules which belong to the ```antaresproject``` vendor.

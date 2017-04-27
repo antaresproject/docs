@@ -1,4 +1,4 @@
-# Core & Files Structure  
+# Files Structure  
 
 [TOC]
 
@@ -17,10 +17,6 @@ The above mentioned graph describes:
 **V** - view - a layer responsible for presentation's preparation, i.e. generation of html which will be displayed in the browser. The view may be conditioned, depending on data coming from the model or the controller itself.
 
 The hierarchy in this type of architecture relies on data exchange between individual layer groups. One layer may (but not necessarily must) transfer the data to the next layer as long as the proper website's content is produced.  
-
-## General System Architecture  
-
-Error: 404
 
 ## Filesystem Structure  
 
