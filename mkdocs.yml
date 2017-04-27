@@ -15,6 +15,7 @@ pages:
    - Introduction: index.md
    - Changelog: getting_started/changelog.md
    - Contribution Guide: getting_started/contributing.md
+   - Issues Reporting Guide: getting_started/issues_reporting_guide.md
    - License: getting_started/license.md
  - Installation:
    - Requirements: installation/requirements.md
@@ -23,7 +24,7 @@ pages:
  - Antares Concepts:
    - Files structure: antares_concepts/core_&_files_structure.md
    - Modules: antares_concepts/components_&_modules.md
-   - Widget Templates: antares_concepts/widget_templates.md 
+   - UI Structure: antares_concepts/widget_templates.md
    - Views: antares_concepts/views.md
    - Maintenance: antares_concepts/maintenance.md
  - Modules Development:

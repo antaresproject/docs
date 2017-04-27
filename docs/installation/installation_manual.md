@@ -1,4 +1,4 @@
-# Installation Guide  
+# Manual Installation Guide  
 
 [TOC]
 

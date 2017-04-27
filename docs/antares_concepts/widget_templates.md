@@ -1,4 +1,4 @@
-# Widget Templates  
+# UI Structure 
 
 [TOC]
 
