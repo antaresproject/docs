@@ -9,7 +9,7 @@
 
 ### Antares Project Application Skeleton
 
-#### New
+**New**
 
 * Sample module as optional.
 * Remove unused directories.
@@ -38,7 +38,7 @@
 * Project installation updates.
 * Readme, contributing, changelog, units.
 
-#### Changes
+**Changes**
 
 * Change main readme.md.
 * Remove unused component.
@@ -54,7 +54,7 @@
 * Core change submodule path.
 * Package readme & composer updates.
 
-#### Fixes
+**Fixes**
 
 * Scrolling console preview during installation FIX: removed key:generate command from composer update script.
 * Scrolling console preview during installation FIX: stop progress installation and AJAX requests after close preview window.
@@ -63,11 +63,11 @@
 * Composer.json order of command php artisan key:generate.
 * _env.example invalid copying, ADD: missing composer vendors.
 
-#### Internal
+**Internal**
 
 * Components and configuration changes.
 
-#### Other
+**Other**
 
 * Added submodule src/components/api.
 * Updated submodule src/core.
@@ -81,11 +81,11 @@
 
 ### Core
 
-#### New
+**New**
 
 * Installation step with components selection.
 * Countries sql, multiuser.
-* Added decorators for controls CHG: Changes in control AbstracType.
+* Added decorators for controls CHG: changes in control AbstracType.
 * LabelWrapper, inputWrapper CHG: Container for hidden type is hidden too.
 * When any label added to control, generates from name FIX: temporary fix for firing BeforeFormRender event.
 * Controls for Files and Dates.
@@ -99,7 +99,7 @@
 * Validation messages.
 * Default label view.
 * Labels are separated objects.
-* Added view template files for Form control types CHG: Changes in Fieldset/Form renderers to support new Form control types.
+* Added view template files for Form control types CHG: changes in Fieldset/Form renderers to support new Form control types.
 * AbstractDecorator for Form controls, Text and Textarea control CHG: changes in Form control AbstractType.
 * Abstract Types for Form controls.
 * Text translation.
@@ -126,11 +126,11 @@
 * Default settings on fresh install.
 * Session datatables per page saver.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Improved rendering hidden type FIX: Fixed wrappers.
-* Changes in Antares Form Builder to handle new form control types.
+* changes in Antares Form Builder to handle new form control types.
 * Authors ordering for extensions datatable.
 * Output errors for composers ADD: filtering extensions by type.
 * Extensions types moved to model ADD: filter search by extension type.
@@ -148,7 +148,7 @@
 * Core phpunit configuration changes.
 * Datatables pre init html builder, ADD: phpunit configuration file.
 
-#### Fixes
+**Fixes**
 
 * Installation process - add defered activation events.
 * Installation fixes.
@@ -185,12 +185,12 @@
 * Datatables table builder, ADD: phpunit configuration file.
 * User add with customfields.
 
-#### Internal
+**Internal**
 
 * Fixed data typing.
 * Refactorization and comments fixes.
 
-#### Other
+**Other**
 
 * Fixes for composers and installer.
 * Fixed wrong config facade.
@@ -202,7 +202,7 @@
 
 ### Api
 
-#### New
+**New**
 
 * Unit tests refactoring.
 * Travis configuration file.
@@ -211,27 +211,27 @@
 * Session datatbales and ordering.
 * Minor fixes.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Removed old ACL method form service provider.
 * Updated ACL file.
 * Change used Router.
 
-#### Fixes
+**Fixes**
 
 * Extensions modal.
 * Replace route to handles.
 * Empty providers list fix.
 * Fix for new composer handler. DEV version.
 
-#### Other
+**Other**
 
 * Update composer.json.
 
 
 
-#### Other
+**Other**
 
 - Update composer.json. [Marcin Kozak]
 - Update composer.json. [Marcin Kozak]
@@ -242,14 +242,14 @@
 
 ### Automation
 
-#### New
+**New**
 
 * Laravel 5.4 integration.
 * Laravel 5.3 integration.
 * New composer.json structure.
 * Session datatbales and ordering.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Change automation synchronization command.
@@ -261,12 +261,12 @@
 * Remove unused scripts.
 * Main menu title.
 
-#### Fixes
+**Fixes**
 
 * Automation ordering.
 * Automation timeout queue process.
 
-#### Other
+**Other**
 
 * Fix for composer handler.
 * Update composer.json.
@@ -274,7 +274,7 @@
 
 ### Ban Management
 
-#### New
+**New**
 
 * Unit tests refactoring.
 * Custom URL for settings form.
@@ -282,20 +282,20 @@
 * Laravel 5.3 integration.
 * Breadcrumb and inputs helps.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
 * Updated ACL file.
 
-#### Fixes
+**Fixes**
 
 * Wrong method name.
 * Settings form.
 * Fixes for named routes.
 * Fix for new composer handler. Fix for options. DEV version.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Changed underscore by middle-score.
@@ -303,14 +303,14 @@
 
 ### Control
 
-#### New
+**New**
 
 * Laravel 5.4 integration.
 * Laravel 5.3 integration.
 * New composer.json structure.
 * Session datatbales and ordering.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Change form fields dimensions.
@@ -319,17 +319,17 @@
 * Breadcrumbs in stuff.
 * Acl tree view.
 
-#### Fixes
+**Fixes**
 
 * Composer.json.
 * Staff -> Users has wrong main menu visible.
 * Fix for new composer handler.
 
-#### Internal
+**Internal**
 
 * Updated for Laravel 5.4.
 
-#### Other
+**Other**
 
 * Update composer.json.
 
@@ -337,14 +337,14 @@
 
 ### Custom fields
 
-#### New
+**New**
 
 * New composer.json structure.
 * Laravel 5.4 integration.
 * Laravel 5.3 integration.
 * Custom fields tabs should be the same like for the configuration page.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
@@ -354,18 +354,18 @@
 * Unit tests refactoring.
 * Horizontal default form view, langs.
 
-#### Fixes
+**Fixes**
 
 * Fix for new composer handler.
 
-#### Other
+**Other**
 * Update composer.json.
 
 
 
 ### Logger
 
-#### New
+**New**
 
 * Laravel 5.4 integration, composer packgas.
 * Laravel 5.4 integration.
@@ -376,7 +376,7 @@
 * Activity logs with type and search.
 * Extend activity logs.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Change default notification areas.
@@ -389,7 +389,7 @@
 * Refactoring unit tests after laravel 5.4 integration.
 * Main menu title.
 
-#### Fixes
+**Fixes**
 
 * Activity logs ordering.
 * Staff -> Users has wrong main menu visible, #35.
@@ -397,19 +397,19 @@
 * Activity logs datatables columns width.
 * Fix for new composer handler.
 
-#### Internal
+**Internal**
 
 * Remove unused code.
 * Updated for Laravel 5.4.
 
-#### Other
+**Other**
 
 * Update composer.json.
 
 
 ### Notifications
  
- #### New
+ **New**
  
  * Missing translations.
  * Refactoring unit tests.
@@ -419,7 +419,7 @@
  * Notification logs auto remover.
  * Notification logs.
  
- #### Changes
+ **Changes**
  
  * Readme.md structure change.
  * Change form fields dimensions, DEL: remove unused watchdog after install.
@@ -429,11 +429,11 @@
  * Updated ACL file.
  * Main menu title.
  
- #### Fixes
+ **Fixes**
  
  * Depracated 'lists' method to new one - 'pluck'
  
- #### Other
+ **Other**
  
  * Update composer.json.
  * Fix for new composer handler.
@@ -441,28 +441,28 @@
 
 ### Sample module
 
-#### New
+**New**
 
 * Sample more email notification template, notification seeder and automation.
 * Sample datatables and events.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Change module name.
 
-#### Fixes
+**Fixes**
 
 * Change module name with prefix component-
 
 ### Search
 
-#### New
+**New**
 
 * New composer.json structure.
 * Laravel 5.3 integration.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Search engine changes, hide unwanted tabs when no results.
@@ -471,11 +471,11 @@
 * Updated ACL file.
 * Quick search engine based on datatables results.
 
-#### Fixes
+**Fixes**
 
 * Remove console log, add total search tabs.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Fix for new composer handler.
@@ -483,13 +483,13 @@
 
 ### Tester
 
-#### New
+**New**
 
 * New composer.json structure.
 * Refactoring unit tests.
 * Laravel 5.4 integration.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
@@ -497,11 +497,11 @@
 * Quick search engine based on datatables results.
 * Tester unit tests refactoring.
 
-#### Fixes
+**Fixes**
 
 * Getting component model.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Fix for new composer handler.
@@ -509,7 +509,7 @@
 
 ### Translations
 
-#### New
+**New**
 
 * Laravel 5.4 integration.
 * Laravel 5.3 integration.
@@ -519,33 +519,33 @@
 * Add key-value translation, delete and change item, CHG: view.
 * Translations view for version 0.9.2.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
 * Updated ACL file.
 * Remove unused html divs.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Fix for new composer handler.
 
 ### Two factor auth
 
-#### New
+**New**
 
 * Unit tests refactoring.
 * Laravel 5.4 integration.
 * Laravel 5.3 integration.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
 * Updated ACL file.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Update composer.json.
@@ -554,7 +554,7 @@
 
 ### Updater
 
-#### New
+**New**
 
 * Refactoring unit tests.
 * Laravel 5.4 integration.
@@ -562,7 +562,7 @@
 * New composer.json structure.
 * Creating new backup improvements.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
@@ -570,18 +570,18 @@
 * Change minimal width of widget.
 * Change default sys version.
 
-#### Fixes
+**Fixes**
 
 * Remove backup when in pending status.
 * Fix for new composer handler.
 
-#### Other
+**Other**
 
 * Update composer.json.
 
 ### Widgets
 
-#### New
+**New**
 
 * Refactoring unit tests.
 * Laravel 5.4 integration.
@@ -589,25 +589,25 @@
 * New composer.json structure.
 * Default dashboard widgets after fresh install.
 
-#### Changes
+**Changes**
 
 * Readme.md structure change.
 * Remove initial widgets migaration.
 * Added homepage and friendly names to components.
 * Updated ACL file.
 
-#### Fixes
+**Fixes**
 
 * Fixes for widgets finder.
 * Deferred providers.
 * Gridstack init after js updates.
 * Enlarge of the widget doesn’t work.
 
-#### Internal
+**Internal**
 
 * Setup service provider as not deferred.
 
-#### Other
+**Other**
 
 * Update composer.json.
 * Fixes for new composer handler.
