@@ -6,7 +6,7 @@
  
 The system has been designed on the basis of **HMVC** which stands for hierarchical - model - view - controller. This type of architecture can be described with the use of the following graph:
 
-  ![AT_C&FSTRU1](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU1.png)
+  ![AT_C&FSTRU1](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU1.PNG)
   
 The above mentioned graph describes:
 

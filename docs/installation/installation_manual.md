@@ -25,9 +25,9 @@ Apache 2.4.x or higher ([more info](requirements.md#####Apache 2.4.x))
 apt-get -y install apache2
 ```
 
-The installation of dedicated modules is performed via a command (an example for mod_headers):
+The installation of dedicated modules is performed via a command:
 ```bash
-a2enmod headers
+a2enmod headers rewrite filter deflate alias mime env
 ```
 After the modules' installation, it is necessary to restart:
     
@@ -35,25 +35,17 @@ After the modules' installation, it is necessary to restart:
 service apache2 restart
 ```
    
-Optionally, there might be a need for an update apache configuration file to read `.htaccess` file which is used by application:
+Optionally, there might be a need for an update apache configuration file to read `.htaccess` file which is used by application. Edit `apache2.conf` file by command:
 ```bash
 nano /etc/apache2/apache2.conf
 ```
+and change following line:
 ```bash
-<Directory /var/www/> 
-Options Indexes FollowSymLinks  
 AllowOverride None
-Require all granted
-</Directory>
 ```
-
-is changed into:
+to:
 ```bash
-<Directory /var/www/> 
-Options Indexes FollowSymLinks
 AllowOverride All
-Require all granted
-</Directory>
 ```
 
 #### PHP 7.1.*   
@@ -117,13 +109,13 @@ Once logged in, you should achieve the following result:
 Sometimes there may be a problem with connection to database via root user. It is recommended to create new database user, instead of root:
 
  1. Log into MYSQL as root:    
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">apt-get</span> -y <span class="token function">install</span> mariadb-server mariadb-client</code></pre>
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
  2. Grant privileges to a new user, execute as follows:
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
     GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
     FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
  3. Bind to all addresses:
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">nano</span> /etc/mysql/mariadb.conf.d/50-server.cnf</code></pre>
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">nano</span> /etc/mysql/my.cnf</code></pre>
  4. Comment following line:
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token comment" spellcheck="true">#bind-address = 127.0.0.1</span></code></pre>
  5. Exit mysql and restart mysql:
@@ -147,9 +139,6 @@ After phpmyadmin installation, remove invalid php5 config files:
 rm -rf /etc/apache2/mods-enabled/php5.conf /etc/apache2/mods-enabled/php5.load
 service apache2 restart
 ```      
-```bash
-echo "update user set plugin='' where User='root'; flush privileges;" | mysql -u root -p mysql
-```
   
 #### Composer 1.3.x
 Composer 1.3.x or higher
@@ -160,7 +149,6 @@ mv composer.phar /usr/local/bin/composer
 #### Git 1.9.x
 Git 1.9.x or higher:
 ```bash
-apt-get update
 apt-get install git
 ```    
   
@@ -184,7 +172,7 @@ Server built:   2016-12-21T00:00:00
 mysql --version
 ```
       
-The expected version:
+The expected version (or higher):
   
 ```bash
 mysql  Ver 14.14 Distrib 5.6.30
@@ -196,7 +184,7 @@ mysql  Ver 14.14 Distrib 5.6.30
 php -v
 ```
   
-The expected version:
+The expected version (or higher):
   
 ```bash
 PHP 7.1.3-2+deb.sury.org~trusty+1 (cli) (built: Mar 15 2017 09:53:03) ( NTS )
@@ -210,7 +198,7 @@ Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
 git --version
 ```
 
-The expected version:
+The expected version (or higher):
   
 ```bash
 git version 1.9.1
@@ -222,7 +210,7 @@ git version 1.9.1
 composer --version
 ```
 
-The expected version:
+The expected version (or higher):
   
 ```bash
 Composer version 1.3.2
@@ -234,6 +222,7 @@ Composer version 1.3.2
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">cd</span> /var/www</code></pre>
     and clone repository:
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">git clone https://github.com/antaresproject/project.git -b 0.9.2 html</code></pre>
+    ***Please note**: Target clone directory should not exists. Using above sample check whether directory not contains*
 
     The above command will install the application in 0.9.2 version with git repository in html catalogue. 
     In this case, please remember about pointing the virtual machine at public project catalogue:
