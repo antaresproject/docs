@@ -4,7 +4,6 @@
 
 ## Menus  
 
-### Main Menu  
 
 #### Attributes  
 
