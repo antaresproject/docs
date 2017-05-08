@@ -249,7 +249,7 @@ To run tests:
     $ cd <DIRECTORY>
     ```
     
-* Install dependencies via composer:
+2. Install dependencies via composer:
 
     ```bash
     $ curl -sS https://getcomposer.org/installer | php
@@ -257,13 +257,13 @@ To run tests:
     ```
    More information about environment configuration you can found in [Manual Installation Guide](../installation/installation_manual.md).
 
-* Run the tests via phpunit, like in this example:
+3. Run the tests via phpunit, like in this example:
     ```bash
     $ ./vendor/bin/phpunit -c src/components/automation/phpunit.xml
     ```    
-  Edit phpunit.xml if you want to achieve more flexible functionality to test.
+    Edit phpunit.xml if you want to achieve more flexible functionality to test.
 
- > Every commit to master Antares repository will run [Travis CI](http://travis-ci.org/) build job to check unit tests and [Coveralls](https://coveralls.io/) service to verify code coverage. 
+    > Every commit to master Antares repository will run [Travis CI](http://travis-ci.org/) build job to check unit tests and [Coveralls](https://coveralls.io/) service to verify code coverage. 
  
 # Versioning
  
