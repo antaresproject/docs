@@ -22,6 +22,8 @@ Every [Page View](../modules_development/views_and_ui_components.md) contains:
 
 Some of the visible elements are not available or different for non-logged users. The only exception is login page which is currently containing only the login form.
 
+![dashboard](../img/docs/antares_concepts/ui_structure/dashboard.png)
+
 ## Template Layouts 
 
 There are several template layouts that you can set up in the Antares per each [user level](../core_modules/control.md) (e.g. can be different for admin and different for user):
@@ -41,6 +43,8 @@ There are two types of [UI Components](../modules_development/views_and_ui_compo
 * Vue2 - loaded by [Webpack](../services/webpack.md)
 
 Additionally, if enabled by developer, each view can have widgets edit option. User can use it to manually configure what UI components are visible or not and move/scale them depending on the component possibilities.
+
+![edit_mode](../img/docs/antares_concepts/ui_structure/edit_mode.gif)
 
 > **Please note:** You can use predefined [UI Components](../modules_development/views_and_ui_components.md) (documentation soon), customize them or make your own [UI Components](../modules_development/views_and_ui_components.md).
 
