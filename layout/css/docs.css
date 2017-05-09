@@ -268,10 +268,7 @@ h6{
 .ardocs-content .main-content .toc a:hover{
     color:#0079d1;
 }
-.main-content ul li,
-.main-content ol li{
-    margin-bottom:10px;
-}
+
 .flex-sb{
     -ms-flex-pack:justify;
     justify-content:space-between;
@@ -5084,7 +5081,27 @@ section.antares-nav .logo{
 section.antares-nav .logo img{
     width:198px;
 }
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700&subset=latin,latin-ext');
+body {
+    font-family: 'Open Sans' !important;
+}
+body h3, body h4,body h5, body h6{
+    font-family: 'Open Sans' !important;
+
+}
+body h4{
+    font-size: 15px !important;
+}
+body p{
+    font-size: 13px;
+}
+body ul, ol{
+    font-size:13px;
+    line-height: 19px;
+}
 code, kbd, pre, samp{
-    background: #f1f0f0;
-    padding:2px 5px;
+    font-size: 12px;
+}
+p code{
+    background-color:#f5f2f0;
 }

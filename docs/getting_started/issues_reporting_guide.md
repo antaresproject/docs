@@ -2,7 +2,7 @@
 
 [TOC]
 
-# Reporting bugs
+## Reporting bugs
 
 Before you report an issue, please search through existing issues to see if your issue is already reported or fixed. Make sure you are not reporting a duplicated issue. Please follow the guidelines below while creating new issue.  It will improve resolving time by our development team. An issue should contain:
 
@@ -18,9 +18,9 @@ Before you report an issue, please search through existing issues to see if your
 
 6. If possible a failing unit test as pull request
 
-> If the issue is related to one of the repositories in organization, please report it in the correct place in issue tracker. Otherwise report it to the [main repository](github.com/antaresproject/project).
+> If the issue is related to one of the repositories in organization, please report it in the correct place in issue tracker. Otherwise report it to the [main repository](https://github.com/antaresproject/project).
 
-# Reporting Security Issues
+## Reporting Security Issues
 
 1. Please DO NOT report it on public issue trackers.
  
@@ -30,7 +30,7 @@ Before you report an issue, please search through existing issues to see if your
 
 > Security issue has the highest priority. We will work with you to verify the vulnerability and patch it as soon as possible.
 
-# Do not report when 
+## Do not report when 
 
 Do not report an issue if you don't know how to use some of Laravel functionalities or external vendors.
 You may find the answer in official documenations or use the forum or chat room for this purpose. Avoid duplicated issues
