@@ -62,7 +62,7 @@ pages:
    - Translations: core_modules/translations.md
    - Updater: core_modules/updater.md  
    - Widgets: core_modules/widgets.md
-- Additional modules:
+ - Additional modules:
    - Search: modules/search.md
  - Tutorials:
    - Sample module: tutorials/sample_module.md
