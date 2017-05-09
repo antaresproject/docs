@@ -24,7 +24,7 @@ pages:
  - Antares Concepts:
    - Files structure: antares_concepts/core_&_files_structure.md
    - Modules: antares_concepts/components_&_modules.md
-   - UI Structure: antares_concepts/widget_templates.md
+   - UI Structure: antares_concepts/ui_structure.md
    - Views: antares_concepts/views.md
  - Modules Development:
    - Migrations: modules_development/migrations.md
