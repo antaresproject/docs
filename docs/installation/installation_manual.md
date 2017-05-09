@@ -258,7 +258,7 @@ Composer version 1.3.2
     The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
 
 3. In the application's catalogue change the catalogues' entitlements.
-   <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">chmod</span> -R 777 storage <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> -R 777 builds <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> -R 777 public <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> -R 777 bootstrap</code></pre>    
+   <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">chmod</span> -R 777 storage public bootstrap</code></pre>    
    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">chown</span> -R www-data:www-data /var/www/html</code></pre>
 
 4. Create new database instance using following command:    
