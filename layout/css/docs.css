@@ -5105,3 +5105,10 @@ code, kbd, pre, samp{
 p code{
     background-color:#f5f2f0;
 }
+blockquote:before{
+    content: '';
+}
+blockquote:after{
+    content: '';
+    margin-left:0px;
+}

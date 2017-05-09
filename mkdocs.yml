@@ -61,7 +61,9 @@ pages:
    - Notifications: core_modules/notifications.md
    - Translations: core_modules/translations.md
    - Updater: core_modules/updater.md  
-   - Widgets: core_modules/widgets.md  
+   - Widgets: core_modules/widgets.md
+- Additional modules:
+   - Search: modules/search.md
  - Tutorials:
    - Sample module: tutorials/sample_module.md
    - Sample widget template: tutorials/sample_widget_template.md
