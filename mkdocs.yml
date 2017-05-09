@@ -21,6 +21,7 @@ pages:
    - Requirements: installation/requirements.md
    - Automatic Installation Guide: installation/installation_auto.md 
    - Manual Installation Guide: installation/installation_manual.md
+   - Environment Verification: installation/environment_verification.md
  - Antares Concepts:
    - Files structure: antares_concepts/core_&_files_structure.md
    - Modules: antares_concepts/components_&_modules.md
