@@ -1,5 +1,10 @@
 # Updater  
 
+Updater is a module which provides information about present system's state, which facilitates application's update and reports' generation concerning system's state.
+It also allows to create automated backups of database and app files, automatic system reporting and sandboxes.
+Sandbox is separated application's instance where system can by tested before production release. 
+
+
 Updater is a component which provides information about present system's state, which facilitates application's update and reports' generation concerning system's state. The following sections may be distinguished within the system:
 1. System information
 2. Updates

@@ -1,5 +1,8 @@
 # Translations  
 
+Translations is a package to manage Antares translation files. It doesn't replace the translation system, only automated import / export the php files to a database and make them editable through a web interface. 
+It allows to manage app languages as CRUD with text comparsion feature.   
+
 [TOC]
 
 ## Introduction  

@@ -13,7 +13,9 @@ A structure of the class responsible for main menu's generation can be depicted 
 Antares\Foo\Http\Handler\FooMainMenu
 ```
 
+
 ```php
+
 <?php
 
 namespace Antares\Foo\Http\Handler;

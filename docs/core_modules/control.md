@@ -1,5 +1,8 @@
 # Control  
 
+Control is a lightweight role-based permissions module for Antares. It is designed to manage users' access to resources located in different places of application as behaviour that checks permission by the modules rules.
+It provides developers with NIST Level 2 Hierarchical Role Based Access Control (RBAC). Allows to creating roles and rules via UI.
+ 
 [TOC]
 
 ## Groups  

@@ -5097,7 +5097,7 @@ body p{
 }
 body ul, ol{
     font-size:13px;
-    line-height: 19px;
+    line-height: 20px;
 }
 code, kbd, pre, samp{
     font-size: 12px;
@@ -5111,4 +5111,8 @@ blockquote:before{
 blockquote:after{
     content: '';
     margin-left:0px;
+}
+section.ardocs-content aside.table-of-contents > ul ul li a:hover{
+    color:#0093ff;
+    font-weight:normal;
 }

@@ -1,5 +1,12 @@
 # Widgets 
 
+Widgets is package designed for presenting data in Antares grid system. Each module can produce every type of data as response. Widgets module allows to group those data to separated cells of grid and displays to end-user as folded and ordered web page. 
+Every cell is a single widget which is able to define their own behaviours such as allow to resize or change position. Every widget may be collected into group of widgets. This group is still treated as single widget.
+ 
+ 
+ 
+Umożliwia 
+
 This component is used to operate widgets presented in the application. More information about the implementation of widgets can be found [here](../services/widget.md). Configuration file connected with the component is placed in the location:
 
 ```php

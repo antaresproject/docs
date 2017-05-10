@@ -5,6 +5,9 @@ theme: null
 theme_dir: 'layout'
 site_favicon: favicon.png
 markdown_extensions:
+ - abbr
+ - attr_list
+ - fenced_code
  - codehilite
  - smarty
  - toc:
@@ -63,8 +66,6 @@ pages:
    - Translations: core_modules/translations.md
    - Updater: core_modules/updater.md  
    - Widgets: core_modules/widgets.md
- - Additional modules:
-   - Search: modules/search.md
  - Tutorials:
    - Sample module: tutorials/sample_module.md
    - Sample widget template: tutorials/sample_widget_template.md

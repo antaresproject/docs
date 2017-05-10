@@ -1,7 +1,11 @@
 # Automation  
 
+Automation is used to execute cyclic operation based on [scheduler](https://laravel.com/docs/5.2/scheduling). It is designed to automate tasks by scheduling PHP scripts to run in specified intervals. It is a replacement for cron jobs/crontab on Unix based operating systems.
+Automation schedules a task to run every few minutes, hourly, daily or weekly - scheduled data is stored in a MySQL/MariaDB database via PHP.
+Module will fire any of commands at the correct day/time and sets one-off tasks to run at a set time, or schedule in a regular job to run each hour, every few days or weeks.
 
-Automation is used to execute cyclic operation based on [scheduler](https://laravel.com/docs/5.2/scheduling). The operation is defined as a class which inherits from the Antares\View\Console\Command object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
+
+The operation is defined as a class which inherits from the Antares\View\Console\Command object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
 
 ```bash
 php artisan queue:start

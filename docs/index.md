@@ -17,8 +17,6 @@ It is fully modular, meaning that you can easily create your own modules and ext
    * [Modules](antares_concepts/components_&_modules.md) - See what is the module structure and how modules are located in the system.
 
    * [UI Strucure](antares_concepts/views.md)  - Look how easy you can design your own views on every user level.
-
-   * [Maintenance](antares_concepts/maintenance.md) - How can you maintain your web app with Antares Project helpful tools.
    
 4. Start building your own Modules following Modules Development section or try with our tutorial to build [Sample Module](tutorials/sample_module.md).
 
