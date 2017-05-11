@@ -199,7 +199,15 @@ Optionally you can configure permission settings for specified IPs. Add followin
 </Directory>   
 ```            
 
+To apply above settings, restart apache service:
+
+```bash
+service apache2 restart
+```
+
 More information about vhosts configuration you can find [here](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
+
+
         
 
 ### Composer Install
