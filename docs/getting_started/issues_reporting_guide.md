@@ -24,7 +24,7 @@ Before you report an issue, please search through existing issues to see if your
 
 1. Please DO NOT report it on public issue trackers.
  
-2. Send an issue description directly by contact e-amil placed on the bottom of page http://antaresproject.io.
+2. Send an issue description directly by contact e-mail: contact (at) antaresproject.io
  
 3. Description of security issue should contain the same details described [above](issues_reporting_guide.md#Reporting bugs). 
 
@@ -33,4 +33,4 @@ Before you report an issue, please search through existing issues to see if your
 ## Do not report when 
 
 Do not report an issue if you don't know how to use some of Laravel functionalities or external vendors.
-You may find the answer in official documenations or use the forum or chat room for this purpose. Avoid duplicated issues
+You may find the answer in official documenations or use the forum or chat room for this purpose. Avoid duplicated issues.
