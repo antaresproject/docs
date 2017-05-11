@@ -2,10 +2,10 @@
 
 [TOC]
 
-Antares Project is an open-source software. It means that anyone can contribute to its development.
+Antares is an open-source software. It means that anyone can contribute to its development.
 > **Note that only PHP 7 compatibility issues are accepted.**
 
-When contributing to Antares Project you have to follow some points and workflow. 
+When contributing to Antares Project repository you have to follow some points and workflow. 
 It allows us to resolve the requests quickly. Following below guidelines will result less work for both you and our team.
         
 ## Contributing Bugfixes or Features
@@ -178,6 +178,7 @@ We don't want to force you to use this code style for your application but remem
 4. Class names **MUST** be declared in StudlyCaps and **MUST** contain `Antares` namespace.
 
 5. Class constants **MUST** be declared in all upper case with underscore separators:
+
     <pre class="codehilite language-php">
         <code class="language-php">
              <?php
@@ -332,20 +333,21 @@ To run tests:
     
     Edit phpunit.xml if you want to achieve more flexible functionality to test.
 
-    > Every commit to master Antares repository will run [Travis CI](http://travis-ci.org/) build job to check unit tests and [Coveralls](https://coveralls.io/) service to verify code coverage. 
+    Every commit to master Antares repository will run [Travis CI](http://travis-ci.org/) build job to check unit tests and [Coveralls](https://coveralls.io/) service to verify code coverage. 
+    
  
-# Versioning
+## Versioning
  
  In general, Antares Project follows the [Semantic Versioning](http://semver.org/) as `<major>.<minor>.<patch>`.
  
-## Patch Releases
+### Patch Releases
     
    * Based on a branch name 0.9.Y (eg: 0.9.2)
    * May contain bug fixes and minor features, never contains major features
    * Has 100% backward compatibility
    * Release cycle is very often
    
-## Minor Releases
+### Minor Releases
     
    * Based on a branch name 0.X.Y (eg: 0.8.Y)
    * Contain minor features and bug fixes merged from patch releases
@@ -353,7 +355,7 @@ To run tests:
    * May require pre-releases from patches
    * Requires major news releases and marketing effort
    
-## Major Releases
+### Major Releases
    
    * Not planned
    
