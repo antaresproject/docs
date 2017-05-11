@@ -1,7 +1,12 @@
 # License
 
+Antares Project software available on the public GitHub repository is licensed with BSD-3 Clause License. 
+
+
 The BSD-3-Clause License
+
 Copyright (c) 2017, Antares Project
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
