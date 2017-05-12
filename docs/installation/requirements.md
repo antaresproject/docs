@@ -42,11 +42,17 @@ In the Windows OS an optional extension is php_com_dotnet which facilitates html
 
 ### Mysql 14.x
     
-Mysql (MariaDB) 14.x data base or higher.
+Mysql (MariaDB) 14.x database or higher.
 
 ### Composer 1.3.x
 
+Composer 1.3.x or higher.
+
 ### Git 1.9.x    
+
+Git 1.9.x or higher
+
+
 
 ## Recommended server resources
 
