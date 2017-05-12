@@ -1,8 +1,8 @@
 # Automatic Installation Guide
 
-Automatic installation is the fastest way to install Antares on your server in case that you have Ubuntu 14.04/16.06 or CentOS 7.2.x.
+Automatic installation is the fastest way to install Antares on your server **in case that you have Ubuntu 14.04/16.06 or CentOS 7.2.x**. It is based on a bash script that you can find [here](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh)
 
-***Please note**: In case that you are not able to automatically install Antares successfully, please follow [Manual Installation Guide](installation_manual.md).*
+***Please note**: Automatic installer was mostly tested on a clean server system so it may not always work if you have your own customized environment. In case that you are not able to automatically install Antares successfully, please follow the [Manual Installation Guide](installation_manual.md).*
 
 Before the installation, it is recommended to make sure that all of the environment components have been installed and their versions are compatible with the [expected](requirements.md) ones.  
 
@@ -20,12 +20,12 @@ If the directory does not exist, create it:
 mkdir -p /var/www
 ```
 
-Automatic installation is based on a bash script. You can download it from the following [location](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh) or directly on the server:
+Download the installer script:
 ```bash
 wget https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh
 ```
 
-The installer script needs to be in the `/var/www` server directory.
+**Hint: ** The installer script needs to be in the `/var/www` server directory.
 
 Once you're set, run the following command and wait for the magic:
 
@@ -33,7 +33,9 @@ Once you're set, run the following command and wait for the magic:
 sudo bash installer.sh
 ```
 
+The installation begins:
 ![installation_step_1](../img/docs/installation/installation_guide/installation_step_1.png)
+
 
 ## Installation process
 During the installation, the automatic installer will require additional information to be provided - **please read them and answer carefully.**
