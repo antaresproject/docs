@@ -2,32 +2,39 @@
 
 [TOC]
 
-Manual installation is recommended when overall project requires interference with the specific server environment.
-This way allows flexibility of configure server packages such as apache document root location, pre-installed apache extensions and server tools (eg.: [Varnish cache](https://varnish-cache.org/intro/index.html#intro)) and php extensions and libs (eg.: [ImageMagick](http://php.net/manual/en/book.imagick.php)) depends on project requirements.
-It is worth to remember that server customization procedure can be also done after [Automatic Installation](installation_auto.md).    
+Manual installation is recommended for more advanced users that would like to set up Antares on their own,  specific server environment. It is also recommended to follow it when the automatic installer failed. It provides more flexibility of configuration of the server packages such as apache document root location, pre-installed apache extensions, PHP extensions and server tools.
 
-Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones.
+Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones. You will find the instructions [Automatic Installation Guide](installation_auto.md).
 
-***Please note**: Manual installation is the hardest and longest way to install Antares Project and gives full server customization as opposed to auto install.  The following manual is dedicated for **Ubuntu 14.04/16.06** or **CentOS 7.2.x**. In case that you are not able to use it, please follow [Automatic Installation Guide](installation_auto.md).*
+***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](installation_auto.md).*
 
-## Preconfiguration  
+The following manual is dedicated for **Ubuntu 14.04/16.06** or **CentOS 7.2.x**. 
 
-Here is the description of libraries installation which are a part of system's environment:
+
+
+## Server preconfiguration  
+
+Before you proceed with the Antares installation, you need to start with libraries which are a part of the system environment.
+
+Just in case, run apt-get update to get the newest versions of packages and their dependencies:
+```bash
+apt-get update
+```
 
 ### Apache 2.4.x
 
-Apache 2.4.x or higher ([more info](requirements.md#####Apache 2.4.x))    
-    
+Install Apache 2.4.x or higher:    
 
 ```bash
 apt-get -y install apache2
 ```
 
-The installation of dedicated modules is performed via a command:
+Install the required Apache modules:
 ```bash
 a2enmod headers rewrite filter deflate alias mime env
 ```
-After the modules' installation, it is necessary to restart:
+
+After the modules are installed, it is necessary to restart Apache:
     
 ```bash
 service apache2 restart
@@ -37,17 +44,22 @@ Optionally, there might be a need for an update apache configuration file to rea
 ```bash
 nano /etc/apache2/apache2.conf
 ```
-find following line:
+find following lines:
 ```bash
-AllowOverride None
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+
 ```
-and change it to:
+and change AllowOverride to All :
 ```bash
 AllowOverride All
 ```
 
 ### PHP 7.1.*   
-PHP 7.1.* or higher ([more info](requirements.md#####PHP 7.1.x))
+Install PHP 7.1.* or higher:
 ```bash
 apt-get install software-properties-common
 ```
@@ -60,51 +72,44 @@ apt-get update
 ```bash
 apt-get -y install php7.1 libapache2-mod-php7.1
 ```
-Restart after the installation:
-```bash
-service apache2 restart
-```
-Installation of additional extensions:
+
+Install the required PHP extensions:
 ```bash
 apt-get -y install php7.1-bz2 php7.1-curl php7.1-fileinfo php7.1-mcrypt php7.1-gd php7.1-bcmath php7.1-xml php7.1-zip php7.1-pdo php7.1-dom php7.1-tokenizer php7.1-sqlite php7.1-gettext php7.1-mbstring php7.1-mysql
 ```
-Searching for available extensions:
-```bash
-apt-cache search php7.1
-```
-It is necessary to remember about the restart after the installation:
+Restart Apache after the installation:
 ```bash
 service apache2 restart
 ```
+
+
 ### Mysql 14.x
-Mysql (MariaDB) 14.x or higher:
+Install Mysql (MariaDB) 14.x or higher:
 ```bash
 apt-get -y install mariadb-server mariadb-client
 ```
 
+Run secure mySQL installation script:
 ```bash
 mysql_secure_installation
 ```
 
+You can follow these settings:
 ```bash
 Enter current password for root (enter for none): <-- enter
 Set root password? [Y/n] <-- y
 New password: <-- provide a password for root user
 Re-enter new password: <-- repeat password
 Remove anonymous users? [Y/n] <-- y
+Remove test database and access to it? [Y/n] <-- y
 Disallow root login remotely? [Y/n] <-- n
 Reload privilege tables now? [Y/n] <-- y
 ```
 
-In order to check installation's correctness, type the following command:
-```bash
-mysql -u root -p
-```
-Once logged in, you should achieve the following result:
- 
-  ![AT_precon1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/installation/preconfiguration/AT_precon1.PNG)
-  
-Sometimes there may be a problem with connection to database via root user. It is recommended to create new database user, instead of root:
+
+#### MySQL Connection problems
+
+Sometimes there may be a problem with a local connection to database via root user. It is recommended to create a new database user, instead of root:
 
  1. Log into MYSQL as root:    
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
@@ -112,46 +117,32 @@ Sometimes there may be a problem with connection to database via root user. It i
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
     GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
     FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
- 3. Bind to all addresses:
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token function">nano</span> /etc/mysql/my.cnf</code></pre>
- 4. Comment following line:
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash"><span class="token comment" spellcheck="true">#bind-address = 127.0.0.1</span></code></pre>
- 5. Exit mysql and restart mysql:
-    <pre class="codehilite language-bash code-toolbar"><code class="language-bash hljs"><span class="token keyword keyword-exit"><span class="hljs-built_in">exit</span></span>
-    <span class="token function">service</span> mysql restart</code></pre>
 
-Optionally, [phpMyAdmin](https://www.phpmyadmin.net/) can also be installed:
-  
-```bash
-apt-get -y install phpmyadmin
-```
-  
-```bash
-Web server to configure automatically: <-- apache2
-Configure database for phpmyadmin with dbconfig-common? <-- Yes
-MySQL application password for phpmyadmin: <-- enter
-```
+Another issue is that for some Ubuntu cloud servers providers, we've noticed a pretty common problem with local database connection:
 
-After phpmyadmin installation, remove invalid php5 config files:
-```bash
-rm -rf /etc/apache2/mods-enabled/php5.conf /etc/apache2/mods-enabled/php5.load
-service apache2 restart
-```      
+---------------------------SCREEN HERE
+
+Even if we've configured the connection to link with 127.0.0.1, it's pointing to localhost which is handled differently by MySQL than the ip address. If you face such an issue, there are a few ways to fix it (one of them will work):
+- Change `/etc/hosts` file to not point 127.0.0.1 to localhost
+- Edit `/etc/mysql/my.cnf` and comment out `#bind-address = 127.0.0.1`. Restart mysql afterwards.
+- Use localhost instead of IP directly. Please only note that you'd need to set your own user (as the default root user may not work) and it may work slower than connecting to 127.0.0.1 directly.
   
 ### Composer 1.3.x
-Composer 1.3.x or higher
+Install composer 1.3.x or higher
 ```bash
 curl -sS https://getcomposer.org/installer | php 
 mv composer.phar /usr/local/bin/composer
 ```
+
 ### Git 1.9.x
-Git 1.9.x or higher:
+Install Git 1.9.x or higher:
 ```bash
 apt-get install git
 ```    
-  
 
-## Installation
+
+
+## Antares Installation
   
 ### Git Clone
 Firstly, go to directory:
@@ -160,13 +151,13 @@ Firstly, go to directory:
 cd /var/www
 ```  
 
-and clone repository:
+and clone GIT repository:
 
 ```bash
 git clone https://github.com/antaresproject/project.git -b 0.9.2 html
 ```
     
-> ***Please note**: Target clone directory should not exists. Using above sample check whether directory not contains*
+**Please note**: Target clone directory should not exist. Using the above command check whether directory does not exist.
 
 The above command will install the application in 0.9.2 version with git repository in html catalogue. 
 In this case, please remember about pointing the virtual machine at public project catalogue:
@@ -199,7 +190,7 @@ Optionally you can configure permission settings for specified IPs. Add followin
 </Directory>   
 ```            
 
-To apply above settings, restart apache service:
+Once you apply the above settings, restart apache service:
 
 ```bash
 service apache2 restart
@@ -212,7 +203,7 @@ More information about vhosts configuration you can find [here](https://httpd.ap
 
 ### Composer Install
 
-Go to html catalogue and launch the installation command:  
+Go to `/var/www/html` catalogue and launch the installation command:  
 
 ```bash
 cd /var/www/html
@@ -222,14 +213,16 @@ cd /var/www/html
 composer install
 ```      
 
+The installation will download all the repositories used by Antares based on configuration specified in the composer.json file. It will additionally download all the required assets (js, css). In the end of this procedure it will move front-end elements to the 'public' catalogue, which the application uses.  
+
 ![AT_IG2](../img/docs/installation/installation_guide/AT_IG2.PNG)
 
-The installation will download all the repositories belonging to the whole application based on interrelations specified in the composer.json file. It will additionally download the required assets (js, css). In the end of this procedure it will move such a frontend version to 'public' catalogue, which the application uses.  
+
 
 
 ### Directory Permissions
 
-In the application's catalogue change the catalogues' entitlements.
+Once the installation is over, you need to set up permissions to specific directories used by the application in the `/var/www/html`:
 
 ```bash
 chmod -R 777 storage public bootstrap
@@ -245,16 +238,25 @@ chown -R www-data:www-data /var/www/html
 Create new database instance using following command:
 
 ```bash
-mysql -u <enter mysql username here> -p <enter mysql password here>
+mysql -u root -p 
 ```
 
 ```bash
-create database foo CHARACTER SET=utf8 COLLATE=utf8_general_ci
+create database foo CHARACTER SET=utf8 COLLATE=utf8_general_ci;
 ```    
+**Please note:** Database name "foo" is just an example, it is recommended to use your own database name.
 
-> You can create database using phpMyAdmin by going to `http://<server_name>/phpmyadmin`
+Type `exit` to leave the MySQL command line.
+
+
        
-Edit the file `/var/www/html/.env`:
+Once created, you need to set the database connection in the file `/var/www/html/.env`:
+
+```bash
+nano /var/www/html/.env
+```
+
+Change following lines:
 
 ```bash
 DB_HOST=127.0.0.1
@@ -272,6 +274,7 @@ Go to the `http://<server_name>/install` in order to start migration import to t
 
  
 In the next step, set up the application's instance name, username and password of the main administrator.
+
 
 ![installation_manual_step_2](../img/docs/installation/installation_guide/installation_manual_step_2.PNG)
 
