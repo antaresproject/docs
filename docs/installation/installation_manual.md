@@ -105,27 +105,6 @@ Remove test database and access to it? [Y/n] <-- y
 Disallow root login remotely? [Y/n] <-- n
 Reload privilege tables now? [Y/n] <-- y
 ```
-
-
-#### MySQL Connection problems
-
-Sometimes there may be a problem with a local connection to database via root user. It is recommended to create a new database user, instead of root:
-
- 1. Log into MYSQL as root:    
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
- 2. Grant privileges to a new user, execute as follows:
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
-    GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
-    FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
-
-Another issue is that for some Ubuntu cloud servers providers, we've noticed a pretty common problem with local database connection:
-
----------------------------SCREEN HERE
-
-Even if we've configured the connection to link with 127.0.0.1, it's pointing to localhost which is handled differently by MySQL than the ip address. If you face such an issue, there are a few ways to fix it (one of them will work):
-- Change `/etc/hosts` file to not point 127.0.0.1 to localhost
-- Edit `/etc/mysql/my.cnf` and comment out `#bind-address = 127.0.0.1`. Restart mysql afterwards.
-- Use localhost instead of IP directly. Please only note that you'd need to set your own user (as the default root user may not work) and it may work slower than connecting to 127.0.0.1 directly.
   
 ### Composer 1.3.x
 Install composer 1.3.x or higher
@@ -268,17 +247,21 @@ DB_PASSWORD=<enter mysql password here>
   
 ### Web-based Installer
 
-Go to the `http://<server_name>/install` in order to start migration import to the base. In the first installation step, there is an environment set-up verification - if everything is correct please continue. If the application states that something has not been set properly, the continuation will not be possible.
+Go to the `http://<server_IP>/install` in order to start migration import to the database. In the first installation step, there is an environment verification - if everything is correct please continue. If the application states that something has not been set properly, you will have to configure it before being able to proceed.
+
+**Please note:** If you have problems with the database connection, you can read about some extra troubleshooting below in the [MySQL Connection problems](#MySQL_Connection_problems) section.
 
 ![installation_manual_step_1](../img/docs/installation/installation_guide/installation_manual_step_1.PNG)
 
  
-In the next step, set up the application's instance name, username and password of the main administrator.
+In the next step, set up the application name, username and password of the main administrator.
+
+**Please note:** Do not forget to remember the password, it's the only way to log in to the application.
 
 
 ![installation_manual_step_2](../img/docs/installation/installation_guide/installation_manual_step_2.PNG)
 
-The final step in the installation is a definition of components and modules which will be a part of yours application's version. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the Daemon that will watch over the execution of 'jobs' which the application will submit during the work (e.g. notifications, demanding computational procedures, etc.).    
+The final step in the installation is to choose the modules which will be included in your application. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the daemon that will be handling [automation](../core_modules/automation.md).
 
 ![installation_manual_step_3](../img/docs/installation/installation_guide/installation_manual_step_3.PNG)
   
@@ -288,3 +271,24 @@ In the next step the application will inform you about the end of installation, 
 ![AT_IG5](../img/docs/installation/installation_guide/AT_IG5.PNG)
   
 Congratulations!!! The Antares Project application is ready to work.
+
+
+### Database Connection Problems
+
+Sometimes there may be a problem with a local connection to database via root user. It is recommended to create a new database user, instead of root:
+
+ 1. Log into MYSQL as root:    
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
+ 2. Grant privileges to a new user, execute as follows:
+    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
+    GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
+    FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
+
+Another common issue we've spotted on Ubuntu is that for some cloud server providers there is a problem with local database connection:
+
+---------------------------SCREEN HERE
+
+Even if we've configured the connection to link with 127.0.0.1, it's pointing to localhost which is handled differently by MySQL than the ip address. If you face such an issue, there are a few ways to fix it (one of them will work):
+- Change `/etc/hosts` file to not point 127.0.0.1 to localhost
+- Edit `/etc/mysql/my.cnf` and comment out `#bind-address = 127.0.0.1`. Restart mysql afterwards.
+- Use localhost instead of IP directly. Please only note that you'd need to set your own user (as the default root user may not work) and it may work slower than connecting to 127.0.0.1 directly.
