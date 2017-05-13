@@ -4,7 +4,7 @@
 
 ## Introduction  
  
-The system has been designed on the basis of **HMVC** which stands for hierarchical - model - view - controller. This type of architecture can be described with the use of the following graph:
+The system has been designed on the basis of **HMVC** architectural pattern which stands for Hierarchical - Model - View - Controller. This type of architecture can be described with the use of the following graph:
 
   ![AT_C&FSTRU1](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU1.PNG)
   
@@ -24,16 +24,17 @@ Filesystem structure is the following:
 
   ![AT_C&FSTRU2](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU2.PNG)
   
-It consist of catalogues divided thematically according to destination.
+It consists of catalogues divided thematically according to destination:
 
-* app - it consist of client's application (client side) of the created target software
+* app - it consists of client's application (client side) of the created target software
 * bootstrap - a catalogue containing service cache which the application has at its disposal and files of bootstrap and autoload type which raise the application
 * build - a catalogue containing sandbox instances created by web interface
 * resources - a catalogue containing the essential components connected with resources in files form which the system uses during its work. In this catalogue there are configuration files, view files, migration files, help scripts, default language files
-* src - contains the files with source code of the whole application such as components, core, modules
+* src - source code of the whole application such as components, core, modules
 * storage - a catalogue in which are stored any help files such as cache, temporary files etc. It is treated as a storehouse for data which may be stored by the system in the form of the files
 * public - a catalogue containing files responsible for proper website's display, contains css scripts and javascripts, graphic files, fonts as well as the .htaccess file itself and the main file index.php which the application uses to start
 
+### SRC Catalogue
 SRC catalogue content:
   
   ![AT_C&FSTRU3](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU3.PNG)
@@ -42,7 +43,7 @@ components - in this catalogue there are application's components, as depicted i
 
   ![AT_C&FSTRU4](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU4.PNG)
   
-The components required for system's work:
+The following components are required by Antares and need to be always :
 
 * brands
 * control
@@ -52,6 +53,7 @@ The components required for system's work:
 
 Please turn your attention to the existence of the file .gitignore. Its presence will not allow for commitment of the core catalogue to the main project repository you work on. Thus, the changes in the core itself can be committed to other repository if you move to the catalogue /src/core.
 
+### Core Catalogue
 core - contains system's main functions. Catalogue content is the following:
 
   ![AT_C&FSTRU5](../img/docs/antares_concepts/core_and_files_structure/AT_C&FSTRU5.PNG)
