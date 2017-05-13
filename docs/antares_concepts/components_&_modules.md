@@ -2,52 +2,23 @@
 
 [TOC]
 
+Module is a part of Antares project which can easily extend it's functionality by:
+- ... TBD
+
+This article will help you understand how modules in Antares are designed and what should include. It will help you create your own modules. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md).
+
 ## Structure  
 
 ### Minimal Structure
   
-A module should consist of the minimal structure:
+Every module must consist of the following structure:
 
 ![AT_COMP&MODS1](../img/docs/antares_concepts/components_and_modules/minimal_structure_1.png)
+
+As you can see all you need is to have 
   
-**composer.json** file's content:
-
-```json
-{
-  "name": "antaresproject/component-example",
-  "description": "Antares Example component",
-  "type": "antaresproject-component",
-  "version": "0.9.2.1",
-  "authors": [
-    {
-      "name": "Your Name",
-      "email": "your@contactemail.io"
-    }
-  ],
-  "require": {
-    "antaresproject/component-installer-plugin": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Antares\\Example\\": "src/"
-    }
-  }
-}
-
-```
-
-Required attributes:
-
-* name - determines the name - identifier of a module in a repository. Just like the regular composer package, the name must be in \<vendor\>/\<package name\> format. The important is that, the last part of name must be prefixed by ```component-``` word.
-* type - a special type for composer package which determines how the module must be installed in the system.
-* version - the version of package.
-* authors - an array of collaborators' names and emails. At least one author must be presented.
-* require ```antaresproject/component-installer-plugin``` - required package which allows to install the package in proper way.
-* autoload - determines to which directory the namespace should be pointed.
-
-A description of the remaining variables can be found [here](https://getcomposer.org/doc/04-schema.md).
  
-#### Recommended composer.json schema
+### composer.json schema
 
 We recommend that you should fill the ```composer.json``` file with additional information.
 
@@ -78,12 +49,24 @@ We recommend that you should fill the ```composer.json``` file with additional i
 }
 ```
 
-Structure contains two additional attributes:
+Required attributes:
+
+* name - determines the name - identifier of a module in a repository. Just like the regular composer package, the name must be in \<vendor\>/\<package name\> format. The important is that, the last part of name must be prefixed by ```component-``` word.
+* type - a special type for composer package which determines how the module must be installed in the system.
+* version - the version of package.
+* authors - an array of collaborators' names and emails. At least one author must be presented.
+* require ```antaresproject/component-installer-plugin``` - required package which allows to install the package in proper way.
+* autoload - determines to which directory the namespace should be pointed.
+
+Optional attributes:
 
 * homepage - the HTTP address to your module homepage. If presents when in the Module page by clicking the module name the URL will be opened in the browser.
 * friendly-name - must be placed in ```extra``` attribute. In the modules page, the name will be overridden by the given value.
 
-#### Service Providers
+A full description of the composer.json structure can be found [here](https://getcomposer.org/doc/04-schema.md).
+
+
+### Service Providers
 
 **providers.php** file's content:
 
