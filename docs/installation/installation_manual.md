@@ -281,7 +281,7 @@ Sometimes there may be a problem with a local connection to database via root us
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
  2. Grant privileges to a new user, execute as follows:
     <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
-    GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'antares'</span>@<span class="token string">'localhost'</span><span class="token punctuation">;</span>
+    GRANT ALL PRIVILEGES ON *.* to 'antares'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
     FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
 
 Another common issue we've spotted on Ubuntu is that for some cloud server providers there is a problem with local database connection:
