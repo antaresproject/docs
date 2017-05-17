@@ -29,12 +29,13 @@ pages:
    - Files structure: antares_concepts/core_&_files_structure.md
    - Modules: antares_concepts/components_&_modules.md
    - UI Structure: antares_concepts/ui_structure.md
-   - Views: antares_concepts/views.md
  - Modules Development:
+   - Module Base: modules_development/module_base.md
    - Migrations: modules_development/migrations.md
    - Service Providers: modules_development/service_providers.md
    - Routing: modules_development/routing.md
    - Controllers and Processors: modules_development/controllers_and_processors.md
+   - Views: modules_development/views.md
    - ACL: modules_development/acl.md
    - Module Events: modules_development/module_events.md
    - Views and UI Components: modules_development/views_and_ui_components.md

@@ -90,7 +90,7 @@ public function getPositionAttribute()
 ```    
 Menu's position will be placed behind the 'reports' element, just like on the screen below:
 
-  ![AT_VIS01](../img/docs/antares_concepts/views/AT_VIS01.png)
+  ![AT_VIS01](../img/docs/modules_development/views/AT_VIS01.png)
   
 ##### Before  
 
@@ -104,7 +104,7 @@ public function getPositionAttribute()
 
 Menu's position will be placed before the 'reports' element, just like on the screen below:
 
-  ![AT_VIS02](../img/docs/antares_concepts/views/AT_VIS02.png)
+  ![AT_VIS02](../img/docs/modules_development/views/AT_VIS02.png)
   
 ##### Inside (Submenu)  
 
@@ -117,7 +117,7 @@ public function getPositionAttribute()
 ```    
 The position will be placed inside the 'reports' element and is established as submenu:
 
-  ![AT_VIS03](../img/docs/antares_concepts/views/AT_VIS03.png)
+  ![AT_VIS03](../img/docs/modules_development/views/AT_VIS03.png)
   
 ##### Behind/ Before in Submenu  
 
@@ -131,7 +131,7 @@ public function getPositionAttribute()
 ```    
 The element will be placed behind the 'sandboxes' element, inside the 'system' menu:
 
-  ![AT_VIS04](../img/docs/antares_concepts/views/AT_VIS04.png)
+  ![AT_VIS04](../img/docs/modules_development/views/AT_VIS04.png)
   
 ##### Conditioning  
 
@@ -277,7 +277,7 @@ placed in the 'boot' method of the component's service provider.
 
 The efect of the created menu, is depicted by the picture below:
 
-  ![AT_VIS05](../img/docs/antares_concepts/views/AT_VIS05.png)
+  ![AT_VIS05](../img/docs/modules_development/views/AT_VIS05.png)
 
 
 ## Pane  
@@ -321,7 +321,7 @@ should be placed in service provider, in the 'boot' method and it is the start o
 
 **Result**:
 
-  ![AT_VIS06](../img/docs/antares_concepts/views/AT_VIS06.png)
+  ![AT_VIS06](../img/docs/modules_development/views/AT_VIS06.png)
   
 The menu can be ascribed to the pane object and the example is the following:
 
@@ -348,7 +348,7 @@ The menu can be ascribed to the pane object and the example is the following:
 
 The effect:
 
-  ![AT_VIS07](../img/docs/antares_concepts/views/AT_VIS07.png)
+  ![AT_VIS07](../img/docs/modules_development/views/AT_VIS07.png)
   
 Please remember that contents coming from other components and modules can be pinned to the pane objects.
 
@@ -396,6 +396,6 @@ consist of the `handle` method listening out for appearing of the right event an
 
 which will render the content declared by the 'handle' method. The effect:
 
-  ![AT_VIS08](../img/docs/antares_concepts/views/AT_VIS08.png)
+  ![AT_VIS08](../img/docs/modules_development/views/AT_VIS08.png)
   
 Please remember that the contents coming from other components and modules may be pinned to the `placeholder` objects.

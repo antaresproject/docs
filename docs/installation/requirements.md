@@ -2,7 +2,25 @@
 
 [TOC]
 
-## Server requirements
+## Recommended server resources
+
+To install Antares, we suggest to use **Ubuntu 14.04.3 LTS (trusty) or higher** as our installation guide covers only this OS. If you'd like to use another OS and like to share it with others, feel free to send us an info.
+
+### Development environment:
+
+* Minimum 2GB free disk space,      
+* Minimum 2GB of RAM,      
+* 2 CPU cores
+
+### Production environment:
+
+* Minimum 10GB free disk space - for system resources, external vendors and internal system logs,       
+* Minimum 4GB of RAM - it is recommended to scale up RAM if you find the system working slowly. It highly depends on the amount of users and data in the system.
+* 4 CPU cores - the more the better. It will help to quicken loading assets simultaneously      
+* SSD disk which provide considerable efficiency increase.
+
+
+## Required libraries
 
 Antares PHP framework requires following libraries installed on the server:
 
@@ -54,21 +72,5 @@ Git 1.9.x or higher
 
 
 
-## Recommended server resources
-
-To install Antares, we suggest to use **Ubuntu 14.04.3 LTS (trusty) or higher** as our installation guide covers only this OS. If you'd like to use another OS and like to share it with others, feel free to send us an info.
-
-### Development environment:
-
-* Minimum 2GB free disk space,      
-* Minimum 2GB of RAM,      
-* 2 CPU cores
-
-### Production environment:
-
-* Minimum 10GB free disk space - for system resources, external vendors and internal system logs,       
-* Minimum 4GB of RAM - it is recommended to scale up RAM if you find the system working slowly. It highly depends on the amount of users and data in the system.
-* 4 CPU cores - the more the better. It will help to quicken loading assets simultaneously      
-* SSD disk which provide considerable efficiency increase.
       
            
