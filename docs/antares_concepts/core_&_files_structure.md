@@ -65,65 +65,55 @@ Src directory contains:
        * **components** - This directory contains the main parts (services) of Antares Core, such as: acl, area manager, installer etc.  Information about details of how they work you find in section named "Services". Director contains following tools:
            
            * **html** - contains the tools assisting in html design
-           * **acl** - a catalogue containing functions to control the users' access to resources (endpoints)
-           * **area** - contains functions enabling applications division into access layers, depending on a group and the rules attributed to a single user
-           * **auth** - functions supporting users' authorization and authentication to system
-           * **composer** - a set of post and pre installation scripts facilitating executing the operation dedicated to system's contents
-           * **console** - functions supporting building the commands in Laravel and scheduler's set-up
-           * **extension** - functions supporting the installation of extensions (components and modules) in the system
-           * **html** - contains the tools assisting in html design
+           * **acl** - contains functions to control the users' access to resources (endpoints)
+           * **area** - contains functions which enabling applications division into access layers, depending on a group and the rules assigned to a single user
+           * **auth** - supporting users' authorization and authentication to system
+           * **composer** - pre and post installation scripts executing when application is installing by composer
+           * **console** - supporting the commands in Laravel scheduler's
+           * **extension** - extensions (components and modules) manager
+           * **html** - contains helpers and tools for html design
            * **installer** - system's installer
            * **kernel** - contains extended Laravel classes
-           * **messages** - functions assisting in notifications flash only design (short duration messages - to the next request)
+           * **messages** - flash messages(short duration messages - to the next request) manager 
            * **model** - contains main data base business models used by the system
-           * **notifier** - assist in sending notifications to system's users
-           * **publisher** - functions facilitating executing components' and modules' migration files which are a part of the system           
-           * **scaffolding** - a register of generators used in prototyping components and modules, widgets and prototypes datatables                                        
+           * **notifier** - sending notifications to system's users
+           * **publisher** - supports execute components' and modules' migration files                                                              
        
        * **foundation** - Contains all of required php classes which are used while application booting. It has base application config files with information about default system notifications and settings (such as email templates and configuration, default system groups and roles). 
        It also includes default system [acl configuration](../services/auth_and_acl.md), [translations](../services/translator.md), system [routes](../modules_development/routing.md), [events](../services/events.md) and many more. Mainly, brings together other core components and services as ingredients to delivery one, connected, working package to use with external modules.
        
        * **modules** - As the name suggests, it contains core modules which not interfere with foundation. There are few modules within this directory which are required by Antares:      
        
-           * [automation](../core_modules/automation.md) - is used to execute cyclic operation based on scheduler,
-           
-           * [control](../core_modules/control.md) - a lightweight role-based permissions module for Antares,
-           
-           * [logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system,
-           
-           * [notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users
-           
-           * customfields - provides possibility to create system custom fields to extend default entity attributes
-           
-           * tester - provides possibility to verify(test) configuration in various sections
-           
-           * [translations](../core_modules/translations.md) - manage Antares translation files
-           
+           * [automation](../core_modules/automation.md) - is used to execute cyclic operation based on scheduler,           
+           * [control](../core_modules/control.md) - a lightweight role-based permissions module for Antares,           
+           * [logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system,           
+           * [notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users           
+           * customfields - provides possibility to create system custom fields to extend default entity attributes           
+           * tester - provides possibility to verify(test) configuration in various sections          
+           * [translations](../core_modules/translations.md) - manage Antares translation files           
            * [updater](../core_modules/updater.md) - provides information about present system's state, which facilitates application's update and reports' generation concerning system's state.
            
        * **ui** - Contains various classes responsible of application presentation (user interface - ui). It has two different packages:
             
-           * [base](../antares_concepts/ui_structure.md) - provides base system ui elements, such as breadcrumbs, menus, panes, placeholders, navigation features etc., which are used within main layout template.
-              
+           * [base](../antares_concepts/ui_structure.md) - provides base system ui elements, such as breadcrumbs, menus, panes, placeholders, navigation features etc., which are used within main layout template.              
            * [components](../modules_development/views_and_ui_components.md) - provides system ui components which can handle every type of data produced by any module and displays it on the content block of main layout template.
                     
        * **utils** - Contains various classes responsible of application presentation (user interface - ui). It has two different packages:
             
            * **asset** - functions connected with presentation layer's management, especially javascript and css files. The auxiliary library is [assetic framework](https://github.com/kriswallsmith/assetic) which is fully supported in designing and optimization js and css source code                    
-           * **breadcrumb** - functions assisting efficient navigation in the system. [Click here](https://github.com/davejamesmiller/laravel-breadcrumbs) to see what it uses as a helping vendor           
-           * **datatables** - functions supporting building the datagrids, using the popular library [Datatable](https://datatables.net/) and [vendor](http://datatables.yajrabox.com)           
-           * **date** - functions supporting data formatting           
-           * **form** - helpers facilitating building personalized forms           
-           * **geoip** - geolocating library. It uses [geoip](https://github.com/Torann/laravel-geoip)
+           * **breadcrumb** - system navigation manager. [Click here](https://github.com/davejamesmiller/laravel-breadcrumbs) to see what it uses as a helping vendor           
+           * **datatables** - supports building the datagrids, using the popular library [Datatable](https://datatables.net/) and [vendor](http://datatables.yajrabox.com)           
+           * **date** - date formatters        
+           * **form** - helpers for building personalized forms           
+           * **geoip** - geolocation library. It uses [geoip](https://github.com/Torann/laravel-geoip)
            * **registry** - implementation of the registry design pattern as a base class for extending by the components and modules
            * **security** - implementation of the solutions increasing system's protection           
-           * **testbench** - an environment assisting in unit tests building based on PHPUnit, without application's operation simulation mode            
-           * **testing** - an environment assisting in unit tests building working in application's simulation mode                      
+           * **testbench** - an environment for create unit tests based on [Orchestra Testbench](https://github.com/orchestral/testbench).            
+           * **testing** - an environment of unit tests built for working with application's simulation mode                      
            * **translation** - assistance in translation           
            * **twig** - extensions of the twig engine           
            * **url** - url generator connected with acl
                       
-          
-        > Any interference of content of files within core directory may make the system unstable.
+  > Any interference of content of files within core directory may make the system unstable.
        
         

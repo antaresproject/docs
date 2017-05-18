@@ -9,12 +9,12 @@ Except Dashboard, which is pretty much always available, every module in the sys
 Every [Page View](../modules_development/views_and_ui_components.md) contains:
 
 * **Template Base** - which includes:
-  * [Menu](../antares_concepts/views.md#menus)  
+  * [Menu](../modules_development/views.md#menus)  
   * [Breadcrumbs](../services/breadcrumbs.md)
-  * [Actions of the section](../antares_concepts/views.md#breadcrumbs-menu)
+  * [Actions of the section](../modules_development/views.md#breadcrumbs-menu)
   * Additional tools
     * Account icon with account menu
-    * [Search](../modules/search.md)
+    * Search
     * [Notifications](../core_modules/notifications.md)
     * [Edit Widgets toggle](../services/widget.md#placing-the-widget-on-a-website)
         
