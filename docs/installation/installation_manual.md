@@ -21,7 +21,7 @@ Just in case, run apt-get update to get the newest versions of packages and thei
 apt-get update
 ```
 
-### Apache 2.4.x
+### Apache Installation
 
 Install Apache 2.4.x or higher:    
 
@@ -58,7 +58,7 @@ and change AllowOverride to All :
 AllowOverride All
 ```
 
-### PHP 7.1.*   
+### PHP 7 Installation 
 Install PHP 7.1.* or higher:
 ```bash
 apt-get install software-properties-common
@@ -83,7 +83,7 @@ service apache2 restart
 ```
 
 
-### Mysql 14.x
+### Mysql Installation
 Install Mysql (MariaDB) 14.x or higher:
 ```bash
 apt-get -y install mariadb-server mariadb-client
@@ -105,15 +105,36 @@ Remove test database and access to it? [Y/n] <-- y
 Disallow root login remotely? [Y/n] <-- n
 Reload privilege tables now? [Y/n] <-- y
 ```
+
+### Database User Configuration
+
+
+Log into MYSQL as root:    
+
+```bash
+mysql -u root -p</code></pre>
+```
+Create a new user (**Do not forget to set up the password!**):
+```bash
+CREATE USER 'antares'@'localhost' IDENTIFIED BY 'password';
+```
+And grant him privileges to the database:
+```bash
+GRANT ALL PRIVILEGES ON *.* to 'antares'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+```
+Flush the privileges:
+```bash
+    FLUSH PRIVILEGES;
+ ```
   
-### Composer 1.3.x
+### Composer Installation
 Install composer 1.3.x or higher
 ```bash
 curl -sS https://getcomposer.org/installer | php 
 mv composer.phar /usr/local/bin/composer
 ```
 
-### Git 1.9.x
+### Git Installation
 Install Git 1.9.x or higher:
 ```bash
 apt-get install git
@@ -271,24 +292,3 @@ In the next step the application will inform you about the end of installation, 
 ![AT_IG5](../img/docs/installation/installation_guide/AT_IG5.PNG)
   
 Congratulations!!! The Antares Project application is ready to work.
-
-
-### Database Connection Problems
-
-Sometimes there may be a problem with a local connection to database via root user. It is recommended to create a new database user, instead of root:
-
- 1. Log into MYSQL as root:    
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">mysql -u root -p</code></pre>
- 2. Grant privileges to a new user, execute as follows:
-    <pre class="codehilite language-bash code-toolbar"><code class=" language-bash">CREATE USER <span class="token string">'antares'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'password'</span><span class="token punctuation">;</span>
-    GRANT ALL PRIVILEGES ON *.* to 'antares'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
-    FLUSH PRIVILEGES<span class="token punctuation">;</span></code></pre>
-
-Another common issue we've spotted on Ubuntu is that for some cloud server providers there is a problem with local database connection:
-
----------------------------SCREEN HERE
-
-Even if we've configured the connection to link with 127.0.0.1, it's pointing to localhost which is handled differently by MySQL than the ip address. If you face such an issue, there are a few ways to fix it (one of them will work):
-- Change `/etc/hosts` file to not point 127.0.0.1 to localhost
-- Edit `/etc/mysql/my.cnf` and comment out `#bind-address = 127.0.0.1`. Restart mysql afterwards.
-- Use localhost instead of IP directly. Please only note that you'd need to set your own user (as the default root user may not work) and it may work slower than connecting to 127.0.0.1 directly.
