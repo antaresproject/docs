@@ -21,7 +21,7 @@ Additionally, following skills may be very helpful:
 
 ## The best way to start
 If this is your first try with Antares, we suggest to follow the path below:
-1. Prepare a server that match the [requirements](installation/requirements.md).
+1. Prepare a server that match the [requirements](installation/requirements.md#recommended-server-resources).
 2. Install the system [automatically](installation/installation_auto.md) or [manually](installation/installation_manual.md).
 3. Read about Antares Concepts:   
    - [Files Structure](antares_concepts/core_&_files_structure.md) - Understand how the system architecture is designed.
