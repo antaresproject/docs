@@ -112,7 +112,7 @@ Reload privilege tables now? [Y/n] <-- y
 Log into MYSQL as root:    
 
 ```bash
-mysql -u root -p</code></pre>
+mysql -u root -p
 ```
 Create a new user (**Do not forget to set up the password!**):
 ```bash
@@ -124,7 +124,7 @@ GRANT ALL PRIVILEGES ON *.* to 'antares'@'localhost' IDENTIFIED BY 'password' WI
 ```
 Flush the privileges:
 ```bash
-    FLUSH PRIVILEGES;
+FLUSH PRIVILEGES;
  ```
   
 ### Composer Installation
