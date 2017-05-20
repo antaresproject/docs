@@ -22,7 +22,9 @@ To install Antares, we suggest to use **Ubuntu 14.04.3 LTS (trusty) or higher** 
 
 ## Required libraries
 
-Antares PHP framework requires following libraries installed on the server:
+ **Please note:** Manual and Automatic installation guides cover installation and configuration of all the required libraries
+ 
+ Antares PHP framework requires following libraries installed on the server:
 
 ### Apache 2.4.x
 
