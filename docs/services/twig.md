@@ -121,7 +121,7 @@ Downloads meta tags in application's head section.
 placeholder($name)
 ```
 
-It is responsible for injecting placeholder's object into the view. More information about placeholders can be found [here](../core_modules/widgets.md).
+It is responsible for injecting placeholder's object into the view. More information about placeholders can be found [here](../modules_development/views.md#placeholder).
 
 ### closure  
 

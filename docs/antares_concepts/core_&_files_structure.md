@@ -90,8 +90,7 @@ Src directory contains:
            * [notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users           
            * customfields - provides possibility to create system custom fields to extend default entity attributes           
            * tester - provides possibility to verify(test) configuration in various sections          
-           * [translations](../core_modules/translations.md) - manage Antares translation files           
-           * [updater](../core_modules/updater.md) - provides information about present system's state, which facilitates application's update and reports' generation concerning system's state.
+           * [translations](../core_modules/translations.md) - manage Antares translation files
            
        * **ui** - Contains various classes responsible of application presentation (user interface - ui). It has two different packages:
             

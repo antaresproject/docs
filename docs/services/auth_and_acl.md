@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Conception  
+## Introduction  
 
 System's architecture provides the users' access to the resources control mechanisms based on RBAC (Role Based Access Control). The RBAC consists of:
 

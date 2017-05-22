@@ -2,6 +2,14 @@
 
 [TOC]
 
+## Introduction
+
+Migrations are files containing scripts to create database schema which your module will use. 
+It is launched while module starts to install or uninstall. Every module which use database to 
+deliver its own functionality should define tables schema in those files. In case
+when functionality requires default data in database after installation, there is a different type of
+migration called seed. Antares uses [Laravel migrations](https://laravel.com/docs/5.4/migrations) as default base. 
+
 ## Basic Migration File  
 
 The migration files do not need to be a part of a component if the component does not require 

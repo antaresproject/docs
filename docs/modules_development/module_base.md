@@ -2,7 +2,10 @@
 
 [TOC]
 
+## Introduction
+
 This article will help you understand how modules in Antares are designed and what should include. It will help you create your own modules. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md).
+Concept of Antares modular way is described [here](../antares_concepts/components_&_modules.md).
 
 ## Minimal Structure
   
