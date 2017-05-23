@@ -635,3 +635,405 @@ The vertical view:
 
 Information concerning validation can be found [here](validation.md).
 
+## An alternative to the Controls - Control Types
+
+Instead of `control()` method you can use `addType()`. This method takes one parameter: object which extends class `Antares\Form\Controls\AbstractType`.
+
+#### Structure
+
+```php
+$fieldset->addType(new TextType('text_input'));
+```
+
+The code above will create:
+
+```html
+<input type='text' name='text_input'></select>
+```
+
+#### Attributes
+
+Control Type's attributes can be set using method `setAttributes()` or `setAttribute()`.
+
+Both codes:
+```php
+$control = (new TextType('text_input'))->setAttributes(['class' => 'some-class']);
+```
+```php
+$control = (new TextType('text_input'))->setAttribute('class', 'some-class');
+```
+will give the same result:
+
+```html
+<input type='text' name='text_input' class='some-class'/>
+```
+
+You can also use method `addAttribute()` to add to exisitng attribute new value, especially useful for `class` attribute:
+
+```php
+$control = new TextType('text_input');
+$control->addAttribute('class', 'class1');
+$control->addAttribute('class', 'class2');
+```
+
+will generate:
+```html
+<input type='text' name='text_input' class='class1 class2'/>
+```
+
+Some of Control Types has dedicated methods for most used attributes, for example `setRows` for textarea input type, `setMinValue()` and `setMaxValue()` for number input or `setMultiple()` for select type.
+
+#### Label
+
+Each Control Type has it own label, event if was not set - it will be generated automatically based on Control Type name.
+
+Using `setLabel()` method you can simply pass the string or object that extends `Antares\Form\Labels\AbstractLabel` class.
+In the second case you can add attibutes for label, e.g. `class` or `id`.
+
+Passing only string to `setLabel()` method:
+```php
+$fieldset->addType((new RangeType('range'))
+    ->setLabel('Range slider')
+);
+```
+In this case will be used default Label class: `Antares\Form\Labels\Label`.
+
+As was said, you can pass the Label object instead:
+```php
+$fieldset->addType((new RangeType('range'))
+    ->setLabel((new Label('Range slider'))
+        ->setAttribute('class', 'label-class')
+));
+```
+
+#### Decorators
+Each Control Type has it own Decorator, which is basically responsible for rendering Control Type.
+Decorators have been designed to allow render each Control Type separately.
+
+You can use method `setDecorator()` to set decorator. This method takes one parameter: string with decorator class namespace or just decorator object itself.
+
+By defauly each Control Type uses `Antares\Form\Decorators\HorizontalDecorator`.
+
+Methods `setLabelWrapper()` and `setInputWrapper()` allows you to wrap the control's and label's structure in additional html tag.  
+
+### Types Of Controls  
+
+#### ALTDateType / DateType
+
+Control with Date Picker:
+
+```php
+$fieldset->addType(new ALTDateType('date');
+```
+
+#### ALTDatetimeType / DatetimeType
+
+Control with Date-Time Picker:
+
+```php
+$fieldset->addType(new ALTDatetimeType('date');
+```
+
+#### ALTTimeType / TimeType
+
+Control with Time Picker:
+
+```php
+$fieldset->addType(new ALTTimeType('date');
+```
+
+#### CheckboxType / MulticheckboxType
+
+A Control Type for the checkbox input.
+
+```php
+$fieldset->addType((new CheckboxType('checkbox')
+    ->setCheckedValue(10)
+    ->setUncheckedValue(0)
+    ->setUseHiddenElement(true)
+);
+```
+
+You can define checkbox checked value (`setCheckedValue()`) and unchecked (`setUncheckedValue()`).
+Method `setUseHiddenElement()` was created to be able to define the value that will appear in the request when the form is sent and checkbox is not checked (this will be value set by `setUncheckedValue()` method, by default it is 0).
+
+If you want create Multicheckbox use the `MulticheckboxType`. For this Control Type you can define array of options:
+```php
+$fieldset->addType((new MultiCheckboxType('multicheckbox'))
+    ->setValueOptions([
+        1 => 'One',
+        2 => 'Two',
+        5 => 'Five',
+    ])
+);
+```
+
+The effect is shown below:
+![AT_FORMB19.PNG](../img/docs/services/form_builder/AT_FORMB19.PNG)
+
+#### CKEditorType
+
+CKEditor is a complex editor of the '**WYSIWYG**' type. Use the code below:
+
+```php
+$fieldset->addType(new CKEditorType('richtext');
+```
+
+#### CountryType
+
+Use this control to render `select` input with all countries defined in system.
+
+```php
+$fieldset->addType((new CountryType('country'))
+    ->setLabel('Select Country')
+);
+```
+
+The effect is shown below:
+![AT_FORMB20.PNG](../img/docs/services/form_builder/AT_FORMB20.PNG)
+
+#### DataRangeType
+
+Control with Date Picker which allows you to pick range of time.
+
+```php
+$fieldset->addType((new DataRangeType('data_range'))
+    ->setLabel('Choose Dates')
+);
+```
+
+#### DropzoneType
+
+Code below will render the dropzone area where you can Drag & Drop files and upload them.
+
+```php
+$fieldset->addType((new DropzoneType('files'))
+    ->setLabel('Upload Files')
+);
+```
+
+The effect is shown below:
+![AT_FORMB21.PNG](../img/docs/services/form_builder/AT_FORMB21.PNG)
+
+#### EmailType
+
+A Control Type for the HTML5 `email` input.
+
+```php
+$fieldset->addType((new EmailType('email'))
+    ->setLabel('Email Address')
+);
+```
+
+#### FileType
+
+A Control Type for the `file` input.
+
+```php
+$fieldset->addType((new FileType('file'))
+    ->setLabel('Upload File')
+);
+```
+
+#### HiddenType
+
+A Control Type for the `hidden` input.
+
+```php
+$fieldset->addType(new HiddenType('id');
+```
+Please note that this control is using `Antares\Form\Decorators\HiddenDecorator` instead of default `HorizontalDecorator` to avoid rendering Label.
+
+#### LanguageType
+
+Code below will render the `select` input with languages available in system.
+
+```php
+$fieldset->addType((new LanguageType('language'))
+    ->setLabel('Choose language')
+);
+```
+
+#### NumberType
+
+A Control Type for the HTML5 `number` input.
+
+```php
+$fieldset->addType((new NumberType('number'))
+    ->setLabel('Some value')
+    ->setMinValue(1)
+    ->setMaxValue(10)
+    ->setStep(1)
+);
+```
+For this control there are available dedicated methods `setMinValue()`, `setMaxValue()` and `setStep()`. But still you can use `setAttributes()` method to set this attributes.
+
+#### PasswordType
+
+A Control Type for the `password` input.
+
+```php
+$fieldset->addType((new PasswordType('password'))
+    ->setLabel('Type your password')
+);
+```
+
+#### RadioType
+
+A Control Type for the `radio` input.
+
+```php
+$fieldset->addType((new RadioType('radio'))
+    ->setValueOptions([
+        1 => 'One',
+        2 => 'Two',
+        5 => 'Five',
+    ])
+);
+```
+
+Similarly to the `MultiCheckboxType` you can use `setValueOptions` method to set possible values.
+If you want to check some value by default use `setValue()` method.
+
+The effect is shown below:
+![AT_FORMB22.PNG](../img/docs/services/form_builder/AT_FORMB22.PNG)
+
+#### RangeType
+
+A Control Type for the HTML5 `range` input.
+
+```php
+$fieldset->addType((new RangeType('range'))
+    ->setLabel('Select range')
+);
+```
+
+#### SearchType
+
+A Control Type for the HTML5 `search` input.
+
+```php
+$fieldset->addType((new SearchType('search_phrase'))
+    ->setLabel('Type antything to search...')
+);
+```
+
+#### SelectType
+
+A Control Type for the `select` input.
+
+```php
+$fieldset->addType((new SelectType('select'))
+    ->setValueOptions([
+        1 => 'One',
+        2 => 'Two',
+        5 => 'Five',
+    ])
+    ->useSelect2(true)
+    ->setSearch(true)
+    ->setMultiple(false)
+    ->setLabel('Select')
+    ->setEmptyValue('Choose some option')
+    ->setValue(5)
+);
+```
+
+This Control Type has a few useful methods:
+* Method `useSelect2()` turns on/off select2 for the `select`.
+* Method `setSearch()` truns on/off search feature in select2.
+* Method `setEmptyValue()` allows you to define an empty value (option without value). This will be the default value of select if there is no any other selected option.
+* Method `setMultiple()` means that user will be able to choose more than one option. Please note that there is no need to add `[]` in control name.
+
+Similarly to the `MultiCheckboxType` you can use `setValueOptions` method to set possible values.
+
+The effect is shown below:
+![AT_FORMB23.PNG](../img/docs/services/form_builder/AT_FORMB23.PNG)
+
+In case you want use `OptGroups` in your select:
+
+![AT_FORMB24.PNG](../img/docs/services/form_builder/AT_FORMB24.PNG)
+
+you should pass to the `setValueOptions()` array which looks like this:
+
+```php
+[
+    1 => 'One',
+    2 => 'Two',
+    5 => 'Five',
+    'Hundreds' => [
+        100 => 'One hundred',
+        200 => 'Two houndreds',
+        500 => 'Five houndreds'
+    ],
+]
+```
+
+#### TextareaType
+
+A Control Type for the `textarea` input.
+
+```php
+$fieldset->addType((new TextareaType('textarea'))
+    ->setLabel('Description')
+    ->setRows(10)
+);
+```
+
+You can use `setRows()` method to set number of rows.
+
+#### TextType
+
+A Control Type for the `text` input.
+
+```php
+$fieldset->addType((new TextType('text_input'))
+    ->setLabel('Title')
+);
+```
+
+#### TimezoneType
+
+Code below will render the `select` input with all timezone identifiers.
+
+```php
+$fieldset->addType((new TimezoneType('timezone'))
+    ->useSelect2(true)
+    ->setSearch(true)
+    ->setLabel('Set your timezone')
+);
+```
+
+In this example select2 with search feature is used to show more user friendly results.
+
+#### UrlType
+
+A Control Type for the HTML5 `url` input.
+
+```php
+$fieldset->addType((new UrlType('url'))
+    ->setLabel('URL')
+);
+```
+
+#### Buttons
+
+There is three types of buttons you can add to the form:
+* button
+* submit
+* reset
+
+Code below shows how to do that:
+
+```php
+$fieldset->addType((new ButtonType('submit'))
+    ->setValue('I will submit this form')
+    ->setLabel('Simply click me')
+    ->addClass('btn btn--md btn--primary')
+    ->setButtonType(ButtonType::BUTTON_SUBMIT)
+);
+```
+
+Method `setButtonType()` allows you to set what type of button you want to get. As said before you can use: `button`, `submit` or `reset` button. Pass one of these values to the method simply as string or use `ButtonType` class constants.
+
+The effect is shown below:
+![AT_FORMB25.PNG](../img/docs/services/form_builder/AT_FORMB25.PNG)
