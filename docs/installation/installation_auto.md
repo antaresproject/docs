@@ -1,6 +1,6 @@
 # Automatic Installation Guide
 
-Automatic installation is the fastest way to install Antares on your server **in case that you have Ubuntu 14.04/16.06 or CentOS 7.2.x**. It is based on a bash script that you can find [here](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh).
+Automatic installation is the fastest way to install Antares on your server **in case that you have Ubuntu 14.04/16.06**. It is based on a bash script that you can find [here](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh).
 
 ***Please note**: Automatic installer was mostly tested on a clean server system so it may not always work if you have your own customized environment. In case that you are not able to automatically install Antares successfully, please follow the [Manual Installation Guide](installation_manual.md).*
 

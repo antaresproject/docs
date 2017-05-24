@@ -1,19 +1,28 @@
-# Control  
+# Acl  
 
-Control is a lightweight role-based permissions module for Antares. It is designed to manage users' access to resources located in different places of application as behaviour that checks permission by the modules rules.
-It provides developers with NIST Level 2 Hierarchical Role Based Access Control (RBAC). Allows to creating roles and rules via UI.
- 
 [TOC]
+
+## Introduction
+
+Acl is a lightweight role-based permissions module for Antares. 
+It is designed to manage user access to resources located in different sections of the application. It sets up permissions based on module rules. It provides  NIST Level 2 Hierarchical Role Based Access Control (RBAC). It also provides an interface for administator to manage user roles (ACL configuration).   
+ 
 
 ## Groups  
 
-Control is a component for users' resources rights service. The panel is available at the address below:
+Acl is a module for users' resources rights service. The panel is available at the address below:
 
 ```bash
-/{area}/control/roles/index
+/{area}/acl/roles/index
 ```
 
-e.g. /administrators/control/roles/index or when you choose the *Staff* position in the *Configuration* menu. It consists of the *Groups* and *Users* sections. *Groups* - which are groups of users (in other words - role). To find more about groups go to the [ACL](https://inbssoftware.atlassian.net/wiki/pages/viewpage.action?pageId=21856278) section. The list of available groups is the following:
+e.g. /admin/acl/roles/index or when you choose the *Staff* position in the *Configuration* menu. 
+It consists of the *Groups* and *Users* sections. 
+
+*Groups* - groups of users (in other words - roles). 
+To find more about groups go to the [Auth and ACL](../services/auth_and_acl.md) section. 
+
+The list of available groups is the following:
 
   ![AT_CTRL01.PNG](../img/docs/core_modules/control/AT_CTRL01.PNG)
   

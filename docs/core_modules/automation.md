@@ -1,6 +1,12 @@
 # Automation  
 
+[TOC]
+
+## Introduction
+
 Automation is a module used to execute cyclic operations based on [laravel task scheduler](https://laravel.com/docs/5.4/scheduling). It serves as a replacement for setting up your own cron jobs to make it easier to manage. It provides an intuitive control  interface on the admin level. Automation can run tasks every few minutes, hourly, daily or weekly - depending how you set it up. Scheduled data is stored in the system database.
+
+## Basis
 
 The operation is defined as a class which inherits from the `Antares\View\Console\Command` object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
 
@@ -109,6 +115,8 @@ And the result:
   ![AT_AUTO02.PNG](../img/docs/core_modules/automation/AT_AUTO02.PNG)
   
 The table which is responsible for preserving the results of particular commands' operations is *tbl_job_results*, in the case of errors it is: *tbl_job_errors*. The table which is responsible for commands' categories is *tbl_jobs_category*. Categories are added automatically supposing that they were not defined earlier within the frameworks of the *automation:sync* process.
+
+## Parameters
 
 The *automation* command consists of the following parameters:
 

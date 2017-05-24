@@ -1,8 +1,14 @@
 # Service Providers  
 
 [TOC]
+## Introduction
 
-Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection. An example of Service Provider for the component's needs is depicted below:
+Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection.
+More information about service provider can be found at [Laravel documentation](https://laravel.com/docs/5.4/providers). 
+
+## Class structure
+ 
+An example of Service Provider for the component's needs is depicted below:
 
 ```php
     <?php
@@ -108,7 +114,7 @@ Service Provider is a class responsible for the component's initialization. It c
     }
 ```
 
-## Namespace Attribute  
+### Namespace Attribute  
 
 ```php
 protected $namespace = 'Antares\Foo\Http\Controllers';
@@ -116,7 +122,7 @@ protected $namespace = 'Antares\Foo\Http\Controllers';
 
 Determines controller's name space in the component.
 
-## routeGroup Attribute  
+### RouteGroup Attribute  
 
 ```php
 protected $routeGroup = 'antares/foo';
@@ -124,7 +130,7 @@ protected $routeGroup = 'antares/foo';
 
 Determines routing's name which must be unique within all components.
 
-## The Listen Attribute  
+### The Listen Attribute  
 
 ```php
 protected $listen = [
@@ -134,7 +140,7 @@ protected $listen = [
 
 This is the events' list where the component's objects will listen out.
 
-## The 'register' Method  
+### The 'register' Method  
 
 ```php
 public function register()
@@ -165,9 +171,9 @@ public function register()
 }
 ```
 
-## The 'boot' Method  
+### The 'boot' Method  
 
-### Routing  
+#### Routing  
 
 It is started after the `register` method. Once it is started, the component is ready to work. Within the `boot` method routing's definition takes place, where the component will refer.
 
@@ -179,7 +185,7 @@ if (!$this->app->routesAreCached()) {
 }
 ```
 
-### Configuration  
+#### Configuration  
 
 In the `boot` method, definition of configuration file ascribed to the component also occures. The code:
 
@@ -195,7 +201,7 @@ $value=config('antares/foo::keyname');
 
 The configuration files will be downloaded from the path `{$path}/resources/config`.
 
-### Translations  
+#### Translations  
 
 The visibility of the translations available for the component are enabled by the code:
 

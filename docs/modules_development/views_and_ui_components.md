@@ -225,8 +225,8 @@ Insertion content in other sections of Antares UI can be divided as following:
 * [Datatables](../services/events.md#widgets)
 * [Forms](../services/events.md#forms)
 * Widgets
-   * [Widget Views](../services/widget.md#views)
-   * [Widget Layouts](../services/widget.md#layouts)
+   * [Widget Views](../services/ui_component.md#views)
+   * [Widget Layouts](../services/ui_component.md#layouts)
    * [Widget Events](../services/events.md#widgets)
 
 If you want to include any content to custom template position, use event [Twig](http://twig.sensiolabs.org/documentation) extension:

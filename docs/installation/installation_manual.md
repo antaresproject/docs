@@ -8,7 +8,7 @@ Before the installation, it is worth to make sure that all environment's compone
 
 ***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](installation_auto.md).*
 
-The following manual is dedicated for **Ubuntu 14.04/16.06** or **CentOS 7.2.x**. 
+The following manual is dedicated for **Ubuntu 14.04/16.06**. 
 
 
 
@@ -229,7 +229,8 @@ chmod -R 777 storage public bootstrap
 ```
 
 ```bash
-chown -R www-data:www-data /var/www/html
+cd /var/www/html
+chown -R www-data:www-data storage public bootstrap
 ```
    
 

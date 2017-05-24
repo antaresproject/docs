@@ -1,7 +1,9 @@
-
 # Logger  
 
 [TOC]
+
+
+## Introduction
 
 Logger is a component responsible for gathering the logs coming from different parts of the system.
 It provides activity logger for monitoring users and processes which application taking while work. It logs the activity priority level and class, the remote user identifier (if logged), its computer details and many more. 

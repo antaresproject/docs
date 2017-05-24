@@ -2,6 +2,8 @@
 
 [TOC]
 
+## Introduction
+
 ACL - Access Control List, as the name suggests, is a layer responsible for decision-making concerning user's access to a resource (a website, a file, etc...).
 
 ## Setup inside component

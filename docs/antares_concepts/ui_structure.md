@@ -16,7 +16,7 @@ Every [Page View](../modules_development/views_and_ui_components.md) contains:
     * Account icon with account menu
     * Search
     * [Notifications](../core_modules/notifications.md)
-    * [Edit Widgets toggle](../services/widget.md#placing-the-widget-on-a-website)
+    * [Edit Widgets toggle](../services/ui_component.md#placing-the-widget-on-a-website)
         
 * **[UI Components Container](../modules_development/views_and_ui_components.md)** - the area where all the [UI Compoents](../modules_development/views_and_ui_components.md#how-to-create-ui-component) (widgets) are loaded by the module.  
 
@@ -35,7 +35,7 @@ There are several template layouts that you can set up in the Antares per each [
 
 ## UI Components Container
 
-The module defines what [widgets](../services/widget.md) are visible in it's [page view](../modules_development/views_and_ui_components.md). What is more, one module can add/modify the [widgets](../services/widget.md) on other's module [page view](../modules_development/views_and_ui_components.md). This gives the developer full control on the displayed pages in the system depending on the modules installed in Antares.
+The module defines what [UI Components](../services/ui_component.md) are visible in it's [page view](../modules_development/views_and_ui_components.md). What is more, one module can add/modify the [UI Components](../services/ui_component.md) on other's module [page view](../modules_development/views_and_ui_components.md). This gives the developer full control on the displayed pages in the system depending on the modules installed in Antares.
 
 There are two types of [UI Components](../modules_development/views_and_ui_components.md):
 

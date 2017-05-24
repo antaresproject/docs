@@ -1,13 +1,15 @@
 # Translations  
 
-Translations is a package to manage Antares translation files. It doesn't replace the translation system, only automated import / export the php files to a database and make them editable through a web interface. 
-It allows to manage app languages as CRUD with text comparsion feature.   
-
 [TOC]
 
-## Introduction  
+## Introduction
+Translations is a package to manage Antares translation files. It doesn't replace the translation system, only automated import / export the php files to a database and make them editable through a web interface. 
+It allows to manage app languages as CRUD with text comparsion feature. 
 
-The component is used to operate translations in the system. Access to the component occurs by means of the url: /{area}/translations/index/{area}/{lang} (e.g. /administrators/translations/index/administrators/en). The component facilitates translations' content change of particular system's phrases which depends on added languages. The translation list is the following:
+##Basis
+
+The module is used to operate translations in the system. 
+Access to the module occurs by means of the url: `/{area}/translations/index/{area}/{lang}` (e.g. /admin/translations/index/administrators/en). The component facilitates translations' content change of particular system's phrases which depends on added languages. The translation list is the following:
 
 The upper menu consists of positions which facilitate:
 

@@ -4,26 +4,29 @@
 
 ## Introduction  
 
-Notification component is used in order to execute the process of sending notifications to end users. It uses the tool known as [notifier](https://inbssoftware.atlassian.net/wiki/display/AS/Notifier) which is a constituent of application's core. It is closely related to ACL and based on the event driven development (EDD). At the present moment, three types of notifications may be distinguished within the component:
-1. **E-mail notifications**
+Notifications module is responsible for configuration interface of notification templates and sending notifications to users in the system. It handles email and sms notifications, but also displays alerts (the bell icon) to the users. It allows administrator to set up their own text and supports multi-language.
 
-   E-mail notifications as the very name suggests are sent in the form of e-mail to a user (users). The content of the message is determined by means of the notification template where variables from other modules can be pinned.
+## Type of notifications
 
-2. **Sms notifications**
+### E-mail notifications
+
+E-mail notifications as the very name suggests are sent in the form of e-mail to a user (users). The content of the message is determined by means of the notification template where variables from other modules can be pinned.
+
+### Sms notifications
    
-   As you can see this is a kind of notifications which are sent as an sms to the user's (users') telephone number. Similarly to e-mail notifications, an sms operates variables from different modules.
+As you can see this is a kind of notifications which are sent as an sms to the user's (users') telephone number. Similarly to e-mail notifications, an sms operates variables from different modules.
 
-3. **System notifications** (notifications send to the area where the user belongs)
-    
-   System notifications is a kind of notifications send to the system which are frequently a result of some (usually fundamental) operation. Notifications of this type are available at the top of the website in the form of the icons below:
-
-   ![AT_NOTIFI01.PNG](../img/docs/core_modules/notifications/AT_NOTIFI01.PNG)
+### System notifications
   
-   System notifications are divided into notifications and alerts. The general flow of notification's course in the system may be described by means of the following diagram:
+System notifications is a kind of notifications send to the system which are frequently a result of some (usually fundamental) operation. Notifications of this type are available at the top of the website in the form of the icons below:
 
-   ![AT_NOTIFI02.PNG](../img/docs/core_modules/notifications/AT_NOTIFI02.PNG)
+![AT_NOTIFI01.PNG](../img/docs/core_modules/notifications/AT_NOTIFI01.PNG)
   
-   All types of notifications operate multilingualism of translations for templates and they may (or may not) use the variables from different application's fragments.
+System notifications are divided into notifications and alerts. The general flow of notification's course in the system may be described by means of the following diagram:
+
+![AT_NOTIFI02.PNG](../img/docs/core_modules/notifications/AT_NOTIFI02.PNG)
+  
+All types of notifications operate multilingualism of translations for templates and they may (or may not) use the variables from different application's fragments.
 
 ## Migration Files 
 
@@ -73,28 +76,35 @@ class EmailFooNoificationSeeder extends NotificationSeeder
 
 When analyzing the code above you can notice that the notification consists of:
 
-1. ***category*** - determines notification's category, it does not fulfill logical function, it is used only for grouping in the interface. If you want to display the list of available categories, you have to call the console command 
-    `php artisan notifications:category-list`:
+- ***category*** - determines notification's category, it does not fulfill logical function, it is used only for grouping in the interface. If you want to display the list of available categories, you have to call the console command
+
+```bash
+php artisan notifications:category-list
+```
     
-    ![AT_NOTIFI03.PNG](../img/docs/core_modules/notifications/AT_NOTIFI03.PNG)
-    
-    The default value is the *default* category.
-
-2. ***type - area***, in other words, that is user's work space. Several groups of users can be ascribed to one area. Area defines interface appearance and e-mail template. In order to display the list of available types (areas) you have to call the console command
-
-   `php artisan notifications:types-list`:
-
-   ![AT_NOTIFI04.PNG](../img/docs/core_modules/notifications/AT_NOTIFI04.PNG)
-
-   If the type is not defined, the notification will be added to all types with the exception of e-mail and sms types.
-
-3. ***severity*** - determines notification's priority. Depending on priority, system notification may be treated as an alert (high, highest), or as simple (medium). If you want to display the list of available priorities, you have to call the console command
-
-   `php artisan notifications:severity-list`:
+![AT_NOTIFI03.PNG](../img/docs/core_modules/notifications/AT_NOTIFI03.PNG)
    
-    ![AT_NOTIFI05.PNG](../img/docs/core_modules/notifications/AT_NOTIFI05.PNG)
+The default value is the *default* category.
+
+- ***type - area***, in other words, that is user's work space. Several groups of users can be ascribed to one area. Area defines interface appearance and e-mail template. In order to display the list of available types (areas) you have to call the console command
+
+```bash
+php artisan notifications:types-list
+```
+
+![AT_NOTIFI04.PNG](../img/docs/core_modules/notifications/AT_NOTIFI04.PNG)
+
+If the type is not defined, the notification will be added to all types with the exception of e-mail and sms types.
+
+- ***severity*** - determines notification's priority. Depending on priority, system notification may be treated as an alert (high, highest), or as simple (medium). If you want to display the list of available priorities, you have to call the console command
+
+```bash
+php artisan notifications:severity-list
+```
+   
+![AT_NOTIFI05.PNG](../img/docs/core_modules/notifications/AT_NOTIFI05.PNG)
     
-    The default priority is `medium`.
+The default priority is `medium`.
 
 The above-mentioned example is a migration file which imports e-mail notification. In the case of `sms notification` implementation may be the following:
 
@@ -199,7 +209,7 @@ class SystemFooNoificationSeeder extends NotificationSeeder
 
 In all the aforementioned cases you deal with the `event` parameter. This parameter determines the name of the event which will call notification sending.
 
-## Starting The Migration Files  
+### Starting The Migration Files  
 
 Starting the notification's migration files should occur along with module's activation/ installation in the system. To make the system recognize correctly the path and to start the migration the files must be placed in the `resources/database/seeds` catalogue. Do not forget about the `down()` method's operation which is started during module's deactivation/ uninstalling. When the migration file is started in this manner, the notification will be added to the `notifications templates` section (default path: `/administrators/notifications/index`):
 

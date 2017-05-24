@@ -2,148 +2,269 @@
 
 [TOC]
 
-An exemplary component may be downloaded from the git location: `https://github.com/antaresproject/foo.git` or installation appearance may be added to the composer file:
+An example module may be downloaded from 
+the [git location](https://github.com/antaresproject/sample_module.git) or installation appearance may be added using composer:
+
+```bash
+composer require antaresproject/module-sample_module:0.9.2.2-dev
+```
+More information about using composer you can find in official [documenation](https://getcomposer.org/doc/).
+
+In order to create a new module which will be compatible with 
+master module's packs, core and frontend, you should:
+
+## Using GIT 
+
+### Create a new project git repository
+ 
+You can use [github](https://github.com), [bitbucket](https://bitbucket.org/) or different. 
+It doesn't matter where you put your repository.
+    
+![git_repo](../img/docs/tutorials/git_repo.PNG)
+     
+### Clone repository files into local
+
+Using following command:
+
+```bash
+git clone https://github.com/mountstone/sample_module.git
+```
+
+
+## Add files to module
+
+Before starts read this article, it is recommended to get info about [module base](../modules_development/module_base.md).
+
+### Base structure
+
+Following files are minimal requirements for module to work:
+
+#### Acl
+
+Create file `acl.php` in base path of your module:
 
 ```php
-{  
-    "repositories": [
-        ...
+<?php
+
+use Antares\Acl\RoleActionList;
+use Antares\Model\Role;
+
+$presentationActions=[
+     'Items List'  //'Allows user to preview items list.',   
+];
+$actions = [    
+    'Item Add',     //'Allows user to add item.',
+    'Item Update',  //'Allows user to update item.',
+    'Item Delete'   //'Allows user to delete item.',    
+];
+
+
+$permissions = new RoleActionList;
+$permissions->add(Role::admin()->name, array_merge($presentationActions,$actions));
+$permissions->add(Role::member()->name, $presentationActions);
+
+return $permissions;
+```
+
+This file determines which roles (for example admins, users, members, reporters etc.) should have access to action.
+Action is the name of resource (endpoint) where logic is implemented.  For example, viewing any items list or updating is an operation with name. This name is called an action.
+
+By example above, member has access to view list of items, but not to add, update or delete any of items:
+ 
+```php
+$permissions->add(Role::member()->name, $presentationActions);
+```
+ 
+ Only admin is able to have full access to all operations:
+  
+```php
+$permissions->add(Role::admin()->name, array_merge($presentationActions,$actions));
+``` 
+
+More details about acl you find [here](../modules_development/acl.md)
+ 
+#### Providers
+ 
+Create file `providers.php` in base path of your module:
+ 
+```php
+<?php
+
+return [
+    Antares\Modules\SampleModule\SampleModuleServiceProvider::class,
+]; 
+```
+
+As you can see, this file returns class names of [service providers](../modules_development/service_providers.md) used by module. Service provider is the most important file within module. 
+It's like a bootstrap where module starts its work.
+ 
+#### Composer
+ 
+Create file `composer.json` in base path of module:
+ 
+```php
+{
+    "name": "mountstone/module-sample_module",
+    "description": "My first sample module",
+    "type": "antaresproject-module",
+    "version": "0.1",
+    "homepage": "http://example.foo",
+    "authors": [
         {
-            "type": "git",
-            "url": "https://github.com/antaresproject/foo.git"
+            "name": "Antares developer",
+            "email": "developer@antaresproject.io"
         }
-        ...
     ],
-    "require": {
-        ...
-        "antaresproject/component-foo": "master",
-        ...
+    "require-dev": {
+        "antaresproject/component-installer-plugin": "*"
     },
-    ...
+    "autoload": {
+        "psr-4": {
+            "Antares\\Modules\\SampleModule\\": "src/"
+        }
+    },
+    "extra": {
+        "friendly-name": "My Module"
+    }
+}
+``` 
+Description of keys in `composer.json` file is [here](../modules_development/module_base.md#composerjson-schema).
+
+#### Service provider
+
+Create file `SampleModuleServiceProvider.php` in src subdirectory within module base path:
+ 
+```php
+<?php
+
+namespace Antares\Modules\SampleModule;
+
+use Antares\Foundation\Support\Providers\ModuleServiceProvider;
+
+class SampleModuleServiceProvider extends ModuleServiceProvider
+{
+
+    /**
+     * Controller's namespace
+     *
+     * @var String
+     */
+    protected $namespace = 'Antares\Modules\SampleModule\Http\Controllers\Admin';
+
+    /**
+     * Route group name
+     *
+     * @var String
+     */
+    protected $routeGroup = 'antares/sample_module';
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function bootExtensionComponents()
+    {
+        $path = __DIR__ . '/../resources';
+        $this->addViewComponent('antares/sample_module', 'antares/sample_module', "{$path}/views");
+        $this->bootMemory();
+    }
+
+    /**
+     * Boot extension routing.
+     *
+     * @return void
+     */
+    protected function loadRoutes()
+    {
+        $this->loadBackendRoutesFrom(__DIR__ . "/backend.php");
+    }
+
+    /**
+     * Booting memory
+     * 
+     */
+    protected function bootMemory()
+    {
+        $this->app->make('antares.acl')->make('antares/sample_module')->attach($this->app->make('antares.platform.memory'));
+    }
 }
 ```
+If you want to know more about working service providers, please go to [Service Providers](../modules_development/service_providers.md) section.
 
+#### Routes
 
+Your module should display any content via route. To define route names, create `backend.php` file which determine endpoints for controller's actions:
 
-### Full Structure  
+```php
+<?php
 
-The full module's catalogue structure should be determined in a manner depicted below:
+use Illuminate\Routing\Router;
 
-  ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS2.PNG)
-  
-4 main subcatalogues may be distinguished: public, resources, src, tests.
+$router->group(['prefix' => 'my_module'], function (Router $router) {    
+    $router->get('index', 'ModuleController');
+});
+```
+Details about routing in Antares you can find [here](../modules_development/routing.md). 
+In the example above your module will be available under the endpoint `/{area}/my_module/index`. 
 
-### Public  
+> `{area}` is the name of access layer where user is assigned (for example admin, user, redactor, etc.).
 
-In this catalogue can be found all essential javascript, css, and img files used by a module. Preprocessors such less, sass, scss may be equally used for conversion [(click here for details)](https://github.com/kriswallsmith/assetic).
+#### Controller
 
-An example of the content:
+Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters.
+Create to file `ModuleController.php` in the `src\Http\Controllers\Admin\` location in module base path:
 
-  ![AT_COMP&MODS3](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS3.PNG)
-  
-### Resources  
+```php
+<?php
 
-The files that are used by a module, or to which it refers during its operation are located in this catalogue.
+namespace Antares\Modules\SampleModule\Http\Controllers\Admin;
 
-  ![AT_COMP&MODS4](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS4.PNG)
-  
-* config - the very name of this catalogue indicates its purpose. It stores files configuring a module
-* database - contains the migration files for creating (and removing) the tables used by a module and filling them with data
- * migrations - strictly speaking, these files build an appropriate table scheme
- * seeds - class' files for filling the tables with the data
-* lang - it consist of files with phrases' translation used by a module. The subcatalogue is always the language code.
-* views - views' files used by a module. The subcatalogue is controller's name, while file's name is the name of the action in a controller.
+use Antares\Foundation\Http\Controllers\AdminController;
 
-### Src  
+class ModuleController extends AdminController
+{
 
-In this catalogue, module's business logic is placed.
+    /**
+     * {@inheritdoc}
+     */
+    public function setupMiddleware()
+    {
+        $this->middleware('antares.auth');
+        $this->middleware("antares.can:antares/sample_module::items-list", ['only' => ['index']]);
+    }
 
-  ![AT_COMP&MODS5](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS5.PNG)
-  
-Please notice that in this folder, catalogues' names start with a capital letter.
+    /**
+     * Default action od module controller
+     * 
+     * @return View
+     */
+    public function index()
+    {
+        return view('antares/sample_module::admin.module.index');
+    }
 
-* Console - classes responsible for commands which are made accessible by a module. They are usually launched by means of: php artisan <name_of_the_component>:<name_of_the_command>,
-* Contracts - interfaces used by a module,
-* Exception - exception's classes',
-* Facades - facades as a popular form of referring to a class,
-* Http - stores incoming request's processing logic and data preparation for display,
-* Model - contains models' classes (from the mapped tables) within the framework of Eloquent engine (Active Record),
-* Notifications - contains the notification templates (e.g. email, sms) which the module will send to the users,
-* Observers - observers' definitions applied to other classes (usually to models)
-* Processor - processor's classes, which interpret and process incoming data,
-* Repositories - repositories classes (combining several models into one),
-* Traits - traits used by a module,
-* Twig - extension classes for Twig view engine,
-* Validation - forms' dedicated validator classes,
-* Widgets - module's widget classes
+}
+```
+Controller class contains method `setupMiddleware()` which determines rules of access to actions.
+This controller has only one action `index()` and only one rule `items-list` is assigned to it. Because of fact that
+Antares is modular application, first argument of `middleware` should have the name of module in following format: 
+`antares.can:antares/<module_name>::<rule_name>`. More details about middleware's in Antares you can find [here](../modules_development/acl.md#verification-at-the-controllers-level). 
 
-Http catalogue (within src catalogue):
+#### View
 
-  ![AT_COMP&MODS6](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS6.PNG)
-  
-Description of the content:
-* Controllers - module controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subcatalogue,
-* Datatables - tables' presenting classes within datatables,
-* Filters - data filters used in a module,
-* Form - module's forms classes,
-* Handler - event class service thrown by other applications' modules as well as by the framework itself. In this catalogue, equal classes are placed, responsible for breadcrumb, main menu, left beam and placeholder presentation,
-* Middleware - middleware’s classes i.e. filters serving the events before sending a request to the action and after receiving the processed data,
-* Presenters - presenters’ classes, i.e. the layer responsible for data return into a view and presentation in a browser
+In the previous example method `index()` will show view `antares/sample_module::admin.module.index` which is placed in location:
+`resources/views/admin/module/index.twig`. Let's create it:
 
-### Tests  
-
-A catalogue containing module’s unit tests. Usually, the structure of such a catalogue is identical with src catalogue.
-
-## Compatibility  
-
-The project consists of packs - modules which have their own repositories in git. Within the project's framework the following types of repositories can be distinguished in which the components of the whole system are stored:  
-
-**project** - the repository contains official application's versions (branch master), which in turn determine components'' and vendors' versions which are a part of the whole system  
-
-  ![AT_COMP&MODS7](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS7.PNG)
-  
-**core** - the repository contains main system module's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
-  
-```json
-"repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/core.git"
-        },
-...
-"require": {
-        "antaresproject/core": "master" --> default branch name        
+```twig
+{% extends "antares/foundation::layouts.antares.index" %}   
+{% block content %} 
+    This is my first module
+{% endblock %}    
 ```
 
-After the personalization:
+AS you can see we are using [Twig Engine](https://twig.sensiolabs.org/) to generate views. 
 
-```json
-"repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/core.git"
-        },
-...
-"require": {
-        "antaresproject/core": "0.9.2.1-dev", --> personalized branch for specific product having modifications which are not available in the official version
-```
-          
-**components** - a repository group containing the modules which can be a part of target product pack.
-  
-  ![AT_COMP&MODS8](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS8.PNG)
-    
-Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which modules' branches must be taken into consideration during the project's creation
-  
-**modules repositories' group** containing the modules which similarly to modules can become a part of target product
-  
-  ![AT_COMP&MODS9](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS9.PNG)
-  
-**antares-frontend** - a repository containing realization's frontend project. It consist of javascript and css files which are used by the application. Master version contains the most actual default version. Other versions can become dedicated solutions created for separate projects. During installation process, the files from this repository are copied to public catalogue.
 
-In order to create a new module which will be compatible with master module's packs and core and frontend, you should:
 
-1. Create a new project repository in the github
-2. Add module's file to the repository
 3. Add a configuration in the composer.json file. 
 composer.json file's example:
 
@@ -345,137 +466,3 @@ An example of the whole file defining project's settings is depicted below:
 
 In the file composer.json which belongs to a project you can control the modules which you want to be installed in your application. You can also control module's versions by specifying the branches, as it was described above.
 
-## Module methods
-
-This section describes possible methods after that the system has been installed already.
-
-### User Interface
-
-![AT_COMP&MODS10](../img/docs/antares_concepts/components_and_modules/components_page_all.png)
-
-Each of modules have status which describes:
-
-* ![#available](https://placehold.it/15/0292ea/000000?text=+) **available** - module is in the file system but is not installed nor activated.
-* ![#available](https://placehold.it/15/f44336/000000?text=+) **inactive** - module is installed but not activated.
-* ![#available](https://placehold.it/15/27ae60/000000?text=+) **active** - module is activated.
-
-#### Installation
-
-Only available in file system modules can be installed. Installation means that all Composer requirements will be put and installed. Also migration and assets will be published.
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_install.png)
-
-#### Uninstallation
-
-Installed modules can be uninstalled. It is reverse method to the installation process so it will remove migrations and assets but the Composer dependencies will be stay in the system. 
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_uninstall_activate.png)
-
-#### Activation
-
-Only installed modules can be activated. Modules which have been not activated cannot be used by the system. In this operation the dedicated ACL will be stored.
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_uninstall_activate.png)
-
-#### Deactivation
-
-Only activated modules can be deactivated. This operation will remove dedicated ACL of the module.
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate.png)
-
-#### Configuration
-
-Some modules may have dedicated Configuration Form.
-In that case by clicking the **Configure** button you will be redirected to the page with form which can be created dynamically or not - in this case you will be redirected to the custom URL.
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate_configure.png)
-
-### Artisan commands
-
-```bash
-php artisan extension:list
-```
-
-Will output basic information about available modules in file system.
-
-![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_artisan_list.png)
-
-***
-
-```bash
-php artisan extension:install <vendor>/<package> [--skip-composer]
-```
-
-Examples:
-
-```bash
-php artisan extension:install antaresproject/component-example
-php artisan extension:install antaresproject/component-example --skip-composer
-```
-
-The ```--skip-composer``` option will omit the composer ```require```` command.
-
-***
-
-```bash
-php artisan extension:active <vendor>/<package> [--skip-composer]
-```
-
-Examples:
-
-```bash
-php artisan extension:active antaresproject/component-example
-```
-
-***
-
-```bash
-php artisan extension:deactive <vendor>/<package> [--skip-composer]
-```
-
-Examples:
-
-```bash
-php artisan extension:deactive antaresproject/component-example
-```
-
-***
-
-```bash
-php artisan extension:uninstall <vendor>/<package> [--purge]
-```
-
-Examples:
-
-```bash
-php artisan extension:uninstall antaresproject/component-example
-php artisan extension:uninstall antaresproject/component-example --purge
-```
-
-The ```--purge``` option will run the composer ```purge```` command. It will remove files from the file system.
-
-***
-
-```bash
-php artisan extension:acl:reload
-php artisan extension:acl:reload <vendor>/<package>
-```
-
-Will reload ACL for all modules (the first command) or for the given one (the second one).
-
-### Useful methods for modules
-
-Using the ```\Antares\Extension\Manager``` object of the ```\Antares\Extension\Facade\Extension``` facade you can access to these methods:
-
-* ```getAvailableExtensions()``` - Returns a collection of available in file system extensions.
-* ```isInstalled(string $name)``` - Checks if the given extension is installed. **(\*)**
-* ```isActive(string $name)``` - Checks if the given extension is active. **(\*)**
-* ```getExtensionPathByName(string $name)``` - Returns the absolute absolute path to the extension directory. **(\*)**
-* ```getExtensionByVendorAndName(string $vendor, string $name)``` - Returns the extension by the given vendor and package name, for example: antaresproject is the vendor part and module-example is the package name part.
-* ```getSettings(string $name)``` - Returns the collection of settings for the given extension name. **(\*)**
-* ```hasSettingsForm(string $name)``` - Checks if the given extension has dedicated settings for or associated custom URL to the custom configuration page. **(\*)**
-
-**(\*)** - the name can be passed in two different ways:
-
-* standard way - In vendor/package format name just like the Composer supports.
-* backward way - To be compatible with previous releases of Antares, you can pass only last package name without vendor name and ```component-``` prefix. For example the ```antaresproject/component-ban-management``` name can be simplified by just ```ban_management```. The underscore will be replaced by the "-" char. This method can be used only for modules which belong to the ```antaresproject``` vendor.

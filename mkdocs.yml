@@ -26,8 +26,8 @@ pages:
    - Manual Installation Guide: installation/installation_manual.md
    - Environment Verification: installation/environment_verification.md
  - Antares Concepts:
-   - Files structure: antares_concepts/core_&_files_structure.md
    - Modules: antares_concepts/components_&_modules.md
+   - Files structure: antares_concepts/core_&_files_structure.md
    - UI Structure: antares_concepts/ui_structure.md
  - Modules Development:
    - Module Base: modules_development/module_base.md
@@ -57,15 +57,15 @@ pages:
    - Twig: services/twig.md  
    - Validation: services/validation.md
    - Webpack: services/webpack.md  
-   - Widget: services/widget.md  
+   - UI Component: services/ui_component.md
  - Core modules:
    - Automation: core_modules/automation.md
-   - Control: core_modules/control.md
+   - Acl: core_modules/acl.md
    - Logger: core_modules/logger.md
    - Notifications: core_modules/notifications.md
    - Translations: core_modules/translations.md
  - Tutorials:
    - Sample module: tutorials/sample_module.md
-   - Sample widget template: tutorials/sample_widget_template.md
+   - Sample UI Component: tutorials/sample_ui_component.md
 
 
