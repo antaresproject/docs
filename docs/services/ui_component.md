@@ -4,9 +4,9 @@
 
 ## Introduction  
 
-### Basic Implementation  
+Ui Components - objects in the application which (because of their behavior and functionality) are used for data presentation only.
 
-Ui Components - objects in the application which (because of their behavior and functionality) are used for data presentation only. 
+### Basic Implementation   
 
 They work closely with user's interface. An example of a ui component may be a table presenting users' list. Widget's property is the ability of being placed on any application's website. Widgets consist of attributes which determine their behavior in the interface space. An example of an attribute can be 'resizable' which determines whether a ui component on a website will be calibrated or not. In the hierarchy of ui component's structure the ui component is placed the lowest. Widget template is above the ui component and it determines the frames of presentation and ui component's operation. This means that you can build for instance 10 different ui components with users' tables in the system but each one of them must inherit the ui component template structure named 'Datatables'. Each ui component may define its own layout which by default is ascribed by ui component template. On the top of the ui component hierarchy is an abstraction layer which determines common features and behaviors of all ui components in the system.
 Minimal structure of the class defining a ui component:

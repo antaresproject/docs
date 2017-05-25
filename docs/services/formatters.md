@@ -6,6 +6,8 @@
 
 Formatters are tools facilitating data presentation. Their task is focused on formatting that is data processing in order to achieve the shape in accord with project's requirements. An example of a formatter can be data formatter (e.g. to the shape YYYY-MM-DD) or a formatter determining monetary value (e.g. periods instead of commas, the number of decimal places, leading zeros, etc.). The application renders available the following list of formatters:
 
+## Available formatters
+
 ### format_x_days  
 
 Enables data conversion to a more readable format by changing the value of date on a format which presents the amount of time which has passed until now. Take a look at the example:

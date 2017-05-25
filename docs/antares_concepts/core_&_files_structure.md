@@ -85,7 +85,7 @@ Src directory contains:
        * **modules** - As the name suggests, it contains core modules which not interfere with foundation. There are few modules within this directory which are required by Antares:      
        
            * [automation](../core_modules/automation.md) - is used to execute cyclic operation based on scheduler,           
-           * [control](../core_modules/control.md) - a lightweight role-based permissions module for Antares,           
+           * [control](../core_modules/acl.md) - a lightweight role-based permissions module for Antares,           
            * [logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system,           
            * [notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users           
            * customfields - provides possibility to create system custom fields to extend default entity attributes           

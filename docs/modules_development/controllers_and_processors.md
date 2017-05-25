@@ -2,9 +2,13 @@
 
 [TOC]
 
+## Introduction
+
+Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters. A processor is used to operate the processing of a request coming from the controller's action. Presenters - as the name suggests - is an object responsible for presentation's operation - the view. The advantage of its use is a separation of computational layer from presentation's layer, but the drawback is unnecessary degree of simple solutions' complexity. In the case of more complex applications, the existence of the presenter may be helpful.
+
 ## Controllers  
 
-Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters. An example defining a controller:
+Let's consider the following example:
 
 ```php
     <?php
@@ -86,9 +90,7 @@ In case we deal with admin area controller should inherit from AdminController c
     ...
 ```
 
-## Processors  
-
-A processor is used to operate the processing of a request coming from the controller's action. Usually, such an
+## Processors
 
 ### Definition  
 
@@ -137,7 +139,8 @@ A code of illustrative processor may be the following:
     }
 ```
 
-In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The `index()` method corresponds to the `index()` method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
+In the abovementioned example the processor possesses injected repository's instance responsible for operation on database. 
+In the example, the 'findAll' method downloads all the rows of the database belonging to the table. The `index()` method corresponds to the `index()` method in the controller. It may reply directly with the data, which in turn need to be transferred to the view in action, or it may reply directly with the view itself with transferred data. The choice of the actual method depends on a programmer.
 
 ### Operation In A Controller  
 
@@ -208,16 +211,12 @@ public function index(FooProcessor $processor)
 
 The choice of the actual method of transmitting the data to the controller depends on a programmer.
 
-## Presenters (Option)  
+## Presenters  
 
-A presenter - as the name suggests - is an object responsible for presentation's operation - the view. **It is totally optional and there is no requirement connected with necessity of its use.** It is another layer (behind the processor) of data processing, before sending them to a view. The advantage of its use is a separation of computational layer from presentation's layer, but the drawback is unnecessary degree of simple solutions' complexity. In the case of more complex applications, the existence of the presenter may be helpful.
+ An example of a definition:
 
-An example of a definition:
-
-```php
-  
-  <?php
-     
+```php  
+<?php     
     namespace Antares\Foo\Http\Presenters;
      
     use Antares\Foundation\Http\Presenters\Presenter;
@@ -245,7 +244,7 @@ As it is shown, the presenter's definition is very simple. Its function focuses 
 A presenter, similarly to repository is injected to the processor's object:
 
 ```php
-    <?php
+<?php
      
     namespace Antares\Foo\Processor;
      
@@ -292,7 +291,7 @@ A presenter, similarly to repository is injected to the processor's object:
     }
 ```    
     
-There is no requirement concerning the injection use. Thus, processor's class constructor may be the follwoing:
+There is no requirement concerning the injection use. Thus, processor's class constructor may be the following:
 
 ```php
 public function __construct(FooRepository $repository)
@@ -308,7 +307,7 @@ In the processor, the `index()` method refers to the `index()` method in the pre
 
 The view's file applied in the example has the following structure:
 
-```html
+```twig
 {% extends "antares/foundation::layouts.antares.index" %}
 {% block content %}   
     <h1>Hello World from Foo Component</h1>
@@ -319,3 +318,4 @@ The result:
 
 ![AT_CONTRS&PROCS1](../img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.PNG)
   
+> It is totally optional and there is no requirement connected with necessity of its use.

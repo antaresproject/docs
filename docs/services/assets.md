@@ -4,7 +4,12 @@
 
 ## Introduction  
 
-Assets is a set of tools enabling a programmer to manage efficiently resources' files (scripts, javascripts, css, etc.) which belong to the system. Additionally, the application uses a very complex vendor named 'Assetic'. More information about the capabilities of this package can be found on the [website](https://github.com/kriswallsmith/assetic).
+Assets is a set of tools enabling a programmer to manage efficiently resources' files (JavaScripts, CSS, LESS, SASS etc.) which belongs to the system and deliver user interface. 
+
+## Assetic
+
+The application uses a very complex vendor named **Assetic**. More information about the capabilities of this package can be found on the [website](https://github.com/kriswallsmith/assetic).
+
 An example of use:
 
 `foo/public/css/foo.css`
@@ -58,28 +63,30 @@ body {
 }
 ```
 
-Scripts' files are gathered globally in the *public* catalogue, where all the files participating in the user's interface building are also placed.
-Here are the profiles of the most important catalogues:
+## Public directory
 
-* *_dist* - the catalogue contains a series of scripts which are the result of grunt/gulp tools type which aims at user's interface components files optimization (e.g. js minification). Click [here](http://gruntjs.com/) for more information.
-* *assets* - the catalogue contains a series of libraries belonging to user's interface. It is the effect of bower tool operation, more information can be found [here](https://bower.io/)
+Scripts' files are gathered globally in the *public* directory, where all the files participating in the user's interface building are also placed.
+Here are the profiles of the most important directorys:
+
+* *_dist* - the directory contains a series of scripts which are the result of grunt/gulp tools type which aims at user's interface modules files optimization (e.g. js minification). Click [here](http://gruntjs.com/) for more information.
+* *assets* - the directory contains a series of libraries belonging to user's interface. It is the effect of bower tool operation, more information can be found [here](https://bower.io/)
 * *avatars* - stores the avatars' files for the widgets' needs
 * *js* - javascript scripts type
-* *packages* - the catalogue consists of subcatalogues - packages creating user's interface. It consist of the 'packages' subcatolgue where assets' files created by particular components are placed. Assets' files (js, css) are the symbolic links to the files in the components
+* *packages* - the directory consists of subdirectorys - packages creating user's interface. It consist of the 'packages' subcatolgue where assets' files created by particular modules are placed. Assets' files (js, css) are the symbolic links to the files in the modules
 * *templates* - it consists of views' drops for the needs of widget templates
 
-## Components  
+## Modules  
 
-Each component using its own assets should contain the *public* catalogue consisting of the properly placed files of the js or css type. A separation of these catalogues facilitates the obtaining of the clear structure responsible for the proper component's operation. In order to publish the assets  belonging to the component, use the `publish` helper created for this purpose. 
+Each module using its own assets should contain the *public* directory consisting of the properly placed files of the js or css type. A separation of these directorys facilitates the obtaining of the clear structure responsible for the proper module's operation. In order to publish the assets  belonging to the module, use the `publish` helper created for this purpose. 
 An example:
 
 ```php
 publish('foo', ['js/foo.js']);
 ```
 
-The first argument is the component's name, the second is the table containing paths to the assets, beginning from the '**public**' catalogue. Publication will make the asset belong to all the assets creating user's interface and it will be placed before locking the <**body**> section of the html document. 
+The first argument is the module's name, the second is the table containing paths to the assets, beginning from the '**public**' directory. Publication will make the asset belong to all the assets creating user's interface and it will be placed before locking the <**body**> section of the html document. 
 
-There is also a possibility of publishing the assets with the use of configuration file. Component's configuration:
+There is also a possibility of publishing the assets with the use of configuration file. Module's configuration:
 
 ```php
 <?php     
@@ -184,7 +191,7 @@ will cause adding the asset in the `foo` container which will be downloaded from
    
 ## Inline Scripting  
 
-Frequently, there is a situation when the created component or widget must directly interfere in the user's interface behavior (e.g. dedicated notification), so:
+Frequently, there is a situation when the created module or widget must directly interfere in the user's interface behavior (e.g. dedicated notification), so:
 ```php
     app('antares.asset')->container('foo')->inlineScript('foo-awesome', $this->inline());
     

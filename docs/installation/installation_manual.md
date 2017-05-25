@@ -156,11 +156,17 @@ and clone GIT repository:
 ```bash
 git clone https://github.com/antaresproject/project.git -b 0.9.2 html
 ```
+
+or just use the `create-project` command:
+
+```bash
+composer create-project antaresproject/project html 0.9.2.x-dev
+```
     
 **Please note**: Target clone directory should not exist. Using the above command check whether directory does not exist.
 
-The above command will install the application in 0.9.2 version with git repository in html catalogue. 
-In this case, please remember about pointing the virtual machine at public project catalogue:
+The above command will install the application in 0.9.2 version with git repository in html directory. 
+In this case, please remember about pointing the virtual machine at public project directory:
 
 ```bash
 nano /etc/apache2/sites-enabled/000-default.conf
@@ -203,17 +209,21 @@ More information about vhosts configuration you can find [here](https://httpd.ap
 
 ### Composer Install
 
-Go to `/var/www/html` catalogue and launch the installation command:  
+Go to `/var/www/html` directory and launch the installation command:  
 
 ```bash
 cd /var/www/html
 ```
-   
-```bash
-composer install
-```      
+If you have used `create-project` in previous installation step go to [Directory Permissions](installation_manual.md#directory-permissions) section, 
+otherwise run the following command:   
 
-The installation will download all the repositories used by Antares based on configuration specified in the composer.json file. It will additionally download all the required assets (js, css). In the end of this procedure it will move front-end elements to the 'public' catalogue, which the application uses.  
+```bash
+composer create-project
+```
+
+The reason for this solution is to correctly interpret the scripts specified in the `composer.json` file.      
+
+The installation will download all the repositories used by Antares based on configuration specified in the composer.json file. It will additionally download all the required assets (js, css). In the end of this procedure it will move front-end elements to the 'public' directory, which the application uses.  
 
 ![AT_IG2](../img/docs/installation/installation_guide/AT_IG2.PNG)
 

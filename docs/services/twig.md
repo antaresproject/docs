@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Definition  
+## Introduction  
 
 Twig is a system of templates that support designing the presentation layer of applications. It is characterized by reliability, simplicity, and complex configuration. More information can be found on the [website](http://twig.sensiolabs.org/documentation).
 
@@ -363,7 +363,7 @@ Usage in the view:
 {{ 'foo test'|foo_touppercase|raw }}
 ```
 
-## Test's Structure:
+## Test's Structure
 
 The twig tests are responsible for comparing two values. Here is an example of a testing method:
 

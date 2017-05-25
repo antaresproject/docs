@@ -1,6 +1,14 @@
-# Cryptor  
+# Cryptor
+  
+[TOC]  
 
-The platform provides a set of constructions enabling data coding which belong to databases' tables. Such a solution increases the application's security level. Only the tables' columns - with data type treated as a string - can be coded (especially the 'text' and 'varchar' types). The configuration containing information about cryptors parameters is kept in a file in the following localization:
+## Introduction
+
+The platform provides a set of constructions enabling data coding which belong to databases' tables. Such a solution increases the application's security level. Only the tables' columns - with data type treated as a string - can be coded (especially the 'text' and 'varchar' types). 
+
+## Configuration
+
+The configuration containing information about cryptors parameters is kept in a file in the following localization:
 
 ```php
 core\foundation\resources\config\db_cryptor.php

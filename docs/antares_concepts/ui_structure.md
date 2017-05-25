@@ -26,7 +26,7 @@ Some of the visible elements are not available or different for non-logged users
 
 ## Template Layouts 
 
-There are several template layouts that you can set up in the Antares per each [user level](../core_modules/control.md) (e.g. can be different for admin and different for user):
+There are several template layouts that you can set up in the Antares per each [user level](../core_modules/acl.md) (e.g. can be different for admin and different for user):
 
 * Small Side Menu
 * Big Side Menu

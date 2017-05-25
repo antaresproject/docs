@@ -2,9 +2,14 @@
 
 [TOC]
 
+## Introduction
+
+Events constitute system events delegated in different parts of the system which belong to a planned mechanism of 
+some services' realization. Therefore, an event is logging the user in to the system and treating as an action, but the authorization process is not an event at all. A register of events activated within a component's structure can be found [here](../modules_development/module_events.md). 
+
 ## System Events  
 
-Events constitute system events delegated in different parts of the system which belong to a planned mechanism of some services' realization. Therefore, an event is logging the user in to the system and treating as an action, but the authorization process is not an event at all. A register of events activated within a component's structure can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Module+Events). The following base events excited by the system can be:
+The following base events excited by the system can be:
 
 ### General  
 

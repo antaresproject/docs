@@ -38,7 +38,7 @@ In Antares, modules are divided into two groups:
     Currently there are 5 core modules:
     
       - [Automation](../core_modules/automation.md) - used to execute cyclic operations based on laravel task scheduler.
-      - [Acl](../core_modules/control.md) - designed to manage users' access to resources.
+      - [Acl](../core_modules/acl.md) - designed to manage users' access to resources.
       - [Logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system.
       - [Notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users.
       - [Translations](../core_modules/translations.md) - language and translations manager.

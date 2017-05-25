@@ -2,6 +2,18 @@
 
 [TOC]
 
+## Introduction
+
+Views contains the HTML served by your application and separate your controller / application logic from your presentation logic. 
+More information about views you can fin in [Laravel documentation](https://laravel.com/docs/5.4/views).
+In Antares, views can be divided into following types:
+
+- menus
+- placeholders
+- panes
+
+All of those types of view belong to Antares Base Templates.
+
 ## Menus  
 
 

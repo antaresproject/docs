@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Definition  
+## Introduction  
 
 Notifier is a set of tools supporting design of the notifications which are sent to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
 

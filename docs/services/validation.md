@@ -6,6 +6,8 @@
 
 The platform supports validation of sent forms through functionality's implementation on the level of the form itself.
 
+## Structure
+
 Adding new validation rules occurs through `rules` parameter configuration of the form (validation will be executed for this form). The method accepts a set of validation rules in the form of the board. An example:
 
 ```php

@@ -2,13 +2,16 @@
 
 [TOC]
 
-## How to create new view
+## Introduction
 
 Antares uses [Twig template engine](http://twig.sensiolabs.org/documentation) to generate user interfaces. More information you can find [here](http://twig.sensiolabs.org/documentation). 
 
 The controller is responsible for handling request that comes into a Antares. 
 In next step, the controller delegates computing work to other places (eg: [Processors](../modules_development/controllers_and_processors.md), Models, Repositories). 
 This solution allows to reuse the code. When a controller needs to generate HTML it passes whole decoration process to templating engine.
+
+## How to create new view
+
 A view is text file that generates text-based format (HTML) using [Twig](http://twig.sensiolabs.org/documentation) as template engine. 
 The most familiar type of template is a PHP template - a text file parsed by PHP that contains a mix of text and PHP code: 
 

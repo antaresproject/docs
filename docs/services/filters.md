@@ -4,7 +4,11 @@
 
 ## Introduction  
 
-Filters are used to delimit the query results which are data providers within the Datatables' operation. More about datatables can be found [here](datatables.md). Configuration of class responsible for filter's operation is the following:
+Filters are used to delimit the query results which are data providers within the Datatables' operation. More about datatables can be found [here](datatables.md). 
+
+## Class structure
+
+Structure of class responsible for filter's operation is the following:
 
 ```php
 <?php
@@ -95,7 +99,7 @@ Filters are used to delimit the query results which are data providers within th
     
 As shown above, the filter must inherit from abstract base class `Antares\Datatables\Filter\AbstractFilter`. It must also implement the interface `Yajra\Datatables\Contracts\DataTableScopeContract` which is used by the Datatables object.
 
-## Attributes  
+### Attributes  
 
 * **name** - name of the filter which can be treated as a title as well. It is used to present the filter on the filters' list (dropdown) as below:
   ![AT_FILT01](../img/docs/services/filters/AT_FILT01.png)
@@ -109,7 +113,7 @@ As shown above, the filter must inherit from abstract base class `Antares\Datata
 
   ![AT_FILT02](../img/docs/services/filters/AT_FILT02.png)
   
-## Methods  
+### Methods  
 
 * **dataProvider** - a method which is used by the `render` method. In the case mentioned above it is a data provider for the list's needs which is displayed in the filter's dropdown as below:
 
@@ -124,7 +128,7 @@ As shown above, the filter must inherit from abstract base class `Antares\Datata
   ```
   Remember that using the `whereIn` method in the foregoing example occurs on object's instance of the `Illuminate\Database\Eloquent\Builder` type which is responsible for creating a query to database. In a case when dataProvider is determined as a collection (`Illuminate\Database\Eloquent\Collection` or `Illuminate\Support\Collection`) the use of the `whereIn` method will give no result. In the case of the collection apply the methods described in the [documentation](https://laravel.com/docs/5.1/collections).
 
-## Forms  
+### Forms  
 
 In the filters (beyond the list) forms narrowing the query results can be defined. Here is an example:
 

@@ -2,9 +2,13 @@
 
 [TOC]
 
+## Introduction  
+
+The platform supports application's multilingualism through language files determined in component's or module's space.
+
 ## Configuration  
 
-The platform supports application's multilingualism through language files determined in component's or module's space. Determining the location of a language file usually happens in module's service provider 'boot' method by calling:
+Determining the location of a language file usually happens in module's service provider 'boot' method by calling:
 
 ```php
 $this->addLanguageComponent('antares/foo', 'antares/foo', "{$path}/lang");
