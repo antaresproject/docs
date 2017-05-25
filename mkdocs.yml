@@ -64,6 +64,9 @@ pages:
    - Logger: core_modules/logger.md
    - Notifications: core_modules/notifications.md
    - Translations: core_modules/translations.md
+   - Branding: core_modules/branding.md
+   - Users: core_modules/users.md
+   - Installer: core_modules/installer.md
  - Tutorials:
    - Sample module: tutorials/sample_module.md
    - Sample UI Component: tutorials/sample_ui_component.md

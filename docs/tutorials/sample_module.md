@@ -48,26 +48,27 @@ Create file `acl.php` in base path of your module:
 
 use Antares\Acl\RoleActionList;
 use Antares\Model\Role;
+use Antares\Acl\Action;
 
-$presentationActions=[
-     'Items List'  //'Allows user to preview items list.',   
+$presentationActions = [
+    new Action('sample_module.items.index', 'Items List'),   //'Allows user to preview items list.',
 ];
-$actions = [    
-    'Item Add',     //'Allows user to add item.',
-    'Item Update',  //'Allows user to update item.',
-    'Item Delete'   //'Allows user to delete item.',    
+$actions             = [
+    new Action('sample_module.item.add', 'Item Add'),        //'Allows user to add item.',
+    new Action('sample_module.item.update', 'Items Update'), //'Allows user to update item.',
+    new Action('sample_module.item.delte', 'Items Delete'),  //'Allows user to delete item.',
 ];
 
 
 $permissions = new RoleActionList;
-$permissions->add(Role::admin()->name, array_merge($presentationActions,$actions));
+$permissions->add(Role::admin()->name, array_merge($presentationActions, $actions));
 $permissions->add(Role::member()->name, $presentationActions);
-
 return $permissions;
 ```
 
 This file determines which roles (for example admins, users, members, reporters etc.) should have access to action.
 Action is the name of resource (endpoint) where logic is implemented.  For example, viewing any items list or updating is an operation with name. This name is called an action.
+First argument of class constructor is the name of route which will be used to specify valid urls.
 
 By example above, member has access to view list of items, but not to add, update or delete any of items:
  
@@ -261,9 +262,40 @@ In the previous example method `index()` will show view `antares/sample_module::
 {% endblock %}    
 ```
 
-AS you can see we are using [Twig Engine](https://twig.sensiolabs.org/) to generate views. 
+As you can see we are using [Twig Engine](https://twig.sensiolabs.org/) to generate views.
+The result of our module should have following structure:
 
+![sample_module_structure](../img/docs/tutorials/sample_module_structure.PNG)
 
+Module source should be copied to directory of modules within Antares file structure. The location of directory is in the src directory in Antares base path. 
+More information about Antares files you can find [here](../antares_concepts/core_&_files_structure.md).
+
+#### Installing and activating
+
+Go to console and run following command:
+
+```bash
+php artisan extension:install antaresproject/module-sample_module --skip-composer --active
+```
+As you can see the name of installed module is the same with name from your `composer.json` file.
+In the image below is an example of installation result:
+
+![sample_module_install](../img/docs/tutorials/sample_module_install.PNG)
+
+You can also install a module using "component" section with is described [here](../modules_development/module_base.md#user-interface).
+  
+#### Run first module action
+
+As is mentioned previously we have created a file called `backend.php` which contain route definition.
+The location of index action for you module include: `/<area>/<prefix>/<name>`   
+The area is typically "admin", prefix is "my_module" and the name is "index", so our url is: /admin/my_module/index. 
+Let's open it in the browser:
+
+ ![sample_module_result](../img/docs/tutorials/sample_module_result.PNG)
+ 
+ 
+ That's all. You have created your own first module with acl.
+ 
 
 3. Add a configuration in the composer.json file. 
 composer.json file's example:
