@@ -281,25 +281,28 @@ DB_PASSWORD=<enter mysql password here>
 
 Go to the `http://<server_IP>/install` in order to start migration import to the database. In the first installation step, there is an environment verification - if everything is correct please continue. If the application states that something has not been set properly, you will have to configure it before being able to proceed.
 
-**Please note:** If you have problems with the database connection, you can read about some extra troubleshooting below in the [MySQL Connection problems](#MySQL_Connection_problems) section.
+> **Please note:** If you have problems with the database connection, you can read about some extra troubleshooting below in the [MySQL Connection problems](#MySQL_Connection_problems) section.
 
-![installation_manual_step_1](../img/docs/installation/installation_guide/installation_manual_step_1.PNG)
+![installation_manual_step_1](../img/docs/installation/installation_guide/installation_manual_step_1.png)
 
  
 In the next step, set up the application name, username and password of the main administrator.
 
-**Please note:** Do not forget to remember the password, it's the only way to log in to the application.
+![installation_manual_step_2](../img/docs/installation/installation_guide/installation_manual_step_2.png)
 
+> **Please note:** Do not forget to remember the password, it's the only way to log in to the application.
 
-![installation_manual_step_2](../img/docs/installation/installation_guide/installation_manual_step_2.PNG)
+Next step is about choosing optional modules:
+
+![installation_manual_step_3](../img/docs/installation/installation_guide/installation_manual_step_3.png)
 
 The final step in the installation is to choose the modules which will be included in your application. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the daemon that will be handling [automation](../core_modules/automation.md).
 
-![installation_manual_step_3](../img/docs/installation/installation_guide/installation_manual_step_3.PNG)
+![installation_manual_step_4](../img/docs/installation/installation_guide/installation_manual_step_4.png)
   
   
 In the next step the application will inform you about the end of installation, so move to the logging-in website. Log in using the created earlier account and move to the website /admin/extensions where you can install and uninstall the components and modules (right button).  
 
 ![AT_IG5](../img/docs/installation/installation_guide/AT_IG5.PNG)
   
-Congratulations!!! The Antares Project application is ready to work.
+Congratulations!!! The Antares application is ready to work.

@@ -13,25 +13,8 @@ More information about using composer you can find in official [documenation](ht
 In order to create a new module which will be compatible with 
 master module's packs, core and frontend, you should:
 
-## Using GIT 
 
-### Create a new project git repository
- 
-You can use [github](https://github.com), [bitbucket](https://bitbucket.org/) or different. 
-It doesn't matter where you put your repository.
-    
-![git_repo](../img/docs/tutorials/git_repo.PNG)
-     
-### Clone repository files into local
-
-Using following command:
-
-```bash
-git clone https://github.com/mountstone/sample_module.git
-```
-
-
-## Add files to module
+## Module structure
 
 Before starts read this article, it is recommended to get info about [module base](../modules_development/module_base.md).
 
@@ -82,7 +65,7 @@ $permissions->add(Role::member()->name, $presentationActions);
 $permissions->add(Role::admin()->name, array_merge($presentationActions,$actions));
 ``` 
 
-More details about acl you find [here](../modules_development/acl.md)
+More details about acl you find [here](../modules_development/acl.md).
  
 #### Providers
  
@@ -275,7 +258,7 @@ More information about Antares files you can find [here](../antares_concepts/cor
 Go to console and run following command:
 
 ```bash
-php artisan extension:install antaresproject/module-sample_module --skip-composer --active
+$ php artisan extension:install antaresproject/module-sample_module --skip-composer --active
 ```
 As you can see the name of installed module is the same with name from your `composer.json` file.
 In the image below is an example of installation result:
@@ -283,110 +266,97 @@ In the image below is an example of installation result:
 ![sample_module_install](../img/docs/tutorials/sample_module_install.PNG)
 
 You can also install a module using "component" section with is described [here](../modules_development/module_base.md#user-interface).
-  
-#### Run first module action
 
-As is mentioned previously we have created a file called `backend.php` which contain route definition.
-The location of index action for you module include: `/<area>/<prefix>/<name>`   
-The area is typically "admin", prefix is "my_module" and the name is "index", so our url is: /admin/my_module/index. 
-Let's open it in the browser:
+## Add module to project
 
- ![sample_module_result](../img/docs/tutorials/sample_module_result.PNG)
+### Using GIT 
+
+#### Create a new project git repository
  
- 
- That's all. You have created your own first module with acl.
- 
+You can use [github](https://github.com), [bitbucket](https://bitbucket.org/) or different git-based version control system.
+    
+![git_repo](../img/docs/tutorials/git_repo.PNG)
+     
+#### Clone repository files into local
 
-3. Add a configuration in the composer.json file. 
-composer.json file's example:
-
-```json
-{
-    "type": "project",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/foo.git"
-        }       
-    ],
-    "require": {
-        "antaresproject/component-foo": "master",
-        "mnsami/composer-custom-directory-installer": "1.1.*"       
-    },   
-    "config": {
-        "preferred-install": "dist",
-        "secure-http": false
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev"   
-}
-```
-
-In the abovementioned example, the module named as 'foo' has been added from the [repository](https://github.com/antaresproject/foo) and project's branch master. Thus, if several developers work on  the 'foo' module and save its changes, the command
+Using following command:
 
 ```bash
-composer update
+$ git clone https://github.com/mountstone/sample_module.git
+```  
+
+#### Commit files into repository
+
+Firstly you have to copy module source to directory where repository has been cloned. Then add files before commit:
+
+```bash
+$ git add *
 ```
 
-will always download the latest modules version. The same procedure concerns 'core' and the remaining modules and vendors which belong to application.
+commit new files:
 
-An example of the whole file defining project's settings is depicted below:
+```bash
+$ git commit -am "ADD: initial commit"
+```
+
+and push:
+
+```bash
+$ git push
+```
+
+#### Add repository to composer
+
+If you want to add you module to project it's good practice to extends main `composer.json` file of Antares. The file is located in base path of application.
+Typically the source of this file should have following content:
 
 ```json
 {
-    "name": "antaresproject/project",
+    "name": "antaresproject/project",    
+    "description": "Create management system for your employees, your customers and for yourself. Experience a completely new way of building standalone and SaaS applications.",
+    "homepage": "http://antaresproject.io",
+    "keywords": [
+        "php",
+        "laravel",
+        "composer",
+        "automation",
+        "updater",
+        "material-design",
+        "rest-api",
+        "logger",
+        "installer",
+        "logger",
+        "user-management",
+        "twofactorauth",
+        "laravel-admin",
+        "laravel-application",
+        "updaters",
+        "two-factor-authentication",
+        "access-control",
+        "updater",
+        "antares",
+        "antares-project",
+        "boilerplate"
+    ],        
+    "license": "BSD-3-Clause",
     "type": "project",
     "prefer-stable": true,
     "minimum-stability": "dev",
     "authors": [{
-            "name": "Antares Developer",
+            "name": "Antares Team",
+            "email": "contact@antaresproject.io",
+            "homepage": "http://antaresproject.io",
             "role": "developer"
         }
-    ],
+    ],    
     "repositories": [
         {
             "type": "git",
             "url": "https://github.com/antaresproject/core.git"
-        },
+        },       
         {
             "type": "git",
-            "url": "https://github.com/antaresproject/module.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/logger.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/updater.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/translations.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/widgets.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/tester.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/notifications.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/customfields.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/control.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/antaresproject/automation.git"
+            "url": "https://github.com/antaresproject/component-installer-plugin.git"
         },
         {
             "type": "git",
@@ -403,91 +373,107 @@ An example of the whole file defining project's settings is depicted below:
         {
             "type": "git",
             "url": "https://github.com/antaresproject/two_factor_auth.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/logger.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/translations.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/tester.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/notifications.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/customfields.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/acl.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/automation.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/users.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/installation.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/antaresproject/branding.git"
         }
-    ],
+    ],          
     "require": {
         "antaresproject/core": "0.9.2.x-dev",
-        "antaresproject/component-module": "dev-master",
+        "laravel/framework": "5.4.*",
+        "laravie/html": "5.4.*",
+        "mnsami/composer-custom-directory-installer": "1.1.*",
+        "antaresproject/component-installer-plugin": "0.9.2.1-dev",
+
+        "antaresproject/module-api": "0.9.2.x-dev",
+        "antaresproject/module-ban-management": "0.9.2.x-dev",
+        "antaresproject/module-two-factor-auth": "dev-master",
+        "antaresproject/module-search": "dev-master",        
+
         "antaresproject/component-logger": "0.9.2.x-dev",
-        "antaresproject/component-updater": "0.9.2.x-dev",
-        "antaresproject/component-translations": "0.9.2.x-dev",
-        "antaresproject/component-widgets": "0.9.2.x-dev",
+        "antaresproject/component-translations": "dev-master",
         "antaresproject/component-tester": "0.9.2.x-dev",
         "antaresproject/component-notifications": "0.9.2.x-dev",
         "antaresproject/component-customfields": "0.9.2.x-dev",
-        "antaresproject/component-control": "0.9.2.x-dev",
-        "antaresproject/component-automation": "0.9.2.x-dev",
-        "antaresproject/component-search": "0.9.2.x-dev",
-        "antaresproject/component-api": "0.9.2.x-dev",
-        "antaresproject/component-ban-management": "0.9.2.x-dev",
-        "antaresproject/component-two-factor-auth": "dev-master",
-        "laravel/framework": "5.2.*",
-        "mnsami/composer-custom-directory-installer": "1.1.*",
-        "laravie/html": "~5.2.1",
-        "laravelcollective/html": "5.2.*",
-        "barryvdh/laravel-ide-helper": "^2.0@dev",
+        "antaresproject/component-acl": "dev-master",
+        "antaresproject/component-automation": "0.9.2.x-dev",    
+
+        "antaresproject/component-installer": "dev-master",
+        "antaresproject/component-brands": "dev-master",
+        "antaresproject/component-users": "dev-master",            
+
         "barryvdh/laravel-debugbar": "^2.2@dev",
-        "phpunit/phpunit": "5.0.*",
-        "doctrine/dbal": "master",
-        "tymon/jwt-auth": "1.0.*",
-        "brainboxlabs/brain-socket": "^1.0",
-        "kriswallsmith/assetic": "^1.3",
-        "predis/predis": "v1.1.*",
-        "barryvdh/laravel-cors": "v0.8.*",
-        "twig/twig": "v1.30.0",                                 
-        "rcrowe/twigbridge": "^0.9.0",
-        "satooshi/php-coveralls": "~0.7"
-    },
-    "require-dev": {
-        "symfony/security-core": "master",
-        "fzaninotto/faker": "master",
-        "mockery/mockery": "0.9.*",
-        "davejamesmiller/laravel-breadcrumbs": "dev-master",
-        "linfo/linfo": "dev-master"
-    },
+        "regulus/activity-log": "^0.6.7",
+        "arcanedev/log-viewer": "^4.3",
+        "prettus/laravel-request-logger": "^1.0",
+        "davejamesmiller/laravel-breadcrumbs": "dev-master"
+    },        
     "autoload": {
         "classmap": [
             "resources/database",
-            "src/core",
-            "src/components",
+            "src/core/src/modules",
             "src/modules"
         ],
         "psr-4": {
             "App\\": "app/",
-            "Installer\\": "app/Installer/src",
-            "Antares\\Control\\": "src/components/control/src",
-            "Antares\\Brands\\": "src/core/brands/src",
-            "Antares\\Users\\": "src/components/users/src"
+            "Installer\\": "app/Installer/src"        
         }
     },
     "extra": {
-        "branch-alias": {
-            "0.9.2.x-dev": "0.9.0-dev"
-        },
         "installer-paths": {
-            "./src/core": ["antaresproject/core"]           
+            "./src/core": ["antaresproject/core"]
         }
     },    
     "scripts": {
-        "pre-update-cmd": [
-            "Installer\\EnvironmentScripts::preUpdate"
-        ],
-        "pre-install-cmd": [
-            "Installer\\EnvironmentScripts::preInstall"
-        ],
-        "post-install-cmd": [
-            "Installer\\ComposerScripts::postUpdate",
-            "php artisan clear-compiled",
-            "php artisan ide-helper:generate",
-            "php artisan key:generate"
-        ],
-        "post-update-cmd": [
-            "php artisan clear-compiled",
-            "php artisan ide-helper:generate"
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "php artisan key:generate"
-        ]
+        ],
+        "post-install-cmd": [
+            "php artisan clear-compiled"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled"
+        ]        
     },
     "config": {
         "preferred-install": "dist",
@@ -495,6 +481,75 @@ An example of the whole file defining project's settings is depicted below:
     }    
 }
 ```
+Section "repositories" contains information about where every part of system is located. For example:
+ 
+```json
+{
+    "type": "git",
+    "url": "https://github.com/antaresproject/branding.git"
+}
+```
 
-In the file composer.json which belongs to a project you can control the modules which you want to be installed in your application. You can also control module's versions by specifying the branches, as it was described above.
+Include information that branding is a git repository located at `https://github.com/antaresproject/branding.git`. 
+Composer will download source file of "branding" from that, specified location. Section named "require" contains information
+which version of repository should be user, for example:
 
+```json
+{
+    "antaresproject/component-automation": "0.9.2.x-dev"
+}
+```
+
+Will use version of 0.9.2 (branch) which is placed in github.
+
+Going this route, you have to add following lines into `composer.json` file:
+
+Section "repositories":
+
+```json
+{
+    "type": "git",
+    "url": "https://github.com/antaresproject/sample_module.git"
+}
+```
+
+Section "require":
+
+```bash
+{
+    "antaresproject/module-sample_module": "0.9.2.2-dev"
+}
+```
+
+> Remember that presented example using a [Github](https://github.com) as pattern. 
+
+> You are able to use any other git repository such as https://\<username\>@bitbucket.org/\<username\>/sample_module.git. 
+To find out more about composer, go to [Composer Documentation](https://getcomposer.org/doc/).
+
+### Using standalone files
+ 
+You can create module which will be part of your application without using git. Just create module directory in `src/modules`
+and copy module source files. Module will be available in "Modules" from "System" main menu:
+ 
+![sample_module_result](../img/docs/tutorials/modules.png)
+ 
+Right click on module will show context menu with install option. After click on it, modal dialog will be showed:
+  
+![module_install_web](../img/docs/tutorials/module_install_web.png)  
+
+Using git approach gives  
+  
+  
+## Run first module action
+
+As is mentioned previously we have created a file called `backend.php` which contain route definition.
+The location of index action for you module include: `/<area>/<prefix>/<name>`   
+The area is typically "admin", prefix is "my_module" and the name is "index", so our url is: /admin/my_module/index. 
+Let's open it in the browser:
+
+![sample_module_result](../img/docs/tutorials/sample_module_result.PNG)
+
+After install module, browser will be refreshed automatically.
+That's all. You have created your own first module with acl. 
+
+To get more details about using other Antares functionalities, please read [Modules Development](../modules_development/module_base.md) and [Services](../services/assets.md).
