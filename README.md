@@ -1,6 +1,4 @@
-# Documentation of Antares Project
-
-An open source package by [Antares Project](http://antaresproject.io), code well, rock on!
+# Antares
 
 [![Coverage Status](https://coveralls.io/repos/github/antaresproject/project/badge.svg?branch=master)](https://coveralls.io/github/antaresproject/project?branch=master)
 [![Build Status](https://travis-ci.org/antaresproject/project.svg?branch=master)](https://travis-ci.org/antaresproject/project)
@@ -10,66 +8,35 @@ An open source package by [Antares Project](http://antaresproject.io), code well
 [![GitHub stars](https://img.shields.io/github/stars/antaresproject/project.svg)](https://github.com/antaresproject/project/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/antaresproject/project/master/LICENSE)
 
-[TOC]
 
-##Introduction
-  
-  An open source package by [Antares Project](http://antaresproject.io), code well, rock on!  
-  
-  The system uses:
-    
-  1. **Components and modules** - a desirable functionality serving the building of scaled systems. Predefined components facilitate solving already known problems connected with business logic and support the developers by reducing the time needed for realization of target functionality.  
-    
-  2. **Composer** - usage of a popular tool to install libraries is an indispensable system's element. It facilitates installation of dedicated functionalities, which helps the developer in reducing time needed for realization of client's order.  
-    
-  3. **Configuration based on database and files** - precisely speaking, files as a place of saving the components' and modules' settings and configurations of the application itself in which client's intervention is not permissible. Configurations' record in database in turn, facilitates changing the configuration by a client and adjusting the settings immediately.  
-    
-  4. **Users and access to resources** - resources' access management for different groups of users in combination with events' implementation is a powerful tool in controlling the actions performed by different users.  
-    
-  5. **Separation of client's layer from administrative layer** - administrative layer which is responsible for application's control is entirely separated from client's layer - users who have no administrative power. Such a solution facilitates any client's panel implementation and adjusting the solution to order's needs.  
-    
-  6. **Responsiveness** - the entire system has been implemented with the use of [Material Design Lite](https://getmdl.io/started/) as one of frontal frontend frameworks. Thanks to such a solution the application is available to most devices supporting the interpretation of HTML5.  
-    
-  7. **HMVC** - the system supports hierarchical pattern of design architecture which is a variant of MVC pattern. This means system's division into the following separated layers: responsible for communication with data base, responsible for presentation of website's view, and responsible for appropriate control (translation) of incoming request (from browser) into appropriate view. Such a solution supports scalability and facilitates widgets' implementation significantly.
+# Introduction
 
-## Documentation
+**Antares** is based on [Laravel](https://laravel.com/docs/5.4) as backend framework, [VueJS](https://vuejs.org/) as frontend javascript framework and [Composer](https://getcomposer.org/) as dependency manager to use external vendors. All of these combined can let you to easily build powerful web applications. It uses the Material Design RWD Template with UI Components to fully render the user interface that can be controlled from the PHP code level.
 
-Reader-friendly Documentation can be found here. [Antares Project Documenation](http://antaresproject.io).
+Antares is fully modular, meaning that you can easily create your own modules and extend it's possibilites for your own purposes. Additionally, it includes a lot of modules by default that can save you tons of time with the most common functionality of every web-application.
 
-Raw files can be found via this projects docs/version branch.
+## Required skills
 
-- [0.9.2](CHANGELOG.md) - 2017-03-22
-- [0.9.0](CHANGELOG.md) - 2017-02-02
+In order to start working with Antares, as back-end developer you need to at least have following skills:
+- OOP PHP 
+- MySQL Relational Database
+- Model/View/Controller (MVC) design concepts
 
-## Change Log
+Additionally, following skills may be very helpful:
+- Laravel
+- Grunt, Webpack, VueJS
+- Composer
+- Singleton, Abstract Factory deisgn concepts
+- GitHub flow
+- LAMP
 
-Important versions listed below. Refer to the [Change Log](CHANGELOG.md) for a full history of the project.
-
-## Support
-
-The following support channels can be used for contact.
-
-- [Webpage](http://antaresproject.io)
-- [Email](mailto:contact@antaresproject.io)
-
-Bug reports, feature requests, and pull requests can be submitted by following our [Contribution Guide](CONTRIBUTING.md).
-
-## Contributing & Protocols
-
-- [Versioning](CONTRIBUTING.md#versioning)
-- [Coding Standards](CONTRIBUTING.md#coding-standards)
-- [Pull Requests](CONTRIBUTING.md#pull-requests)
-
-## Credits
-
-- [AntaresProject][link-author]
-- [All Contributors][link-contributors]
-
-## License
-
-This software is released under the [BSD 3-Clause](LICENSE) License.
-
-© 2017 Antares Project, All rights reserved.
-
-[link-author]: http://antaresproject.io
-[link-contributors]: ../../contributors
+## The best way to start
+If this is your first try with Antares, we suggest to follow the path below:
+1. Prepare a server that match the [requirements](installation/requirements.md#recommended-server-resources).
+2. Install the system [automatically](installation/installation_auto.md) or [manually](installation/installation_manual.md).
+3. Read about Antares Concepts:   
+   - [Files Structure](antares_concepts/core_&_files_structure.md) - Understand how the system architecture is designed.
+   - [Modules](antares_concepts/components_&_modules.md) - See what is the module structure and how modules are located in the system.
+   - [UI Strucure](modules_development/views.md) - Look how easy you can design your own views on every user level.
+4. Start building your own Modules following **Modules Development** section or try with our tutorial to build [Sample Module](tutorials/sample_module.md).
+5. During the development, you will definitely want to use the available services of the Antares that can help you speed up your pace and extend your system's functionality. **It is a key to deliver a stable and consistent solution**.
