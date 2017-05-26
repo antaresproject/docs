@@ -115,20 +115,27 @@ Log into MYSQL as root:
 mysql -u root -p
 ```
 Create a new user (**Do not forget to set up the password!**):
+
 ```bash
 CREATE USER 'antares'@'localhost' IDENTIFIED BY 'password';
 ```
+
 And grant him privileges to the database:
+
 ```bash
 GRANT ALL PRIVILEGES ON *.* to 'antares'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
 ```
+
 Flush the privileges:
+
 ```bash
 FLUSH PRIVILEGES;
- ```
+```
   
 ### Composer Installation
+
 Install composer 1.3.x or higher
+
 ```bash
 curl -sS https://getcomposer.org/installer | php 
 mv composer.phar /usr/local/bin/composer
@@ -240,7 +247,11 @@ chmod -R 777 storage public bootstrap
 
 ```bash
 cd /var/www/html
-chown -R www-data:www-data storage public bootstrap
+chown -R www-data:www-data storage public bootstrap src
+```
+
+```bash
+mkdir -m 777 /var/www/html/cache
 ```
    
 

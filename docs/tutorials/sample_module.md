@@ -10,9 +10,6 @@ composer require antaresproject/module-sample_module:0.9.2.2-dev
 ```
 More information about using composer you can find in official [documenation](https://getcomposer.org/doc/).
 
-In order to create a new module which will be compatible with 
-master module's packs, core and frontend, you should:
-
 
 ## Module structure
 
@@ -536,10 +533,7 @@ and copy module source files. Module will be available in "Modules" from "System
 Right click on module will show context menu with install option. After click on it, modal dialog will be showed:
   
 ![module_install_web](../img/docs/tutorials/module_install_web.png)  
-
-Using git approach gives  
-  
-  
+    
 ## Run first module action
 
 As is mentioned previously we have created a file called `backend.php` which contain route definition.
@@ -549,7 +543,246 @@ Let's open it in the browser:
 
 ![sample_module_result](../img/docs/tutorials/sample_module_result.PNG)
 
-After install module, browser will be refreshed automatically.
-That's all. You have created your own first module with acl. 
+After install module, browser will be refreshed automatically. That's all. You have created your own first Antares module with acl. 
+
+## Create migrations
+
+### Table schemas
+
+Migrations are files containing scripts to create database schema which your module will use. It should be placed in following location:
+`src/modules/<module_name>/resources/database/migrations`. To create migration file you can use predefined Laravel command:
+
+```bash
+php artisan make:migration sample_module
+```
+
+This command will generate the file in location `resources/database/migrations`. The filename has the following format:
+`<YYYY>_<mm>_<dd>_<numeric>_sample_module.php`, for example: `2017_05_26_115716_sample_module.php`. You can just copy this file into module `migrations` directory.
+Command to generate migrations within module namespace is not yet implemented. The migration file may contain following structure:
+
+```php
+<?php
+
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CustomModuleTable extends Migration
+{
+
+    /**
+     * Run the migrations.
+     * 
+     * @return void
+     */
+    public function up()
+    {
+
+        $this->down();
+
+        Schema::create('tbl_custom_module', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned()->index('user_id');
+            $table->string('name');
+            $table->text('value')->nullable();
+        });
+
+        Schema::table('tbl_custom_module', function(Blueprint $table) {
+            $table->foreign('user_id', 'tbl_custom_module_ibfk_1')->references('id')->on('tbl_users')->onUpdate('NO ACTION')->onDelete('CASCADE');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     * 
+     * @return void
+     */
+    public function down()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::dropIfExists('tbl_custom_module');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+    }
+}
+```
+Above class contains two methods:
+ - `up()` - is responsible for create tables in database. It is executed while installing module from web interface or from command line. More info about module commands is in [Module Base](../modules_development/module_base.md) section.  
+ - `down()` - which is responsible for typically deletes tables from database. Is is executed while uninstalling module.
+
+### Seeds
+  
+Little different type of migrations are seeds. 
+Seeds, as the name suggests, are responsible for filling database with data. The location of seed files is the same as migrations: `resources/database/seeds`.
+You can use Laravel command to create simple data seeder class:
+
+```bash
+php artisan make:seed sample_module
+```
+The file will be placed in the directory of `resources\database\seeds`, just copy created file to module namespace. Sample file of seeder class:
+
+```php
+<?php
+
+use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+
+class ModuleSampleDataSeeder extends Seeder
+{
+
+    /**
+     * Run the database seeding.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $users = users('member');
+        if (empty($users)) {
+            return;
+        }
+        $user = $users->first();
+
+        $this->down();
+        $faker  = Faker::create();
+        $insert = [];
+        for ($i = 0; $i < 2; $i++) {
+            array_push($insert, [
+                'user_id' => $user->id,
+                'name'    => $faker->text(20),
+                'value'   => '{"field_1":"1"}'
+            ]);
+        }
+        DB::table('tbl_custom_module')->insert($insert);
+        $widgetParamsSchemaPath = __DIR__ . '/schemas/widget_params.sql';
+        if (file_exists($widgetParamsSchemaPath)) {
+            DB::unprepared(file_get_contents($widgetParamsSchemaPath));
+        }
+    }
+    /**
+     * Delete all database occurences for sample module
+     */
+     public function down()
+     {
+         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+         DB::table('tbl_custom_module')->truncate();
+         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+     }
+}
+```
+
+It contains two method:
+
+- `run()` - which is responsible for begin the seeding and executed while module installation is on the way
+- `down()` - responsible for deletes data from database, and fires when uninstalling.
+
+As you can see, the `run()` method has implementation of execution sql script from external file. It is sometime better solution than writing thousands of code lines in php.
+
+### Notification seeds
+
+Notification seed is specific type of Antares seed. 
+It fill database tables (which is responsible for agregate notification templates) with information about notifications.
+The file of notification seed should be placed in the same place as standard seed file - `resources/database/seeds` within module directory space.
+The simple file of seeder:
+
+```php
+<?php
+
+
+use Antares\Notifier\Seeder\NotificationSeeder;
+use Illuminate\Support\Facades\DB;
+
+class ModuleEmailNotification extends NotificationSeeder
+{
+
+    /**
+     * Creates module notifications
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::beginTransaction();
+        try {
+            $this->down();
+            $this->addNotification([
+                'category' => 'default',
+                'severity' => 'high',
+                'type'     => 'email',
+                'event'    => 'email.sample-module-notification',
+                'contents' => [
+                    'en' => [
+                        'title'   => 'Sample Email Template',
+                        'content' => file_get_contents(__DIR__ . '/../../views/notification/module_sample_notification.twig')
+                    ],
+                ]
+            ]);
+        } catch (Exception $ex) {
+            DB::rollback();
+            throw $ex;
+        }
+
+        DB::commit();
+    }
+
+    /**
+     * Deletes notifications while uninstalling
+     *
+     * @return void
+     */
+    public function down()
+    {
+        return $this->deleteNotificationByEventName([
+                    'email.sample-module-notification',
+        ]);
+    }
+}
+```
+
+Method `run()` is responsible for create new notification, and `down()` for delete.  More details is described in [Notifications](../core_modules/notifications.md#migration-files) core module. 
+
+> Please note. The migration section of this article only presents an example of migrations. More information about migrations you can find in Antares [Migration](../modules_development/migrations.md) section and [Laravel documentation](https://laravel.com/docs/5.4/migrations).
+  
+## Create module item
+
+Let's create some entries in database. First of all we have to overwrite `__contruct()` constructor with `ModuleProcessor` as argument:
+```php
+/**
+ * Module processor instance
+ *
+ * @var ModuleProcessor
+ */
+ protected $processor;
+
+ /**
+  * Constructing
+  * 
+  * @param ModuleProcessor $processor
+  */
+public function __construct(ModuleProcessor $processor)
+{
+    parent::__construct();
+    $this->processor = $processor;
+}
+```   
+and create new method in our `ModuleController.php`:
+
+```php
+/**
+ * Creates view with form to add new item
+ * 
+ * @return View
+ */
+  public function create()
+  {
+        $data = $this->processor->create();
+        if (isset($data['errors'])) {
+            return $this->redirectWithErrors(handles('antares::sample_module/create'), $data['errors']);
+        }
+        return view('antares/sample_module::admin.module.create', $data);
+  }
+```
+Method `create()` will deliver the view with form to create new item. How about `ModuleProcessor` ? 
+ModuleProcessor will operate the processing of a request coming from the controller’s action. 
 
 To get more details about using other Antares functionalities, please read [Modules Development](../modules_development/module_base.md) and [Services](../services/assets.md).
+All source code of sample module can be download from [Github](https://github.com/antaresproject/sample_module.git).
