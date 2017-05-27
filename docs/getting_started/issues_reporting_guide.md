@@ -18,7 +18,7 @@ Before you report an issue, please search through existing issues to see if your
 
 6. If possible a failing unit test as pull request
 
-> If the issue is related to one of the repositories in organization, please report it in the correct place in issue tracker. Otherwise report it to the [main repository](https://github.com/antaresproject/project).
+**Please Note:** If the issue is related to one of the repositories in organization, please report it in the correct place in issue tracker. Otherwise report it to the [main repository](https://github.com/antaresproject/project).
 
 ## Reporting Security Issues
 
@@ -28,9 +28,9 @@ Before you report an issue, please search through existing issues to see if your
  
 3. Description of security issue should contain the same details described [above](issues_reporting_guide.md#Reporting bugs). 
 
-> Security issue has the highest priority. We will work with you to verify the vulnerability and patch it as soon as possible.
+**Please Note:** Security issue has the highest priority. We will work with you to verify the vulnerability and patch it as soon as possible.
 
-## Do not report when 
+## Do not report when...
 
-Do not report an issue if you don't know how to use some of Laravel functionalities or external vendors.
+Do not report an issue if you don't know how to use some of the Laravel functionality or external vendors.
 You may find the answer in official documenations or use the forum or chat room for this purpose. Avoid duplicated issues.
