@@ -187,9 +187,11 @@ We don't want to force you to use this code style for your own application/repos
                     const APP_NAME='Antares';
                 }                
         </code>
-    </pre>      
+    </pre>
+
 
 6. Method names **MUST** be declared in camelCase.
+
 7. Property names **MUST** be declared in camelCase:
 
      <pre class="codehilite language-php">
@@ -231,6 +233,7 @@ We don't want to force you to use this code style for your own application/repos
             */
             </code>
     </pre>
+    
 11. Every class **MAY** have a docblock that contains description of class details.
 
 12. Docblock for property **MUST** declare variables types and **MUST** contain description of property destination of use.
@@ -283,6 +286,7 @@ We don't want to force you to use this code style for your own application/repos
             </code>
     </pre>
    If a function or method may throw an exception, use one `@throws` for each discrete exception thrown.
+   
 14. Line Termination
 
     Lines **MUST** end with a single linefeed (LF - 0x0A) as follows the Unix text file convention. The last line of a file **MUST NOT** end in a linefeed. 
