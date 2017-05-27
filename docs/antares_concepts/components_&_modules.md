@@ -46,7 +46,7 @@ In Antares, modules are divided into two groups:
     Extending the application functionality which is not a part of main Antares branch and **are not required**. You may want to use them or not, depending on the project type.
 
 
-**Please note:** The structure of the Antares Module is almost the same as standard [Laravel package](https://laravel.com/docs/5.4/packages). 
+**Please note:** The Antares Module structure is following [Laravel package](https://laravel.com/docs/5.4/packages) standard with very slight improvements. If you know how to make a package for Laravel, then it will be super easy for you to build modules for Antares.
 
 ## Making your own module
 If you'd like to make your own Antares Module, we suggest you to follow one of the following paths:
