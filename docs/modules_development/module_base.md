@@ -4,19 +4,18 @@
 
 ## Introduction
 
-This article will help you understand how modules in Antares are designed and what should include. It will help you create your own modules. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md).
-Concept of Antares modular way is described [here](../antares_concepts/components_&_modules.md).
+This article will help you to understand how modules in Antares are designed and what should include. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md) instead. Concept of Antares modular architecture is described in [Antares Concepts - Modules](../antares_concepts/components_&_modules.md) article.
 
 ## Minimal Structure
   
-Every module must consist of the following structure:
+Every module must consist of the following files structure:
 
 ![AT_COMP&MODS1](../img/docs/modules_development/module_base/minimal_structure_1.png)
   
  
 ### composer.json schema
 
-We recommend that you should fill the ```composer.json``` file with additional information.
+The ```composer.json``` file should include a following data (example):
 
 ```json
 {
@@ -47,16 +46,16 @@ We recommend that you should fill the ```composer.json``` file with additional i
 
 Required attributes:
 
-* **name** - determines the name - identifier of a module in a repository. Just like the regular composer package, the name must be in `<vendor>/<package name>` format. The important is that, the last part of name must be prefixed by ```module-``` word.
-* **type** - a special type for composer package which determines how the module must be installed in the system.
+* **name** - determines the name - identifier of a module in a repository. Just like the regular composer package, the name must be in `<vendor>/<package name>` format. The last part of name **must be prefixed** by ```module-``` word.
+* **type** - a special type for composer package which determines how the module must be installed in the system. For moduels please use "antaresproject-module" type.
 * **version** - the version of package.
 * **authors** - an array of collaborators' names and emails. At least one author must be presented.
-* **require** ```antaresproject/component-installer-plugin``` - required package which allows to install the package in proper way.
+* **require** ```antaresproject/component-installer-plugin``` - required package which allows to install the package in a proper way.
 * **autoload** - determines to which directory the namespace should be pointed.
 
 Optional attributes:
 
-* **homepage** - the HTTP address to your module homepage. If presents when in the Module page by clicking the module name the URL will be opened in the browser.
+* **homepage** - the HTTP address to your module homepage. It will be presented as a link in the Modules management page.
 * **friendly-name** - must be placed in ```extra``` attribute. In the modules page, the name will be overridden by the given value.
 
 A full description of the composer.json structure can be found [here](https://getcomposer.org/doc/04-schema.md).
@@ -75,7 +74,7 @@ return [
 
 ```
 
-In this file must be an array with service providers which are required to run module in the application. At least one service provider must be declared with a content as below:
+In this file must be an array with service providers which are required to run the module in the application. At least one service provider must be declared with a content as below:
 
 Service provider's file structure:
 
@@ -95,11 +94,11 @@ class ExampleServiceProvider extends ModuleServiceProvider
 
 In the above mentioned example service provider must inherit from the class `ModuleServiceProvider`.
 
-## Dedicated Configuration
+## Module configuration form
 
-You can consider that the module should has its dedicated configuration which can be rewritten or just used to fetch some information. For example API HOST with possibility of end-point customization. 
-Instead of storing this data in regular config file or as hardcoded, you can create a dedicated file named ```settings.php``` and place in inside the ```resources/config``` path in the module root directory. 
-The file looks like other configuration files, so it returns an array just like example below.
+## Simple configuration
+
+You can provide a simple configuration of the module by creating a dedicated file named ```settings.php``` placed in the ```resources/config``` directory. The file looks like other configuration files, so it returns an array just like example below. Creating this file will result in automatically rendered configuration page on the Admin Leve, in the Modules Configuration page.
 
 ```php
 <?php
@@ -145,7 +144,7 @@ class SomeClassExample {
 }
 ```
 
-Or by used Facade.
+Or by using Facade:
 
 ```php
 <?php
@@ -160,14 +159,9 @@ class SomeClassExample {
     
 }
 ```
+ ### Dedicated configuration form
 
-Ok, so we can create a dedicated file for that, but why not to use a regular config file instead? 
-The reason is that you can like to have a form page for that data but without wasting time to build that. 
-This is why in the example there are also arrays of rules and phrases, which are automatically used by the validation.
-
-#### How to build a dedicated Configuration Form?
-
-Inside the module src path create a ```SettingsForm.php``` file in ```Config``` directory.
+If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](..services/form_builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
 
 ```php
 <?php
@@ -202,9 +196,9 @@ class SettingsForm implements SettingsFormContract {
 
 The class must implement the ```SettingsFormContract``` interface. Inside the ```build``` method your can build the form (within fieldset) using it in regular way. And it is done! The form will be created dynamically and it will handles validation based on your settings in your ```settings.php``` file. Access to the form will be available within the components page.
 
-#### What about custom form?
+### Custom Forms
 
-If you have already created form for the module and want to use it within the modules page instead of the automatically built, you should open the ```settings.php``` file and add an extra key.
+If you have already created form for the module and want to use it within the modules page instead of the automatically created configuration, you should open the ```settings.php``` file and add an extra key.
 
 ```php
 <?php
@@ -222,20 +216,16 @@ If the ```custom_url``` is presents and the value is not empty, your can safety 
 The value of that key must be URL to the page, where should be a form placed.
 
 
-## Full Structure  
 
-The full module's directory structure should be determined in a manner depicted below:
+## Full module structure  
+
+The full module directory structure including all the optional elements is following:
 
 ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/sample_module_directory.PNG)
   
-4 main sub directories may be distinguished: 
-- public, 
-- resources 
-- src
-- tests
+**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../concepts/core_&_files_structure.md). It is not a conincidence :).
 
-
-### Public directory 
+### /public 
 
 This directory contains all essential javascript, css, and img files used by a module. 
 Preprocessors such less, sass, scss may be equally used with external vendor called [Assetic](https://github.com/kriswallsmith/assetic).
@@ -244,44 +234,42 @@ Typical public directory may contains files as follows:
 
 ![AT_COMP&MODS3](../img/docs/antares_concepts/components_and_modules/public_dir.PNG)
   
-### Resources directory
+### /resources
 
-The files that are used by a module, or to which it refers during its operation are located in this directory.
+Additional files that are used by a module:
 
 ![AT_COMP&MODS4](../img/docs/antares_concepts/components_and_modules/resources_dir.PNG)
   
-* **config** - The name of this directory indicates its purpose. It stores files configuring a module.
-* **database** - Contains the migration files for creating (and removing) the tables used by a module and filling them with data.
- * **migrations** - Strictly speaking, these files build an appropriate table scheme.
- * **seeds** - Class' files for filling the tables with the data.
-* **lang** - It consist of files with phrases' translation used by a module. The subdirectory is always the language code.
-* **views** - Views' files used by a module. The subdirectory is controller's name, while file's name is the name of the action in a controller.
+* **config** - files configuring a module.
+* **database** - migration files for creating (and removing) the tables used by a module and filling them with data.
+ * **migrations** - files which build the table scheme.
+ * **seeds** - Class' files for filling the tables with the data (e.g. sample users)
+* **lang** - files with phrases to be translated
+* **views** - Views files used by a module. The subdirectory is controller's name, while file's name is the name of the action in a controller.
 
-### Src directory
+### /src
 
-In this directory, module's business logic is placed.
+This directory includes the main module logic.
 
   ![AT_COMP&MODS5](../img/docs/antares_concepts/components_and_modules/src_dir.PNG)
   
-Please notice that in this folder, directories names start with a capital letter.
+**Please note:** directories names start with a capital letter.
 
-* **Console** - Classes responsible for commands which are made accessible by a module. 
-  They are usually launched by means of:  
-  `php artisan <name_of_the_component>:<name_of_the_command>`.
-            
+* **Console** - Classes responsible for commands which are accessible by a module. They are usually launched by means of:  
+  `php artisan <name_of_the_component>:<name_of_the_command>`.            
 * **Contracts** - Interfaces used by a module.
-* **Exception** - Exception's classes'.
+* **Exception** - Exception classes.
 * **Facades** - Facades as a popular form of referring to a class.
-* **Http** - Stores incoming request's processing logic and data preparation for display.
-* **Model** - Contains models' classes (from the mapped tables) within the framework of [Eloquent](https://laravel.com/docs/5.4/eloquent) engine (Active Record).
+* **Http** - Requests processing logic and data preparation for display.
+* **Model** - Contains models classes (from the mapped tables) within the framework of [Eloquent](https://laravel.com/docs/5.4/eloquent) engine (Active Record).
 * **Notifications** - Contains the [notification templates](../core_modules/notifications.md) (e.g. email, sms) which the module will send to the users.
-* **Observers** - Observers' definitions applied to other classes (usually to models).
-* **Processor** - Processor's classes, which interpret and process incoming data.
+* **Observers** - Observers definitions applied to other classes (usually to models).
+* **Processor** - Processor classes, which interpret and process incoming data.
 * **Repositories** - Repositories classes (combining several models into one).
 * **Traits** - Traits used by a module.
 * **Twig** - Extension classes for [Twig](https://twig.sensiolabs.org/) view engine. List of all available Twig extensions in Antares is [here](../services/twig.md).
-* **Validation** - Forms' dedicated validator classes.
-* **UiComponents** - Module's ui components classes.
+* **Validation** - Forms dedicated validator classes.
+* **UiComponents** - UI components classes.
 
 #### Http directory
 
@@ -290,34 +278,32 @@ Almost all of the logic to handle requests entering to application is placed in 
 
 ![AT_COMP&MODS6](../img/docs/antares_concepts/components_and_modules/http_dir.PNG)
   
-Description of the content:
 
-* **Controllers** - module controllers' classes. It is worth noticing that for readability's sake, the controller available in the administrative panel has been placed in a subdirectory.
-* **Datatables** - tables' presenting classes within [datatables](../services/datatables.md).
+* **Controllers** - module controller classes. It is worth noticing that for readability sake, the controller of the admin level has been placed in a subdirectory.
+* **Datatables** - tables presenting classes using [datatables](../services/datatables.md).
 * **Filters** - data [filters](../services/filters.md) used in a module.
-* **Form** - module's [forms](../services/form_builder.md) classes.
-* **Handler** - event class service thrown by other applications' modules as well as by the framework itself. In this directory, equal classes are placed, responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](../modules_development/views_and_ui_components.md), [left beam]((../modules_development/views_and_ui_components.md)) and [placeholder]((../modules_development/views_and_ui_components.md)) presentation.
-* **Middleware** - middleware’s classes i.e. filters serving the events before sending a request to the action and after receiving the processed data.
-* **Presenters** - presenters’ classes, i.e. the layer responsible for data return into a view and presentation in a browser.
+* **Form** - module [forms](../services/form_builder.md).
+* **Handler** - event class service thrown by other applications modules as well as by the framework itself. In this directory, there are classes responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](../modules_development/views_and_ui_components.md), [left beam]((../modules_development/views_and_ui_components.md)) and [placeholder]((../modules_development/views_and_ui_components.md)) presentation.
+* **Middleware** - middleware classes i.e. filters serving the events before sending a request to the action and after receiving the processed data.
+* **Presenters** - presenter classes, i.e. the layer responsible for data return into a view and presentation in a browser.
 
 ### Tests  
 
-A directory containing module’s unit tests. 
-Usually, the structure of such a directory is identical with src directory.
+A directory containing module’s unit tests. Usually, the structure of such a directory is identical with src directory.
 
 ## Compatibility  
 
-The project consists of packs - modules which have their own repositories in git. Within the project's framework the following types of repositories can be distinguished in which the components of the whole system are stored:  
+Every project created with Antares consists of modules which have their own Git repositoriest. Within the project's framework the following types of repositories can be distinguished in which the components of the whole system are stored:  
 
 ### Project
  
-The repository contains official application's versions (branch master), which in turn determine components'' and vendors' versions which are a part of the whole system  
+The repository contains official Antares versions (branch master), which in turn determine components and vendors versions which are a part of the whole system  
 
 ![AT_COMP&MODS7](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS7.PNG)
   
 ### Core 
 
-The repository contains main system module's source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system's needs. Other branches such as master can be repository's source in the composer.json file determined within app repository group, e.g.:  
+The repository contains main system module source code which is used by the whole application and treated as main library. Branch master is always the most stable version, whereas minor branches can be core modification depending on target system needs. Other branches such as master can be repository source in the composer.json file determined within app repository group, e.g.:  
   
 ```json
 "repositories": [
@@ -485,3 +471,4 @@ Using the `\Antares\Extension\Manager` object of the `\Antares\Extension\Facade\
 * standard way - In vendor/package format name just like the Composer supports.
 * backward way - To be compatible with previous releases of Antares, you can pass only last package name without vendor name and `component-` prefix. For example the `antaresproject/component-ban-management` name can be simplified by just `ban_management`. 
  The underscore will be replaced by the "-" char. This method can be used only for modules which belong to the `antaresproject` vendor.
+
