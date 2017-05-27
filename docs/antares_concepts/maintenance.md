@@ -66,11 +66,11 @@ In the above example the source code will be downloaded from the *foo* component
 In the above example the *0.9.2-dev* branch of the *foo* component has been indicated.
 
 Updates of your own modules and customization of Antares application should be executed on your own. When building your customization think about it as files belonging to the repository. Antares main repository structure should be treated as a pattern. Your project should have its own repository with defined configuration files' and composer.json file's settings following that pattern. For example, when building catalogue structures, it should stick to the default Antares catalogues:
-1. /app
-2. /public/packages/core
-3. /public/js
-4. /public/img
-5. /public/views
+- /app
+- /public/packages/core
+- /public/js
+- /public/img
+- /public/views
 
 
 ### Modules Update 
