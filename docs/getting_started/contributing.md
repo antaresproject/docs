@@ -3,10 +3,10 @@
 [TOC]
 
 Antares is an open-source software. It means that anyone can contribute to its development.
-> **Note that only PHP 7 compatibility issues are accepted.**
+**Please note:** only PHP 7 compatibility issues are acceptable.
 
-When contributing to Antares Project repository you have to follow some points and workflow. 
-It allows us to resolve the requests quickly. Following below guidelines will result less work for both you and our team.
+When contributing to Antares Project repository you have to follow this guide and it's workflow. 
+It will help Antares Development Team to resolve the requests quickly. Following below guidelines will result less work for both you and our team.
         
 ## Contributing Bugfixes or Features
 
@@ -16,7 +16,7 @@ First step is to prepare a repository from which our team can pull into the Anta
 
     All new features and issues should have an issue in discussion and documentation. Take a look through the existing list of issues which match the contribution you want to create. If exists, please leave a comment on that issue indicating you intend to work on that item. If not available , please open new issue for your work. This will allow our team to review your suggestion.
 
-2. Fork the one of the Antares Project repository on github.
+2. Fork the one of the Antares Project repositories on GitHub.
     
     More information about how to create new fork can be found [here](http://help.github.com/fork-a-repo).
     
@@ -31,7 +31,7 @@ First step is to prepare a repository from which our team can pull into the Anta
     
     More information about how to setup your GIT installation to work with Github can be found [here](https://help.github.com/articles/set-up-git/).     
     
-4. Add a git remote as an additional (upstream)
+4. Add an additional upstream with git remote as
 
      <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -47,7 +47,7 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
      </pre>
       
-    It is very important to start work from the newest code. There may be a changes which may affect to your implementation.
+    It is very important to start work from the newest code. There may be a changes which may affect your implementation.
 
 6. Create a new branch for your work based on the current master branch
 
@@ -58,15 +58,15 @@ First step is to prepare a repository from which our team can pull into the Anta
             </code>
     </pre>    
     
-    Remember, each bug fix or change should go in separated branch. Branch name should describe issue you are working on.
+    Remember that each bugfix or change should go in a separated branch. Branch name should describe an issue you were working on.
         
 7. Write your code
 
-    Make sure you code works as you expected. If you working on bug, take a look on unit tests and code coverage before pull request. Code coverage indicator shouldn't decrease after your work, otherwise your fix may not be accepted (depends on what kind of fix you are working on). In case of new feature, tested and covered code is always welcome - increase your code quality and improve checking process of your contribution.
+    Make sure that your code works as you've expected. If you've been working on a bug, take a look on unit tests and code coverage before making a pull request. **Code coverage indicator cannot be decreased** with your code update, otherwise your fix may not be accepted (depends on what kind of fix you are working on). In a case of a new feature, tested and covered code is always welcome - increase your code quality and improve verification process of your contribution.
 
 8. Changelog
     
-    Edit the CHANGELOG.md file to include description of your changes. The changelog should be grouped by type:
+    Edit the CHANGELOG.md file to include the description of your changes. The changelog should be grouped by type:
    
         * New - New features
         * Changes - Changes of current code
@@ -74,18 +74,18 @@ First step is to prepare a repository from which our team can pull into the Anta
         * Internal - Internal development (eg.: Performance)
         * Other  - All others
             
-    If you worked on fix which resolve reported issue, you should add new line on the top of the "Fixes" section. Here is an example
+    If you've been working on a fix which resolves a reported issue, you should add a new line on the top of the "Fixes" section. Here is an example
     
     <pre class="codehilite language-bash"><code class="language-bash">
      **Fixes**
 
     *<#ISSUE_NUM> a desription of bug</code></pre> 
      
-    For rest of all, add description into sections which describe your work.  
+    For rest of updates just add a description into sections which describe your work.  
       
 9. Commit your work
 
-    First of all add the files you want to push into repository:
+    First of all, add the files that you want to push into the repository:
     
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -93,7 +93,7 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>
         
-    You can use `-p` option to select what you want to have in your commit. If you want to add all files:
+    You can use `-p` option to select what files do you want to have in your commit. If you want to add all the files:
     
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -101,7 +101,7 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>    
     
-    Commit your changes with a valid description of message. Use the following scheme:
+    Commit your changes with a valid description. Use the following scheme:
   
     * ADD: <COMMIT_MESSAGE> - New feature, new functionality
     * CHG: <COMMIT_MESSAGE> - Changes in code
@@ -116,7 +116,7 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>      
     
-    Make sure to mention issue number, while committing fixes, for example:
+    Make sure to mention an issue number while committing fixes, for example:
     
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -125,9 +125,9 @@ First step is to prepare a repository from which our team can pull into the Anta
     </pre>
     
   
-10. Pull the latest code from master repository
+10. Pull the latest code from the master repository
 
-    Before push changes, you should ensure that you have newest code in your repository:
+    Before you push the changes, you should ensure that you have the latest code in your repository:
     
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -135,9 +135,9 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>    
     
-    Fix all of merge conflicts if exists and commit changes once again. It will simplify merge request job for our team.
+    Fix all of the merge conflicts if exist and commit changes once again. It will simplify merging process for our team.
 
-11. Push your code to github
+11. Push your code to GitHub
 
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -145,14 +145,14 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>  
     
-    > Option called `-u`  will automatically send information to github about branch where you are pushing. Next time github will know where to push by simple command `git push`.    
+    Option called `-u`  will automatically send information to GitHub about branch where you are pushing. Next time GitHub will know where to push by simple command `git push`.    
     
-12. Create new pull request     
+12. Create a new pull request     
 
-    Go to repository and press the button called "Pull request". Choose your branch and fill the comment by small description of your work. Each pull request should fix single change or apply single feature. 
-    In next step, someone from our team will review your code and send you a feedback or just apply your commit by merging.
-    Review the code and sending feedbacks by our development teamt improves application quality, so don't be disheartened.   
-    After your code was accepted or declined you can delete branches you have worked on:
+    Go to repository and press the button called "Pull request". Choose your branch and fill the comment by small description of your work. Each pull request should fix single issue or apply a single feature. 
+    In the next step, someone from our team will review your code and send you a feedback or just apply your commit by merging.
+    Reviewing the code and sending you feedback by our development team improves the application quality, so don't become easily discouraged. This is just normal and natural process. :)
+    After your code is accepted or declined you can delete branches you have worked on:
     
     <pre class="codehilite language-bash">
         <code class="language-bash">
@@ -160,12 +160,12 @@ First step is to prepare a repository from which our team can pull into the Anta
         </code>
     </pre>      
     
-    > To keep code quality every merge to the app code will picked up [Travis CI](http://travis-ci.org/) for automated run unit tests and [Coveralls](https://coveralls.io/) service to verify code coverage.     
+    **Please note:** To keep high code quality, every merge request will be picked up with [Travis CI](http://travis-ci.org/) for automated unit tests and [Coveralls](https://coveralls.io/) to verify code coverage.     
 
 ## Code style
 
-If you want to create new pull-request it is good to keep to the guidelines described below. 
-We don't want to force you to use this code style for your application but remembering it, will reduce count of feedbacks before merge your pull request. Feel free to choose hat is better for you.
+If you want to create a new pull request, please follow the guidelines described below regarding the code standard. 
+We don't want to force you to use this code style for your own application/repository but following it, will reduce amount of feedbacks before merging your pull request. 
 
 1. PHP Code Demarcation
 
@@ -204,7 +204,7 @@ We don't want to force you to use this code style for your application but remem
         </code>
      </pre>
       
-8. Always elseif instead of else if.
+8. Always **elseif** instead of else if.
 
 9. All documentation blocks ("docblocks") **MUST** be compatible with the phpDocumentor format. 
 
@@ -233,7 +233,7 @@ We don't want to force you to use this code style for your application but remem
     </pre>
 11. Every class **MAY** have a docblock that contains description of class details.
 
-12. Doc block for property **MUST** declare variables types and **MUST** contain description of property destination of use.
+12. Docblock for property **MUST** declare variables types and **MUST** contain description of property destination of use.
    
     `@param`, `@propery` ,`@var` **MUST** declare one of types: `boolean`, `integer`, `String`, `array`, `null`, classnames such as `Collection` and for types arrays use `Classname[]`.
     Description of property **MUST NOT** have more than 255 characters. An example:
@@ -301,7 +301,7 @@ We don't want to force you to use this code style for your application but remem
 
 ## Running phpunit tests
 
-To run tests:
+To run the tests:
 
 1. Clone the project repository from Antares Project organization:
 
@@ -338,7 +338,7 @@ To run tests:
  
 ## Versioning
  
- In general, Antares Project follows the [Semantic Versioning](http://semver.org/) as `<major>.<minor>.<patch>`.
+ Antares Project follows the [Semantic Versioning](http://semver.org/) as `<major>.<minor>.<patch>`.
  
 ### Patch Releases
     
@@ -357,5 +357,5 @@ To run tests:
    
 ### Major Releases
    
-   * Not planned
+   * (soon)
    
