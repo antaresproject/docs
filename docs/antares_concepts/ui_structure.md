@@ -2,49 +2,58 @@
 
 [TOC]
 
+The biggest advantage of using Antares as a base of your application is powerful UI. Understading it's structure will help you to work super fast and deliver a consistent interface which is significant in any modern application. For most of the customers the interface stands for the quality of your solution because it is what they see and use on a daily basis. Antares will provide you a pattern to make your clients satisfied.
+
 ## The basics
 
-Except Dashboard, which is pretty much always available, every module in the system can have it's own [Page Views](../modules_development/views_and_ui_components.md). Dashboard is a [Page View](../modules_development/views_and_ui_components.md) itself as well.
+By default, Antares provides User and Admin **Levels**. Except **Dashboard**, which is by default available on every level, modules can define their own [Views](../modules_development/views_and_ui_components.md). Dashboard is a View itself as well.
   
-Every [Page View](../modules_development/views_and_ui_components.md) contains:
+Every View includes:
+1. **UI Components Container** - the area where all the [UI Compoents](../modules_development/views_and_ui_components.md#how-to-create-ui-component) (widgets) are loaded by the modules.  
+2. **Template Base** - everything on the page except UI Components which includes:
+   * [Menu](../modules_development/views.md#menus)  
+   * [Breadcrumbs](../services/breadcrumbs.md)
+   * [Actions of the section](../modules_development/views.md#breadcrumbs-menu)
+   * Additional tools
+      * Account icon with account menu
+      * Search
+      * [Notifications](../core_modules/notifications.md)
+      * [Edit Widgets toggle](../services/ui_component.md#placing-the-widget-on-a-website)
+      
+![UI Structure](../img/docs/antares_concepts/ui_structure/ui_components_container.png)
 
-* **Template Base** - which includes:
-  * [Menu](../modules_development/views.md#menus)  
-  * [Breadcrumbs](../services/breadcrumbs.md)
-  * [Actions of the section](../modules_development/views.md#breadcrumbs-menu)
-  * Additional tools
-    * Account icon with account menu
-    * Search
-    * [Notifications](../core_modules/notifications.md)
-    * [Edit Widgets toggle](../services/ui_component.md#placing-the-widget-on-a-website)
+*Everything except UI Components Container is Template Base to which you can easily hook up with your modules.*
         
-* **[UI Components Container](../modules_development/views_and_ui_components.md)** - the area where all the [UI Compoents](../modules_development/views_and_ui_components.md#how-to-create-ui-component) (widgets) are loaded by the module.  
+The only exception of the above structure is **Login Page** which contains only the login form.
 
-Some of the visible elements are not available or different for non-logged users. The only exception is login page which is currently containing only the login form.
+Some of the UI elements can be only visible for certain user level/group - it is controlled by modules and the [ACL service](../services/acl.md).
 
-![dashboard](../img/docs/antares_concepts/ui_structure/dashboard.png)
 
 ## Template Layouts 
 
-There are several template layouts that you can set up in the Antares per each [user level](../core_modules/acl.md) (e.g. can be different for admin and different for user):
+There are several **Template Layouts** that you can set up in the Antares per each Level (so can be different for admin and different for user). These Template Layouts have different composition of elements and by default there are following layouts:
 
 * Small Side Menu
 * Big Side Menu
-* Top Menu Simple (better for end-customers)
-* Top Menu Advanced (rather for administrators/advanced users)
+* Top Menu Simple (suggested for end-customers)
+* Top Menu Advanced (suggested for administrators/advanced users only)
+
+![template layouts](../img/docs/antares_concepts/ui_structure/template_layouts.png)
+
+**Please note:** Every Template Layout consists of the same structure so they always have UI Components Container and the Template Base with the same elements! Switching between layouts in the configuration will still render you the same UI structure, just different composition.
 
 ## UI Components Container
 
-The module defines what [UI Components](../services/ui_component.md) are visible in it's [page view](../modules_development/views_and_ui_components.md). What is more, one module can add/modify the [UI Components](../services/ui_component.md) on other's module [page view](../modules_development/views_and_ui_components.md). This gives the developer full control on the displayed pages in the system depending on the modules installed in Antares.
+Every module defines what **UI Components** are visible on EVERY View. This means that one module can add/modify the UI Components on another module's View. This gives the developer full control on the displayed pages in the system depending on the modules installed in Antares.
 
-There are two types of [UI Components](../modules_development/views_and_ui_components.md):
+There are two types of UI Components:
 
 * [HTML](../modules_development/views_and_ui_components.md#how-to-create-ui-component) - using classic [TWIG](https://twig.sensiolabs.org/doc/2.x/) template engine, loaded by the Ajax request.
-* Vue2 - loaded by [Webpack](../services/webpack.md)
+* Vue2 - using REST endpoint to load the data and automatically presenting the interface. 
 
-Additionally, if enabled by developer, each view can have widgets edit option. User can use it to manually configure what UI components are visible or not and move/scale them depending on the component possibilities.
+Additionally, if defined by developer, each View can have **widgets edit option**. When enabled, user can use it to manually configure what UI components are visible or not and move/scale them depending on the component possibilities.
 ![edit_mode](../img/docs/antares_concepts/ui_structure/edit_mode.gif)
 
-> **Please note:** You can use predefined [UI Components](../modules_development/views_and_ui_components.md) (documentation soon), customize them or make your own [UI Components](../modules_development/views_and_ui_components.md).
+**Please note:** You can use predefined UI Components (documentation soon), customize them or make your own.
 
-Just like for the page views, a module [can hook up into another module's widget](../modules_development/views_and_ui_components.md#how-to-include-view-to-others) displayed on different view. You can add your own content or even interfere with the data returned by JSON to the vue component.
+Just like for the Views, each module [**can hook up into another module's widget**](../modules_development/views_and_ui_components.md#how-to-include-view-to-others) displayed on different View. You can add your own content or even interfere with the data returned by JSON to the vue component.
