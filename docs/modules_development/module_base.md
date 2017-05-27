@@ -96,7 +96,7 @@ In the above mentioned example service provider must inherit from the class `Mod
 
 ## Module configuration form
 
-## Simple configuration
+### Simple configuration
 
 You can provide a simple configuration of the module by creating a dedicated file named ```settings.php``` placed in the ```resources/config``` directory. The file looks like other configuration files, so it returns an array just like example below. Creating this file will result in automatically rendered configuration page on the Admin Leve, in the Modules Configuration page.
 
@@ -329,24 +329,16 @@ After the personalization:
         "antaresproject/core": "0.9.2.1-dev", --> personalized branch for specific product having modifications which are not available in the official version
 ```
           
-### Modules 
  
-A group of repositories containing the modules which can be a part of target product pack.
-  
-![AT_COMP&MODS8](../img/docs/antares_concepts/components_and_modules/AT_COMP&MODS8.PNG)
-    
-Similarly, as in the case of the core here is a possibility of configuring product's pack, pointing which modules' branches must be taken into consideration during the project's creation
+## Module management methods
  
- 
-## Module methods
- 
-This section describes possible methods after that the system has been installed already.
+This section describes possible methods that can be used by the module in the Modules Management page:
  
 ### User Interface
  
  ![AT_COMP&MODS10](../img/docs/antares_concepts/components_and_modules/components_page_all.png)
  
- Each of modules have status which describes:
+ Each of the module have a status:
  
  * ![#available](https://placehold.it/15/0292ea/000000?text=+) **available** - module is in the file system but is not installed nor activated.
  * ![#available](https://placehold.it/15/f44336/000000?text=+) **inactive** - module is installed but not activated.
@@ -354,13 +346,13 @@ This section describes possible methods after that the system has been installed
  
 #### Installation
  
- Only available in file system modules can be installed. Installation means that all Composer requirements will be put and installed. Also migration and assets will be published.
+ Only modules available in the file system can be installed. Installation means that all Composer requirements will be put and installed. Also migration and assets will be published.
  
  ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_install.png)
  
 #### Uninstallation
  
- Installed modules can be uninstalled. It is reverse method to the installation process so it will remove migrations and assets but the Composer dependencies will be stay in the system. 
+ Installed modules can be uninstalled. It is reverse method to the installation process so it will remove migrations and assets but the Composer dependencies will be kept in the system. 
  
  ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_uninstall_activate.png)
  
@@ -372,13 +364,13 @@ This section describes possible methods after that the system has been installed
  
 #### Deactivation
  
- Only activated modules can be deactivated. This operation will remove dedicated ACL of the module.
+ Only active modules can be deactivated. This operation will remove dedicated ACL of the module.
  
  ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate.png)
  
 #### Configuration
  
- Some modules may have dedicated Configuration Form.
+ Some modules may have dedicated Configuration Form as explained above in Simple Configuration.
  In that case by clicking the **Configure** button you will be redirected to the page with form which can be created dynamically or not - in this case you will be redirected to the custom URL.
  
  ![AT_COMP&MODS11](../img/docs/antares_concepts/components_and_modules/components_deactivate_configure.png)
