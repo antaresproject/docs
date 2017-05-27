@@ -52,8 +52,10 @@ There are two types of UI Components:
 * Vue2 - using REST endpoint to load the data and automatically presenting the interface. 
 
 Additionally, if defined by developer, each View can have **widgets edit option**. When enabled, user can use it to manually configure what UI components are visible or not and move/scale them depending on the component possibilities.
-![edit_mode](../img/docs/antares_concepts/ui_structure/edit_mode.gif)
 
-**Please note:** You can use predefined UI Components (documentation soon), customize them or make your own.
+To speed up the development of your application, you should use **predefined UI Components** (documentation will be available soon), customize them or make your own.
 
 Just like for the Views, each module [**can hook up into another module's widget**](../modules_development/views_and_ui_components.md#how-to-include-view-to-others) displayed on different View. You can add your own content or even interfere with the data returned by JSON to the vue component.
+
+
+![edit_mode](../img/docs/antares_concepts/ui_structure/edit_mode.gif)
