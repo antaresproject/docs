@@ -4,36 +4,35 @@
 
 ## Introduction
 
-Antares has been designed to deliver modular and scalable application. 
-This technique separates the functionality of a system into independent packages called **modules**. 
+Antares has been designed to help developers deliver a modular and scalable application. 
+In order to fulfill that condition, Antares functionality has been separated into packages called **modules**. 
 
-The purpose behind this type of application architecture is to reuse the once-written code. 
-In the case of modularity we are entering a slightly higher level of code reuse.
-Module is like a mini-application, which can be completely imported into a "closed" system.
-Modules can be treated like the blocks from which application is build.
+Modules are like mini-applications within the system, they can be treated like the blocks from which the whole application is built.
+
+Additional benefit of having modular architecture is to reuse the code written once.
 
 ## Modular applications
 
-Modular applications require a slightly different approach than classic,non-modular applications. 
-The premise is to use sometime very large fragments of existing applications to avoid code or design duplication. 
+Modular applications require a slightly different approach than classic, non-modular ones:
+* Modules must keep a similar form
+* Data flow between the modules must be controlled by dedicated interfaces, implemented on the main system engine
 
-Modules must have a similar form, data flow between modules must be controlled by dedicated interfaces, typically implemented in main system engine.
+The key is to design the module to be used in multiple projects, not only the particular one, so you and other contributors will avoid the code duplication and reinventig the wheel. This approach in a long term will make your and others life easier.
 
-The application module can be broken into four main components, which depends on:
+Every module in Antares can interact/handle following aspects:
+* Navigation control ([breadcrumbs](../services/breadcrumbs.md), [menus](../modules_development/views.md#menus), [placeholders](../modules_development/views.md#placeholder), [panes](../modules_development/views.md#pane) etc.) - which provides browsing between the module views and other modules.
+* [Views](../modules_development/views_and_ui_components.md) - presentation layer which is responsible for deliver graphical user interface (GUI).
+* Actions - working with data, classic CRUD (create, read, update, delete).
+* Data binding - a separated data layer to maintain independence between views and database.
 
-* Navigation ([breadcrumbs](../services/breadcrumbs.md), [menus](../modules_development/views.md#menus), [placeholders](../modules_development/views.md#placeholder), [panes](../modules_development/views.md#pane) etc.) - which provides moving within the module as well as between modules.
-* [Views](../modules_development/views_and_ui_components.md) - presentation layer which is responsible for deliver graphical user interfaces (GUI).
-* Actions - work with data - create, read, update, delete (CRUD).
-* Data binding - a separated data layer to allow make independence between views and data.
 
-
-## Antares way
+## Antares modules
 
 In Antares, modules are divided into two groups:
 
  - **Core modules** 
     
-    This group contains modules which are responsible for deliver functionalities within application core - the heart of Antares.
+    This group includes modules which are responsible for delivering functionalities within the application core - the heart of Antares. **These modules are required for every Antares environment.**
     
     Currently there are 5 core modules:
     
@@ -44,10 +43,12 @@ In Antares, modules are divided into two groups:
       - [Translations](../core_modules/translations.md) - language and translations manager.
                    
  - **Additional modules**   
-    Responsible for extends application functionality which is not a part of main Antares branch. 
-    Typically used for build dedicated software. 
+    Extending the application functionality which is not a part of main Antares branch and **are not required**. You may want to use them or not, depending on the project type.
 
 
-> The structure of module in Antares is almost the same as standard [Laravel package](https://laravel.com/docs/5.4/packages). 
-  More information about structure, you can find [here](../modules_development/module_base.md).    
-     
+**Please note:** The structure of the Antares Module is almost the same as standard [Laravel package](https://laravel.com/docs/5.4/packages). 
+
+## Making your own module
+If you'd like to make your own Antares Module, we suggest you to follow one of the following paths:
+* Read the Module Development documentation articles. Start with [Module Base](../modules_development/module_base.md).    
+* Follow step by step tutorial of building a [Sample Module](../tutorials/sample_module.md).  
