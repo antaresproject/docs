@@ -24,8 +24,8 @@ If this is your first try with Antares, we suggest to follow the path below:
 1. Prepare a server that match the [requirements](installation/requirements.md#recommended-server-resources).
 2. Install the system [automatically](installation/installation_auto.md) or [manually](installation/installation_manual.md).
 3. Read about Antares Concepts:   
-   - [Files Structure](antares_concepts/core_&_files_structure.md) - Understand how the system architecture is designed.
    - [Modules](antares_concepts/components_&_modules.md) - See what is the module structure and how modules are located in the system.
    - [UI Strucure](modules_development/views.md) - Look how easy you can design your own views on every user level.
+   - [Files Structure](antares_concepts/core_&_files_structure.md) - Understand how the system architecture is designed.
 4. Start building your own Modules following **Modules Development** section or try with our tutorial to build [Sample Module](tutorials/sample_module.md).
 5. During the development, you will definitely want to use the available services of the Antares that can help you speed up your pace and extend your system's functionality. **It is a key to deliver a stable and consistent solution**.
