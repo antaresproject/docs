@@ -1,13 +1,9 @@
-# Change Log
+# Change Log (0.9.0 to 0.9.2)
 
 [TOC]
 
-- [0.9.2](changelog.md) - 2017-03-22
-- [0.9.0](changelog.md) - 2017-02-02
 
-## v0.9.2
-
-### Antares Project Application Skeleton
+## Antares Project Application Skeleton
 
 **New**
 
@@ -79,7 +75,7 @@
 * Update composer.json.
 
 
-### Core
+## Core
 
 **New**
 
@@ -200,7 +196,7 @@
 
 
 
-### Api
+## Api
 
 **New**
 
@@ -240,7 +236,7 @@
 - INITIAL ANTARES COMMIT. [mountstone]
 - Initial commit. [mountstone]
 
-### Automation
+## Automation
 
 **New**
 
@@ -272,7 +268,7 @@
 * Update composer.json.
 
 
-### Ban Management
+## Ban Management
 
 **New**
 
@@ -301,7 +297,7 @@
 * Changed underscore by middle-score.
 
 
-### Control
+## Control
 
 **New**
 
@@ -335,7 +331,7 @@
 
 
 
-### Custom fields
+## Custom fields
 
 **New**
 
@@ -363,7 +359,7 @@
 
 
 
-### Logger
+## Logger
 
 **New**
 
@@ -407,7 +403,7 @@
 * Update composer.json.
 
 
-### Notifications
+## Notifications
  
  **New**
  
@@ -439,7 +435,7 @@
  * Fix for new composer handler.
  * Notifications configuration should be moved to the System configuration page.
 
-### Sample module
+## Sample module
 
 **New**
 
@@ -455,7 +451,7 @@
 
 * Change module name with prefix component-
 
-### Search
+## Search
 
 **New**
 
@@ -481,7 +477,7 @@
 * Fix for new composer handler.
 * Changed project name on composer.
 
-### Tester
+## Tester
 
 **New**
 
@@ -507,7 +503,7 @@
 * Fix for new composer handler.
 * Changed project name on composer.
 
-### Translations
+## Translations
 
 **New**
 
@@ -531,7 +527,7 @@
 * Update composer.json.
 * Fix for new composer handler.
 
-### Two factor auth
+## Two factor auth
 
 **New**
 
@@ -552,34 +548,7 @@
 * Fix for new composer handler.
 * Changed project name on composer.
 
-### Updater
-
-**New**
-
-* Refactoring unit tests.
-* Laravel 5.4 integration.
-* New composer.json structure.
-* New composer.json structure.
-* Creating new backup improvements.
-
-**Changes**
-
-* Readme.md structure change.
-* Added homepage and friendly names to components.
-* Updated ACL file.
-* Change minimal width of widget.
-* Change default sys version.
-
-**Fixes**
-
-* Remove backup when in pending status.
-* Fix for new composer handler.
-
-**Other**
-
-* Update composer.json.
-
-### Widgets
+## Widgets
 
 **New**
 
@@ -612,10 +581,3 @@
 * Update composer.json.
 * Fixes for new composer handler.
 * Changed project name on composer.
-
-
-### v0.9.0 {#v0-9-0}
-
-FIRST ANTARES RELEASE
-
----
