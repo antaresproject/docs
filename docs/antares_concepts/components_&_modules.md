@@ -50,5 +50,5 @@ In Antares, modules are divided into two groups:
 
 ## Making your own module
 If you'd like to make your own Antares Module, we suggest you to follow one of the following paths:
-* Read the Module Development documentation articles. Start with [Module Base](../modules_development/module_base.md).    
+* Read the **Module Development** documentation articles. Start with the [Module Base](../modules_development/module_base.md).    
 * Follow step by step tutorial of building a [Sample Module](../tutorials/sample_module.md).  
