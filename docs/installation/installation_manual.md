@@ -312,8 +312,6 @@ The final step in the installation is to choose the modules which will be includ
 ![installation_manual_step_4](../img/docs/installation/installation_guide/installation_manual_step_4.png)
   
   
-In the next step the application will inform you about the end of installation, so move to the logging-in website. Log in using the created earlier account and move to the website /admin/extensions where you can install and uninstall the components and modules (right button).  
-
-![AT_IG5](../img/docs/installation/installation_guide/AT_IG5.PNG)
+In the next step the application will inform you about the end of the installation. 
   
-Congratulations!!! The Antares application is ready to work.
+**Congratulations!!! The Antares application is ready to work.**
