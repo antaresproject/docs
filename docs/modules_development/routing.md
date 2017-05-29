@@ -9,6 +9,8 @@ One solution is to write the appropriate rules in the .htaccess file. However, t
 The link router works similarly to routers known from the network infrastructure. In a web application, it is responsible for calling the appropriate controller method based on the URL of the page what is typically named as *routing*.
 Routing in Antares app is based on [Laravel Routing](https://laravel.com/docs/5.4/routing).
 
+> The path of routes definition file is `src/modules/<module_name>/src/` or `src/modules/<module_name>/src/Http/` (e.g. `src/modules/sample_module/src/routes.php`).
+
 ## Frontend  
 
 To make a module work within its own routing, insert the configuration in the Service provider's 'boot' method. More information can be found [here](service_providers.md).

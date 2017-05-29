@@ -248,7 +248,7 @@ The result of our module should have following structure:
 ![sample_module_structure](../img/docs/tutorials/sample_module_structure.PNG)
 
 Module source should be copied to directory of modules within Antares file structure. The location of directory is in the src directory in Antares base path. 
-More information about Antares files you can find [here](../antares_concepts/core_&_files_structure.md).
+More information about Antares files you can find [here](../antares_concepts/files_structure.md).
 
 #### Installing and activating
 

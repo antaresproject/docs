@@ -6,6 +6,8 @@
 
 The platform provides a set of constructions enabling data coding which belong to databases' tables. Such a solution increases the application's security level. Only the tables' columns - with data type treated as a string - can be coded (especially the 'text' and 'varchar' types). 
 
+> The default path of cryptor sources is `src/core/src/utils/security/`.
+
 ## Configuration
 
 The configuration containing information about cryptors parameters is kept in a file in the following localization:

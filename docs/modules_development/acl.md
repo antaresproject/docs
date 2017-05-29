@@ -6,6 +6,8 @@
 
 ACL - Access Control List, as the name suggests, is a layer responsible for decision-making concerning user's access to a resource (a website, a file, etc...).
 
+> The path of acl.php file is `src/modules/<module_name>/` (e.g. `src/modules/sample_module/acl.php`).
+
 ## Setup inside component
 
 If you want to make permissions which belongs to the component, you must create a new file called ```acl.php``` in the same directory where are ```providers.php``` and ```composer.json``` files. The file must have the content:

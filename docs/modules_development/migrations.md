@@ -10,11 +10,13 @@ deliver its own functionality should define tables schema in those files. In cas
 when functionality requires default data in database after installation, there is a different type of
 migration called seed. Antares uses [Laravel migrations](https://laravel.com/docs/5.4/migrations) as default base. 
 
+> The path of migrations directory is `src/modules/<module_name>/resources/database/migrations/` (e.g. `src/modules/sample_module/resources/database/migrations/2015_07_24_082030_custom_module_table.php`).
+
 ## Basic Migration File  
 
 The migration files do not need to be a part of a component if the component does not require 
 appropriate structure in database to operate. More information about catalogues' structure 
-for the migration files can be found [here](../antares_concepts/core_&_files_structure.md).
+for the migration files can be found [here](../antares_concepts/files_structure.md).
 
 Example of use (`file 2015_07_24_082030_foo_table`):
 

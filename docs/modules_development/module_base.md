@@ -4,7 +4,9 @@
 
 ## Introduction
 
-This article will help you to understand how modules in Antares are designed and what should include. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md) instead. Concept of Antares modular architecture is described in [Antares Concepts - Modules](../antares_concepts/components_&_modules.md) article.
+This article will help you to understand how modules in Antares are designed and what should include. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md) instead. Concept of Antares modular architecture is described in [Antares Concepts - Modules](../antares_concepts/modules.md) article.
+
+> The path of module directory is `src/modules/<module_name>/` (e.g. `src/modules/sample_module/`). 
 
 ## Minimal Structure
   
@@ -12,6 +14,7 @@ Every module must consist of the following files structure:
 
 ![AT_COMP&MODS1](../img/docs/modules_development/module_base/minimal_structure_1.png)
   
+The default path of modules is "src/modules" localized in base path of application.   
  
 ### composer.json schema
 
@@ -63,7 +66,8 @@ A full description of the composer.json structure can be found [here](https://ge
 
 ### Service Providers
 
-**providers.php** file's content:
+File `providers.php` declares which service providers will be used by module. This file should be placed
+in base path of module directory (e.g. `src/modules/<module_name>/providers.php`). An example file content: 
 
 ```php
 <?php
@@ -161,7 +165,7 @@ class SomeClassExample {
 ```
  ### Dedicated configuration form
 
-If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](..services/form_builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
+If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](../services/form_builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
 
 ```php
 <?php
@@ -223,7 +227,7 @@ The full module directory structure including all the optional elements is follo
 
 ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/sample_module_directory.PNG)
   
-**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../concepts/core_&_files_structure.md). It is not a conincidence :).
+**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../antares_concepts/files_structure.md). It is not a conincidence :).
 
 ### /public 
 
@@ -283,7 +287,7 @@ Almost all of the logic to handle requests entering to application is placed in 
 * **Datatables** - tables presenting classes using [datatables](../services/datatables.md).
 * **Filters** - data [filters](../services/filters.md) used in a module.
 * **Form** - module [forms](../services/form_builder.md).
-* **Handler** - event class service thrown by other applications modules as well as by the framework itself. In this directory, there are classes responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](../modules_development/views_and_ui_components.md), [left beam]((../modules_development/views_and_ui_components.md)) and [placeholder]((../modules_development/views_and_ui_components.md)) presentation.
+* **Handler** - event class service thrown by other applications modules as well as by the framework itself. In this directory, there are classes responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](ui_components.md), [left beam]((../modules_development/views_and_ui_components.md)) and [placeholder]((../modules_development/views_and_ui_components.md)) presentation.
 * **Middleware** - middleware classes i.e. filters serving the events before sending a request to the action and after receiving the processed data.
 * **Presenters** - presenter classes, i.e. the layer responsible for data return into a view and presentation in a browser.
 

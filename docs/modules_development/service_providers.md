@@ -6,6 +6,8 @@
 Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection.
 More information about service provider can be found at [Laravel documentation](https://laravel.com/docs/5.4/providers). 
 
+> The path of service providers is `src/modules/<module_name>/src/` (e.g. `src/modules/sample_module/src/SampleModuleServiceProvider.php`).
+
 ## Class structure
  
 An example of Service Provider for the component's needs is depicted below:

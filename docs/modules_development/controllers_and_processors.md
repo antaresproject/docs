@@ -6,6 +6,9 @@
 
 Controllers are used to process the requests coming from a browser and declare the behavior according to the parameters. A processor is used to operate the processing of a request coming from the controller's action. Presenters - as the name suggests - is an object responsible for presentation's operation - the view. The advantage of its use is a separation of computational layer from presentation's layer, but the drawback is unnecessary degree of simple solutions' complexity. In the case of more complex applications, the existence of the presenter may be helpful.
 
+> Controllers should be placed in `src/modules/<module_name>/Http/` (e.g. `src/modules/sample_module/Http/Admin/IndexController.php`) and processors: `src/modules/<module_name>/Processors/`.
+
+
 ## Controllers  
 
 Let's consider the following example:

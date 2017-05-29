@@ -3,7 +3,7 @@
 [TOC]
 
 
-## Antares Project Application Skeleton
+## Antares Application
 
 **New**
 
@@ -22,7 +22,7 @@
 * Twig block for notification logs preview.
 * Dependable actions menu trigger, notification logs menu item.
 * Coveralls configuration, code coverage badge.
-* Travis coverage, phpunits refactoring.
+* Travis coverage, php units refactoring.
 * Application configuration before release 0.9.2.
 * Phpunit configuration.
 * Core as git submodule.
@@ -138,7 +138,7 @@
 * Composer output FIX: dispatcher method for Laravel 5.4 ADD: extension tests CHG: installer config facade FIX: installation worker.
 * Quick search engine based on datatables results.
 * SIMPLIFY installation process, FIX: multiple same buttons in mass actions.
-* Phpunits for modules.
+* Php units for modules.
 * Refactoring unit tests after laravel 5.4 integration.
 * Brands breadcrumbs changes, asset webpack ignore minify, customfield protection, datatables - force disable scripting, FIX: exception 500 & 404 logos.
 * Core phpunit configuration changes.
@@ -177,9 +177,9 @@
 * Cssinline convertion in notifier.
 * Staff -> Users has wrong main menu visible.
 * Builder headers.
-* Phpunits core pre release refactoring.
+* Php units core pre release refactoring.
 * Datatables table builder, ADD: phpunit configuration file.
-* User add with customfields.
+* User add with custom fields.
 
 **Internal**
 
@@ -297,7 +297,7 @@
 * Changed underscore by middle-score.
 
 
-## Control
+## Acl
 
 **New**
 
@@ -546,38 +546,4 @@
 * Update composer.json.
 * Update composer.json.
 * Fix for new composer handler.
-* Changed project name on composer.
-
-## Widgets
-
-**New**
-
-* Refactoring unit tests.
-* Laravel 5.4 integration.
-* Laravel 5.3 integration.
-* New composer.json structure.
-* Default dashboard widgets after fresh install.
-
-**Changes**
-
-* Readme.md structure change.
-* Remove initial widgets migaration.
-* Added homepage and friendly names to components.
-* Updated ACL file.
-
-**Fixes**
-
-* Fixes for widgets finder.
-* Deferred providers.
-* Gridstack init after js updates.
-* Enlarge of the widget doesn’t work.
-
-**Internal**
-
-* Setup service provider as not deferred.
-
-**Other**
-
-* Update composer.json.
-* Fixes for new composer handler.
 * Changed project name on composer.

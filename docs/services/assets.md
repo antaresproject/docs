@@ -4,7 +4,9 @@
 
 ## Introduction  
 
-Assets is a set of tools enabling a programmer to manage efficiently resources' files (JavaScripts, CSS, LESS, SASS etc.) which belongs to the system and deliver user interface. 
+Assets is a set of tools enabling a programmer to manage efficiently resources' files (JavaScripts, CSS, LESS, SASS etc.) which belongs to the system and deliver user interface.
+
+> The asset directory for module should be placed in `src/modules/<module_name>/public/` (e.g. `src/modules/<sample_module>/public/js/sample.js`). The path of assets source code is `src/core/src/utils/asset/`.  
 
 ## Assetic
 

@@ -6,6 +6,8 @@
 
 The application supports the use of tools in building flexible forms. The object responsible for their presentation is **form builder** determined in the space `Antares/Html/Form` in the core system's package. As opposed to standard solutions which are rendered available by the Laravel the form builder enables the pinning of fieldsets, controls, as well as static contents through other components, and separation from view's layer. Functionally, the form builder is similar to the solution made available by the [Symfony 2 framework](http://symfony.com/doc/current/book/forms.html). Below an example of basic form is presented:
 
+> Form classes should be placed in `src/modules/<module_name>/src/Http/Forms/` (e.g. `src/modules/<sample_module>/src/Http/Forms/SampleForm.php`).
+
 ```php
 /**
  * Generating new form's object

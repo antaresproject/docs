@@ -6,10 +6,10 @@ The biggest advantage of using Antares as a base of your application is powerful
 
 ## The basics
 
-By default, Antares provides User and Admin **Levels**. Except **Dashboard**, which is by default available on every level, modules can define their own [Views](../modules_development/views_and_ui_components.md). Dashboard is a View itself as well.
+By default, Antares provides User and Admin **Levels**. Except **Dashboard**, which is by default available on every level, modules can define their own [Views](../modules_development/ui_components.md). Dashboard is a View itself as well.
   
 Every View includes:
-1. **UI Components Container** - the area where all the [UI Compoents](../modules_development/views_and_ui_components.md#how-to-create-ui-component) (widgets) are loaded by the modules.  
+1. **UI Components Container** - the area where all the [UI Components](../modules_development/ui_components.md#how-to-create-ui-component) (widgets) are loaded by the modules.  
 2. **Template Base** - everything on the page except UI Components which includes:
    * [Menu](../modules_development/views.md#menus)  
    * [Breadcrumbs](../services/breadcrumbs.md)
@@ -26,7 +26,7 @@ Every View includes:
         
 The only exception of the above structure is **Login Page** which contains only the login form.
 
-Some of the UI elements can be only visible for certain user level/group - it is controlled by modules and the [ACL service](../services/acl.md).
+Some of the UI elements can be only visible for certain user level/group - it is controlled by modules and the [ACL module](../core_modules/acl.md).
 
 
 ## Template Layouts 
@@ -48,14 +48,14 @@ Every module defines what **UI Components** are visible on EVERY View. This mean
 
 There are two types of UI Components:
 
-* [HTML](../modules_development/views_and_ui_components.md#how-to-create-ui-component) - using classic [TWIG](https://twig.sensiolabs.org/doc/2.x/) template engine, loaded by the Ajax request.
+* [HTML](../modules_development/ui_components.md#how-to-create-ui-component) - using classic [TWIG](https://twig.sensiolabs.org/doc/2.x/) template engine, loaded by the Ajax request.
 * Vue2 - using REST endpoint to load the data and automatically presenting the interface. 
 
 Additionally, if defined by developer, each View can have **widgets edit option**. When enabled, user can use it to manually configure what UI components are visible or not and move/scale them depending on the component possibilities.
 
 To speed up the development of your application, you should use **predefined UI Components** (documentation will be available soon), customize them or make your own.
 
-Just like for the Views, each module [**can hook up into another module's widget**](../modules_development/views_and_ui_components.md#how-to-include-view-to-others) displayed on different View. You can add your own content or even interfere with the data returned by JSON to the vue component.
+Just like for the Views, each module [**can hook up into another module's widget**](../modules_development/ui_components.md#how-to-include-view-to-others) displayed on different View. You can add your own content or even interfere with the data returned by JSON to the vue component.
 
 
 ![edit_mode](../img/docs/antares_concepts/ui_structure/edit_mode.gif)

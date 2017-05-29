@@ -6,6 +6,8 @@
 
 Notifier is a set of tools supporting design of the notifications which are sent to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
 
+> The path of notification seeders directory is `src/modules/<module_name>/resources/database/seeds/` (e.g. `src/modules/sample_module/resources/database/seeds/ModuleEmailNotification.php`).
+
 ## Usage  
 
 ### E-mail  

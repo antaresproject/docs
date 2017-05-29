@@ -6,6 +6,8 @@
 
 Datatables is a kind of structure facilitating data presentation in a tabular form process' automation (datagrid). A library with the same name is used within the system (click [here](https://datatables.net/) for details). The system also uses functionality of a [vendor](https://datatables.yajrabox.com/) which is an auxiliary library. An example of a solution is shown below (minimal implementation):
 
+> The datatables classes should be placed in `src/modules/<module_name>/src/Http/Datatables/` (e.g. `src/modules/<sample_module>/src/Http/Datatables/SampleDatatable.php`). The path of datatable sources is `src/core/src/ui/components/datatables/`.
+
 ```php
 <?php
      

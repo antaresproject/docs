@@ -4,6 +4,13 @@
 
 ## Introduction
 
+Antares uses [Twig template engine](http://twig.sensiolabs.org/documentation) to generate user interfaces. More information you can find [here](http://twig.sensiolabs.org/documentation). 
+
+The controller is responsible for handling request that comes into a Antares. 
+In next step, the controller delegates computing work to other places (eg: [Processors](../modules_development/controllers_and_processors.md), Models, Repositories). 
+This solution allows to reuse the code. When a controller needs to generate HTML it passes whole decoration process to templating engine.
+
+
 Views contains the HTML served by your application and separate your controller / application logic from your presentation logic. 
 More information about views you can fin in [Laravel documentation](https://laravel.com/docs/5.4/views).
 In Antares, views can be divided into following types:
@@ -13,6 +20,299 @@ In Antares, views can be divided into following types:
 - panes
 
 All of those types of view belong to Antares Base Templates.
+
+> The path of views is `src/modules/<module_name>/resources/views/` (e.g. `src/modules/sample_module/resources/views/index.twig`).
+
+## How to create new view
+
+A view is text file that generates text-based format (HTML) using [Twig](http://twig.sensiolabs.org/documentation) as template engine. 
+The most familiar type of template is a PHP template - a text file parsed by PHP that contains a mix of text and PHP code: 
+
+```html
+<ul id="navigation">
+    <?php foreach ($navigation as $item): ?>
+        <li>
+            <a href="<?php echo $item->getHref() ?>">
+               <?php echo $item->getCaption() ?>
+            </a>
+        </li>
+    <?php endforeach ?>
+</ul>
+```
+
+More information about controllers, processors and presenters you can find in section [Controllers and Processors](../modules_development/controllers_and_processors.md).
+
+[Twig](http://twig.sensiolabs.org/documentation) allows you to write readable templates that are more friendly and powerful than PHP templates:
+
+```twig
+<ul id="navigation">
+    {% for item in navigation %}
+        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+</ul>
+```
+
+To create new view within module you have to declare the place in service provider:
+
+```php
+$path  = __DIR__ . '/../';
+$this->addViewComponent('antares/foo', 'antares/foo', "{$path}/resources/views/foo");
+```
+
+First argument is the name of package, second is the namespace and last is the location of view.
+
+Please note that method `addViewComponent()` is declared in `Antares\Foundation\Support\Providers\ModuleServiceProvider`, so your service provider must inherit after this class.
+
+```twig
+{% extends "antares/foundation::layouts.antares.index" %}
+{% block content %}    
+    /** add you content here **/
+{% endblock %}
+```
+
+In the example above view inherits from template called `antares/foundation::layouts.antares.index` which is placed at
+`resources\views\default\layouts\antares\index.twig`. Section within
+
+```twig
+{% block content %}    
+    /** add you content here **/
+{% endblock %}
+```
+is responsible for generating content which you should implement. For example:
+```twig
+{% extends "antares/foundation::layouts.antares.index" %}
+{% block content %}    
+    <ul id="navigation">
+        {% for item in navigation %}
+            <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+```
+
+## How to define where the view should be placed
+
+Antares uses following view templates:
+ 
+* `antares/foundation::layouts.antares.index` - default template with gridstack support
+* `antares/foundation::layouts.antares.index-no-grid` - template without gridstack support 
+* `antares/foundation::layouts.antares.form` - template with form decoration support
+* `antares/foundation::layouts.antares.dashboard` - dashboard template
+* `antares/foundation::layouts.antares.clear` - empty template
+* `antares/foundation::layouts.antares.main` - main template
+ 
+All of those templates are placed in `resources\views\default\layouts\antares`. Every template has blocks. It means that you are able to declare what kind of components should be placed in user interface sections.
+The main template is the `antares/foundation::layouts.antares.main`:
+
+```twig
+<!DOCTYPE html>
+<html lang="en" >             
+    <head>
+        {% block head %}
+            
+        {% endblock %}        
+    </head>    
+    <body>
+
+        <div id="app-wrapper">
+            <aside class="main-sidebar">
+                <nav>
+                    {% block navigation %}
+                        
+                    {% endblock %}                              
+                    <div class="mobile-ddowns">
+                        {% block navigation_mobile %}
+                        
+                        {% endblock %} 
+                    </div>                
+                </nav>
+            </aside> 
+            
+            <div class="app-content">
+                {% block app_content %}
+                    <section class="main-head">
+                        {% block breadcrumbs %}
+                            
+                        {% endblock %} 
+                        {% block sidebar_top %}
+                            {% block sidebar_top_panes %}
+                                                        
+                            {% endblock %}
+                            <div class="item-grp item-grp--40 mr16">        
+                                {% block sidebar_top_widgets %}   
+                                                             
+                                {% endblock %}                                                    
+                            </div>                                                
+                        {% endblock %}
+                    </section>
+                    {% block sidebar_notifications %}
+                                       
+                    {% endblock %}
+                    {% block sidebar_alerts %}
+                                       
+                    {% endblock %}
+                    {% block main_content %}
+    
+                    {% endblock %}
+                {% endblock %}
+            </div>
+        </div>  
+        {% block footer %}
+                                                            
+        {% endblock %}
+    </body>
+</html>
+```
+The default template is `antares/foundation::layouts.antares.index`:
+
+```twig
+{% extends  app.request.isXmlHttpRequest() ? "antares/foundation::layouts.antares.clear":  "antares/foundation::layouts.antares.main" %}   
+{% block main_content %}
+    <section class="main-content">        
+        <div>
+                {% block content %}
+                {% endblock %}     
+        </div>
+    </section>            
+{% endblock %} 
+```
+
+The `index` template inherits from `clear` template when ajax request is send to Antares. Otherwise `main` template will be used. 
+As you can see `index` template overwrites `main_content` block from `main` template, as follows:
+
+```twig
+<section class="main-content">        
+   <div>
+        {% block content %}
+        {% endblock %}     
+   </div>
+</section>
+```
+Using above, your module view will be included in:
+```twig
+{% block content %}
+{% endblock %}
+``` 
+so it will generate following code:
+
+```twig
+{% extends  app.request.isXmlHttpRequest() ? "antares/foundation::layouts.antares.clear":  "antares/foundation::layouts.antares.main" %}   
+{% block main_content %}
+    <section class="main-content">        
+        <div>
+             <ul id="navigation">
+                  {% for item in navigation %}
+                      <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                  {% endfor %}
+              </ul>
+        </div>
+    </section>            
+{% endblock %} 
+```
+
+If you want to overwrite other sections from base template, you have to declare it in the module view file, for example:
+
+```twig
+{% extends "antares/foundation::layouts.antares.main" %}
+{% block app_content %}        
+        {% block breadcrumbs %}
+              /** this is my custom breacrumb **/              
+        {% endblock %}
+        {% block main_content %}
+            <ul id="navigation">
+                {% for item in navigation %}
+                   <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+{% endblock %}
+``` 
+
+## How to include view to others
+
+Insertion content in other sections of Antares UI can be divided as following:
+
+* [Views](../modules_development/module_events.md#views)
+* [Placeholder](../modules_development/module_events.md#placeholder)
+* [Menu](../modules_development/module_events.md#main-menu)
+* [Breadcrumb](../modules_development/module_events.md#breadcrumb)
+* [Pane](../modules_development/module_events.md#pane)
+* [Pane Menu](../modules_development/module_events.md#pane-menu)
+* [Datatables](../services/events.md#widgets)
+* [Forms](../services/events.md#forms)
+* Widgets
+   * [Widget Views](../services/ui_component.md#views)
+   * [Widget Layouts](../services/ui_component.md#layouts)
+   * [Widget Events](../services/events.md#widgets)
+
+If you want to include any content to custom template position, use event [Twig](http://twig.sensiolabs.org/documentation) extension:
+```php
+event($name)
+```
+and fire it within view: 
+```twig
+{% extends "antares/foundation::layouts.antares.main" %}
+{% block app_content %}        
+        {% block breadcrumbs %}
+              {{ event('foo.view.breadrumb')|raw }}              
+        {% endblock %}
+        {% block main_content %}
+            {{ event('foo.view.navigation.before') }}
+            <ul id="navigation">
+                {% for item in navigation %}
+                   <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+            {{ event('foo.view.navigation.after') }}
+        {% endblock %}
+{% endblock %}
+``` 
+
+In the example above, three events will be fired when view composition will by launched by Laravel:
+
+* foo.view.breadrumb
+* foo.view.navigation.before
+* foo.view.navigation.after
+
+
+To attach content to fired event, you have to implement listener:
+ 
+```php
+listen('foo.view.breadrumb',function(){
+    return 'Foo breadcrumb event has been launched.';
+});
+```
+
+or using event object in service provider (inherited from `Antares\Foundation\Support\Providers\ModuleServiceProvider`):
+
+```php
+<?php
+protected $listens=[
+    'foo.view.breadrumb'=>BreadcrumbListener::class
+]
+```
+
+and the BreadcrumbListener class:
+
+```php
+<?php
+
+namespace Antares\Foo\Listener;
+
+class BreadcrumbListener
+{   
+    
+    /**
+     * Handles breadcrumb event from view
+     * 
+     * @return String
+     */
+    public function handle()
+    {
+        return 'Foo breadcrumb event has been launched.';
+    }
+}
+```
 
 ## Menus  
 

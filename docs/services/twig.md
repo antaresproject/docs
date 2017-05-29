@@ -6,6 +6,8 @@
 
 Twig is a system of templates that support designing the presentation layer of applications. It is characterized by reliability, simplicity, and complex configuration. More information can be found on the [website](http://twig.sensiolabs.org/documentation).
 
+> The [Twig](https://twig.sensiolabs.org/) extensions defined by module should be placed in `src/modules/<module_name>/src/Twig/` directory (e.g. `src/modules/sample_module/resources/lang/en/messages.php`). Predefined extensions is located in `src/core/src/utils/twig/`.
+
 ## Configuration  
 
 The configuration file which is responsible for the twig's setup can be found in the location:

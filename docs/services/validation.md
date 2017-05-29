@@ -6,6 +6,8 @@
 
 The platform supports validation of sent forms through functionality's implementation on the level of the form itself.
 
+> The default validators path for module is `src/modules/<sample_module>/src/Validators/` (e.g. `src/modules/sample_module/Validators/UploadValidator.php`).
+
 ## Structure
 
 Adding new validation rules occurs through `rules` parameter configuration of the form (validation will be executed for this form). The method accepts a set of validation rules in the form of the board. An example:

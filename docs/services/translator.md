@@ -6,6 +6,8 @@
 
 The platform supports application's multilingualism through language files determined in component's or module's space.
 
+> The default path of translation files defined by module is `src/modules/<module_name>/resources/lang/<language>/` (e.g. `src/modules/sample_module/resources/lang/en/messages.php`).
+
 ## Configuration  
 
 Determining the location of a language file usually happens in module's service provider 'boot' method by calling:

@@ -6,6 +6,8 @@
 
 Benchmark test (Testbench) is a set of tools which support unit tests writing. In order to apply testing environment it is necessary to inherit from the following class:
 
+> The default path of test benchmark sources is `src/core/src/utils/testbench/`.
+
 ```php
 \Antares\Testbench\TestCase
 ```

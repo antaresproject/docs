@@ -13,6 +13,8 @@ System's architecture provides the users' access to the resources control mechan
 | role       | Roles are the groups of users where the user belongs     | 
 | acl        | ACL is a map of values of the boolean type determining the relation between action and role, determining whether the role may have authorization to execute the given action      | 
 
+> The path of source code is `src/core/src/components/acl/` and `src/core/src/components/auth/`.
+
 ## Auth  
 
 Auth is a set of tools broadening Laravel's base functionality *Illuminate\Auth* in order to provide user's instance and the ascribed groups. The aim of this functionality is to provide measures and tools for efficient users' access to resources control (ACL -  Access Control List). The facade connected with ACL instance is:

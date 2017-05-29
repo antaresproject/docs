@@ -20,44 +20,30 @@ First step is to prepare a repository from which our team can pull into the Anta
     
     More information about how to create new fork can be found [here](http://help.github.com/fork-a-repo).
     
-3. Clone repository locally and enter it as the following example:
-
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-        $ git clone git@github.com:<YOUR-GITHUB-USERNAME>/automation.git <DIRECTORY>
-        $ cd </DIRECTORY>
-        </code>
-    </pre>
-    
-    More information about how to setup your GIT installation to work with Github can be found [here](https://help.github.com/articles/set-up-git/).     
+3. Clone repository locally and enter it as the following example:   
+     ```bash
+     $ git clone git@github.com:<YOUR-GITHUB-USERNAME>/automation.git <DIRECTORY>
+     $ cd </DIRECTORY>
+     ```    
+     More information about how to setup your GIT installation to work with Github can be found [here](https://help.github.com/articles/set-up-git/).     
     
 4. Add an additional upstream with git remote as
-
-     <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git remote add upstream git://github.com/antaresproject/automation.git
-        </code>
-     </pre>    
+    ```bash
+    $ git remote add upstream git://github.com/antaresproject/automation.git
+    ```
      
 5. Get the latest code from the main repository
-     
-     <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git fetch upstream
-        </code>
-     </pre>
-      
+    ```bash
+    $ git fetch upstream
+    ```    
+          
     It is very important to start work from the newest code. There may be a changes which may affect your implementation.
 
 6. Create a new branch for your work based on the current master branch
-
-    <pre class="codehilite language-bash">
-            <code class="language-bash">
-                $ git checkout upstream/master
-                $ git checkout -b <NAME_OF_YOUR_BRANCH>
-            </code>
-    </pre>    
-    
+    ```bash
+    $ git checkout upstream/master
+    $ git checkout -b <NAME_OF_YOUR_BRANCH>
+    ```    
     Remember that each bugfix or change should go in a separated branch. Branch name should describe an issue you were working on.
         
 7. Write your code
@@ -76,10 +62,10 @@ First step is to prepare a repository from which our team can pull into the Anta
             
     If you've been working on a fix which resolves a reported issue, you should add a new line on the top of the "Fixes" section. Here is an example
     
-    <pre class="codehilite language-bash"><code class="language-bash">
+    ```bash
      **Fixes**
-
-    *<#ISSUE_NUM> a desription of bug</code></pre> 
+     <#ISSUE_NUM> a description of bug
+    ``` 
      
     For rest of updates just add a description into sections which describe your work.  
       
@@ -87,19 +73,15 @@ First step is to prepare a repository from which our team can pull into the Anta
 
     First of all, add the files that you want to push into the repository:
     
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git add PATH_TO_YOUR_FILE
-        </code>
-    </pre>
+    ```bash
+    $ git add PATH_TO_YOUR_FILE
+    ```
         
     You can use `-p` option to select what files do you want to have in your commit. If you want to add all the files:
-    
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git add *
-        </code>
-    </pre>    
+
+    ```bash
+    $ git add *
+    ```    
     
     Commit your changes with a valid description. Use the following scheme:
   
@@ -110,40 +92,32 @@ First step is to prepare a repository from which our team can pull into the Anta
   
     An example:
 
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git commit -am "ADD: description of new feature"
-        </code>
-    </pre>      
+    ```bash
+    $ git commit -am "ADD: description of new feature"
+    ``` 
     
     Make sure to mention an issue number while committing fixes, for example:
     
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git commit -am "FIX: #781 description of fix"                
-        </code>
-    </pre>
+    ```bash
+    $ git commit -am "FIX: #781 description of fix"
+    ```
     
   
 10. Pull the latest code from the master repository
 
     Before you push the changes, you should ensure that you have the latest code in your repository:
     
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git pull upstream master                
-        </code>
-    </pre>    
+    ```bash
+    $ git pull upstream master
+    ```
     
     Fix all of the merge conflicts if exist and commit changes once again. It will simplify merging process for our team.
 
 11. Push your code to GitHub
 
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git push -u origin <BRANCH_NAME>                
-        </code>
-    </pre>  
+    ```bash
+    $ git push -u origin <BRANCH_NAME>
+    ```
     
     Option called `-u`  will automatically send information to GitHub about branch where you are pushing. Next time GitHub will know where to push by simple command `git push`.    
     
@@ -154,11 +128,9 @@ First step is to prepare a repository from which our team can pull into the Anta
     Reviewing the code and sending you feedback by our development team improves the application quality, so don't become easily discouraged. This is just normal and natural process. :)
     After your code is accepted or declined you can delete branches you have worked on:
     
-    <pre class="codehilite language-bash">
-        <code class="language-bash">
-            $ git push origin --delete <BRANCH_NAME>                
-        </code>
-    </pre>      
+    ```bash
+    $ git push origin --delete <BRANCH_NAME>
+    ```    
     
     **Please note:** To keep high code quality, every merge request will be picked up with [Travis CI](http://travis-ci.org/) for automated unit tests and [Coveralls](https://coveralls.io/) to verify code coverage.     
 
@@ -179,60 +151,52 @@ We don't want to force you to use this code style for your own application/repos
 
 5. Class constants **MUST** be declared in all upper case with underscore separators:
 
-    <pre class="codehilite language-php">
-        <code class="language-php">
-             <?php
-                class Foo
-                {
-                    const APP_NAME='Antares';
-                }                
-        </code>
-    </pre>
-
+   ```php
+    <?php
+    class Foo
+    {
+       const APP_NAME='Antares';
+    }
+   ```    
 
 6. Method names **MUST** be declared in camelCase.
 
 7. Property names **MUST** be declared in camelCase:
-
-     <pre class="codehilite language-php">
-        <code class="language-php">
-           <?php
-               class Foo
-               {
-                   public $publicProp;
-                   protected $protectedProp;
-                   private $privateProp;
-               }              
-        </code>
-     </pre>
-      
+   ```php
+    <?php
+    class Foo
+    {
+       public $publicProp;
+       protected $protectedProp;
+       private $privateProp;
+    }  
+   ```    
 8. Always **elseif** instead of else if.
 
 9. All documentation blocks ("docblocks") **MUST** be compatible with the phpDocumentor format. 
 
 10. Every file that contains PHP code **MUST** have a docblock at the top of the file that contains phpDocumentor tags in following format:
-   <pre class="codehilite language-php">
-           <code class="language-php">
-           /**
-            * Part of the Antares Project package.
-            *
-            * NOTICE OF LICENSE
-            *
-            * Licensed under the 3-clause BSD License.
-            *
-            * This source file is subject to the 3-clause BSD License that is
-            * bundled with this package in the LICENSE file.
-            *
-            * @package    <PACKAGE_NAME>
-            * @version    <VERSION>
-            * @author     <AUTHOR>
-            * @author     <AUTHOR>  
-            * @license    BSD License (3-clause)
-            * @copyright  (c) 2017, Antares Project
-            * @link       http://antaresproject.io
-            */
-            </code>
-    </pre>
+
+     ```php
+      /**
+       * Part of the Antares Project package.
+       *
+       * NOTICE OF LICENSE
+       *
+       * Licensed under the 3-clause BSD License.
+       *
+       * This source file is subject to the 3-clause BSD License that is
+       * bundled with this package in the LICENSE file.
+       *
+       * @package    <PACKAGE_NAME>
+       * @version    <VERSION>
+       * @author     <AUTHOR>
+       * @author     <AUTHOR>  
+       * @license    BSD License (3-clause)
+       * @copyright  (c) 2017, Antares
+       * @link       http://antaresproject.io
+       */ 
+    ```  
     
 11. Every class **MAY** have a docblock that contains description of class details.
 
@@ -240,51 +204,45 @@ We don't want to force you to use this code style for your own application/repos
    
     `@param`, `@propery` ,`@var` **MUST** declare one of types: `boolean`, `integer`, `String`, `array`, `null`, classnames such as `Collection` and for types arrays use `Classname[]`.
     Description of property **MUST NOT** have more than 255 characters. An example:
-   
-    <pre class="codehilite language-php">
-        <code class="language-php">
-           <?php
-           class Foo
-           {
-               /**
-                * This is description of $publicProp
-                *
-                * @var String
-                */
-                public $publicProp;
-           }   
-        </code>
-    </pre>
-   
+     ```php
+     <?php
+     class Foo
+     {
+         /**
+          * This is description of $publicProp
+          *
+          * @var String
+          */
+          public $publicProp;
+    }    
+    ```           
 13. Doc block for methods and functions **MUST** declare return type and **MUST** contain description or **MUST** have `{@inheritdoc}` when doc section is the same in parent class.
    
     `@return` **MUST** declare one of types: `boolean`, `integer`, `String`, `array`, `null`, `void`, classnames such as `Collection` and for types arrays use `Classname[]`.
     Description of method or function **MUST NOT** have more than 255 characters. An example:
-    <pre class="codehilite language-php">
-           <code class="language-php">
-           <?php
-           class Foo
-           {
-               /**
-                * {@inheritdoc}
-                */
-               public function register()
-               {
-                  parent::register();
-                  $this->commands([ModuleCommand::class]);
-               }
-              /**
-               * Boot extension routing.
-               *
-               * @return void
-               */
-               protected function loadRoutes()
-               {
-                  $this->loadBackendRoutesFrom(__DIR__ . "/backend.php");
-               }    
-           }   
-            </code>
-    </pre>
+     ```php
+     <?php
+     class Foo
+     {
+        /**
+         * {@inheritdoc}
+         */
+        public function register()
+        {
+           parent::register();
+           $this->commands([ModuleCommand::class]);
+        }
+        /**
+         * Boot extension routing.
+         *
+         * @return void
+         */
+         protected function loadRoutes()
+         {
+            $this->loadBackendRoutesFrom(__DIR__ . "/backend.php");
+         }    
+     }    
+    ```         
    If a function or method may throw an exception, use one `@throws` for each discrete exception thrown.
    
 14. Line Termination
@@ -308,32 +266,23 @@ We don't want to force you to use this code style for your own application/repos
 To run the tests:
 
 1. Clone the project repository from Antares Project organization:
-
-    <pre class="codehilite language-php">
-         <code class="language-php">               
-            $ git clone https://github.com/antaresproject/project.git -b <BRANCH> <DIRECTORY>
-            $ cd <DIRECTORY>
-         </code>
-    </pre>
+    ```bash
+    $ git clone https://github.com/antaresproject/project.git -b <BRANCH> <DIRECTORY>
+    $ cd <DIRECTORY>    
+    ```
     
 2. Install dependencies via composer:
-
-    <pre class="codehilite language-php">
-         <code class="language-php">               
-            $ curl -sS https://getcomposer.org/installer | php
-             $ php composer.phar install
-         </code>
-    </pre>
+    ```bash
+    $ curl -sS https://getcomposer.org/installer | php
+    $ php composer.phar install    
+    ```
     
-    More information about environment configuration you can found in [Manual Installation Guide](../installation/installation_manual.md).
+    More information about environment configuration you can found in [Manual Installation Guide](../installation/manual_installation_guide.md).
 
 3. Run the tests via phpunit, like in this example:
-
-    <pre class="codehilite language-php">
-         <code class="language-php">               
-            $ ./vendor/bin/phpunit -c src/components/automation/phpunit.xml
-         </code>
-    </pre>
+    ```bash
+    $ ./vendor/bin/phpunit -c src/components/automation/phpunit.xml    
+    ```
     
     Edit phpunit.xml if you want to achieve more flexible functionality to test.
 

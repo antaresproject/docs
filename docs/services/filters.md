@@ -6,6 +6,8 @@
 
 Filters are used to delimit the query results which are data providers within the Datatables' operation. More about datatables can be found [here](datatables.md). 
 
+> Filters classes should be placed in `src/modules/<module_name>/src/Http/Filters/` (e.g. `src/modules/<sample_module>/src/Http/Filters/GroupFilter.php`).
+
 ## Class structure
 
 Structure of class responsible for filter's operation is the following:
