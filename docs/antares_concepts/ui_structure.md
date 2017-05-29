@@ -38,7 +38,6 @@ There are several **Template Layouts** that you can set up in the Antares per ea
 * Top Menu Simple (suggested for end-customers)
 * Top Menu Advanced (suggested for administrators/advanced users only)
 
-![template layouts](../img/docs/antares_concepts/ui_structure/template_layouts.png)
 
 **Please note:** Every Template Layout consists of the same structure so they always have UI Components Container and the Template Base with the same elements! Switching between layouts in the configuration will still render you the same UI structure, just different composition.
 
