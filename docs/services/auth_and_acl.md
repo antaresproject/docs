@@ -1,8 +1,8 @@
-#Auth & ACL  
+# Auth & ACL  
 
 [TOC]
 
-##Conception  
+## Introduction  
 
 System's architecture provides the users' access to the resources control mechanisms based on RBAC (Role Based Access Control). The RBAC consists of:
 
@@ -13,12 +13,11 @@ System's architecture provides the users' access to the resources control mechan
 | role       | Roles are the groups of users where the user belongs     | 
 | acl        | ACL is a map of values of the boolean type determining the relation between action and role, determining whether the role may have authorization to execute the given action      | 
 
+> The path of source code is `src/core/src/components/acl/` and `src/core/src/components/auth/`.
 
+## Auth  
 
-
-##Auth  
-
-Auth is a set of tools broadening Laravel's base functionality Illuminate\Auth in order to provide user's instance and the ascribed groups. The aim of this functionality is to provide measures and tools for efficient users' access to resources control (ACL -  Access Control List). The facade connected with ACL instance is:
+Auth is a set of tools broadening Laravel's base functionality *Illuminate\Auth* in order to provide user's instance and the ascribed groups. The aim of this functionality is to provide measures and tools for efficient users' access to resources control (ACL -  Access Control List). The facade connected with ACL instance is:
 
 ```php
 Antares\Support\Facades\ACL
@@ -32,7 +31,7 @@ In order to use the facade in the application determine the class' alias in the 
 ],
 ```
 
-###Roles  
+### Roles  
 
 In order to create a new role:
 
@@ -99,7 +98,9 @@ $user->roles()->sync([
 Each of the system's user is ascribed to a specific role (group) which is connected with particular authorizations.
 To download the list of available roles ascribed to a user:
 
-<pre><code>$roles = Auth::roles();</code></pre>
+```php
+$roles = Auth::roles();
+```
 
 or:
 
@@ -139,9 +140,9 @@ if (Auth::isNotAny(['admin', 'editor'])) {
 }
 ```
 
-##ACL And Metrics  
+## ACL And Metrics  
 
-Owing to application's modularity each module can decide independently about which resources (within module's space) are accessible to the logged in user. More information about building the ACL migration files can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Migrations). Information about controllers' (resources) action access verification can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/ACL).
+Owing to application's modularity each module can decide independently about which resources (within module's space) are accessible to the logged in user. More information about building the ACL migration files can be found [here](../modules_development/migrations.md). Information about controllers' (resources) action access verification can be found [here](../modules_development/acl.md).
 In order to download the ACL instance ascribed to a module:
 
 ```php
@@ -151,9 +152,7 @@ $acl = ACL::make('antares/foo');
 In order to verify whether a user has access to a resource:
 
 ```php
-$acl = ACL::make('antares/foo');
- 
- 
+$acl = ACL::make('antares/foo'); 
 if (!$acl->can('foo-index')) {
      return redirect()->to(handles('antares::login'));
 }

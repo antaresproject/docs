@@ -1,10 +1,16 @@
-#Automation  
+# Automation  
 
 [TOC]
 
-Automation is used to execute cyclic operation based on [scheduler](https://laravel.com/docs/5.2/scheduling). The operation is defined as a class which inherits from the Antares\View\Console\Command object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
+## Introduction
 
-```console
+Automation is a module used to execute cyclic operations based on [laravel task scheduler](https://laravel.com/docs/5.4/scheduling). It serves as a replacement for setting up your own cron jobs to make it easier to manage. It provides an intuitive control  interface on the admin level. Automation can run tasks every few minutes, hourly, daily or weekly - depending how you set it up. Scheduled data is stored in the system database.
+
+## Basis
+
+The operation is defined as a class which inherits from the `Antares\View\Console\Command` object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
+
+```bash
 php artisan queue:start
 ```
 
@@ -84,13 +90,13 @@ class FooCommand extends Command
 
 To make the command visible in the *automation* space execute the following command:
 
-```console
+```bash
 php artisan automation:sync
 ```
 
 which is responsible for all commands' instances synchronization in the system. This process is usually launched automatically when the system works within the confines of the *WatchDog* service. The command causes adding an instance to the *tbl_jobs* table which is responsible for preserving all system commands:
 
-  ![AT_AUTO01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO01.PNG)
+  ![AT_AUTO01.PNG](../img/docs/core_modules/automation/AT_AUTO01.PNG)
   
 There is a possibility of launching only the command from the console's level. To this end, you have to inform the Laravel environment about such a command (the *boot* method) in the service provider:
 
@@ -100,15 +106,17 @@ $this->commands(FooCommand::class);
 
 Then, on the basis of the command's example indicated above, the launching is:
 
-```console
+```bash
 php artisan foo
 ```
 
 And the result:
 
-  ![AT_AUTO02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO02.PNG)
+  ![AT_AUTO02.PNG](../img/docs/core_modules/automation/AT_AUTO02.PNG)
   
 The table which is responsible for preserving the results of particular commands' operations is *tbl_job_results*, in the case of errors it is: *tbl_job_errors*. The table which is responsible for commands' categories is *tbl_jobs_category*. Categories are added automatically supposing that they were not defined earlier within the frameworks of the *automation:sync* process.
+
+## Parameters
 
 The *automation* command consists of the following parameters:
 
@@ -144,10 +152,10 @@ protected $availableLaunches = [
 
 Each of the command may overwrite the edition form, which allows full freedom when it comes to configuration of a command. By default the edition form appears in the following manner:
 
-  ![AT_AUTO03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO03.PNG)
+  ![AT_AUTO03.PNG](../img/docs/core_modules/automation/AT_AUTO03.PNG)
   
 Overwriting the form is possible through overwriting the *form()* method - its definition can be found in the base class. The following options are available on particular line which is a command in automation:
 
-  ![AT_AUTO04.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/core_modules/automation/AT_AUTO04.PNG)
+  ![AT_AUTO04.PNG](../img/docs/core_modules/automation/AT_AUTO04.PNG)
   
 'Show logs' is used to preview the results of commands operation, 'Run' activates the command at the interface level (adding to task execution queue), whereas 'edit' displays command's parameters edition form.

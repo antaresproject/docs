@@ -1,12 +1,16 @@
-#Validation  
+# Validation  
 
 [TOC]
 
-##Introduction  
+## Introduction  
 
 The platform supports validation of sent forms through functionality's implementation on the level of the form itself.
 
-Adding new validation rules occurs through 'rules' parameter configuration of the form (validation will be executed for this form). The method accepts a set of validation rules in the form of the board. An example:
+> The default validators path for module is `src/modules/<sample_module>/src/Validators/` (e.g. `src/modules/sample_module/Validators/UploadValidator.php`).
+
+## Structure
+
+Adding new validation rules occurs through `rules` parameter configuration of the form (validation will be executed for this form). The method accepts a set of validation rules in the form of the board. An example:
 
 ```php
 /** * Form instance with validation rules
@@ -50,7 +54,7 @@ protected function form()
 }
 ```
 
-Verification of these rules occurs once the data are sent and when the 'isValid' method is used for the form. An example of validation inside a processor:
+Verification of these rules occurs once the data are sent and when the `isValid` method is used for the form. An example of validation inside a processor:
 
 ```php
 public function create()
@@ -84,11 +88,11 @@ It is worth mentioning that if the form is sent by ajax, the validator's respons
 
 Validator's operation effect is presented by the screen below:
 
-  ![AT_VALID01.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/validation/AT_VALID01.PNG)
+![AT_VALID01.PNG](../img/docs/services/validation/AT_VALID01.PNG)
   
-##Validation's Error Content  
+## Validation's Error Content  
 
-There is a possibility of determining your own form's error contents after the validation. The '**phrases**' method accepts in an argument a board containing its own errors communication:
+There is a possibility of determining your own form's error contents after the validation. The `phrases` method accepts in an argument a board containing its own errors communication:
 
 ```php
 $form->phrases([
@@ -98,12 +102,12 @@ $form->phrases([
 
 And the effect:
 
-  ![AT_VALID02.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/validation/AT_VALID02.PNG)
+![AT_VALID02.PNG](../img/docs/services/validation/AT_VALID02.PNG)
   
-##Dedicated Validation  
+## Dedicated Validation  
 
 It is possible to introduce dedicated method which verifies correctness of the sent data.
-An example of class which applies the '**custom_validation**' validator on the '**textarea**' field:
+An example of class which applies the `custom_validation` validator on the `textarea` field:
 
 ```php
 <?php
@@ -193,6 +197,6 @@ $form->rules($this->validator->getValidationRules())->phrases($this->validator->
 
 The effect of sending the form and validation:
 
-  ![AT_VALID03.PNG](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/validation/AT_VALID03.PNG)
+![AT_VALID03.PNG](../img/docs/services/validation/AT_VALID03.PNG)
   
 

@@ -1,8 +1,16 @@
-#Service Providers  
+# Service Providers  
 
 [TOC]
+## Introduction
 
-Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection. An example of Service Provider for the component's needs is depicted below:
+Service Provider is a class responsible for the component's initialization. It contains essential methods  enabling object's initialization within dependency injection.
+More information about service provider can be found at [Laravel documentation](https://laravel.com/docs/5.4/providers). 
+
+> The path of service providers is `src/modules/<module_name>/src/` (e.g. `src/modules/sample_module/src/SampleModuleServiceProvider.php`).
+
+## Class structure
+ 
+An example of Service Provider for the component's needs is depicted below:
 
 ```php
     <?php
@@ -108,7 +116,7 @@ Service Provider is a class responsible for the component's initialization. It c
     }
 ```
 
-##Namespace Attribute  
+### Namespace Attribute  
 
 ```php
 protected $namespace = 'Antares\Foo\Http\Controllers';
@@ -116,7 +124,7 @@ protected $namespace = 'Antares\Foo\Http\Controllers';
 
 Determines controller's name space in the component.
 
-##routeGroup Attribute  
+### RouteGroup Attribute  
 
 ```php
 protected $routeGroup = 'antares/foo';
@@ -124,7 +132,7 @@ protected $routeGroup = 'antares/foo';
 
 Determines routing's name which must be unique within all components.
 
-##The Listen Attribute  
+### The Listen Attribute  
 
 ```php
 protected $listen = [
@@ -134,7 +142,7 @@ protected $listen = [
 
 This is the events' list where the component's objects will listen out.
 
-##The 'register' Method  
+### The 'register' Method  
 
 ```php
 public function register()
@@ -165,13 +173,13 @@ public function register()
 }
 ```
 
-##The 'boot' Method  
+### The 'boot' Method  
 
-###Routing  
+#### Routing  
 
-It is started after the 'register' method. Once it is started, the component is ready to work. Within the 'boot' method routing's definition takes place, where the component will refer.
+It is started after the `register` method. Once it is started, the component is ready to work. Within the `boot` method routing's definition takes place, where the component will refer.
 
-The methods: loadFrontendRoutesFrom and loadBackendRoutesFrom are predefined in ModuleServiceProvider. They can be overwritten:
+The methods: `loadFrontendRoutesFrom` and `loadBackendRoutesFrom` are predefined in `ModuleServiceProvider`. They can be overwritten:
 
 ```php
 if (!$this->app->routesAreCached()) {
@@ -179,9 +187,9 @@ if (!$this->app->routesAreCached()) {
 }
 ```
 
-###Configuration  
+#### Configuration  
 
-In the 'boot' method, definition of configuration file ascribed to the component also occures. The code:
+In the `boot` method, definition of configuration file ascribed to the component also occures. The code:
 
 ```php
 $this->addConfigComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/config");
@@ -193,9 +201,9 @@ will register component's configuration in the application, so referring to it w
 $value=config('antares/foo::keyname');
 ```
 
-The configuration files will be downloaded from the path '{$path}/resources/config'.
+The configuration files will be downloaded from the path `{$path}/resources/config`.
 
-###Translations  
+#### Translations  
 
 The visibility of the translations available for the component are enabled by the code:
 
@@ -203,7 +211,7 @@ The visibility of the translations available for the component are enabled by th
 $this->addLanguageComponent($this->routeGroup, $this->routeGroup, "{$path}/resources/lang");
 ```
 
-which will download the language files from the location '{$path}/resources/lang'.
+which will download the language files from the location `{$path}/resources/lang`.
 
 Referring to the translated phrase will be possible through:
 
@@ -211,8 +219,8 @@ Referring to the translated phrase will be possible through:
 $messageTranslated = trans('antares/foo::messages.user_updated');
 ```
 
-The translator is searching for the file named as messages.php in the location '{$path}/resources/lang/<current_language_code>'. An example of the messages.php file:
-```console
+The translator is searching for the file named as messages.php in the location `{$path}/resources/lang/<current_language_code>`. An example of the *messages.php* file:
+```bash
 /resources/lang/en/messages.php
 ```
 ```php
@@ -220,17 +228,17 @@ The translator is searching for the file named as messages.php in the location '
     return ['user_updated' => 'User has been updated.'];
 ```    
 
-##Views  
+## Views  
 
-To make the component work with the views, insert to the 'boot' method the code:
+To make the component work with the views, insert to the `boot` method the code:
 
 ```php
 $this->addViewComponent($this->routeGroup, $this->routeGroup, __DIR__ . '/../resources/views');
 ```
 
-which will ascribe to the component the path where the 'twig' view files will be read. Referring to, as well as rendering the view file is possible with the use of:
+which will ascribe to the component the path where the *twig* view files will be read. Referring to, as well as rendering the view file is possible with the use of:
 
-```console
+```bash
 resources/views/index/index.twig
 ```
 

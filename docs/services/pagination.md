@@ -1,10 +1,12 @@
-#Pagination  
+# Pagination  
 
 [TOC]
 
-##Definition  
+## Introduction  
 
 Definition of using pagination in the project usually focuses on the use of solutions provided by the Laravel environment. More information can be found [here](https://laravel.com/docs/5.2/pagination). There is a dedicated decorator in the project which wraps paginator's object with a view for the customization purposes. This means that paginator's appearance and behavior may be defined depending on target product's expectations.
+
+## Presenter
 
 The class responsible for this definition is:
 
@@ -90,9 +92,9 @@ This view should be edited depending on demand on the product. View's source cod
 </div>
 ```
 
-##Usage  
+## Usage  
 
-If data is obtained from database, it is good to use the 'paginate' method in order to create paginator's object:
+If data is obtained from database, it is good to use the `paginate` method in order to create paginator's object:
 
 ```php
 /**

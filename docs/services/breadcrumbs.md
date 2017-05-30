@@ -1,12 +1,17 @@
-#Breadcrumbs  
+# Breadcrumbs  
 
-[TOC]
+## Introduction
 
-Breadcrumbs are the website's elements and their task is to facilitate the user's navigation at the website. Thanks to the additional navigation in the form of **breadcrumbs** the user can see in which service's section he is located and without any problem he may return to the superior website's section.
+Breadcrumbs are the website's elements and their task is to facilitate the user's navigation at the website. Thanks to the additional navigation in the form of breadcrumbs the user can see in which service's section he is located and without any problem he may return to the superior website's section.
+
+> The breadcrumbs classes should be placed in `src/modules/<module_name>/Http/Breadcrumbs/` (e.g. `src/modules/<module_name>/Http/Breadcrumbs/Breadcrumb.php`). The path of breadcrumb source code is `src/core/src/ui/base/src/Breadcrumb/`.
+
+## An example
+
 A class defining a new breadcrumb is the following:
 
 ```php
-    <?php
+<?php
      
     namespace Antares\Foo\Http\Breadcrumb;
      
@@ -82,11 +87,11 @@ public function index(Collection $collection)
 
 The result:
 
-  ![AT_BREAD1](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD1.png)
+![AT_BREAD1](../img/docs/services/breadcrumbs/AT_BREAD1.png)
   
 For edition:
 
-  ![AT_BREAD2](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/breadcrumbs/AT_BREAD2.png)
+![AT_BREAD2](../img/docs/services/breadcrumbs/AT_BREAD2.png)
   
 The breadcrumbs configuration is in the following file:
 

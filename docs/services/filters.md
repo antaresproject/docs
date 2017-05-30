@@ -1,14 +1,19 @@
-
-#Filters  
+# Filters  
 
 [TOC]
 
-##Introduction  
+## Introduction  
 
-Filters are used to delimit the query results which are data providers within the Datatables' operation. More about datatables can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Datatables). Configuration of class responsible for filter's operation is the following:
+Filters are used to delimit the query results which are data providers within the Datatables' operation. More about datatables can be found [here](datatables.md). 
+
+> Filters classes should be placed in `src/modules/<module_name>/src/Http/Filters/` (e.g. `src/modules/<sample_module>/src/Http/Filters/GroupFilter.php`).
+
+## Class structure
+
+Structure of class responsible for filter's operation is the following:
 
 ```php
-    <?php
+<?php
      
     namespace Antares\Foo\Http\Filters;
      
@@ -94,48 +99,43 @@ Filters are used to delimit the query results which are data providers within th
     }
 ```
     
-As shown above, the filter must inherit from abstract base class '**Antares\Datatables\Filter\AbstractFilter**'. It must also implement the interface '**Yajra\Datatables\Contracts\DataTableScopeContract**' which is used by the Datatables object.
+As shown above, the filter must inherit from abstract base class `Antares\Datatables\Filter\AbstractFilter`. It must also implement the interface `Yajra\Datatables\Contracts\DataTableScopeContract` which is used by the Datatables object.
 
-##Attributes  
+### Attributes  
 
 * **name** - name of the filter which can be treated as a title as well. It is used to present the filter on the filters' list (dropdown) as below:
-
-  ![AT_FILT01](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/filters/AT_FILT01.png)
+  ![AT_FILT01](../img/docs/services/filters/AT_FILT01.png)
   
 * **column** - an attribute being the name of the key where the filters data in session are located. It is crucial that the name of the column was unique due to the possibility of repetition's existence.
 * **pattern** - an attribute determining the title's pattern after the filter's choice. An example:
+  ```php
+  protected $pattern = 'Foo %value Foo';
+  ```
+  It will cause filter's data display in the following format:
 
-```php
-protected $pattern = 'Foo %value Foo';
-```
-
-It will cause filter's data display in the following format:
-
-  ![AT_FILT02](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/filters/AT_FILT02.png)
+  ![AT_FILT02](../img/docs/services/filters/AT_FILT02.png)
   
-##Methods  
+### Methods  
 
-* **dataProvider** - a method which is used by the '**render**' method. In the case mentioned above it is a data provider for the list's needs which is displayed in the filter's dropdown as below:
+* **dataProvider** - a method which is used by the `render` method. In the case mentioned above it is a data provider for the list's needs which is displayed in the filter's dropdown as below:
 
-  ![AT_FILT03](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/filters/AT_FILT03.png)
+  ![AT_FILT03](../img/docs/services/filters/AT_FILT03.png)
   
-* **render** - a method responsible for filter's presentation in a list. It may use the assets' publication which participate in interface service. **You need to remember that filters placed in the application are only a pattern and they cannot be used in the dedicated applications. Each filter should possess its own implementation of scripts responsible for interface service.** Implementation of the 'render' method is simple and it is responsible for delivering a view which is presented with the filter. 
-* **apply** - a method responsible for filtering logic. In this method narrowing the query is serviced. An argument of this method usually is builder's instance (\Illuminate\Database\Eloquent\Builder) sql delivered with the Laravel's environment. The '**getParams()**' method provides the data included in session. In the aforementioned case the code shown below is responsible for downloading the data ascribed to the filter:
-
-```php
-if (!empty($values = array_get($params, $this->column . '.values'))) {
+* **render** - a method responsible for filter's presentation in a list. It may use the assets' publication which participate in interface service. **You need to remember that filters placed in the application are only a pattern and they cannot be used in the dedicated applications. Each filter should possess its own implementation of scripts responsible for interface service.** Implementation of the `render` method is simple and it is responsible for delivering a view which is presented with the filter. 
+* **apply** - a method responsible for filtering logic. In this method narrowing the query is serviced. An argument of this method usually is builder's instance (`\Illuminate\Database\Eloquent\Builder`) sql delivered with the Laravel's environment. The `getParams()` method provides the data included in session. In the aforementioned case the code shown below is responsible for downloading the data ascribed to the filter:
+  ```php
+  if (!empty($values = array_get($params, $this->column . '.values'))) {
      $builder->whereIn('name', $values);
-}
-```
+  }
+  ```
+  Remember that using the `whereIn` method in the foregoing example occurs on object's instance of the `Illuminate\Database\Eloquent\Builder` type which is responsible for creating a query to database. In a case when dataProvider is determined as a collection (`Illuminate\Database\Eloquent\Collection` or `Illuminate\Support\Collection`) the use of the `whereIn` method will give no result. In the case of the collection apply the methods described in the [documentation](https://laravel.com/docs/5.1/collections).
 
-Remember that using the '**whereIn**' method in the foregoing example occurs on object's instance of the **Illuminate\Database\Eloquent\Builder** type which is responsible for creating a query to database. In a case when dataProvider is determined as a collection (**Illuminate\Database\Eloquent\Collection** or **Illuminate\Support\Collection**) the use of the '**whereIn**' method will give no result. In the case of the collection apply the methods described in the [documentation](https://laravel.com/docs/5.1/collections).
-
-##Forms  
+### Forms  
 
 In the filters (beyond the list) forms narrowing the query results can be defined. Here is an example:
 
 ```php
-    <?php
+<?php
      
     namespace Antares\Foo\Http\Filters;
      
@@ -232,12 +232,12 @@ In the filters (beyond the list) forms narrowing the query results can be define
     }
 ```
 
-In the case above the '**form**' method is responsible for providing the form's object which will be displayed within the framework of the filter. More information concerning the work with forms can be found [here](https://inbssoftware.atlassian.net/wiki/display/AS/Form+Builder). Note the name of value in the 'pattern' attribute that is '**%created_at_range**' which is the same as the name of the box in the form. The layout's file used by the form has the following syntax:
+In the case above the `form` method is responsible for providing the form's object which will be displayed within the framework of the filter. More information concerning the work with forms can be found [here](form_builder.md). Note the name of value in the `pattern` attribute that is `%created_at_range` which is the same as the name of the box in the form. The layout's file used by the form has the following syntax:
 
 <pre><code>antares/foo::admin.partials._filter_form</code></pre>
 
 ```html
-    {{ Form.open(form)|raw }}
+{{ Form.open(form)|raw }}
     {% for fieldset in fieldsets %}
         <fieldset name="inputs">               
             {% for control in fieldset.controls() %}
@@ -252,18 +252,18 @@ In the case above the '**form**' method is responsible for providing the form's 
             {{ button.getField(row, button, [])|raw }}
         {% endfor %} 
     {% endif %}
-    {{ Form.close()|raw }}
+{{ Form.close()|raw }}
 ```
 
 The example above gives the following effect:
 
-  ![AT_FILT04](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/filters/AT_FILT04.png)
+![AT_FILT04](../img/docs/services/filters/AT_FILT04.png)
   
 Once the filter is chosen, the effect is as shown below:
 
-  ![AT_FILT05](https://raw.githubusercontent.com/antaresproject/docs/master/docs/img/docs/services/filters/AT_FILT04.png)
+![AT_FILT05](../img/docs/services/filters/AT_FILT04.png)
   
-In the case of filters which use the forms, what is very important is the query that is the '**apply**' method. The code:
+In the case of filters which use the forms, what is very important is the query that is the `apply` method. The code:
 
 ```php
 if (!empty($values = array_get($params, $this->column . '.values'))) {
