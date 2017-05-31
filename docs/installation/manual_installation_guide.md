@@ -158,16 +158,10 @@ Firstly, go to directory:
 cd /var/www
 ```  
 
-and clone GIT repository:
+and clone GIT repository using `create-project` command:
 
 ```bash
-git clone https://github.com/antaresproject/project.git -b 0.9.2 html
-```
-
-or just use the `create-project` command:
-
-```bash
-composer create-project antaresproject/project html 0.9.2.x-dev
+composer create-project antaresproject/project /var/www/html dev-master
 ```
     
 **Please note**: Target clone directory should not exist. Using the above command check whether directory does not exist.
