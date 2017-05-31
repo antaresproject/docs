@@ -158,7 +158,13 @@ Firstly, go to directory:
 cd /var/www
 ```  
 
-and clone GIT repository using `create-project` command:
+and clone GIT repository using:
+
+```bash
+git clone antaresproject/project -b dev-master /var/www/html 
+```
+
+or using `create-project` command:
 
 ```bash
 composer create-project antaresproject/project /var/www/html dev-master
@@ -241,11 +247,7 @@ chmod -R 777 storage public bootstrap
 
 ```bash
 cd /var/www/html
-chown -R www-data:www-data storage public bootstrap src
-```
-
-```bash
-mkdir -m 777 /var/www/html/cache
+chown -R www-data:www-data storage public bootstrap src vendor cache composer.lock composer.json
 ```
    
 
