@@ -161,7 +161,7 @@ cd /var/www
 and clone GIT repository using:
 
 ```bash
-git clone antaresproject/project -b dev-master /var/www/html 
+git clone antaresproject/project -b dev-master /var/www/html --keep-vcs 
 ```
 
 or using `create-project` command:
