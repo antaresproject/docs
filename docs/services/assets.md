@@ -4,7 +4,7 @@
 
 ## Introduction  
 
-Assets is a set of tools enabling a programmer to manage efficiently resources' files (JavaScripts, CSS, LESS, SASS etc.) which belongs to the system and deliver user interface.
+Assets include a set of tools that enable a programmer to efficiently manage resource files (JavaScripts, CSS, LESS, SASS etc.) that are a part of the system and deliver a user interface.
 
 > The asset directory for module should be placed in `src/modules/<module_name>/public/` (e.g. `src/modules/<sample_module>/public/js/sample.js`). The path of assets source code is `src/core/src/utils/asset/`.  
 
@@ -67,28 +67,28 @@ body {
 
 ## Public directory
 
-Scripts' files are gathered globally in the *public* directory, where all the files participating in the user's interface building are also placed.
-Here are the profiles of the most important directorys:
+Script files are gathered globally in the *public* directory along with all files involved in the creation of a user interface.
+The most important directories are explained below:
 
-* *_dist* - the directory contains a series of scripts which are the result of grunt/gulp tools type which aims at user's interface modules files optimization (e.g. js minification). Click [here](http://gruntjs.com/) for more information.
-* *assets* - the directory contains a series of libraries belonging to user's interface. It is the effect of bower tool operation, more information can be found [here](https://bower.io/)
-* *avatars* - stores the avatars' files for the widgets' needs
-* *js* - javascript scripts type
-* *packages* - the directory consists of subdirectorys - packages creating user's interface. It consist of the 'packages' subcatolgue where assets' files created by particular modules are placed. Assets' files (js, css) are the symbolic links to the files in the modules
-* *templates* - it consists of views' drops for the needs of widget templates
+* *_dist* - contains a series of scripts resulting from the operation of grunt/gulp tools that aim at optimizing the files of a user interface (e.g. js minification). Click [here](http://gruntjs.com/) for more information.
+* *assets* - contains a set of libraries that belong to a user interface. They are the effect produced by the operation of a bower tool, more information can be found [here](https://bower.io/)
+* *avatars* - stores the files of avatars for widgets
+* *js* - scripts of javascript type
+* *packages* - consists of subdirectories, i.e. the packages that create a user interface. It includes the 'packages' subdirectory that gathers files of assets created by particular components. Assets' files (js, css) are symbolic links to the files in the components
+* *templates* - includes view files used by the templates of user interface components
 
-## Modules  
+## Components  
 
-Each module using its own assets should contain the *public* directory consisting of the properly placed files of the js or css type. A separation of these directorys facilitates the obtaining of the clear structure responsible for the proper module's operation. In order to publish the assets  belonging to the module, use the `publish` helper created for this purpose. 
+Each component that uses its own assets should include the *public* directory consisting of the properly located files of the js or css type. Directiories are separated to ensure a transparent structure responsible for the proper operation of a component. In order to publish the assets that belong to the component, use the `publish` helper created for this purpose. 
 An example:
 
 ```php
 publish('foo', ['js/foo.js']);
 ```
 
-The first argument is the module's name, the second is the table containing paths to the assets, beginning from the '**public**' directory. Publication will make the asset belong to all the assets creating user's interface and it will be placed before locking the <**body**> section of the html document. 
+The first argument is the name of a component, the second one is the table that contains paths to the assets, starting from the '**public**' directory. After publishing, the asset will be included in all the assets that create a user interface. It will be placed before the end of the <**body**> section of the html document.
 
-There is also a possibility of publishing the assets with the use of configuration file. Module's configuration:
+There is also a possibility to publish the assets using a configuration file. The component's configuration:
 
 ```php
 <?php     
@@ -99,15 +99,15 @@ There is also a possibility of publishing the assets with the use of configurati
     ];
 ```
         
-And the use of:
+And the use of the following code:
 
 ```php
 publish('foo', 'scripts');
 ```
 
-Will cause the publication of all the assets defined in the `foo` key. 
+Will result in the publication of all the assets defined in the `foo` key. 
 
-The helper publishing the assets is using the call:
+The helper that publishes the assets uses the call:
 ```php
 app('antares.asset.publisher')->publish($extension, $options);
 ```
@@ -121,12 +121,12 @@ Is an instance of the `Antares\Asset\AssetPublisher` object.
 
 ## Containers  
 
-Quite frequently, there is a situation when publishing of the assets not always occurs before the end of the `<body>` section. In such a situation use the AssetFactory, an example:
+There is often a situation when publication of the assets does not take place before the end of the `<body>` section. In such cases, use the AssetFactory, as in the example:
 ```php
 app('antares.asset')->container('foo')->add('login-js', 'public/js/login.js');
 ```
 
-This will cause the publication of the `login.js` file in the `foo` container. The `add` method is used to add an asset to a container. The first argument is the shortened name, unique within the whole application, the second one is the path to the asset. The `foo` container is an overt indication of the position in the html document, for example the `<head>` section, so:
+This will result in publishing the `login.js` file in the `foo` container. The `add` method is used to add an asset to a container. The first argument is the shortened name, unique within the whole application, and the second one is the path to the asset. The `foo` container is a direct indication of the position in the html document. See the example of the `<head>` section:
 
 ```html
 <head>
