@@ -138,7 +138,7 @@ This will result in publishing the `login.js` file in the `foo` container. The `
    {% endblock %}
 </head>
 ```   
-Consequently this will cause the development of the `<head>` section enlarged by assets from the `foo` container:
+This will lead to the extension of the `<head>` section with the assets from the `foo` container:
 
 ```html
 <head>
@@ -151,7 +151,7 @@ Consequently this will cause the development of the `<head>` section enlarged by
 
 ## Order  
 
-Assets' downloading order management, is a fundamental issue because of the visibility of particular packages. An example:
+Management of the assets' loading order is important because of the visibility of particular packages. For example:
 
 `main.twig`
 
@@ -161,11 +161,11 @@ $container->add('bootstrap-js', 'js/bootstrap.min.js');
           ->add('login-js', 'js/login.js', ['bootstrap-js']);
 ```
           
-It will download the *js/login.js* file after the *js/bootstrap.min.js* file in the `foo` container, thanks to determining the third parameter of the `add` method. There is a possibility of determining more than one interrelation (the table).
+It will load the *js/login.js* file after the *js/bootstrap.min.js* file in the `foo` container, thanks to defining the third parameter of the `add` method. It is possible to determine more than one relation (the table).
 
 ## Additional Parameters  
 
-Many a time the assets require parameterization (e.g. media queries). An example:
+The assets often require parameterization (e.g. media queries). For example:
 ```php
 app('antares.asset')->container('foo')->add('foo-css', 'css/foo.css', ['media' => 'all', 'rel' => 'stylesheet']);
 ```
@@ -186,14 +186,14 @@ app('antares.asset')->container('foo')
 ```
 
                 
-will cause adding the asset in the `foo` container which will be downloaded from the CDN repository, so:
+It will result in adding the asset in the `foo` container that will be loaded from the CDN repository, therefore:
 ```html
 <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 ```
    
 ## Inline Scripting  
 
-Frequently, there is a situation when the created module or widget must directly interfere in the user's interface behavior (e.g. dedicated notification), so:
+There is often a situation when the created component or widget directly affects the user's interface behavior (e.g. dedicated notification), therefore:
 ```php
     app('antares.asset')->container('foo')->inlineScript('foo-awesome', $this->inline());
     
@@ -216,7 +216,7 @@ Frequently, there is a situation when the created module or widget must directly
 
     
 
-It will add to the `foo` container the javascript code:
+It will add the javascript code to the `foo` container:
 
 ```html
 <script type="text/javascript" >          
@@ -228,31 +228,31 @@ It will add to the `foo` container the javascript code:
 </script>
 ```
         
-which as a result will cause notification's display:
+Which, in result, will display the following notification:
 
 ![AT_ASS01](../img/docs/services/assets/AT_ASS01.png)
   
 ## Versioning  
 
-The application provides versioning of the assets, an example:
+The application provides versioning of the assets, for example:
 
 ```php
 app('antares.asset')->container('foo')->add('login-js', 'js/login.js')->addVersioning();
 ```
 
-The `addVersioning()` method, will cause the creation of:
+The `addVersioning()` method will cause the creation of:
 
 ```html
 <script src="http://localhost/js/login.js?1465211833"></script>
 ```
 
-adding to the asset a unique number as a date of latest modification in the timestamp form. The removal of versioning is done by the `removeVersioning()` method.
+It will also add a unique number to the asset, being the date of the latest modification in the timestamp form. The removal of versioning is done by the `removeVersioning()` method.
 
 ## RequireJs  
 
 ### Introduction  
 
-[RequireJS](http://requirejs.org/) is a JavaScript framework created for the effective interrelation management between the modules. It allows you to create a faster code of better quality. All you need to start the work with RequireJS can be found on the [website](http://requirejs.org/). The system uses the aforementioned library in order to obtain better readability and scripts' modularity which belong to the application.
+[RequireJS](http://requirejs.org/) is a JavaScript framework created for the effective management of relations between the components. It allows you to produce faster code of better quality. Everything you need to start the work with RequireJS can be found on the [website](http://requirejs.org/). The system uses the aforementioned library in order to ensure better transparency and modularity of scripts that belong to the application.
 
 In order to start the work with RequireJS, add script's declaration *require.js* to the HTML website's code as shown below:
 
@@ -261,20 +261,20 @@ In order to start the work with RequireJS, add script's declaration *require.js*
 ```
     
     
-As visible the declaration has an additional attribute `data-main` which is used to indicate the script that is a starting point of a given view. What this file should look like will be explained in the further part of the post, but before the modules declaration with the use of RequireJS will be shown, you need to recall what JavaScript module is.
+As you can see, the declaration has an additional attribute `data-main` which is used to indicate the script that is a starting point of a given view. What this file should look like will be explained in the further part of the post. But before the components' declaration with the use of RequireJS will be presented, you need to understand what the module in JavaScript is.
 
 ### Pattern  
 
-Since there is no syntax allowing for package creation in the JavaScript, a module's pattern has been created which allows for an appropriate structuring and separation of large amount of code.
+Since there is no syntax that enables the package creation in the JavaScript, a module's pattern has been created that ensures an appropriate structuring and separation of large amounts of code.
 
-When creating a module, the first step is to define the 'namespace' which is a simulation of the namespaces' known from the other programming languages (in JavaScript there is no appropriate syntax). It is done by declaring a single global variable which is a 'root' of all namespaces' and then appropriate containers for objects (specific 'namespaces') are created. Take a look at the example below ('init.js' file):
+When creating the module, the first step is to define the 'namespace' which is a simulation of the namespaces known from the other programming languages (there is no appropriate syntax in JavaScript). It is completed by declaring a single global variable being a 'root' of all namespaces and then creating appropriate containers for objects (specific 'namespaces'). Take a look at the example below ('init.js' file):
 
 ```js
 var APP = window.APP || {}; // create namespace for our app
 APP.modules = {}; // namespace for modules
 ```
 
-Within the first line the global variable is defined and then a container for modules must be added - in this manner `APP.modules` namespace is created. Having a namespace, you can create another modules. To begin with, the 'mod' module (in a separate 'mod.js' file):
+The mentioned global variable is defined in the first line and then a container for modules has to be added - this is how the `APP.modules` namespace is created. Once you have a namespace, you can create another modules. Let's start with the 'mod' module (from the separate 'mod.js' file):
 
 ```js
 // create module in 'APP.modules' namespace
@@ -290,9 +290,9 @@ APP.modules.mod = (function () {
 } ());
 ```
 
-As it can be seen, while creating a module, instant functions are used (the module's function is wrapped in brackets and shortly after the closing brace round brackets are placed). Thanks to that the module's function is executed instantly after the defining and all the variables used within remain in the local range, whereas to the `APP.modules.mod` attribute only the returned object is ascribed and not the function (the expression `APP.modules.mod()` will not be correct).
+As can be seen, instant functions are used to create the module (the entire module's function is wrapped in brackets and round brackets are placed right after the curly brackets). Thanks to this, the module's function is executed instantly after it is defined and all the variables used in it remain in the local scope. Moreover, only the object returned by the `APP.modules.mod` attribute is assigned and not the function (the expression `APP.modules.mod()` will not be correct).
 
-Take a look at the second module (the 'show.js' file) which uses the one shown above:
+Below you can see the second module (the 'show.js' file) that uses the module shown above:
 
 ```js
 // another module which uses "mod"
@@ -310,9 +310,9 @@ APP.modules.show = (function () {
 } ());
 ```
 
-In the fourth line you can notice that the '`APP.modules.mod` attribute has been ascribed to the `mod` local variable. This is the manner which should always have been applied when defining all the interrelations to other modules and in the further part of the module using the local variables. Thanks to that the users are informed about what functionalities are required for the modules proper operation. Furthermore, the use of local variables is always faster than the use of global variables and especially global variables' attributes (as in this case).
+In the fourth line, you can notice that the '`APP.modules.mod` attribute is assigned to the `mod` local variable. This is the way in which all the relations with other modules should be defined. Afterwards, only the local variables should be used in the further part of the module. Thanks to this, the users are informed about which functionalities are required for the proper operation of the module. Furthermore, the use of local variables is always faster than the use of global variables and especially global variables' attributes (as in this case).
 
-Once you have all the required modules for your application, you are ready to use them - but first of all - scripts' declaration:
+Once you have all the required modules of your application, you are ready to use them, but first - scripts' declaration:
 
 ```html
 <script src="/Scripts/init.js"></script>
