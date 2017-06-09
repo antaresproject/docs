@@ -437,7 +437,7 @@ The effect:
   
 ### Actions On Rows
 
-Attaching in actions on a row, before the action: `datatables:<route_name>:before.action.<action_name>`, after the action: `datatables:<route_name>:after.action.<action_name>`. The example:
+Using events `datatables::before.actions` and `datatables::after.actions` you can interact with actions assigned to the row. Before the action: `datatables:<route_name>:before.action.<action_name>`, after the action: `datatables:<route_name>:after.action.<action_name>`. The example:
 
 ```php
 Event::listen('datatables:admin/users/index:before.action.edit', function($actions, $row) {
