@@ -4,7 +4,7 @@
 
 ## Introduction  
 
-Definition of using pagination in the project usually focuses on the use of solutions provided by the Laravel environment. More information can be found [here](https://laravel.com/docs/5.2/pagination). There is a dedicated decorator in the project which wraps paginator's object with a view for the customization purposes. This means that paginator's appearance and behavior may be defined depending on target product's expectations.
+When explaining the pagination in the project, the use of solutions provided by the Laravel environment are stressed. More information can be found [here](https://laravel.com/docs/5.2/pagination). There is a dedicated decorator in the project that wraps the paginator's object with a view for the customization purposes. This means that paginator's appearance and behavior may be defined depending on the target product's expectations.
 
 ## Presenter
 
@@ -14,9 +14,9 @@ The class responsible for this definition is:
 Antares\Pagination\PaginationAjaxPresenter
 ```
 
-which can be found in the system's core.
+It can be found in the system's core.
 
-"Render" is a crucial class method and it is responsible for paginator's presentation:
+"Render" is a crucial class method and it is responsible for the paginator's presentation:
 
 ```php
 public function render()
@@ -44,13 +44,13 @@ public function render()
 }
 ```
 
-It is worth noticing that the method is using the following view for presentation:
+It is worth noting that the method uses the following view for the presentation:
 
 ```php
 antares/foundation::layouts.antares.partials.pagination._pagination
 ```
 
-This view should be edited depending on demand on the product. View's source code:
+This view should be edited depending on the product demand. The source code of the view:
 
 ```html
 <div class="pagination mb16 mt16">
@@ -94,7 +94,7 @@ This view should be edited depending on demand on the product. View's source cod
 
 ## Usage  
 
-If data is obtained from database, it is good to use the `paginate` method in order to create paginator's object:
+If data are obtained from the database, it is advised to use the `paginate` method in order to create the paginator's object:
 
 ```php
 /**
@@ -109,7 +109,7 @@ public function paginationEloquent() {
 }
 ```
 
-If a collection is dataprovider, the construction is somewhat different:
+If a dataprovider is a collection, the construction is somewhat different:
 
 ```php
 /**
@@ -129,13 +129,13 @@ public function paginationCollection() {
 }
 ```
 
-In both cases view's object is methods' value:
+In both cases, the view's object is the value of methods:
 
 ```php
 antares/foo::index.index
 ```
 
-View's object source code is the following:
+The source code of the view's object is the following:
 
 ```html
 {% extends "antares/foundation::layouts.antares.index" %}  
@@ -168,10 +168,10 @@ View's object source code is the following:
 {% endblock %}
 ```
 
-In the example above it is good to notice the calling:
+In the example above, the following calling should be given special attention:
 
 ```html
 {{ links|raw }}
 ```
 
-which is responsible for pagination's section display.
+As it is responsible for the display of the pagination's section.
