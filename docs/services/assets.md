@@ -290,7 +290,7 @@ APP.modules.mod = (function () {
 } ());
 ```
 
-As can be seen, instant functions are used to create the module (the entire module's function is wrapped in brackets and round brackets are placed right after the curly brackets). Thanks to this, the module's function is executed instantly after it is defined and all the variables used in it remain in the local scope. Moreover, only the object returned by the `APP.modules.mod` attribute is assigned and not the function (the expression `APP.modules.mod()` will not be correct).
+As can be seen, instant functions are used to create the module (the entire module's function is wrapped in brackets and round brackets are placed right after the curly brackets). Thanks to this, the module's function is executed instantly after it is defined and all the variables used in it remain in the local scope. Moreover, only the object returned by the `APP.modules.mod` attribute is assigned to it and not the function (the expression `APP.modules.mod()` will not be correct).
 
 Below you can see the second module (the 'show.js' file) that uses the module shown above:
 
@@ -312,7 +312,7 @@ APP.modules.show = (function () {
 
 In the fourth line, you can notice that the '`APP.modules.mod` attribute is assigned to the `mod` local variable. This is the way in which all the relations with other modules should be defined. Afterwards, only the local variables should be used in the further part of the module. Thanks to this, the users are informed about which functionalities are required for the proper operation of the module. Furthermore, the use of local variables is always faster than the use of global variables and especially global variables' attributes (as in this case).
 
-Once you have all the required modules of your application, you are ready to use them, but first - scripts' declaration:
+Once you have all the required modules of your application, you are ready to use them. But first a look at the scripts' declaration:
 
 ```html
 <script src="/Scripts/init.js"></script>
@@ -322,18 +322,18 @@ Once you have all the required modules of your application, you are ready to use
 ```
     
     
-Notice that it is essential in what order the files are loaded because the individual modules depend on each other.
-In the end the use of `APP.modules.show` module:
+Note that the order in which the files are loaded is important because the individual modules depend on each other.
+Lastly, take a look at the use of `APP.modules.show` module:
 ```html
 <input type="button" onclick="APP.modules.show.useModule()" value="Click!"/>
 ```
     
     
-The above example should not be treated as a pattern because it uses the 'onclick' parameter in the 'in-line' mode.
+The example above should not be considered a pattern because it uses the 'onclick' parameter in the 'in-line' mode.
 
 ### Backend  
 
-A configuration file wherein JavaScript files are determined (used by the system) is placed in the location:
+A configuration file in which JavaScript files used by the system are determined is placed in the location:
 
 `\resources\config\require_js.php`
 
@@ -362,18 +362,18 @@ Configuration file's content:
     
 The description of configuration table's keys:
 
-**cache** - JavaScript scripts caching. If it is on, the application is not adding an additional parameter in the url address determining timestamp, as in the example below:
+**cache** - JavaScript scripts' caching. If it is enabled, the application does not add an additional parameter that defines timestamp in the url address, as in the example below:
 
 ```html
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js"></script>
 ```
-In case when the following cache is on:
+In case the following cache is on:
 ```html
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui" src="/gzip_assets/jquery-ui/ui/minified/jquery-ui.min.gz.js?antares=1477570617320"></script>
 ```
 the *antares* parameter is added.
 
-**main** - determines the location of the file containing the individual scripts' paths configuration:
+**main** - specifies the location of the file that contains the configuration of individual scripts' paths:
 ```js
 define("jquery", [], function () {
    return jQuery;
@@ -394,11 +394,11 @@ define("jquery", [], function () {
    }
 });
 ```
-In the code above note that when determining the location, the (*.js) files' extensions are not given.
+In the code above, note that the (*.js) files' extensions are not provided when determining the location.
 
-**default** - determines the default set of packages which the application uses. The names contained in this table are an equivalent of the keys with the ascribed paths from the */js/require/main.js* file.
+**default** - defines the default set of packages used by the application. The names contained in this table are an equivalent of the keys which the paths from the */js/require/main.js* file are assigned to.
 
-**childs** - a set of scripts which will be loaded when scripts determined in default are loaded. The result is the following:
+**childs** - a set of scripts which will be loaded after the scripts determined in default are loaded. The result is as follows:
 ```js
 require(['/js/require/main.js'], function () {
     require(["jquery", "jquery-ui", "datetimepicker"], function ($) {
@@ -410,7 +410,7 @@ require(['/js/require/main.js'], function () {
     });
 });   
 ```
-The code above is a cascade of scripts and their order of loading is dependent on others. It is connected with a situation when functionality of one can use the functionality of another, as in the example below:
+The code above is a cascade of scripts and their order of loading depends on others. It is connected with a situation when functionality of one can use the functionality of another, as in the example below:
 ```js
 require(["jquery", "ckeditor"], function ($) {
         CKEDITOR.replace('#textarea',{
@@ -424,9 +424,9 @@ CKEDITOR.replace('#textarea',{
     width:'100%'
 });
 ```
-starts when '*jquery*' and '*ckeditor*' scripts are read. Then the '*CKEDITOR*' and '*jQuery*' instances are visible within the script.
+Starts after '*jquery*' and '*ckeditor*' scripts are loaded. Then, the '*CKEDITOR*' and '*jQuery*' instances are visible within the script.
 
-There is a possibility of determining the configuration for the read library, e.g.:
+It is possible to define the configuration for the loaded library, e.g.:
 ```js
   require.config({
       packages: [{
@@ -436,4 +436,4 @@ There is a possibility of determining the configuration for the read library, e.
           }]
   });
 ```
-The code above determines that the package named as *ckeditor* is placed in the `/packages/ckeditor` location, whereas the main package's file is *ckeditor.js* (the value ascribed to the main key, without the '*js*' end).
+The code above specifies that the package named *ckeditor* is placed in the `/packages/ckeditor` location, whereas the main file of the package is *ckeditor.js* (the value assigned to the main key, without the '*js*' extension).
