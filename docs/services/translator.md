@@ -4,35 +4,35 @@
 
 ## Introduction  
 
-The platform supports application's multilingualism through language files determined in component's or module's space.
+The platform supports the multilingualism of an application through the language files defined in the space of a component.
 
-> The default path of translation files defined by module is `src/modules/<module_name>/resources/lang/<language>/` (e.g. `src/modules/sample_module/resources/lang/en/messages.php`).
+> The default path of the translation files defined by the module is `src/modules/<module_name>/resources/lang/<language>/` (e.g. `src/modules/sample_module/resources/lang/en/messages.php`).
 
 ## Configuration  
 
-Determining the location of a language file usually happens in module's service provider 'boot' method by calling:
+Defining the location of a language file usually takes place in the 'boot' method of the module's service provider by calling:
 
 ```php
 $this->addLanguageComponent('antares/foo', 'antares/foo', "{$path}/lang");
 ```
 
-where the `$path` variable determines the location of language files' catalogue. You have to remember about retaining the correct structure as below:
+The `$path` variable determines the location of the directory of language files. Remember to keep the correct structure as presented below:
 
 ![AT_TRANS01.PNG](../img/docs/services/translator/AT_TRANS01.PNG)
   
-It is also possible to use a global catalogue located in:
+It is also possible to use the global directory located in:
 
 ```bash
 resources/lang
 ```
 
-or user's per level:
+or per the user's level:
 
 ```bash
 resources/lang/administrators
 ```
 
-Remember that such solution will cause that translations will no longer be available in the 'translations' component and may be overwritten by publication.
+Remember that such a solution will render translations no longer available in the 'translations' component and they may be overwritten through publication.
 
 ## Usage  
 
@@ -42,4 +42,4 @@ Referring to the translation contained in the configuration file is possible wit
 {{ trans('antares/foo::messages.foo_test') }}
 ```
 
-where `antares/foo` is the name of the module, `messages` is the name of the file, whereas `foo_test` is the translated phrase. More information about how the translator works can be found [here](https://laravel.com/docs/5.2/localization).
+where `antares/foo` is the name of the module, `messages` is the name of the file and `foo_test` is the translated phrase. More information about how the translator works can be found [here](https://laravel.com/docs/5.2/localization).
