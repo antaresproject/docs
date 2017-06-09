@@ -3,45 +3,45 @@
 [TOC]
 
 ## Introduction
-Translations is a package to manage Antares translation files. It doesn't replace the translation system, only automated import / export the php files to a database and make them editable through a web interface. 
-It allows to manage app languages as CRUD with text comparsion feature. 
+Translations is a component dedicated to the management of the Antares translation files. It does not replace the translation system, only the automated import / export of the PHP files to a database and makes them editable through a web interface. 
+It allows to manage app languages as CRUD with the text comparsion feature. 
 
 ##Basis
 
 The module is used to operate translations in the system. 
-Access to the module occurs by means of the url: `/{area}/translations/index/{area}/{lang}` (e.g. /admin/translations/index/administrators/en). The component facilitates translations' content change of particular system's phrases which depends on added languages. The translation list is the following:
+The module can be accessed by means of the url: `/{area}/translations/index/{area}/{lang}` (e.g. /admin/translations/index/administrators/en). The component enables the change of translations' content of particular system's phrases, depending on the added languages. The translation list is the following:
 
-The upper menu consists of positions which facilitate:
+The upper menu consists of positions that enable:
 
   ![AT_TRANSS01.PNG](../img/docs/core_modules/translations/AT_TRANSS01.PNG)
   
-* adding new language
-* import csv file with translations
+* adding a new language
+* import the csv file with translations
 * export of the translation file to the file
 * translations' publishing
 
-Below you can find a division into areas (levels) connected with groups of users to which they belong. This means that a translation concerning a single phrase may be different at the `administrators` level and different at the `users` level.
+Below you can find a division into areas (levels) connected with the groups of users which they belong to. This means that a translation concerning a single phrase may be different at the `administrators` level and the `users` level.
 
-The table contains a register of particular phrases, the first column is the translated phrase, the second is a translation into a chosen language, the third is a field of translation's edit. Worth mentioning is that translations takes variables into consideration which are injected to phrase during system's operation. The menu above the table consists of the field of component choice (on the left), the currently chosen language can be found on the right. Fields which are in the table's heading are used for searching (in the first column). The second column contains the select which enables comparing the content with other language, the second field is used for searching. 
+The table contains a register of particular phrases, the first column is the translated phrase, the second is a translation into a chosen language, the third is a field of the translation's edition. Worth mentioning is that translations take account of variables placed into phrase during the system's operation. The menu above the table consists of the field of the component's choice (on the left), the currently chosen language can be found on the right. Fields in the table's heading are used for searching (in the first column). The second column contains the select that enables comparing the content with other language, the second field is used for searching. 
 
-In order to add new language choose the 'Add new language' option in the upper menu:
+In order to add a new language, choose the 'Add new language' option in the upper menu:
 
 ![AT_TRANSS02.PNG](../img/docs/core_modules/translations/AT_TRANSS02.PNG)
   
-Description of form's fields:
+Description of the form's fields:
 
 * Code - determines the language code (e.g. en, de)
-* Name - name of the language (e.g. Polish, Dutch)
+* Name - the name of the language (e.g. Polish, Dutch)
 
 ## Languages  
 
-Adding a language causes synchronization of the former translations (adding) with the new added language. Once it is added, the field of choice is updated:
+Adding a language results in the synchronization of the former translations (adding) with the newly added language. Once it is added, the field of choice is updated:
 
 ![AT_TRANSS03.PNG](../img/docs/core_modules/translations/AT_TRANSS03.PNG)
   
 ## Export  
 
-The export of translations occurs by means of choosing an option in the menu on the website with the list. Export concerns currently chosen language and level. An exemplary line which is export's result:
+The export of translations takes place through choosing an option in the menu on the website with the list. Export concerns currently chosen language and level. An exemplary line which is export's result:
 
 ```php
 Segment;Locale;Key;Translation
@@ -59,7 +59,7 @@ Similarly to export, translation's import is available by means of choosing the 
 
 ## Publication  
 
-Publication facilitates providing translated phrases to the application. As long as translations are not published, the system is not using them. Publication's task is to download translations from database and saving them to files, depending on the component which they concern. The catalogue below is the saving location:
+Publication enables providing translated phrases to the application. As long as translations are not published, the system does not use them. Publication downloads translations from the database and saves them to files, depending on the component which they concern. The directory below is the saving location:
 
 ```php
 \resources\lang\{area}\antares\
@@ -77,4 +77,4 @@ e.g. \resources\lang\administrators\antares\automation\de\messages.php
 
 ## Synchronization  
 
-Synchronization of translations is responsible for correct recognition of translation files' paths in respective components and modules, and changes' register in database. Translations presented on the list are downloaded from database from the `tbl_translations` table. Synchronization happens automatically each time you enter the translations' list provided that the translations have not been published. Removal of the translation files from the catalogue `resources\lang\{area}\antares\` causes the necessity of repeated publication.
+Synchronization of translations is responsible for correct recognition of translation files' paths in respective components and modules, and the register of changes in the database. Translations presented on the list are downloaded from the database from the `tbl_translations` table. Synchronization is perfromed automatically each time you enter the translations' list provided that the translations have not been published. Removal of the translation files from the directory `resources\lang\{area}\antares\` will result in the necessity of another publication.
