@@ -9,10 +9,14 @@ Before the installation, it is recommended to make sure that all of the environm
 
 ## Installation setup
 
-Log in to your server via console as Super User or Root and create directory: `/var/www` if not exists::
-
+Log in to your server via console as Super User or Root and create directory: `/var/www` if does not exist:
 ```bash
 mkdir -p /var/www
+```
+
+Go to `/var/www` directory:
+```bash
+cd /var/www
 ```
 
 Download the installer script:
