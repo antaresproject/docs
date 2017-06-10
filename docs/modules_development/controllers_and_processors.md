@@ -319,6 +319,6 @@ The view's file applied in the example has the following structure:
 
 The result:
 
-![AT_CONTRS&PROCS1](../img/docs/modules_development/controllers_and_processors/AT_CONTRS&PROCS1.PNG)
+![AT_CONTRS&PROCS1](../img/docs/modules_development/controllers_and_processors/controllers_and_processors.png)
   
 > It is totally optional and there is no requirement connected with necessity of its use.

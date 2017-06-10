@@ -157,45 +157,54 @@ Firstly, go to directory:
 ```bash
 cd /var/www
 ```  
-
-and clone GIT repository:
-
-```bash
-git clone https://github.com/antaresproject/project.git -b 0.9.2 html
-```
-
-or just use the `create-project` command:
+remove html directory if exists: 
 
 ```bash
-composer create-project antaresproject/project html 0.9.2.x-dev
+rm -rf /var/www/html
 ```
-    
-**Please note**: Target clone directory should not exist. Using the above command check whether directory does not exist.
 
-The above command will install the application in 0.9.2 version with git repository in html directory. 
+and clone GIT repository using `create-project` command:
+
+```bash
+composer create-project antaresproject/project /var/www/html dev-master --keep-vcs
+```
+
+The above command will install the application in dev-master version with git repository in html directory. 
 In this case, please remember about pointing the virtual machine at public project directory:
 
 ```bash
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
 
-
-Change line:
+and add following:
+    
+```bash
+<Directory /var/www/html>
+    Require all granted
+    AllowOverride All
+</Directory>
+```        
+within `VirtualHost` section. An example of valid `virtualhost` section should looks like:
 
 ```bash
-DocumentRoot /var/www/
+<VirtualHost *:80>
+        ServerAdmin youremail@domain.net
+        DocumentRoot /var/www/html
+        SetEnv DEVELOPMENT_MODE development
+        <Directory /var/www/html>
+                Require all granted
+                AllowOverride All
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 ```
-    
-to:
-    
-```bash
-DocumentRoot /var/www/html/public
-```    
+
     
 Optionally you can configure permission settings for specified IPs. Add following line in `VirtualHost` section: 
 
 ```bash
-<Directory /var/www/html/public>
+<Directory /var/www/html>
    Require all granted
    AllowOverride All
    Allow from 127.0.0.1
@@ -209,50 +218,7 @@ Once you apply the above settings, restart apache service:
 service apache2 restart
 ```
 
-More information about vhosts configuration you can find [here](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
-
-
-        
-
-### Composer Install
-
-Go to `/var/www/html` directory and launch the installation command:  
-
-```bash
-cd /var/www/html
-```
-If you have used `create-project` in previous installation step go to [Directory Permissions](manual_installation_guide.md#directory-permissions) section, 
-otherwise run the following command:   
-
-```bash
-composer create-project
-```
-
-The reason for this solution is to correctly interpret the scripts specified in the `composer.json` file.      
-
-The installation will download all the repositories used by Antares based on configuration specified in the composer.json file. It will additionally download all the required assets (js, css). In the end of this procedure it will move front-end elements to the 'public' directory, which the application uses.  
-
-![AT_IG2](../img/docs/installation/installation_guide/AT_IG2.PNG)
-
-
-
-
-### Directory Permissions
-
-Once the installation is over, you need to set up permissions to specific directories used by the application in the `/var/www/html`:
-
-```bash
-chmod -R 777 storage public bootstrap
-```
-
-```bash
-cd /var/www/html
-chown -R www-data:www-data storage public bootstrap src
-```
-
-```bash
-mkdir -m 777 /var/www/html/cache
-```
+More information about `vhosts` configuration you can find [here](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
    
 
 ### Database Configuration

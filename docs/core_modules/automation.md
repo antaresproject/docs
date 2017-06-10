@@ -4,18 +4,18 @@
 
 ## Introduction
 
-Automation is a module used to execute cyclic operations based on [laravel task scheduler](https://laravel.com/docs/5.4/scheduling). It serves as a replacement for setting up your own cron jobs to make it easier to manage. It provides an intuitive control  interface on the admin level. Automation can run tasks every few minutes, hourly, daily or weekly - depending how you set it up. Scheduled data is stored in the system database.
+Automation is a module used to execute cyclic operations based on [laravel task scheduler](https://laravel.com/docs/5.4/scheduling). It relieves you of the necessity of setting up your own cron jobs and makes the entire process easier to manage. It provides an intuitive control interface on the admin level. Automation can run tasks every few minutes, hourly, daily or weekly - depending on how you set it up. Scheduled data are stored in the system's database.
 
 ## Basis
 
-The operation is defined as a class which inherits from the `Antares\View\Console\Command` object, so it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. dispatch of e-mail notifications), or reports' generation which usually influence application's efficiency. The component as a whole is a cron's substitute in a server and it is based on activation of the command:
+The operation is defined as a class that inherits from the `Antares\View\Console\Command` object, thanks to which it can be correctly recognized and interpreted in the system. A type of operation is usually a process running in the background (e.g. sending of e-mail notifications), or reports' generation which usually affects the application's efficiency. The component as a whole is a cron's substitute in a server and it is based on the activation of the command:
 
 ```bash
 php artisan queue:start
 ```
 
-Activation of the command causes launching all operations (jobs) from the *jobs* table. The process ascribed to the command is a demon and operates in the continuous mode monitoring the *jobs* table from an angle of new operations.
-An example of a class fulfilling the task within *automation*:
+Activation of the command results in launching all operations (jobs) from the *jobs* table. The process assigned to the command is a demon and operates in a continuous mode while monitoring the *jobs* table in terms of new operations.
+An example of a class that executes the task within *automation*:
 
 ```php
 <?php
@@ -88,23 +88,23 @@ class FooCommand extends Command
 }
 ```
 
-To make the command visible in the *automation* space execute the following command:
+To make the command visible in the *automation* space, execute the following command:
 
 ```bash
 php artisan automation:sync
 ```
 
-which is responsible for all commands' instances synchronization in the system. This process is usually launched automatically when the system works within the confines of the *WatchDog* service. The command causes adding an instance to the *tbl_jobs* table which is responsible for preserving all system commands:
+It is responsible for synchronization of all commands' instances in the system. This process is usually launched automatically when the system works within the *WatchDog* service. The command leads to adding an instance to the *tbl_jobs* table which is responsible for preserving all system commands:
 
   ![AT_AUTO01.PNG](../img/docs/core_modules/automation/AT_AUTO01.PNG)
   
-There is a possibility of launching only the command from the console's level. To this end, you have to inform the Laravel environment about such a command (the *boot* method) in the service provider:
+There is a possibility to launch only the command from the console. To this end, you have to inform the Laravel environment about such a command (the *boot* method) in the service provider:
 
 ```php
 $this->commands(FooCommand::class);
 ```
 
-Then, on the basis of the command's example indicated above, the launching is:
+Then, based on the command's example shown above, the launching is:
 
 ```bash
 php artisan foo
@@ -114,7 +114,7 @@ And the result:
 
   ![AT_AUTO02.PNG](../img/docs/core_modules/automation/AT_AUTO02.PNG)
   
-The table which is responsible for preserving the results of particular commands' operations is *tbl_job_results*, in the case of errors it is: *tbl_job_errors*. The table which is responsible for commands' categories is *tbl_jobs_category*. Categories are added automatically supposing that they were not defined earlier within the frameworks of the *automation:sync* process.
+The table responsible for preserving the results of particular commands' operations is *tbl_job_results*, in case of errors it is: *tbl_job_errors*. The table responsible for commands' categories is *tbl_jobs_category*. Categories are added automatically if they were not defined earlier under the *automation:sync* process.
 
 ## Parameters
 
@@ -122,7 +122,7 @@ The *automation* command consists of the following parameters:
 
 * title - determines the title of a command, it should be concise, comprehensible, and should determine the command's intended use
 * launched - determines the default frequency of launching the command
-* availableLaunches - determines the abilities of changing the launch frequency, it is available during editing the command within the automation's framework. It accepts the following default values:
+* availableLaunches - determines the abilities of changing the launch frequency, it is available during the edition of the command under the automation. It accepts the following default values:
 
 ```php
 /**
@@ -147,15 +147,15 @@ protected $availableLaunches = [
 ```
 
 * description - description of the command
-* disablable - whether the command can be deactivated at the GUI interface level by a user (default value: true)
-* category - a category determining where the command belongs (default value: system), created solely for the purposes of grouping
+* disablable - defines whether the command can be deactivated at the GUI interface level by a user (default value: true)
+* category - a category that the command belongs to (default value: system), created solely for the grouping purposes
 
-Each of the command may overwrite the edition form, which allows full freedom when it comes to configuration of a command. By default the edition form appears in the following manner:
+Each command may overwrite the edition form that enables full configuration flexibility of a command. By default the edition form appears in the following manner:
 
   ![AT_AUTO03.PNG](../img/docs/core_modules/automation/AT_AUTO03.PNG)
   
-Overwriting the form is possible through overwriting the *form()* method - its definition can be found in the base class. The following options are available on particular line which is a command in automation:
+Overwriting of the form is possible through the overwriting of the *form()* method - its definition can be found in the base class. The following options are available on a particular line that is a command in automation:
 
   ![AT_AUTO04.PNG](../img/docs/core_modules/automation/AT_AUTO04.PNG)
   
-'Show logs' is used to preview the results of commands operation, 'Run' activates the command at the interface level (adding to task execution queue), whereas 'edit' displays command's parameters edition form.
+'Show logs' is used to preview the results of commands' operation, 'Run' activates the command at the interface level (adding to he task execution queue), whereas 'Edit' displays the edition form of command's parameters.

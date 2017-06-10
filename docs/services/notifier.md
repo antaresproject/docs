@@ -4,7 +4,7 @@
 
 ## Introduction  
 
-Notifier is a set of tools supporting design of the notifications which are sent to end user. It facilitates sending a notification (e-mail, sms) from the system and works closely with majority of components.
+Notifier is a set of tools supporting the design of the notifications sent to the end user. It enables sending a notification (e-mail, SMS) from the system and works closely with the majority of components.
 
 > The path of notification seeders directory is `src/modules/<module_name>/resources/database/seeds/` (e.g. `src/modules/sample_module/resources/database/seeds/ModuleEmailNotification.php`).
 
@@ -24,7 +24,7 @@ Access to the adapter is possible through the synonym below:
 antares.notifier.email
 ```
 
-The code below presents solutions sending e-mail message to the currently logged in user:
+The code below presents solutions to send an e-mail message to the currently logged in user:
 
 ```php
 /**
@@ -41,24 +41,24 @@ public function sendEmailNotification(){
 }
 ```
 
-In the case above the argument of anonymous funtion is `$m`, which is Swiftmailer's object. In order to send a message the user's object should have 'email' attribute. It is also possible to send a message to many recipients:
+In the example above, the argument of the anonymous funtion is `$m`, it is the Swiftmailer's object. In order for the message to be sent, the user's object should have the 'email' attribute. It is also possible to send a message to many recipients:
 
 ```php
 $recipients=User::where('active',1)->get();
 $m->to($recipients);
 ```
 
-as well as sending a message directly to e-mail address:
+As well as send a message directly to an e-mail address:
 
 ```php
 $m->to(['user.foo@example.com]);
 ```
 
-More information about the parameters of sending a message can be found in the [SwiftMailer](http://swiftmailer.org/) documentation which is used by Laravel.
+More information about the parameters of sending a message can be found in the [SwiftMailer](http://swiftmailer.org/) documentation used by Laravel.
 
 ### Sms  
 
-In the case of sms, the class is an adapter:
+In the case of SMS messages, the following class is an adapter:
 
 ```php
 Antares\Notifier\Adapter\FastSmsAdapter
@@ -87,7 +87,7 @@ public function sendSmsNotification(){
 }
 ```
 
-In the case above user's object should have the `phone` attribute. Similarly as in the case of e-mail it is possible to send an sms to many recipients and sending the message directely to the recipient's telephone number.
+In the example above, the user's object should have the `phone` attribute. Similarly, as in the case of e-mail messages, it is possible to send an SMS to many recipients as well as send the message directly to the recipient's phone number.
 
 ## Configuration  
 
@@ -120,8 +120,7 @@ Sections responsible for configuration are:
 ]
 
 ```
-
-On the basis of the aforementioned code you can notice that in order to send e-mail messages and system notifications EmailAdapter is being used. Such configuration enables upgrading the system with other adapters. Furthermore, EmailAdapter uses outgoing email server configuration and its settings can be found at the address:
+Based on the above mentioned code, you can notice that in order to send e-mail messages and system notifications EmailAdapter is used. Such configuration enables upgrading the system with other adapters. Furthermore, EmailAdapter uses the outgoing e-mail server configuration and its settings can be found at the address:
 
 ```bash
 /administrators/settings/mail
@@ -129,7 +128,7 @@ On the basis of the aforementioned code you can notice that in order to send e-m
 
 ![AT_NOTI01.PNG](../img/docs/services/notifier/AT_NOTI01.PNG)
   
-Saving the settings of the form above will cause filling the `tbl_antares_options` table where global settings of the whole application are gathered. The default configuration is determined in configuration file of the `.env` environment or in the configuration file in the location:
+Saving the settings of the form above will result in filling the `tbl_antares_options` table where global settings of the whole application are gathered. The default configuration is determined in the configuration file of the `.env` environment or in the configuration file in the location:
 
 ```bash
 resources\config\mail.php
@@ -137,13 +136,13 @@ resources\config\mail.php
 
 ### Sms  
 
-Similarly to the case of e-mail the configuration of the sms adapter is located in the file:
+Similarly to the e-mail messages, the configuration of the SMS adapter is located in the file:
 
 ```bash
 core\notifier\resources\config\config.php
 ```
 
-Section responsible for sending settings is:
+The section responsible for sending settings is:
 
 ```php
 'sms'     => [
@@ -214,4 +213,4 @@ Section responsible for sending settings is:
 ]
 ```
 
-More information about how notifications operate can be found [here](../core_modules/notifications.md).
+More information on how the notifications operate can be found [here](../core_modules/notifications.md).
