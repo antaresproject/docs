@@ -24,6 +24,7 @@ Download the installer script:
 wget https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh
 ```
 
+
 **Hint: ** The installer script needs to be in the `/var/www` server directory.
 
 Once you're set, run the following command and wait for the magic:
