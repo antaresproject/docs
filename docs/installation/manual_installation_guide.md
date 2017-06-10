@@ -101,8 +101,8 @@ Set root password? [Y/n] <-- y
 New password: <-- provide a password for root user
 Re-enter new password: <-- repeat password
 Remove anonymous users? [Y/n] <-- y
-Remove test database and access to it? [Y/n] <-- y
 Disallow root login remotely? [Y/n] <-- n
+Remove test database and access to it? [Y/n] <-- y
 Reload privilege tables now? [Y/n] <-- y
 ```
 
@@ -131,6 +131,10 @@ Flush the privileges:
 ```bash
 FLUSH PRIVILEGES;
 ```
+
+```bash
+exit;
+```
   
 ### Composer Installation
 
@@ -157,11 +161,7 @@ Firstly, go to directory:
 ```bash
 cd /var/www
 ```  
-remove html directory if exists: 
-
-```bash
-rm -rf /var/www/html
-```
+remove html directory if exists `rm -rf /var/www/html`. *Warning! This command will remove everything you have in the html directory - make sure that there's nothing there!*
 
 and clone GIT repository using `create-project` command:
 
@@ -169,14 +169,14 @@ and clone GIT repository using `create-project` command:
 composer create-project antaresproject/project /var/www/html dev-master --keep-vcs
 ```
 
-The above command will install the application in dev-master version with git repository in html directory. 
-In this case, please remember about pointing the virtual machine at public project directory:
+The above command will install the application in dev-master version from git repository in your `/var/www/html` directory. 
+In this case, please remember about pointing the apache at the public project directory:
 
 ```bash
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
 
-and add following:
+and add following lines within `VirtualHost` section:
     
 ```bash
 <Directory /var/www/html>
@@ -184,24 +184,26 @@ and add following:
     AllowOverride All
 </Directory>
 ```        
-within `VirtualHost` section. An example of valid `virtualhost` section should looks like:
+
+An example of valid `virtualhost` section should looks like:
 
 ```bash
 <VirtualHost *:80>
         ServerAdmin youremail@domain.net
         DocumentRoot /var/www/html
-        SetEnv DEVELOPMENT_MODE development
+        # ...
         <Directory /var/www/html>
                 Require all granted
                 AllowOverride All
-        </Directory>
+        </Directory>        
+        # ...
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
 
     
-Optionally you can configure permission settings for specified IPs. Add following line in `VirtualHost` section: 
+Optionally you can configure permission settings for specified IPs: 
 
 ```bash
 <Directory /var/www/html>
@@ -257,8 +259,6 @@ DB_PASSWORD=<enter mysql password here>
 ### Web-based Installer
 
 Go to the `http://<server_IP>/install` in order to start migration import to the database. In the first installation step, there is an environment verification - if everything is correct please continue. If the application states that something has not been set properly, you will have to configure it before being able to proceed.
-
-> **Please note:** If you have problems with the database connection, you can read about some extra troubleshooting below in the [MySQL Connection problems](#MySQL_Connection_problems) section.
 
 ![installation_manual_step_1](../img/docs/installation/installation_guide/installation_manual_step_1.png)
 
