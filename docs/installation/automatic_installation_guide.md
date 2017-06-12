@@ -2,28 +2,28 @@
 
 Automatic installation is the fastest way to install Antares on your server **in case that you have Ubuntu 14.04/16.06**. It is based on a bash script that you can find [here](https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh).
 
-***Please note**: Automatic installer was mostly tested on a clean server system so it may not always work if you have your own customized environment. In case that you are not able to automatically install Antares successfully, please follow the [Manual Installation Guide](manual_installation_guide.md).*
+> **Please note**: Automatic installer was mostly tested on a clean server system so it may not always work if you have your own customized environment. In case that you are not able to automatically install Antares successfully, please follow the [Manual Installation Guide](manual_installation_guide.md).*
 
 Before the installation, it is recommended to make sure that all of the environment components have been installed and their versions are compatible with the [expected](requirements.md) ones.  
 
 
 ## Installation setup
 
-Log in to your server via console as Super User or Root and create directory: `/var/www` if does not exist:
-```bash
-mkdir -p /var/www
-```
+Log in to your server via console as Super User or Root and proceed to `/var/www` directory:
 
-Go to `/var/www` directory:
 ```bash
 cd /var/www
+```
+   
+If the directory does not exist, create it:
+```bash
+mkdir -p /var/www
 ```
 
 Download the installer script:
 ```bash
 wget https://raw.githubusercontent.com/antaresproject/installer/master/installer.sh
 ```
-
 
 **Hint: ** The installer script needs to be in the `/var/www` server directory.
 

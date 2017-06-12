@@ -7,11 +7,12 @@ Antares is fully modular, meaning that you can easily create your own modules an
 ## Required skills
 
 In order to start working with Antares, as back-end developer you need to at least have following skills:
-- OOP PHP 
-- MySQL Relational Database
-- Model/View/Controller (MVC) design concepts
+* OOP PHP 
+* MySQL Relational Database
+* Model/View/Controller (MVC) design concepts
 
 Additionally, following skills may be very helpful:
+
 - Laravel
 - Grunt, Webpack, VueJS
 - Composer
@@ -21,6 +22,7 @@ Additionally, following skills may be very helpful:
 
 ## Making your first project with Antares
 If this is your first try with Antares, we suggest to follow the path below:
+
 1. Prepare a server that match the [requirements](installation/requirements.md#recommended-server-resources).
 2. Install the system [automatically](installation/automatic_installation_guide.md) or [manually](installation/manual_installation_guide.md).
 3. Read about Antares Concepts:   

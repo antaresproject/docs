@@ -4,11 +4,12 @@
 
 ## Introduction
 
-Events are system events fired in different parts of the system. They are a planned mechanism in which services are provided. Therefore, an event is logging the user in to the system. The authorization process, on the other hand, is not an event at all. The overview of events fired under a component's structure can be found [here](../modules_development/module_events.md). 
+Events constitute system events delegated in different parts of the system which belong to a planned mechanism of 
+some services' realization. Therefore, an event is logging the user in to the system and treating as an action, but the authorization process is not an event at all. A register of events activated within a component's structure can be found [here](../modules_development/module_events.md). 
 
 ## System Events  
 
-The basic events fired by the system are the following:
+The following base events excited by the system can be:
 
 ### General  
 
@@ -70,12 +71,12 @@ The basic events fired by the system are the following:
 * antares.validate: settings
 * antares.saved: settings
 
-Furthermore, the system renders available the following closely related to services:
+Furthermore, the system renders available closely related to services:
 
 ## Datatables  
 
 More information about how datatables operate as a service can be found [here](datatables.md).
-A list of events fired under the service:
+A list of events activated within the service:
 
 Adding a column after a column: `datatables:{route}:after.{column}`. An example:
 
@@ -123,7 +124,7 @@ Event::listen('datatables:admin/users/index:before.action.edit', function($actio
 });
 ```
 
-The modification of a value in the row's cell: `datatables:rows.{route}`. An example:
+Value's modification within the row's cell: `datatables:rows.{route}`. An example:
 
 ```php
 Event::listen('datatables:rows.admin/users/index', function($row) {
@@ -132,7 +133,7 @@ Event::listen('datatables:rows.admin/users/index', function($row) {
 });
 ```
 
-Adding a filter to 'Datatables' instance: `datatables:filters.{route}.{filter}.before`. An example:
+Adding a filter to datatables instance: `datatables:filters.{route}.{filter}.before`. An example:
 
 ```php
 Event::listen('datatables:filters.admin/users/index.userstatusfilter.before', function($filter) {
@@ -158,7 +159,7 @@ Event::listen('widgets:render.after.userswidget', function() {
     });
 ```
 
-Adding an action to the action list assigned to a widget: `widgets:render.widget-actions.{widget}`. An example:
+Adding an action to the action list ascribed to a widget: `widgets:render.widget-actions.{widget}`. An example:
 
 ```php
 Event::listen('widgets:render.widget-actions.userswidget', function() {
@@ -187,7 +188,7 @@ Event::listen('widgets:render.after.template.ajax', function() {
 });
 ```
 
-Attaching a widget into the right gridstack segment: `widgets:render.{route}.right`. An example:
+Pinning a widget into the right gridstack segment: `widgets:render.{route}.right`. An example:
 
 ```php
 Event::listen('widgets:render.admin.right', function() {
@@ -199,7 +200,7 @@ Event::listen('widgets:render.admin.right', function() {
 
 ## Forms  
 
-Attaching a fieldset before the first fieldset in a form: `forms:{form_name}.fieldsets.0.before`. An example:
+Pinning a fieldset before the first fieldset in a form: forms:`{form_name}.fieldsets.0.before`. An example:
 
 ```php
 Event::listen('forms:user-form.fieldsets.0.before', function($form) {
@@ -210,7 +211,7 @@ Event::listen('forms:user-form.fieldsets.0.before', function($form) {
 });
 ```
 
-Attaching a fieldset after the first fieldset in a form: `forms:{form_name}.fieldsets.0.after`. An example:
+Pinning a fieldset after the first fieldset in a form: forms:`{form_name}.fieldsets.0.after`. An example:
 
 ```php
 Event::listen('forms:user-form.fieldsets.0.after', function($form) {
@@ -222,7 +223,7 @@ Event::listen('forms:user-form.fieldsets.0.after', function($form) {
 });
 ```
 
-Adding a button before all the buttons in a form: `forms:{form_name}.controls.button.before`. An example:
+Adding a button before all the buttons in a form: forms:`{form_name}.controls.button.before`. An example:
 
 ```php
 Event::listen('forms:user-form.controls.button.before', function($fieldset) {
@@ -232,7 +233,7 @@ Event::listen('forms:user-form.controls.button.before', function($fieldset) {
 });
 ```
 
-Adding a button after all the buttons in a form: `forms:{form_name}.controls.button.after`. An example:
+Adding a button after all the buttons in a form: forms:`{form_name}.controls.button.after`. An example:
 
 ```php
 Event::listen('forms:user-form.controls.button.after', function($fieldset) {
@@ -241,7 +242,7 @@ Event::listen('forms:user-form.controls.button.after', function($fieldset) {
                     ->attributes(['class' => 'btn btn--md btn--orange mdl-button mdl-js-button mdl-js-ripple-effect']);
 });
 ```
-Adding a control after the already existing control: `forms:{form_name}.controls.{control_name}.after`. An example:
+Adding a control after the already existing control: forms:`{form_name}.controls.{control_name}.after`. An example:
 
 ```php
 Event::listen('forms:user-form.controls.password.after', function($fieldset) {
@@ -268,7 +269,7 @@ Event::listen('forms:user-form.controls.email.before', function($fieldset) {
 
 ## Notifications  
 
-Adding variables to the notification: `notifications:{notification_name}.variables`. An example:
+Adding variables to the notification: notifications:`{notification_name}.variables`. An example:
 
 ```php
 Event::listen('forms:user-form.controls.email.before', function($fieldset) {
@@ -295,7 +296,7 @@ Event::listen('notifications:new_device_notification.render.after', function() {
 
 ## Analyzer  
 
-Adding a tab before the already existing tab in the content of the analyzer's report (e.g. a module has been installed and it increases the memory demand): `analyzer:before.{tab_name}`. An example:
+Adding a tab before the already existing tab in the analyzer's report content (e.g. a module has been installed which increases the memory need): `analyzer:before.{tab_name}`. An example:
 
 ```php
 Event::listen('analyzer:before.components', function() {

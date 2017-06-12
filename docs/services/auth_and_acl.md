@@ -4,26 +4,26 @@
 
 ## Introduction  
 
-System's architecture provides mechanisms for controlling users' access to the resources based on RBAC (Role Based Access Control). The RBAC consists of:
+System's architecture provides the users' access to the resources control mechanisms based on RBAC (Role Based Access Control). The RBAC consists of:
 
   
 | Name       | Description   |
 | ---------- |:-------------| 
-| action     | Actions are conducted by endpoints defined as routes or by activity that the user can do (or not)      | 
-| role       | Roles are the groups of users which the user belongs to     | 
-| acl        | ACL is a map of values of the boolean type that defines the relation between the action and the role. It also specifies whether the role may have permission to execute a given action      | 
+| action     | Action is like an endpoint of route or activity which user can do or not | 
+| role       | Roles are the groups of users where the user belongs     | 
+| acl        | ACL is a map of values of the boolean type determining the relation between action and role, determining whether the role may have authorization to execute the given action      | 
 
 > The path of source code is `src/core/src/components/acl/` and `src/core/src/components/auth/`.
 
 ## Auth  
 
-Auth is a set of tools that expands the *Illuminate\Auth* base functionality of Laravel in order to deliver the user's instance and the groups assigned to it. The aim of this functionality is to provide measures and tools for efficient control of users' access to resources (ACL -  Access Control List). The facade connected with the ACL instance is:
+Auth is a set of tools broadening Laravel's base functionality *Illuminate\Auth* in order to provide user's instance and the ascribed groups. The aim of this functionality is to provide measures and tools for efficient users' access to resources control (ACL -  Access Control List). The facade connected with ACL instance is:
 
 ```php
 Antares\Support\Facades\ACL
 ```
 
-In order to use the facade in the application you should determine the alias of the class in the configuration:
+In order to use the facade in the application determine the class' alias in the configuration:
 
 ```php
 'aliases' => [
@@ -54,7 +54,7 @@ $roleAdmin = $role->create([
 ]);
 ```
 
-In order to create a new hierarchical role (with a superior role):
+In order to create a new hierarchic role (having a superior role):
 
 ```php
 $role      = new \Antares\Model\Role();
@@ -67,7 +67,7 @@ $roleModerator = $role->create([
 ]);
 ```
 
-In order to assign the role to a new user:
+In order to ascribe a role to a new user:
 
 ```php
 $user = user()->newInstance([
@@ -82,7 +82,7 @@ $user->roles()->sync([
 ]);
 ```
 
-To change the role of the existing user:
+To change a role of the existing user:
 
 ```php
 $user  = user()->newQuery()->where('email', 'foo@bar.com')->firstOrFail();
@@ -95,20 +95,20 @@ $user->roles()->sync([
 ]);
 ```
 
-Each user of the system is assigned to a specific role (group) with the particular permissions.
-To download the list of available roles assigned to a user:
+Each of the system's user is ascribed to a specific role (group) which is connected with particular authorizations.
+To download the list of available roles ascribed to a user:
 
 ```php
 $roles = Auth::roles();
 ```
 
-Or:
+or:
 
 ```php
 $roles = auth()->roles();
 ```
 
-In order to check whether a user is assigned to a role (roles):
+In order to check whether a user is ascribed to a role (roles):
 
 ```php
 if (Auth::is(['admin', 'editor'])) {
@@ -116,7 +116,7 @@ if (Auth::is(['admin', 'editor'])) {
 }
 ```
 
-In order to check whether a user is assigned to any of given roles:
+In order to check whether a user is ascribed to any of the given roles:
 
 ```php
 if (Auth::isAny(['admin', 'editor'])) {
@@ -124,7 +124,7 @@ if (Auth::isAny(['admin', 'editor'])) {
 }
 ```
 
-In order to check whether a user is not assigned to given roles:
+In order to check whether a user is not ascribed to the given roles:
 
 ```php
 if (Auth::isNot(['admin', 'editor'])) {
@@ -132,7 +132,7 @@ if (Auth::isNot(['admin', 'editor'])) {
 }
 ```
 
-In order to check whether a user is not assigned to any of given roles:
+In order to check whether a user is not ascribed to any of the given roles:
 
 ```php
 if (Auth::isNotAny(['admin', 'editor'])) {
@@ -142,8 +142,8 @@ if (Auth::isNotAny(['admin', 'editor'])) {
 
 ## ACL And Metrics  
 
-Owing to the modularity of application, each module can decide independently which resources (within the module's space) are accessible to the logged in user. More details about the creation of the ACL migration files can be found [here](../modules_development/migrations.md). Information about the verification of access to the actions of controllers (resources) can be found [here](../modules_development/acl.md).
-In order to download the ACL instance assigned to a module:
+Owing to application's modularity each module can decide independently about which resources (within module's space) are accessible to the logged in user. More information about building the ACL migration files can be found [here](../modules_development/migrations.md). Information about controllers' (resources) action access verification can be found [here](../modules_development/acl.md).
+In order to download the ACL instance ascribed to a module:
 
 ```php
 $acl = ACL::make('antares/foo');

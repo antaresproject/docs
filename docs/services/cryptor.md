@@ -4,19 +4,19 @@
 
 ## Introduction
 
-The platform provides a set of constructions that enable the encryption of data included in the tables of a database. Such a solution increases the security level of the application. Only the columns of tables with data of string type can be subject to encryption (in particular the 'text' and 'varchar' types). 
+The platform provides a set of constructions enabling data coding which belong to databases' tables. Such a solution increases the application's security level. Only the tables' columns - with data type treated as a string - can be coded (especially the 'text' and 'varchar' types). 
 
 > The default path of cryptor sources is `src/core/src/utils/security/`.
 
 ## Configuration
 
-The configuration that contains information about parameters of cryptors is kept in a file located in:
+The configuration containing information about cryptors parameters is kept in a file in the following localization:
 
 ```php
 core\foundation\resources\config\db_cryptor.php
 ```
 
-The configuration of the cryptor is the following:
+The cryptor's configuration is the following:
 
 ```php
 return
@@ -46,9 +46,9 @@ return
   ];
 ```
 
-Give proper attention to the 'config' section. The keys `secret_key` and `secret_iv` are the encrypting key and the salt accordingly.
+Note the 'config' section. The keys `secret_key` and `secret_iv` are the coding key and salt accordingly.
 
-If the encyption of tables in a database is enabled, the encrypted strings are saved in the fields of columns defined in a configuration. An example of a configuration:
+Activation of the tables' coding in a database causes saving of the coded strings in the columns' areas determined in a configuration. An example of a configuration:
 
 ```php
 'cast'               => [
@@ -58,16 +58,16 @@ If the encyption of tables in a database is enabled, the encrypted strings are s
 ],
 ```
 
-The example above contains the name of the table (the key) and the array of columns that will be encypted. For example, the addition of a new user will result in the adding of the following entry in the table:
+The example above contains the name of the table (the key) and a board of columns which will be coded. For example, adding of a new user will cause adding of the following registration in a table:
 
 ![AT_CRYPT1](../img/docs/services/cryptor/AT_CRYPT1.png)
   
-The fields `firstname` and `lastname` in the edition form are presented in the decoded form as below:
+The areas `firstname` and `lastname` in the edition form are presented in the decoded form as below:
 
 ![AT_CRYPT2](../img/docs/services/cryptor/AT_CRYPT2.png)
   
-In turn, disabling of the encryption will display:
+Deactivation of coding in turn will display:
 
 ![AT_CRYPT3](../img/docs/services/cryptor/AT_CRYPT3.png)
   
-When you work with the cryptor remember to define the encryption configuration in the main configuration file of the module under the `cast` key.
+When you work with the cryptor remember about determining the coding configuration in the main module's configuration file under the `cast` key.

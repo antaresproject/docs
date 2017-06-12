@@ -10,7 +10,7 @@ It is designed to manage user access to resources located in different sections 
 
 ## Groups  
 
-Acl is a module for handling users' access permission to resources. The panel is available at the address below:
+Acl is a module for users' resources rights service. The panel is available at the address below:
 
 ```bash
 /{area}/acl/roles/index
@@ -37,7 +37,7 @@ Description of fields:
 * Group level - area (level) ascribed to a group
 * Api - determining access through api
 
-The remaining part of the form defines the group's availability for particular system sections divided into the components:
+The remaining part of the form is determining group's availability for particular system sections divided into the components:
 
   ![AT_CTRL03.PNG](../img/docs/core_modules/control/AT_CTRL03.PNG)
   
@@ -45,4 +45,4 @@ Checking/unchecking the checkboxes is equivalent to activating/deactivating the 
 
 ## Users  
 
-The `users` section available in the left menu includes a list of administrative users. The edition of the administrative user is identical with *My Account* form. In a list view, it is possible to add a new user similarly to the exmaple of the main menu 'Users' section. The difference lies in the fact that in this case you can choose the group where the user will belong.
+The `users` section which is available at the level of left menu publishes a list containing administrative users. Administrative user's edition is identical with *My Account* form. At the level of the list it is possible to add a new user similarly as in the case of the main menu 'Users' section. The difference is that there is a possibility of choosing the group where the user will belong.

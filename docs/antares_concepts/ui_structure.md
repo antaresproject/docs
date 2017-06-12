@@ -9,21 +9,25 @@ The biggest advantage of using Antares as a base of your application is powerful
 By default, Antares provides User and Admin **Levels**. Except **Dashboard**, which is by default available on every level, modules can define their own [Views](../modules_development/ui_components.md). Dashboard is a View itself as well.
   
 Every View includes:
-1. **UI Components Container** - the area where all the [UI Components](../modules_development/ui_components.md#how-to-create-ui-component) (widgets) are loaded by the modules.  
+
+1. **UI Components Container** - the area where all the [UI Components](../modules_development/ui_components.md#how-to-create-ui-component) (widgets) are loaded by the modules. 
 2. **Template Base** - everything on the page except UI Components which includes:
-   * [Menu](../modules_development/views.md#menus)  
-   * [Breadcrumbs](../services/breadcrumbs.md)
-   * [Actions of the section](../modules_development/views.md#breadcrumbs-menu)
-   * Additional tools
+
+      * [Menu](../modules_development/views.md#menus)  
+      * [Breadcrumbs](../services/breadcrumbs.md)
+      * [Actions of the section](../modules_development/views.md#breadcrumbs-menu)
+      
+3. **Additional tools**
+
       * Account icon with account menu
       * Search
       * [Notifications](../core_modules/notifications.md)
       * [Edit Widgets toggle](../services/ui_component.md#placing-the-widget-on-a-website)
-      
+
 ![UI Structure](../img/docs/antares_concepts/ui_structure/ui_components_container.png)
 
-*Everything except UI Components Container is Template Base to which you can easily hook up with your modules.*
-        
+> ***Please note:** Everything except UI Components Container is Template Base to which you can easily hook up with your modules.*
+  
 The only exception of the above structure is **Login Page** which contains only the login form.
 
 Some of the UI elements can be only visible for certain user level/group - it is controlled by modules and the [ACL module](../core_modules/acl.md).
@@ -39,7 +43,7 @@ There are several **Template Layouts** that you can set up in the Antares per ea
 * Top Menu Advanced (suggested for administrators/advanced users only)
 
 
-**Please note:** Every Template Layout consists of the same structure so they always have UI Components Container and the Template Base with the same elements! Switching between layouts in the configuration will still render you the same UI structure, just different composition.
+> **Please note:** Every Template Layout consists of the same structure so they always have UI Components Container and the Template Base with the same elements! Switching between layouts in the configuration will still render you the same UI structure, just different composition.*
 
 ## UI Components Container
 

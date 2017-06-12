@@ -163,7 +163,8 @@ class SomeClassExample {
     
 }
 ```
- ### Dedicated configuration form
+
+### Dedicated configuration form
 
 If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](../services/form_builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
 
@@ -227,7 +228,7 @@ The full module directory structure including all the optional elements is follo
 
 ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/sample_module_directory.PNG)
   
-**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../antares_concepts/files_structure.md). It is not a conincidence :).
+> **Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../antares_concepts/files_structure.md). It is not a conincidence :).*
 
 ### /public 
 
@@ -259,8 +260,12 @@ This directory includes the main module logic.
   
 **Please note:** directories names start with a capital letter.
 
-* **Console** - Classes responsible for commands which are accessible by a module. They are usually launched by means of:  
-  `php artisan <name_of_the_component>:<name_of_the_command>`.            
+* **Console** - Classes responsible for commands which are accessible by a module. They are usually launched by means of:
+
+        ```bash 
+        php artisan <name_of_the_component>:<name_of_the_command>
+        ```
+
 * **Contracts** - Interfaces used by a module.
 * **Exception** - Exception classes.
 * **Facades** - Facades as a popular form of referring to a class.

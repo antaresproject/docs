@@ -20,6 +20,7 @@ Modular applications require a slightly different approach than classic, non-mod
 The key is to design the module to be used in multiple projects, not only the particular one, so you and other contributors will avoid the code duplication and reinventig the wheel. This approach in a long term will make your and others life easier.
 
 Every module in Antares can interact/handle following aspects:
+
 * Navigation control ([breadcrumbs](../services/breadcrumbs.md), [menus](../modules_development/views.md#menus), [placeholders](../modules_development/views.md#placeholder), [panes](../modules_development/views.md#pane) etc.) - which provides browsing between the module views and other modules.
 * [Views](../modules_development/ui_components.md) - presentation layer which is responsible for deliver graphical user interface (GUI).
 * Actions - working with data, classic CRUD (create, read, update, delete).
@@ -46,9 +47,10 @@ In Antares, modules are divided into two groups:
     Extending the application functionality which is not a part of main Antares branch and **are not required**. You may want to use them or not, depending on the project type.
 
 
-**Please note:** The Antares Module structure is following [Laravel package](https://laravel.com/docs/5.4/packages) standard with very slight improvements. If you know how to make a package for Laravel, then it will be super easy for you to build modules for Antares.
+> **Please note:** The Antares Module structure is following [Laravel package](https://laravel.com/docs/5.4/packages) standard with very slight improvements. If you know how to make a package for Laravel, then it will be super easy for you to build modules for Antares.*
 
 ## Making your own module
 If you'd like to make your own Antares Module, we suggest you to follow one of the following paths:
+
 * Read the **Module Development** documentation articles. Start with the [Module Base](../modules_development/module_base.md).    
 * Follow step by step tutorial of building a [Sample Module](../tutorials/sample_module.md).  

@@ -4,7 +4,7 @@
 
 ## Introduction  
 
-Benchmark test (Testbench) is a set of tools that support the writing of unit tests. In order to apply the testing environment, it is necessary to inherit from the following class:
+Benchmark test (Testbench) is a set of tools which support unit tests writing. In order to apply testing environment it is necessary to inherit from the following class:
 
 > The default path of test benchmark sources is `src/core/src/utils/testbench/`.
 
@@ -12,7 +12,7 @@ Benchmark test (Testbench) is a set of tools that support the writing of unit te
 \Antares\Testbench\TestCase
 ```
 
-in the test class instead of `PHPUnit_Framework_TestCase`. Such a solution enables the loading of the application prepared for the unit tests (fixture) and serves as a basic application's framework in Laravel:
+in the test class instead of `PHPUnit_Framework_TestCase`. Such a solution enables loading the application prepared for unit tests (fixture) and serves as a basic application's framework in Laravel so:
 
 ```php
 <?php
@@ -27,7 +27,7 @@ The whole solution has been taken from the [github website](https://github.com/o
 
 ## Service Providers  
 
-In order to add your own service provider you have to overwrite the `getPackageProviders` method as in the example below:
+In order to add your own service provider you have to overwrite the `getPackageProviders` method as in the case below:
 
 ```php
 protected function getPackageProviders($app)
@@ -38,7 +38,7 @@ protected function getPackageProviders($app)
 
 ## Aliases  
 
-In order to add an alias you have to overwrite the `getPackageAliases` method as shown below:
+In order to add an alias you have to overwrite the `getPackageAliases` method as below:
 
 ```php
 protected function getPackageAliases($app)
@@ -51,7 +51,7 @@ protected function getPackageAliases($app)
 
 ## Setup  
 
-Due to the fact that the class `Antares\Testbench\TestCase` overwrites the class `Illuminate\Foundation\Testing\TestCase` there might be a need to implement the logic in the `setUp` method. In order to achieve this, you have to call the `setUp` method of the base class, as it is shown below:
+Due to the fact that the class `Antares\Testbench\TestCase` overwrites the class `Illuminate\Foundation\Testing\TestCase` there might be a need to implement logic in the `setUp` method. In order to achieve this you have to call the base class' `setUp` method as it is shown below:
 
 ```php
 /**
@@ -67,11 +67,11 @@ public function setUp()
 
 ## Environment  
 
-There might be a need to set the boot environment data for a unit test. In order to achieve this you have to overwrite the `getEnvironmentSetup` method, as shown below:
+There might be a need to set the boot environment data for a unit test. In order to achieve this you have to overwrite the `getEnvironmentSetup` method as below:
 
 ```php
 /**
- * Define the environment setup.
+ * Define environment setup.
  *
  * @param  \Illuminate\Foundation\Application  $app
  * @return void
@@ -141,7 +141,7 @@ protected function getApplicationTimezone($app)
 
 ## Migrations  
 
-There is often a need to use the database or its prototype in the form of the sqllite base. Therefore, the environment provides the command that supports an absolute path instead of a relative one. It simplifies the boot of migration files during the testing as a parameter that contains the path to the migration fil of a module or parameter:
+Quite frequently there is a need to use a database or its prototype in the form of sqllite base. Therefore, the environment provides the command which supports an absolute path instead of a relative one, in order to facilitate migration files' boot during the testing, as a parameter containing module's or component's path to the migration file:
 
 ```php
 $this->artisan('migrate', [
@@ -152,14 +152,14 @@ $this->artisan('migrate', [
 
 ## 3rd Party  
 
-Additional extensions that extend the testbench functionality are available:
+Additional extensions which develop testbench functionality are available:
 
 * [Testbench with CodeCeption](https://bitbucket.org/aedart/testing-laravel/wiki/Home)
 * [Testbench with PHPSpec](https://github.com/Pixelindustries/phpspec-testbench)
 
 ## Troubleshoot  
 
-When writing the tests, draw your attention to the following error:
+When writing the tests draw your attention to the following error:
 
 ```php
 RuntimeException: No supported encrypter found. The cipher and / or key length are invalid.

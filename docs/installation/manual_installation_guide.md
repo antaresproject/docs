@@ -6,7 +6,7 @@ Manual installation is recommended for more advanced users that would like to se
 
 Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones. You will find the instructions [Automatic Installation Guide](automatic_installation_guide.md).
 
-***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic_installation_guide.md).*
+> **Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic_installation_guide.md).*
 
 The following manual is dedicated for **Ubuntu 14.04/16.06**. 
 
@@ -101,8 +101,8 @@ Set root password? [Y/n] <-- y
 New password: <-- provide a password for root user
 Re-enter new password: <-- repeat password
 Remove anonymous users? [Y/n] <-- y
-Disallow root login remotely? [Y/n] <-- n
 Remove test database and access to it? [Y/n] <-- y
+Disallow root login remotely? [Y/n] <-- n
 Reload privilege tables now? [Y/n] <-- y
 ```
 
@@ -131,10 +131,6 @@ Flush the privileges:
 ```bash
 FLUSH PRIVILEGES;
 ```
-
-```bash
-exit;
-```
   
 ### Composer Installation
 
@@ -161,52 +157,45 @@ Firstly, go to directory:
 ```bash
 cd /var/www
 ```  
-remove html directory if exists `rm -rf /var/www/html`. *Warning! This command will remove everything you have in the html directory - make sure that there's nothing there!*
 
-and clone GIT repository using `create-project` command:
+and clone GIT repository:
 
 ```bash
-composer create-project antaresproject/project /var/www/html dev-master --keep-vcs
+git clone https://github.com/antaresproject/project.git -b 0.9.2 html
 ```
 
-The above command will install the application in dev-master version from git repository in your `/var/www/html` directory. 
-In this case, please remember about pointing the apache at the public project directory:
+or just use the `create-project` command:
+
+```bash
+composer create-project antaresproject/project html 0.9.2.x-dev
+```
+    
+> **Please note**: Target clone directory should not exist. Using the above command check whether directory does not exist.*
+
+The above command will install the application in 0.9.2 version with git repository in html directory. 
+In this case, please remember about pointing the virtual machine at public project directory:
 
 ```bash
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
 
-and add following lines within `VirtualHost` section:
-    
-```bash
-<Directory /var/www/html>
-    Require all granted
-    AllowOverride All
-</Directory>
-```        
 
-An example of valid `virtualhost` section should looks like:
+Change line:
 
 ```bash
-<VirtualHost *:80>
-        ServerAdmin youremail@domain.net
-        DocumentRoot /var/www/html
-        # ...
-        <Directory /var/www/html>
-                Require all granted
-                AllowOverride All
-        </Directory>        
-        # ...
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+DocumentRoot /var/www/
 ```
-
     
-Optionally you can configure permission settings for specified IPs: 
+to:
+    
+```bash
+DocumentRoot /var/www/html/public
+```    
+    
+Optionally you can configure permission settings for specified IPs. Add following line in `VirtualHost` section: 
 
 ```bash
-<Directory /var/www/html>
+<Directory /var/www/html/public>
    Require all granted
    AllowOverride All
    Allow from 127.0.0.1
@@ -220,7 +209,50 @@ Once you apply the above settings, restart apache service:
 service apache2 restart
 ```
 
-More information about `vhosts` configuration you can find [here](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
+More information about vhosts configuration you can find [here](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
+
+
+        
+
+### Composer Install
+
+Go to `/var/www/html` directory and launch the installation command:  
+
+```bash
+cd /var/www/html
+```
+If you have used `create-project` in previous installation step go to [Directory Permissions](manual_installation_guide.md#directory-permissions) section, 
+otherwise run the following command:   
+
+```bash
+composer create-project
+```
+
+The reason for this solution is to correctly interpret the scripts specified in the `composer.json` file.      
+
+The installation will download all the repositories used by Antares based on configuration specified in the composer.json file. It will additionally download all the required assets (js, css). In the end of this procedure it will move front-end elements to the 'public' directory, which the application uses.  
+
+![AT_IG2](../img/docs/installation/installation_guide/AT_IG2.PNG)
+
+
+
+
+### Directory Permissions
+
+Once the installation is over, you need to set up permissions to specific directories used by the application in the `/var/www/html`:
+
+```bash
+chmod -R 777 storage public bootstrap
+```
+
+```bash
+cd /var/www/html
+chown -R www-data:www-data storage public bootstrap src
+```
+
+```bash
+mkdir -m 777 /var/www/html/cache
+```
    
 
 ### Database Configuration
@@ -234,7 +266,7 @@ mysql -u root -p
 ```bash
 create database foo CHARACTER SET=utf8 COLLATE=utf8_general_ci;
 ```    
-**Please note:** Database name "foo" is just an example, it is recommended to use your own database name.
+> **Please note:** Database name "foo" is just an example, it is recommended to use your own database name.*
 
 Type `exit` to leave the MySQL command line.
 
@@ -259,6 +291,8 @@ DB_PASSWORD=<enter mysql password here>
 ### Web-based Installer
 
 Go to the `http://<server_IP>/install` in order to start migration import to the database. In the first installation step, there is an environment verification - if everything is correct please continue. If the application states that something has not been set properly, you will have to configure it before being able to proceed.
+
+> **Please note:** If you have problems with the database connection, you can read about some extra troubleshooting below in the [MySQL Connection problems](#MySQL_Connection_problems) section.
 
 ![installation_manual_step_1](../img/docs/installation/installation_guide/installation_manual_step_1.png)
 

@@ -4,11 +4,11 @@
 
 ## Introduction
 
-Logger is a set of functionalities that enables the monitoring of the actions taken by the users of the system as well as the system itself as well as processes connected with it. 
+Logger is a set of functionalities which enables following the actions undertaken by the users of the system as well as the system itself and processes which are connected with it. 
 
 ## An example
 
-A standard mechanism offered by the Laravel environment based on collecting the logs into a file is used inside the system:
+A standard mechanism made accessible by the Laravel environment based on collecting logs into a file is used inside the system:
 
 ```php
 try {
