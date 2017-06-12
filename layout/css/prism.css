@@ -12,11 +12,9 @@ pre[class*="language-"] {
 	text-shadow: 0 1px white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
+	white-space: pre-wrap;
 	line-height: 1.5;
+	padding: 0;
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -222,8 +220,16 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
-pre.code-toolbar {
+pre.code-toolbar,
+pre {
 	position: relative;
+	margin-bottom: 18px;
+    padding: 20px 15px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    background: transparent;
+    overflow-x: auto;
+	white-space: pre-wrap;
 }
 
 pre.code-toolbar > .toolbar {

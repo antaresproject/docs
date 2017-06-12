@@ -11,13 +11,35 @@
     <meta name="theme-color" content="#00adee">
     <meta name="msapplication-navbutton-color" content="#00adee">
     <meta name="apple-mobile-web-app-status-bar-style" content="#00adee"> 
-    <link rel="shortcut icon" sizes="192x192" href="{{ base_url }}/img/favicon.png"> 
+
+	<link rel="shortcut icon" href="{{ base_url }}/img/favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="{{ base_url }}/img/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="{{ base_url }}/img/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="{{ base_url }}/img/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{ base_url }}/img/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="{{ base_url }}/img/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ base_url }}/img/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ base_url }}/img/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="{{ base_url }}/img/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="{{ base_url }}/img/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="{{ base_url }}/img/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="{{ base_url }}/img/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="{{ base_url }}/img/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="{{ base_url }}/img/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="{{ base_url }}/img/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="{{ base_url }}/img/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ base_url }}/img/favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="{{ base_url }}/img/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="{{ base_url }}/img/favicon/browserconfig.xml">
+
     <link rel="stylesheet" href="{{ base_url }}/css/assets.css">
     <link rel="stylesheet" href="{{ base_url }}/css/docs.css">
     <link rel="stylesheet" href="{{ base_url }}/css/prism.css">
     <script src="{{ base_url }}/js/assets.js"></script>
     <script src="{{ base_url }}/js/docs.js"></script>
     <script src="{{ base_url }}/js/prism.js"></script> 
+    <script src="{{ base_url }}/js/theme.js"></script> 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -27,48 +49,132 @@
 <body>
     <aside class="ardocs-menu ardocs-menu--offcanvas">
         <header>
-            <div class="offcanvas-close"><i class="zmdi zmdi-arrow-left"></i><p class="ardocs-menu__title">Documentation</p></div>
+            <div class="offcanvas-close"><i class="zmdi zmdi-close"></i></div>
+            <img src="/site/img/logo-menu.svg" alt="Antares">
         </header>
-        <nav>
-            <p class="ardocs-menu__title">Documentation</p>
-        </nav>
+        <nav></nav>
     </aside>
     <div id="ardocs-container">
-        <section class="antares-nav">
-            <div class="set-width">
-                <a href="{{ base_url }}" class="logo"></a>
-                <div class="ardocs-mobile-toggle">
-                    <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+        <section class="site-header set-width">
+            <a href="{{ base_url }}" class="logo" title="Antares Platform"></a>
+             <nav>                
+                <ul id="main-menu">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li class="inactive"><a href="#">Modules</a><span class="cs">COMMING SOON</span></li>                  
+                    <li class="has-children">
+                        <a href="#">Community
+                            <i class="zmdi zmdi-chevron-down ddown__arrow"></i>
+                        </a>
+                        <ul class="ddown">
+                            <div class="arrow"></div>
+                            <ul>
+                                <li><a href="https://github.com/antaresproject">GitHub</a></li>
+                                <li class="inactive"><a href="#">Feature Requests</a><span class="cs">COMMING SOON</span></li>
+                                <li class="inactive"><a href="#">Blog</a><span class="cs">COMMING SOON</span></li>
+                                <li class="inactive"><a href="">Facebook</a><span class="cs">COMMING SOON</span></li>
+                                <li class="inactive"><a href="">Twitter</a><span class="cs">COMMING SOON</span></li>
+                                <li class="inactive"><a href="">LinkedIn</a><span class="cs">COMMING SOON</span></li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#"><i class="zmdi zmdi-file-text"></i> Docs
+                            <i class="zmdi zmdi-chevron-down ddown__arrow"></i>
+                        </a>
+                        <ul class="ddown">
+                            <div class="arrow"></div>
+                            <ul>
+                                <li><a href="/docs/site/antares_concepts/ui_structure">UI Elements</a></li>
+                                <li><a href="/docs/site/modules_development/ui_components">UI Components</a></li>
+                                <li><a href="/docs">PHP Framework</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>
+                <!--<a href="#" class="btn btn--primary btn--uppercase mdl-js-button mdl-js-ripple-effect">Get Started</a>-->
+                <div class="toggle__menu">
+                    <div class="bar--1"></div>
+                    <div class="bar--2"></div>
+                    <div class="bar--3"></div>
+                </div>
+            </nav> 
+        </section>        
+        <section class="ardocs-search set-width">
+            <h1 class="main-title">Antares Project PHP Framework Documentation</h1>
+            <div role="search" class="input-grp">
+                <form onsubmit="return false">
+                    <input id="mkdocs-search-query" autocomplete="off" type="text" class="input-grp__input" placeholder="Search in documentation" autofocus>
+                    <div class="input-grp__icon clear"><i class="zmdi zmdi-search"></i></div>
+                </form>  
+            </div>
+            <script>var base_url = '{{ base_url }}';</script>
+            <script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
+            <div class="search-container">
+                <div class="search-body set-width">
+                    <h4 id="search">Search Results</h4>
+                    <div id="mkdocs-search-results">
+                        <div class="heading">Searching...</div>
                     </div>
                 </div>
-                <nav class="ardocs-menu" role="navigation">
-
-                </nav>
-            </div>
-        </section>
-        <div class="set-width">
-            <div class="mobile-doc-toggle btn--mobile-doc-menu uppercase"><i class="zmdi zmdi-menu"></i>Documentation</div>
-        </div>
-        <section class="ardocs-search set-width">
-            <div role="search">
-                <form id="content_search" action="{{ base_url }}/search.html">
-
-                </form>
             </div>
         </section>
         <section class="ardocs-content set-width">
             <aside class="ardocs-menu table-of-contents">
-                <ul class="toc">
+                <ul class="ardocs-main-menu">
+                    <li class="version-list">
+                        <a href="#" onclick="return false;">v0.9.0
+                            <i class="zmdi zmdi-chevron-down ddown__arrow"></i>
+                        </a>
+                        <ul class="version-container">
+                            <li><a href="">v0.9.0</a></li>
+                        </ul>
+                    </li>
                     {% for nav_item in nav %} {% include "nav.html" %} {% endfor %}
                 </ul>
+                <!-- LABELE //nie wiem jeszcze jak będą implementowane -->
+                <!--<br>
+                <label class="label label-new">new</label>
+                <label class="label label-paid">paid</label>
+                <label class="label label-cs">comming soon</label>
+                <br>-->
+
             </aside>
-            <div class="main-content">
+            <div class="main-content">                
                 {% block content %} {{ page.content }} {% endblock %}
             </div>
-        </section>            
+        </section>  
+        <section class="cta w100">
+            <div class="set-width">
+                <div class="cta__section donate">
+                    <h3>Donate</h3>
+                    <p>Help us to maintain and improve Antares Platform.
+                        <br> And some more text.</p>
+                    <div class="btn btn--md btn--primary uppercase mdl-js-button mdl-js-ripple-effect">Donate</div>
+                </div>
+                <div class="cta__section contribute">
+                    <h3>Contribute</h3>
+                    <p>Do you have your own ideas about Antares Platform?
+                        <br> Feel free to fork it on GitHub and improve!</p>
+                    <a href="https://github.com/antaresproject" class="btn btn--md btn--clean uppercase mdl-js-button mdl-js-ripple-effect"><img src="{{base_url}}/img/fork.svg" alt="Fork us on Github">Fork</a>
+                </div>
+            </div>
+        </section>
+        <footer class="set-width">
+            <div>
+                <p>&copy; 2016 - 2017 Antares. All rights reserved.</p>
+            </div>
+            <div>
+                <ul class="main-menu">
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li class="logo">
+                        <a href="https://github.com/antaresproject" title="Fork us on GitHub"><img src="{{base_url}}/img/github.svg" alt="Fork us on GitHub"></a>
+                    </li>
+                     <li class="logo"><a href="#"><img src="{{base_url}}/img/twitter.png" alt="Follow Us on Twitter"></a></li> 
+                </ul>
+            </div>
+        </footer>          
     </div>
 </body>
 
