@@ -3,7 +3,8 @@ $(function() {
 	(function menu() {
         jQuery('#main-menu').superfish({
             speed: 'fast',
-            delay: 1000
+            delay: 1000,
+            popUpSelector: '.ddown'
         });
     }())   
 
