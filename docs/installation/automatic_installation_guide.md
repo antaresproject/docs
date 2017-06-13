@@ -54,4 +54,3 @@ Installer will request database connection configuration. However, if you haven'
 When the installer is done, proceed to: `http://Your IP Address/install` to finish the installation via web-installer. You can find more details about web-installer in the [Manual Installation Guide](manual_installation_guide.md#web-based-installer) .
 
 ![installation_step_5](../img/docs/installation/installation_guide/installation_step_5.png)
-
