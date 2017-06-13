@@ -6,7 +6,7 @@ Manual installation is recommended for more advanced users that would like to se
 
 Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones. You will find the instructions [Automatic Installation Guide](automatic_installation_guide.md).
 
-***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic_installation_guide.md).*
+> ***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic_installation_guide.md).*
 
 The following manual is dedicated for **Ubuntu 14.04/16.06**. 
 
