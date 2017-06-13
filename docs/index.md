@@ -7,6 +7,7 @@ Antares is fully modular, meaning that you can easily create your own modules an
 ## Required skills
 
 In order to start working with Antares, as back-end developer you need to at least have following skills:
+
 * OOP PHP 
 * MySQL Relational Database
 * Model/View/Controller (MVC) design concepts
