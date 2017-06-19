@@ -1,8 +1,9 @@
 <?php
 
-$directory = new RecursiveDirectoryIterator('docs');
-$Iterator  = new RecursiveIteratorIterator($directory);
-$regex     = new RegexIterator($Iterator, '/^.+\.md$/i', RecursiveRegexIterator::GET_MATCH);
+$directory = new RecursiveDirectoryIterator('../docs');
+
+$Iterator = new RecursiveIteratorIterator($directory);
+$regex    = new RegexIterator($Iterator, '/^.+\.md$/i', RecursiveRegexIterator::GET_MATCH);
 
 foreach ($regex as $file) {
     $filename = __DIR__ . DIRECTORY_SEPARATOR . $file[0];
