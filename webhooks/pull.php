@@ -1,7 +1,5 @@
 <?php
 
-echo 1;
-exit;
 echo '<pre>';
 var_dump(shell_exec('git stash 2>&1'));
 
