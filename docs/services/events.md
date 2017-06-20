@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Events are system events fired in different parts of the system. They are a planned mechanism in which services are provided. Therefore, an event is logging the user in to the system. The authorization process, on the other hand, is not an event at all. The overview of events fired under a component's structure can be found [here](../modules_development/module_events.md). 
+Events are system events fired in different parts of the system. They are a planned mechanism in which services are provided. Therefore, an event is logging the user in to the system. The authorization process, on the other hand, is not an event at all. The overview of events fired under a component's structure can be found [here](../modules-development/module-events.md). 
 
 ## System Events  
 

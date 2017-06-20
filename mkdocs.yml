@@ -1,6 +1,6 @@
 site_name: Antares Documentation
 site_description: Open Source Laravel User Management Platform for standalone and SaaS applications. Based on Laravel, PHP7 ready, using flexible design patterns that keep the code clean and elegant.Speed up your work even up to 50% by using built-in workflow improvements.
-site_url: http://antaresproject.io/docs
+site_url: http://docs.antaresproject.io/php
 theme: null
 theme_dir: 'layout'
 site_favicon: favicon.png
@@ -16,60 +16,60 @@ use_directory_urls: true
 pages:
  - Getting Started:
    - Introduction: index.md
-   - Changelog: getting_started/changelog.md
-   - Contribution Guide: getting_started/contribution_guide.md
-   - Issues Reporting Guide: getting_started/issues_reporting_guide.md
-   - License: getting_started/license.md
+   - Changelog: getting-started/changelog.md
+   - Contribution Guide: getting-started/contribution-guide.md
+   - Issues Reporting Guide: getting-started/issues-reporting-guide.md
+   - License: getting-started/license.md
  - Installation:
    - Requirements: installation/requirements.md
-   - Automatic Installation Guide: installation/automatic_installation_guide.md
-   - Manual Installation Guide: installation/manual_installation_guide.md
-   - Environment Verification: installation/environment_verification.md
+   - Automatic Installation Guide: installation/automatic-installation-guide.md
+   - Manual Installation Guide: installation/manual-installation-guide.md
+   - Environment Verification: installation/environment-verification.md
    - Maintenance: installation/maintenance.md
  - Antares Concepts:
-   - Modules: antares_concepts/modules.md
-   - UI Structure: antares_concepts/ui_structure.md
-   - Files structure: antares_concepts/files_structure.md
+   - Modules: antares-concepts/modules.md
+   - UI Structure: antares-concepts/ui-structure.md
+   - Files structure: antares-concepts/files-structure.md
  - Modules Development:
-   - Module Base: modules_development/module_base.md
-   - Migrations: modules_development/migrations.md
-   - Service Providers: modules_development/service_providers.md
-   - Routing: modules_development/routing.md
-   - Controllers and Processors: modules_development/controllers_and_processors.md
-   - Views: modules_development/views.md
-   - ACL: modules_development/acl.md
-   - Module Events: modules_development/module_events.md
-   - UI Components: modules_development/ui_components.md
+   - Module Base: modules-development/module-base.md
+   - Migrations: modules-development/migrations.md
+   - Service Providers: modules-development/service-providers.md
+   - Routing: modules-development/routing.md
+   - Controllers and Processors: modules-development/controllers-and-processors.md
+   - Views: modules-development/views.md
+   - ACL: modules-development/acl.md
+   - Module Events: modules-development/module-events.md
+   - UI Components: modules-development/ui-components.md
  - Services:
    - Assets: services/assets.md
-   - Auth & ACL: services/auth_and_acl.md
+   - Auth & ACL: services/auth-and-acl.md
    - Breadcrumbs: services/breadcrumbs.md
    - Cryptor: services/cryptor.md
    - Datatables: services/datatables.md
    - Events: services/events.md
    - Filters: services/filters.md  
    - Formatters: services/formatters.md  
-   - Form Builder: services/form_builder.md
+   - Form Builder: services/form-builder.md
    - Logs: services/logs.md  
    - Notifier: services/notifier.md  
    - Pagination: services/pagination.md  
-   - Test benchmark: services/test_benchmark.md  
+   - Test benchmark: services/test-benchmark.md  
    - Translator: services/translator.md  
    - Twig: services/twig.md  
    - Validation: services/validation.md
    - Webpack: services/webpack.md  
-   - UI Component: services/ui_component.md
+   - UI Component: services/ui-component.md
  - Core modules:
-   - Automation: core_modules/automation.md
-   - Acl: core_modules/acl.md
-   - Logger: core_modules/logger.md
-   - Notifications: core_modules/notifications.md
-   - Translations: core_modules/translations.md
-   - Branding: core_modules/branding.md
-   - Users: core_modules/users.md
-   - Installer: core_modules/installer.md
+   - Automation: core-modules/automation.md
+   - Acl: core-modules/acl.md
+   - Logger: core-modules/logger.md
+   - Notifications: core-modules/notifications.md
+   - Translations: core-modules/translations.md
+   - Branding: core-modules/branding.md
+   - Users: core-modules/users.md
+   - Installer: core-modules/installer.md
  - Tutorials:
-   - Sample module: tutorials/sample_module.md
-   - Sample UI Component: tutorials/sample_ui_component.md
+   - Sample module: tutorials/sample-module.md
+   - Sample UI Component: tutorials/sample-ui-component.md
 
 

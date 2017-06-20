@@ -7,7 +7,7 @@
 Antares uses [Twig template engine](http://twig.sensiolabs.org/documentation) to generate user interfaces. More information you can find [here](http://twig.sensiolabs.org/documentation). 
 
 The controller is responsible for handling request that comes into a Antares. 
-In next step, the controller delegates computing work to other places (eg: [Processors](../modules_development/controllers_and_processors.md), Models, Repositories). 
+In next step, the controller delegates computing work to other places (eg: [Processors](../modules-development/controllers-and-processors.md), Models, Repositories). 
 This solution allows to reuse the code. When a controller needs to generate HTML it passes whole decoration process to templating engine.
 
 
@@ -40,7 +40,7 @@ The most familiar type of template is a PHP template - a text file parsed by PHP
 </ul>
 ```
 
-More information about controllers, processors and presenters you can find in section [Controllers and Processors](../modules_development/controllers_and_processors.md).
+More information about controllers, processors and presenters you can find in section [Controllers and Processors](../modules-development/controllers-and-processors.md).
 
 [Twig](http://twig.sensiolabs.org/documentation) allows you to write readable templates that are more friendly and powerful than PHP templates:
 
@@ -232,17 +232,17 @@ If you want to overwrite other sections from base template, you have to declare 
 
 Insertion content in other sections of Antares UI can be divided as following:
 
-* [Views](../modules_development/module_events.md#views)
-* [Placeholder](../modules_development/module_events.md#placeholder)
-* [Menu](../modules_development/module_events.md#main-menu)
-* [Breadcrumb](../modules_development/module_events.md#breadcrumb)
-* [Pane](../modules_development/module_events.md#pane)
-* [Pane Menu](../modules_development/module_events.md#pane-menu)
+* [Views](../modules-development/module-events.md#views)
+* [Placeholder](../modules-development/module-events.md#placeholder)
+* [Menu](../modules-development/module-events.md#main-menu)
+* [Breadcrumb](../modules-development/module-events.md#breadcrumb)
+* [Pane](../modules-development/module-events.md#pane)
+* [Pane Menu](../modules-development/module-events.md#pane-menu)
 * [Datatables](../services/events.md#widgets)
 * [Forms](../services/events.md#forms)
 * Widgets
-   * [Widget Views](../services/ui_component.md#views)
-   * [Widget Layouts](../services/ui_component.md#layouts)
+   * [Widget Views](../services/ui-component.md#views)
+   * [Widget Layouts](../services/ui-component.md#layouts)
    * [Widget Events](../services/events.md#widgets)
 
 If you want to include any content to custom template position, use event [Twig](http://twig.sensiolabs.org/documentation) extension:

@@ -4,9 +4,9 @@
 
 Manual installation is recommended for more advanced users that would like to set up Antares on their own,  specific server environment. It is also recommended to follow it when the automatic installer failed. It provides more flexibility of configuration of the server packages such as apache document root location, pre-installed apache extensions, PHP extensions and server tools.
 
-Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones. You will find the instructions [Automatic Installation Guide](automatic_installation_guide.md).
+Before the installation, it is worth to make sure that all environment's components have been installed in versions compatible with the [expected](requirements.md) ones. You will find the instructions [Automatic Installation Guide](automatic-installation-guide.md).
 
-> ***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic_installation_guide.md).*
+> ***Please note**: Manual installation is the hardest and longest way to install Antares, but gives full server customization as opposed to the auto installation. In case that you are having problems or simply you're not experienced enough to set up your webserver on a Linux environment, please follow [Automatic Installation Guide](automatic-installation-guide.md).*
 
 The following manual is dedicated for **Ubuntu 14.04/16.06**. 
 
@@ -273,7 +273,7 @@ Next step is about choosing optional modules:
 
 ![installation_manual_step_3](../img/docs/installation/installation_guide/installation_manual_step_3.png)
 
-The final step in the installation is to choose the modules which will be included in your application. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the daemon that will be handling [automation](../core_modules/automation.md).
+The final step in the installation is to choose the modules which will be included in your application. Once the components are chosen and the 'next' button is pressed, the application creates migration files and starts the daemon that will be handling [automation](../core-modules/automation.md).
 
 ![installation_manual_step_4](../img/docs/installation/installation_guide/installation_manual_step_4.png)
   

@@ -20,8 +20,8 @@ Modular applications require a slightly different approach than classic, non-mod
 The key is to design the module to be used in multiple projects, not only the particular one, so you and other contributors will avoid the code duplication and reinventig the wheel. This approach in a long term will make your and others life easier.
 
 Every module in Antares can interact/handle following aspects:
-* Navigation control ([breadcrumbs](../services/breadcrumbs.md), [menus](../modules_development/views.md#menus), [placeholders](../modules_development/views.md#placeholder), [panes](../modules_development/views.md#pane) etc.) - which provides browsing between the module views and other modules.
-* [Views](../modules_development/ui_components.md) - presentation layer which is responsible for deliver graphical user interface (GUI).
+* Navigation control ([breadcrumbs](../services/breadcrumbs.md), [menus](../modules-development/views.md#menus), [placeholders](../modules-development/views.md#placeholder), [panes](../modules-development/views.md#pane) etc.) - which provides browsing between the module views and other modules.
+* [Views](../modules-development/ui-components.md) - presentation layer which is responsible for deliver graphical user interface (GUI).
 * Actions - working with data, classic CRUD (create, read, update, delete).
 * Data binding - a separated data layer to maintain independence between views and database.
 
@@ -36,11 +36,11 @@ In Antares, modules are divided into two groups:
     
     Currently there are 5 core modules:
     
-      - [Automation](../core_modules/automation.md) - used to execute cyclic operations based on laravel task scheduler.
-      - [Acl](../core_modules/acl.md) - designed to manage users' access to resources.
-      - [Logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system.
-      - [Notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users.
-      - [Translations](../core_modules/translations.md) - language and translations manager.
+      - [Automation](../core-modules/automation.md) - used to execute cyclic operations based on laravel task scheduler.
+      - [Acl](../core-modules/acl.md) - designed to manage users' access to resources.
+      - [Logger](../core-modules/logger.md) - responsible for gathering the logs coming from different parts of the system.
+      - [Notifications](../core-modules/notifications.md) - used in order to execute the process of sending notifications to end users.
+      - [Translations](../core-modules/translations.md) - language and translations manager.
                    
  - **Additional modules**   
     Extending the application functionality which is not a part of main Antares branch and **are not required**. You may want to use them or not, depending on the project type.
@@ -50,5 +50,5 @@ In Antares, modules are divided into two groups:
 
 ## Making your own module
 If you'd like to make your own Antares Module, we suggest you to follow one of the following paths:
-* Read the **Module Development** documentation articles. Start with the [Module Base](../modules_development/module_base.md).    
-* Follow step by step tutorial of building a [Sample Module](../tutorials/sample_module.md).  
+* Read the **Module Development** documentation articles. Start with the [Module Base](../modules-development/module-base.md).    
+* Follow step by step tutorial of building a [Sample Module](../tutorials/sample-module.md).  

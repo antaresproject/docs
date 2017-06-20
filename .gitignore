@@ -153,6 +153,7 @@ tags
 # End of https://www.gitignore.io/api/laravel,phpstorm,netbeans,osx,vim,sublimetext,linux
 
 /nbproject/*
+/php/*
 composer.lock
 /ide_helper.php
 /composer.lock

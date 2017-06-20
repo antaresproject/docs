@@ -20,7 +20,7 @@ e.g. /admin/acl/roles/index or when you choose the *Staff* position in the *Conf
 It consists of the *Groups* and *Users* sections. 
 
 *Groups* - groups of users (in other words - roles). 
-To find more about groups go to the [Auth and ACL](../services/auth_and_acl.md) section. 
+To find more about groups go to the [Auth and ACL](../services/auth-and-acl.md) section. 
 
 The list of available groups is the following:
 

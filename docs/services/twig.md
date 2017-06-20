@@ -123,7 +123,7 @@ Downloads meta tags in the head section of the application.
 placeholder($name)
 ```
 
-It is responsible for placing the placeholder's object into the view. More information about placeholders can be found [here](../modules_development/views.md#placeholder).
+It is responsible for placing the placeholder's object into the view. More information about placeholders can be found [here](../modules-development/views.md#placeholder).
 
 ### closure  
 
@@ -227,7 +227,7 @@ Provides the URL address that contains the domain connected with the application
 remote_select($params = null)
 ```
 
-Provides the wrapped select control in the form of HTML. More information about the control's structure can be found [here](form_builder.md).
+Provides the wrapped select control in the form of HTML. More information about the control's structure can be found [here](form-builder.md).
 
 ### tooltip  
 

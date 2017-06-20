@@ -277,7 +277,7 @@ To run the tests:
     $ php composer.phar install    
     ```
     
-    More information about environment configuration you can found in [Manual Installation Guide](../installation/manual_installation_guide.md).
+    More information about environment configuration you can found in [Manual Installation Guide](../installation/manual-installation-guide.md).
 
 3. Run the tests via phpunit, like in this example:
     ```bash

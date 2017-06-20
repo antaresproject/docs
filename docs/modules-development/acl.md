@@ -124,7 +124,7 @@ $this->middleware('antares.auth',['only' => ['index']]);
 $this->middleware("antares.can:antares/foo::index-action",['only' => ['index']]);
 ```
 
-Keep in mind that the names of the accesses are the same as in the `acl()` method described in the [Service Provider](service_providers.md).
+Keep in mind that the names of the accesses are the same as in the `acl()` method described in the [Service Provider](service-providers.md).
 
 So an example of using the `setupMiddleware()` method in a controller, may be the following:
 

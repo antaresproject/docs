@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This article will help you to understand how modules in Antares are designed and what should include. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample_module.md) instead. Concept of Antares modular architecture is described in [Antares Concepts - Modules](../antares_concepts/modules.md) article.
+This article will help you to understand how modules in Antares are designed and what should include. If this is your first try with Antares, we highly recommend to follow the  [Sample Module Tutorial](../tutorials/sample-module.md) instead. Concept of Antares modular architecture is described in [Antares Concepts - Modules](../antares-concepts/modules.md) article.
 
 > The path of module directory is `src/modules/<module_name>/` (e.g. `src/modules/sample_module/`). 
 
@@ -165,7 +165,7 @@ class SomeClassExample {
 ```
  ### Dedicated configuration form
 
-If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](../services/form_builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
+If the simple configuration fir is not enough, you can build your own settings page by using the [form builder](../services/form-builder.md). Inside the module src path create a ```SettingsForm.php``` file in ```config``` directory.
 
 ```php
 <?php
@@ -227,7 +227,7 @@ The full module directory structure including all the optional elements is follo
 
 ![AT_COMP&MODS2](../img/docs/antares_concepts/components_and_modules/sample_module_directory.PNG)
   
-**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../antares_concepts/files_structure.md). It is not a conincidence :).
+**Please note:** As you may see, the files structure is very similar to the main [Antares files structure](../antares-concepts/files-structure.md). It is not a conincidence :).
 
 ### /public 
 
@@ -266,7 +266,7 @@ This directory includes the main module logic.
 * **Facades** - Facades as a popular form of referring to a class.
 * **Http** - Requests processing logic and data preparation for display.
 * **Model** - Contains models classes (from the mapped tables) within the framework of [Eloquent](https://laravel.com/docs/5.4/eloquent) engine (Active Record).
-* **Notifications** - Contains the [notification templates](../core_modules/notifications.md) (e.g. email, sms) which the module will send to the users.
+* **Notifications** - Contains the [notification templates](../core-modules/notifications.md) (e.g. email, sms) which the module will send to the users.
 * **Observers** - Observers definitions applied to other classes (usually to models).
 * **Processor** - Processor classes, which interpret and process incoming data.
 * **Repositories** - Repositories classes (combining several models into one).
@@ -277,7 +277,7 @@ This directory includes the main module logic.
 
 #### Http directory
 
-The Http directory contains controllers, middleware, [datatables](../services/datatables.md), [forms](../services/form_builder.md) and more. 
+The Http directory contains controllers, middleware, [datatables](../services/datatables.md), [forms](../services/form-builder.md) and more. 
 Almost all of the logic to handle requests entering to application is placed in this directory.
 
 ![AT_COMP&MODS6](../img/docs/antares_concepts/components_and_modules/http_dir.PNG)
@@ -286,8 +286,8 @@ Almost all of the logic to handle requests entering to application is placed in 
 * **Controllers** - module controller classes. It is worth noticing that for readability sake, the controller of the admin level has been placed in a subdirectory.
 * **Datatables** - tables presenting classes using [datatables](../services/datatables.md).
 * **Filters** - data [filters](../services/filters.md) used in a module.
-* **Form** - module [forms](../services/form_builder.md).
-* **Handler** - event class service thrown by other applications modules as well as by the framework itself. In this directory, there are classes responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](ui_components.md), [left beam]((../modules_development/views_and_ui_components.md)) and [placeholder]((../modules_development/views_and_ui_components.md)) presentation.
+* **Form** - module [forms](../services/form-builder.md).
+* **Handler** - event class service thrown by other applications modules as well as by the framework itself. In this directory, there are classes responsible for [breadcrumb](../services/breadcrumbs.md), [main menu](ui-components.md), [left beam](views.md) and [placeholder](views.md) presentation.
 * **Middleware** - middleware classes i.e. filters serving the events before sending a request to the action and after receiving the processed data.
 * **Presenters** - presenter classes, i.e. the layer responsible for data return into a view and presentation in a browser.
 

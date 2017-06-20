@@ -13,7 +13,7 @@ More information about using composer you can find in official [documenation](ht
 
 ## Module structure
 
-Before starts read this article, it is recommended to get info about [module base](../modules_development/module_base.md).
+Before starts read this article, it is recommended to get info about [module base](../modules-development/module-base.md).
 
 ### Base structure
 
@@ -62,7 +62,7 @@ $permissions->add(Role::member()->name, $presentationActions);
 $permissions->add(Role::admin()->name, array_merge($presentationActions,$actions));
 ``` 
 
-More details about acl you find [here](../modules_development/acl.md).
+More details about acl you find [here](../modules-development/acl.md).
  
 #### Providers
  
@@ -76,7 +76,7 @@ return [
 ]; 
 ```
 
-As you can see, this file returns class names of [service providers](../modules_development/service_providers.md) used by module. Service provider is the most important file within module. 
+As you can see, this file returns class names of [service providers](../modules-development/service-providers.md) used by module. Service provider is the most important file within module. 
 It's like a bootstrap where module starts its work.
  
 #### Composer
@@ -109,7 +109,7 @@ Create file `composer.json` in base path of module:
     }
 }
 ``` 
-Description of keys in `composer.json` file is [here](../modules_development/module_base.md#composerjson-schema).
+Description of keys in `composer.json` file is [here](../modules-development/module-base.md#composerjson-schema).
 
 #### Service provider
 
@@ -169,7 +169,7 @@ class SampleModuleServiceProvider extends ModuleServiceProvider
     }
 }
 ```
-If you want to know more about working service providers, please go to [Service Providers](../modules_development/service_providers.md) section.
+If you want to know more about working service providers, please go to [Service Providers](../modules-development/service-providers.md) section.
 
 #### Routes
 
@@ -184,7 +184,7 @@ $router->group(['prefix' => 'my_module'], function (Router $router) {
     $router->get('index', 'ModuleController');
 });
 ```
-Details about routing in Antares you can find [here](../modules_development/routing.md). 
+Details about routing in Antares you can find [here](../modules-development/routing.md). 
 In the example above your module will be available under the endpoint `/{area}/my_module/index`. 
 
 > `{area}` is the name of access layer where user is assigned (for example admin, user, redactor, etc.).
@@ -228,7 +228,7 @@ class ModuleController extends AdminController
 Controller class contains method `setupMiddleware()` which determines rules of access to actions.
 This controller has only one action `index()` and only one rule `items-list` is assigned to it. Because of fact that
 Antares is modular application, first argument of `middleware` should have the name of module in following format: 
-`antares.can:antares/<module_name>::<rule_name>`. More details about middleware's in Antares you can find [here](../modules_development/acl.md#verification-at-the-controllers-level). 
+`antares.can:antares/<module_name>::<rule_name>`. More details about middleware's in Antares you can find [here](../modules-development/acl.md#verification-at-the-controllers-level). 
 
 #### View
 
@@ -248,7 +248,7 @@ The result of our module should have following structure:
 ![sample_module_structure](../img/docs/tutorials/sample_module_structure.PNG)
 
 Module source should be copied to directory of modules within Antares file structure. The location of directory is in the src directory in Antares base path. 
-More information about Antares files you can find [here](../antares_concepts/files_structure.md).
+More information about Antares files you can find [here](../antares-concepts/files-structure.md).
 
 #### Installing and activating
 
@@ -262,7 +262,7 @@ In the image below is an example of installation result:
 
 ![sample_module_install](../img/docs/tutorials/sample_module_install.PNG)
 
-You can also install a module using "component" section with is described [here](../modules_development/module_base.md#user-interface).
+You can also install a module using "component" section with is described [here](../modules-development/module-base.md#user-interface).
 
 ## Add module to project
 
@@ -606,7 +606,7 @@ class CustomModuleTable extends Migration
 }
 ```
 Above class contains two methods:
- - `up()` - is responsible for create tables in database. It is executed while installing module from web interface or from command line. More info about module commands is in [Module Base](../modules_development/module_base.md) section.  
+ - `up()` - is responsible for create tables in database. It is executed while installing module from web interface or from command line. More info about module commands is in [Module Base](../modules-development/module-base.md) section.  
  - `down()` - which is responsible for typically deletes tables from database. Is is executed while uninstalling module.
 
 ### Seeds
@@ -738,9 +738,9 @@ class ModuleEmailNotification extends NotificationSeeder
 }
 ```
 
-Method `run()` is responsible for create new notification, and `down()` for delete.  More details is described in [Notifications](../core_modules/notifications.md#migration-files) core module. 
+Method `run()` is responsible for create new notification, and `down()` for delete.  More details is described in [Notifications](../core-modules/notifications.md#migration-files) core module. 
 
-> Please note. The migration section of this article only presents an example of migrations. More information about migrations you can find in Antares [Migration](../modules_development/migrations.md) section and [Laravel documentation](https://laravel.com/docs/5.4/migrations).
+> Please note. The migration section of this article only presents an example of migrations. More information about migrations you can find in Antares [Migration](../modules-development/migrations.md) section and [Laravel documentation](https://laravel.com/docs/5.4/migrations).
   
 ## Create module item
 
@@ -784,5 +784,5 @@ and create new method in our `ModuleController.php`:
 Method `create()` will deliver the view with form to create new item. How about `ModuleProcessor` ? 
 ModuleProcessor will operate the processing of a request coming from the controller’s action. 
 
-To get more details about using other Antares functionalities, please read [Modules Development](../modules_development/module_base.md) and [Services](../services/assets.md).
+To get more details about using other Antares functionalities, please read [Modules Development](../modules-development/module-base.md) and [Services](../services/assets.md).
 All source code of sample module can be download from [Github](https://github.com/antaresproject/sample_module.git).

@@ -213,4 +213,4 @@ The section responsible for sending settings is:
 ]
 ```
 
-More information on how the notifications operate can be found [here](../core_modules/notifications.md).
+More information on how the notifications operate can be found [here](../core-modules/notifications.md).

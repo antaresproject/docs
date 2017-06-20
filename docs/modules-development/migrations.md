@@ -16,7 +16,7 @@ migration called seed. Antares uses [Laravel migrations](https://laravel.com/doc
 
 The migration files do not need to be a part of a component if the component does not require 
 appropriate structure in database to operate. More information about catalogues' structure 
-for the migration files can be found [here](../antares_concepts/files_structure.md).
+for the migration files can be found [here](../antares-concepts/files-structure.md).
 
 Example of use (`file 2015_07_24_082030_foo_table`):
 

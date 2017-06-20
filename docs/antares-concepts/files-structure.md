@@ -82,13 +82,13 @@ It includes following subdirectories:
            * **publisher** - supports execution of module migration files            
        * **foundation** - all of required php classes which are used to boot the application. It has the base application config files with the information about default system notifications and settings (such as email templates and configuration, default system groups and roles). It connects together other core modules and services as elements to deliver one, connected, working package to use with external modules.       
        * **modules** - Here are the core modules, which which not interfere with foundation but are required by the Antares to work. It includes:             
-           * [automation](../core_modules/automation.md) - is used to execute cyclic operation based on scheduler,           
-           * [control](../core_modules/acl.md) - a lightweight role-based permissions module for Antares,           
-           * [logger](../core_modules/logger.md) - responsible for gathering the logs coming from different parts of the system,         
-           * [notifications](../core_modules/notifications.md) - used in order to execute the process of sending notifications to end users           
+           * [automation](../core-modules/automation.md) - is used to execute cyclic operation based on scheduler,           
+           * [control](../core-modules/acl.md) - a lightweight role-based permissions module for Antares,           
+           * [logger](../core-modules/logger.md) - responsible for gathering the logs coming from different parts of the system,         
+           * [notifications](../core-modules/notifications.md) - used in order to execute the process of sending notifications to end users           
            * customfields - provides possibility to create system custom fields to extend default entity attributes           
            * tester - provides possibility to verify(test) configuration in various sections          
-           * [translations](../core_modules/translations.md) - manage Antares translation files           
+           * [translations](../core-modules/translations.md) - manage Antares translation files           
        * **ui** - various classes responsible for UI display and control. It includes:
             
            * base - including Template Base control, so breadcrumbs, menus, panes, placeholders, navigation features etc., which are used within main layout template.        

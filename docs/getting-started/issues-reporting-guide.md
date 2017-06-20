@@ -26,7 +26,7 @@ Before you report an issue, please search through existing issues to see if your
  
 2. Send an issue description directly by contact e-mail: contact (at) antaresproject.io
  
-3. Description of security issue should contain the same details described [above](issues_reporting_guide.md#Reporting bugs). 
+3. Description of security issue should contain the same details described [above](issues-reporting-guide.md#Reporting bugs). 
 
 **Please Note:** Security issue has the highest priority. We will work with you to verify the vulnerability and patch it as soon as possible.
 

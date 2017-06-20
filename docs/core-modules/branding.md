@@ -37,7 +37,7 @@ Description of particular fields of the form:
 ## Email branding
 
 Email Branding provides the defining form of a new e-mail template. 
-The template is used when sending an e-mail from the system, which is based on the [notifications](../core_modules/notifications.md) module:
+The template is used when sending an e-mail from the system, which is based on the [notifications](../core-modules/notifications.md) module:
 
 ![brand_email](../img/docs/core_modules/branding/brand_email.PNG)
   

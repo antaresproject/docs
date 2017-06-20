@@ -13,7 +13,7 @@ Routing in Antares app is based on [Laravel Routing](https://laravel.com/docs/5.
 
 ## Frontend  
 
-To make a module work within its own routing, insert the configuration in the Service provider's 'boot' method. More information can be found [here](service_providers.md).
+To make a module work within its own routing, insert the configuration in the Service provider's 'boot' method. More information can be found [here](service-providers.md).
 If a module is using client's panel, it is good to split routers into two files, in order to increase readability. So, to exemplify a file defining frontal (client's) routing, may be the following:
 
 

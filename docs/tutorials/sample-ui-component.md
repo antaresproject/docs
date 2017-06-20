@@ -66,7 +66,7 @@ The path to the view's file which will be used by the template is determined in 
 {% endblock %}
 ```
 The `$attributes` determines default parameters of the template. 
-More information about the parameters can be found in the [UI Component](../services/ui_component.md) section. 
+More information about the parameters can be found in the [UI Component](../services/ui-component.md) section. 
 The ui component may use the template when it inherits from its class:
 ```php
 <?php

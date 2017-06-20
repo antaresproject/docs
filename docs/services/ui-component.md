@@ -91,7 +91,7 @@ The code above will generate the following website:
 
   ![AT_WIDG08.PNG](../img/docs/services/ui component/AT_WIDG08.PNG)
   
-The whole operation happens by means of `ui component_forced` twig engine extension. The `ui component_forced` function as a first argument takes the name of the ui component in the form of underscore (that is Foo Widget => foo_ui component), whereas the second argument are ui components' attributes. More information about ui components' attributes may be found [here](../modules_development/ui_components.md).
+The whole operation happens by means of `ui component_forced` twig engine extension. The `ui component_forced` function as a first argument takes the name of the ui component in the form of underscore (that is Foo Widget => foo_ui component), whereas the second argument are ui components' attributes. More information about ui components' attributes may be found [here](../modules-development/ui-components.md).
 
 ## Views  
 
@@ -256,7 +256,7 @@ The attribute will cause ui component's title display as in the example below:
 
 ![AT_WIDG11.PNG](../img/docs/services/ui component/AT_WIDG11.PNG)
   
-By default, the title's content will be downloaded from the `name` parameter. However, if the `title` parameter has been determined, the value of this parameter will be taken into consideration in the first place. More information about ui component's attributes can be found [here](../modules_development/ui_components.md).
+By default, the title's content will be downloaded from the `name` parameter. However, if the `title` parameter has been determined, the value of this parameter will be taken into consideration in the first place. More information about ui component's attributes can be found [here](../modules-development/ui-components.md).
 
 ### Description  
 

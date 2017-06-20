@@ -232,7 +232,7 @@ In the filters, apart from the list, the forms narrowing the query results can b
     }
 ```
 
-In the example above, the `form` method is responsible for providing the form's object that will be displayed in the filter. More information about the work with forms can be found [here](form_builder.md). Worth noting is the name of the value in the `pattern` attribute - that is `%created_at_range` - which is the same as the name of the field in the form. The layout's file used by the form has the following syntax:
+In the example above, the `form` method is responsible for providing the form's object that will be displayed in the filter. More information about the work with forms can be found [here](form-builder.md). Worth noting is the name of the value in the `pattern` attribute - that is `%created_at_range` - which is the same as the name of the field in the form. The layout's file used by the form has the following syntax:
 
 <pre><code>antares/foo::admin.partials._filter_form</code></pre>
 

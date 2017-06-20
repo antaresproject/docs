@@ -142,7 +142,7 @@ if (Auth::isNotAny(['admin', 'editor'])) {
 
 ## ACL And Metrics  
 
-Owing to the modularity of application, each module can decide independently which resources (within the module's space) are accessible to the logged in user. More details about the creation of the ACL migration files can be found [here](../modules_development/migrations.md). Information about the verification of access to the actions of controllers (resources) can be found [here](../modules_development/acl.md).
+Owing to the modularity of application, each module can decide independently which resources (within the module's space) are accessible to the logged in user. More details about the creation of the ACL migration files can be found [here](../modules-development/migrations.md). Information about the verification of access to the actions of controllers (resources) can be found [here](../modules-development/acl.md).
 In order to download the ACL instance assigned to a module:
 
 ```php

@@ -7,9 +7,9 @@
 UI Component is a structure creating decoration of existing view component instance. This means that, if there is a need for constructing a view component containing 'Datatables', one can use a set of predefined solutions known as ui components.     
 The following ui components (that are currently supported) can be distinguished:  
    
-* [Default](ui_components.md#Default)  
-* [Datatables](ui_components.md#Datatables)
-* [Ajax](ui_components.md#Ajax)
+* [Default](ui-components.md#Default)  
+* [Datatables](ui-components.md#Datatables)
+* [Ajax](ui-components.md#Ajax)
 
 
 ## How to create UI Component
