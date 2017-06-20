@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?docs\.antaresproject\.io [NC]
+RewriteRule !^(php|webhooks)/ /php%{REQUEST_URI} [L,NC]
