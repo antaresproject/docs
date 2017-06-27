@@ -1,3 +1,8 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(www\.)?docs\.antaresproject\.io [NC]
-RewriteRule !^(php-framework|webhooks)/ /php-framework%{REQUEST_URI} [L,NC]
+
+RewriteCond %{HTTP_HOST} !^www\.antaresproject\.io$
+RewriteRule !^(php-framework|webhooks) http://www.docs.antaresproject.io/php-framework$1 [R=301,L]
+
+
+RewriteCond %{HTTP_HOST} ^docs\.antaresproject\.io$ [NC]
+RewriteRule ^(.*)$ http://www.docs.antaresproject.io/$1 [R=301,L]
