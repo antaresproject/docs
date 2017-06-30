@@ -1,8 +1,9 @@
 RewriteEngine On
 
+ErrorDocument 404 /
+
 RewriteCond %{HTTP_HOST} !^www\.antaresproject\.io$
 RewriteRule !^(php-framework|webhooks) http://www.docs.antaresproject.io/php-framework$1 [R=301,L]
-
 
 RewriteCond %{HTTP_HOST} ^docs\.antaresproject\.io$ [NC]
 RewriteRule ^(.*)$ http://www.docs.antaresproject.io/$1 [R=301,L]
