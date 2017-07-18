@@ -16,8 +16,7 @@ Every View includes:
      * [Menu](../modules-development/views.md#menus)     
      * [Breadcrumbs](../services/breadcrumbs.md)   
      * [Actions of the section](../modules-development/views.md#breadcrumbs-menu)   
-     * Additional tools   
-     
+     * Additional tools        
          * Account icon with account menu                    
          * Search        
          * [Notifications](../core-modules/notifications.md)               
