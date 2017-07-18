@@ -13,21 +13,14 @@ Every View includes:
 
 2. **Template Base** - everything on the page except UI Components which includes:
 
-   * [Menu](../modules-development/views.md#menus)  
-   
-   * [Breadcrumbs](../services/breadcrumbs.md)
-   
-   * [Actions of the section](../modules-development/views.md#breadcrumbs-menu)
-   
-   * Additional tools
-   
-      * Account icon with account menu
-      
-      * Search
-      
-      * [Notifications](../core-modules/notifications.md)
-      
-      * [Edit Widgets toggle](../services/ui-component.md#placing-the-widget-on-a-website)      
+   * [Menu](../modules-development/views.md#menus)     
+   * [Breadcrumbs](../services/breadcrumbs.md)   
+   * [Actions of the section](../modules-development/views.md#breadcrumbs-menu)   
+   * Additional tools   
+    * Account icon with account menu      
+    * Search
+    * [Notifications](../core-modules/notifications.md)      
+    * [Edit Widgets toggle](../services/ui-component.md#placing-the-widget-on-a-website)      
       
 ![UI Structure](../img/docs/antares_concepts/ui_structure/ui_components_container.png)
 
