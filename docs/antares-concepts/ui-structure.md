@@ -11,7 +11,6 @@ By default, Antares provides User and Admin **Levels**. Except **Dashboard**, wh
 Every View includes:
 
 1. **UI Components Container** - the area where all the [UI Components](../modules-development/ui-components.md#how-to-create-ui-component) (widgets) are loaded by the modules.
-
 2. **Template Base** - everything on the page except UI Components which includes:
 
    * [Menu](../modules-development/views.md#menus)     
