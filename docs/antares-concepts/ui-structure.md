@@ -9,8 +9,11 @@ The biggest advantage of using Antares as a base of your application is powerful
 By default, Antares provides User and Admin **Levels**. Except **Dashboard**, which is by default available on every level, modules can define their own [Views](../modules-development/ui-components.md). Dashboard is a View itself as well.
   
 Every View includes:
-1. **UI Components Container** - the area where all the [UI Components](../modules-development/ui-components.md#how-to-create-ui-component) (widgets) are loaded by the modules.  
+
+1. **UI Components Container** - the area where all the [UI Components](../modules-development/ui-components.md#how-to-create-ui-component) (widgets) are loaded by the modules.
+
 2. **Template Base** - everything on the page except UI Components which includes:
+
    * [Menu](../modules-development/views.md#menus)     
    * [Breadcrumbs](../services/breadcrumbs.md)   
    * [Actions of the section](../modules-development/views.md#breadcrumbs-menu)   
