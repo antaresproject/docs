@@ -5559,6 +5559,9 @@ footer ul .logo:last-child {
         width:100%;
         max-width:auto;
     }
+    footer {
+        height: auto;
+    }
     .social-links-footer ul {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -5580,7 +5583,6 @@ footer ul .logo:last-child {
     }
     footer .set-width {
         flex-flow: column-reverse nowrap;
-        height: auto;
     }
 }
 @media (min-width: 1200px){
