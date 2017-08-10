@@ -1142,6 +1142,9 @@ footer img {
     width: 202px;
     height: 36px;
 }
+footer ul li:last-child {
+    padding-right: 0;
+}
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -5574,6 +5577,10 @@ footer ul .logo:last-child {
         display: block;
         width: 100%;
         padding-right: 0;
+    }
+    footer .set-width {
+        flex-flow: column-reverse nowrap;
+        height: auto;
     }
 }
 @media (min-width: 1200px){
