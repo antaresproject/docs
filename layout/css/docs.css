@@ -5505,10 +5505,6 @@ footer ul .logo:last-child {
     section.cta .cta__section:last-child h3, section.cta .cta__section:last-child p, section.cta .set-width .cta__section:last-child h3, section.cta .set-width .cta__section:last-child p {
         text-align: center;
     }
-
-    footer .set-width > div:first-child p{
-        text-align:center;
-    }
     section.antares-nav ul{
         display:none;
     }
@@ -5565,12 +5561,12 @@ footer ul .logo:last-child {
         -ms-flex-pack: center;
         justify-content: center;
     }
-    .page-content footer .container ul {
+    footer .container ul {
         margin-bottom: 30px;
         text-align: center;
         justify-content: center;
     }
-    .page-content footer .container>a {
+    footer .container>a {
         margin-top: 60px;
         margin-bottom: 30px;
     }
