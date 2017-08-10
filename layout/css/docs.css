@@ -3987,6 +3987,64 @@ footer ul a {
 footer ul .logo:last-child {
     margin-right: 0;
 }
+.social-links-footer {
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.social-links-footer li {
+    padding-right: 12px;
+}
+.social-links-footer li a {
+    width: 38px;
+    height: 38px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #737373;
+    border: 1px solid #E8E8E8;
+    border-radius: 100%;
+    font-size: 18px;
+}
+.social-links-footer li:first-child {
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-right: 20px;
+}
+.social-links-footer li img {
+    width: 38px;
+}
+.social-links-footer li .github:hover {
+    background-color: #4183C4;
+    border-color: #4183C4;
+    color: #fff;
+}
+.social-links-footer li .facebook:hover {
+    background-color: #4265b9;
+    border-color: #4265b9;
+    color: #fff;
+}
+.social-links-footer li .twitter:hover {
+    background-color: #55ACEE;
+    border-color: #55ACEE;
+    color: #fff;
+}
+.social-links-footer li .linkedin:hover {
+    background-color: #005987;
+    border-color: #005987;
+    color: #fff;
+}
 
 .label {
     height: 20px;
