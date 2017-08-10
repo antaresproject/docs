@@ -1127,21 +1127,21 @@ body.konami .konami{
 .mfp-image{
     cursor:pointer;
 }
-footer{
-    -ms-flex-pack:center;
-    justify-content:center;
-    width:100%;
-    margin:0;
-}
 footer,footer .set-width{
     -ms-flex-align:center;
     display:-ms-flexbox;
     display:flex;
     align-items:center;
 }
-footer .set-width{
+footer .set-width {
     -ms-flex-pack:justify;
     justify-content:space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+footer img {
+    width: 202px;
+    height: 36px;
 }
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
@@ -3936,22 +3936,18 @@ body .ardocs-menu--offcanvas ul.ardocs-main-menu > li.version-list.is--open a i 
 }
 
 footer {
+    -webkit-align-items: center;
     -ms-flex-align: center;
+    -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 40px 0;
-    color: #666666;
-    font-size: 14px;
-}
-footer {
-    -ms-flex-pack: center;
-    justify-content: center;
+    height: 100px;
     width: 100%;
-    min-height: 86px;
-    margin: 0;
+    border-top: 1px solid #e7e7e7;
 }
 footer, footer.set-width {
     -ms-flex-align: center;
@@ -3977,12 +3973,6 @@ footer ul {
     justify-content: flex-end;
     padding: 0;
     list-style-type: none;
-}
-footer ul li {
-    margin-right: 25px;
-}
-footer ul a {
-    color: #666666;
 }
 footer ul .logo:last-child {
     margin-right: 0;
