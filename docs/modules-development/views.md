@@ -4,28 +4,28 @@
 
 ## Introduction
 
-Antares uses [Twig template engine](http://twig.sensiolabs.org/documentation) to generate user interfaces. More information you can find [here](http://twig.sensiolabs.org/documentation). 
+Antares uses the [Twig template engine](http://twig.sensiolabs.org/documentation) to generate user interfaces. More information about Twig can be found [here](http://twig.sensiolabs.org/documentation). 
 
-The controller is responsible for handling request that comes into a Antares. 
-In next step, the controller delegates computing work to other places (eg: [Processors](../modules-development/controllers-and-processors.md), Models, Repositories). 
-This solution allows to reuse the code. When a controller needs to generate HTML it passes whole decoration process to templating engine.
+The controller is responsible for handling requests that come into Antares. 
+The controller then delegates computing work to other places (eg: [Processors](../modules-development/controllers-and-processors.md), Models, Repositories). 
+This solution allows us to reuse the code. When a controller needs to generate HTML it passes the whole decoration process to the templating engine.
 
 
-Views contains the HTML served by your application and separate your controller / application logic from your presentation logic. 
-More information about views you can fin in [Laravel documentation](https://laravel.com/docs/5.4/views).
-In Antares, views can be divided into following types:
+Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. 
+More information about views you can be found in the [Laravel documentation](https://laravel.com/docs/5.4/views).
+In Antares, views can be divided into the following types:
 
 - menus
 - placeholders
 - panes
 
-All of those types of view belong to Antares Base Templates.
+All of those view types belong to the Antares Base Templates.
 
 > The path of views is `src/modules/<module_name>/resources/views/` (e.g. `src/modules/sample_module/resources/views/index.twig`).
 
-## How to create new view
+## How to create a new view
 
-A view is text file that generates text-based format (HTML) using [Twig](http://twig.sensiolabs.org/documentation) as template engine. 
+A view is a text file that generates HTML using [Twig](http://twig.sensiolabs.org/documentation) as the templating engine. 
 The most familiar type of template is a PHP template - a text file parsed by PHP that contains a mix of text and PHP code: 
 
 ```html
@@ -40,7 +40,7 @@ The most familiar type of template is a PHP template - a text file parsed by PHP
 </ul>
 ```
 
-More information about controllers, processors and presenters you can find in section [Controllers and Processors](../modules-development/controllers-and-processors.md).
+More information about controllers, processors and presenters can be found in the [Controllers and Processors](../modules-development/controllers-and-processors.md) section.
 
 [Twig](http://twig.sensiolabs.org/documentation) allows you to write readable templates that are more friendly and powerful than PHP templates:
 
@@ -52,16 +52,16 @@ More information about controllers, processors and presenters you can find in se
 </ul>
 ```
 
-To create new view within module you have to declare the place in service provider:
+To create a new view within a module you have to declare the place in service provider:
 
 ```php
 $path  = __DIR__ . '/../';
 $this->addViewComponent('antares/foo', 'antares/foo', "{$path}/resources/views/foo");
 ```
 
-First argument is the name of package, second is the namespace and last is the location of view.
+First argument is the name of package, second is the namespace and last is the location of the view.
 
-Please note that method `addViewComponent()` is declared in `Antares\Foundation\Support\Providers\ModuleServiceProvider`, so your service provider must inherit after this class.
+Please note that the method `addViewComponent()` is declared in `Antares\Foundation\Support\Providers\ModuleServiceProvider`, so your service provider must inherit this class.
 
 ```twig
 {% extends "antares/foundation::layouts.antares.index" %}
@@ -70,15 +70,15 @@ Please note that method `addViewComponent()` is declared in `Antares\Foundation\
 {% endblock %}
 ```
 
-In the example above view inherits from template called `antares/foundation::layouts.antares.index` which is placed at
-`resources\views\default\layouts\antares\index.twig`. Section within
+In the example above view inherits from a template called `antares/foundation::layouts.antares.index` which is located at
+`resources\views\default\layouts\antares\index.twig`. The following section is responsible for generating content which you should implement.
 
 ```twig
 {% block content %}    
     /** add you content here **/
 {% endblock %}
 ```
-is responsible for generating content which you should implement. For example:
+For example:
 ```twig
 {% extends "antares/foundation::layouts.antares.index" %}
 {% block content %}    
@@ -177,8 +177,8 @@ The default template is `antares/foundation::layouts.antares.index`:
 {% endblock %} 
 ```
 
-The `index` template inherits from `clear` template when ajax request is send to Antares. Otherwise `main` template will be used. 
-As you can see `index` template overwrites `main_content` block from `main` template, as follows:
+The `index` template inherits from the `clear` template when an AJAX request is sent to Antares. Otherwise the `main` template will be used. 
+As you can see the `index` template overwrites the `main_content` block from the `main` template, as follows:
 
 ```twig
 <section class="main-content">        
@@ -193,7 +193,7 @@ Using above, your module view will be included in:
 {% block content %}
 {% endblock %}
 ``` 
-so it will generate following code:
+so it will generate the following code:
 
 ```twig
 {% extends  app.request.isXmlHttpRequest() ? "antares/foundation::layouts.antares.clear":  "antares/foundation::layouts.antares.main" %}   
@@ -230,7 +230,7 @@ If you want to overwrite other sections from base template, you have to declare 
 
 ## How to include view to others
 
-Insertion content in other sections of Antares UI can be divided as following:
+Inserting content in other sections of Antares UI can be divided as following:
 
 * [Views](../modules-development/module-events.md#views)
 * [Placeholder](../modules-development/module-events.md#placeholder)
