@@ -17,7 +17,7 @@ Additionally, following skills may be very helpful:
 - Laravel
 - Grunt, Webpack, VueJS
 - Composer
-- Singleton, Abstract Factory deisgn concepts
+- Singleton, Abstract Factory design concepts
 - GitHub flow
 - LAMP
 
@@ -34,4 +34,4 @@ If this is your first try with Antares, we suggest to follow the path below:
 
 4. Start building your own Modules following **Modules Development** starting with [Module Base](modules-development/module-base.md) article or try with our tutorial to build [Sample Module](tutorials/sample-module.md).
 5. Learn more about the **Core Modules** that you can leverage in your application and make your own modules compatible with.
-6. During the development, you will definitely want to use the available **Services** of the Antares that can help you speed up your pace and extend your system's functionality. **It is a key to deliver a stable and consistent solution**.
+6. During the development, you will definitely want to use the available **Services** of Antares that can help you speed up your pace and extend your system's functionality. **It is a key to deliver a stable and consistent solution**.
