@@ -7,6 +7,27 @@
 Events constitute system events delegated in different parts of the system which belong to a planned mechanism of 
 some services' realization. Therefore, an event is logging the user in to the system and treating as an action, but the authorization process is not an event at all. A register of events activated within a component's structure can be found [here](../modules_development/module_events.md). 
 
+## Listening to the System Events
+
+Listeners can listen to the system events using event name or event class as well.
+For example, both these codes will do the same thing:
+
+##### Listen to the event using event name
+```php
+Event::listen('antares.form: userform.create', function(User $user, FormBuilder $form) {});
+```
+
+##### Listen to the event using event class
+```php
+Event::listen(FormRender::class, function(FormRender $event) {
+    if ($event->formName == 'userform' && $event->action == 'create') {}
+});
+```
+Both approachs have their advantages and disadvantages. In first method you must know the whole event name ind the second you will be forced to add some code logic (in this particular case) such conditional expression because this event will fire for all forms in system, not only for user create form. Also, when using event classes, not names, you are not able to use wildcard, e.g. `antares.form: userform.*`.
+Greate advantage of event classes is that all parameters of event will be stored in the event object with public access so you can easly see what parameters are sent when event was triggered.
+
+List of all event class can be found [here](event_classes.md).
+
 ## System Events  
 
 The following base events excited by the system can be:
