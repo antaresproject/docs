@@ -100,9 +100,7 @@ You should also add at least one recipient to template. The ```setRecipients(arr
 Additionally you can customize the severity.
 
 ```php
-
 (new Template(['mail'], $subject, $view))->setSeverity('high');
-
 ```
 
 Important to known is that the ```templates()``` method is used for importing notification to database so not all notifications must implement it. If you want omit that method then remove ```NotificationEditable``` interface from class.
@@ -237,7 +235,6 @@ Note that the second argument is a variable label used in notification template 
 The above variables declaration is used for simply values. But what if you want to use more complex object like Eloquent model? In this case using ```set()``` method is not enought so you have to use dedicated way for that.
 
 ```php
-
 $default = function() {
     $faker = \Faker\Factory::create();
     
@@ -277,6 +274,31 @@ $item = new Item(); // the object which should be passed to the notification
 event(new ItemCreated($item)); // dispatching event with that object
 ```
 
+## User Interface
+
+#### Data table of notification templates
+![ui-list.png](../img/docs/core_modules/notifications/ui-list.png)
+
+
+#### Form for creating or editing
+![ui-form.png](../img/docs/core_modules/notifications/ui-form.png)
+
+Within the form you are able to switch between WYSIWYG (What You See Is What You Get) and HTML editors to customize your template.
+
+|![ui-wysiwyg.png](../img/docs/core_modules/notifications/ui-wysiwyg.png)|![ui-html.png](../img/docs/core_modules/notifications/ui-html.png)|
+|---|---|
+
+You don't have to memorize variables. Just open the ```Variables``` panel to show all of them.
+
+![ui-variables.png](../img/docs/core_modules/notifications/ui-variables.png)
+
+Two ways to check if the notification will be sent correctly. By pressing the ```Preview``` button the notification will be generated in dialog window filled by simulated variables. By pressing the ```Send Test``` button it will handled by system and sent as mail, SMS, notification or alert.
+
+![ui-preview.png](../img/docs/core_modules/notifications/ui-preview.png)
+
+### Notice
+
+> To properly send notification as type of alert or notification after changed type is have to be saved before. Otherwise system will sent it using previous type.
 
 ## Artisan commands
 
@@ -303,7 +325,7 @@ The ```--force``` flag will restore to default values already exist templates an
 php artisan notifications:category-list
 ```
     
-![AT_NOTIFI03.PNG](../img/docs/core_modules/notifications/artisan-categories.png)
+![artisan-categories.png](../img/docs/core_modules/notifications/artisan-categories.png)
    
 The default value is the *default* category.
 
@@ -313,7 +335,7 @@ The default value is the *default* category.
 php artisan notifications:types-list
 ```
 
-![AT_NOTIFI04.PNG](../img/docs/core_modules/notifications/artisan-types.png)
+![artisan-types.png](../img/docs/core_modules/notifications/artisan-types.png)
 
 If the type is not defined, the notification will be added to all types with the exception of e-mail and sms types.
 
@@ -323,7 +345,7 @@ If the type is not defined, the notification will be added to all types with the
 php artisan notifications:severity-list
 ```
    
-![AT_NOTIFI05.PNG](../img/docs/core_modules/notifications/artisan-severities.png)
+![artisan-severities.png](../img/docs/core_modules/notifications/artisan-severities.png)
     
 The default priority is `medium`.
 
