@@ -296,10 +296,6 @@ Two ways to check if the notification will be sent correctly. By pressing the ``
 
 ![ui-preview.png](../img/docs/core_modules/notifications/ui-preview.png)
 
-### Notice
-
-> To properly send notification as type of alert or notification after changed type is have to be saved before. Otherwise system will sent it using previous type.
-
 ## Artisan commands
 
 ```bash
