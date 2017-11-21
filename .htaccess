@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^51.254.36.218:82$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.51.254.36.218:82/$
+RewriteCond %{REQUEST_URI} !site/
+RewriteRule (.*) site/$1 [L]

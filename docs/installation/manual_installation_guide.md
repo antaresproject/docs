@@ -281,3 +281,69 @@ The final step in the installation is to choose the modules which will be includ
 In the next step the application will inform you about the end of the installation. 
   
 **Congratulations!!! The Antares application is ready to work.**
+
+
+### Nginx
+
+First, we need to update our local package index to make sure we have a fresh list of the available packages. 
+Then we can install the necessary components:
+
+```bash
+apt-get update
+apt-get install nginx php7.1-fpm
+```
+
+The first thing that we need to do is open the main PHP configuration file for the PHP-fpm processor that Nginx uses. 
+Open this in your text editor:
+
+```bash
+nano /etc/php/7.1/fpm/php.ini
+```
+
+We only need to modify one value in this file. 
+Search for the `cgi.fix_pathinfo` parameter and update it to following value:
+
+```bash
+cgi.fix_pathinfo=0
+```   
+
+In next step, open the default server block configuration file:
+
+```bash
+nano /etc/nginx/sites-available/default
+```
+
+Upon installation, this file will have quite a few explanatory comments, but the basic structure should be updated to this:
+
+```bash
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        root /var/www/html/public;
+        index index.php index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name <server_domain_or_IP>;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+        location ~ \.php$ {
+                try_files $uri =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```   
+
+We have set the root `parameter` to `/var/www/html/public` so that PHP can locate the requested files correctly. 
+That's all. Just restart nginx process:
+ 
+```bash
+sudo service nginx restart
+```
+
