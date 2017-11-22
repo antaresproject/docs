@@ -283,7 +283,7 @@ In the next step the application will inform you about the end of the installati
 **Congratulations!!! The Antares application is ready to work.**
 
 
-### Nginx
+## Nginx
 
 First, we need to update our local package index to make sure we have a fresh list of the available packages. 
 Then we can install the necessary components:
