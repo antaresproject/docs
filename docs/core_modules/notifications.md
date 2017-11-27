@@ -264,6 +264,15 @@ The ```setAttributes(array)``` method declare variables with labels which belong
 [[ sample_module_name::sampleModel.value ]]
 ```
 
+## Importing
+
+To automatically import notifications to the system after activation of a module use the below code in the ```boot``` method of Service Provider.
+
+```
+$this->importNotifications('antaresproject/module-sample_module');
+```
+
+
 ## How it works in background?
 
 Every time an event is executing the ```NotificationsService``` is going to fetch that event and notification associated to it. Next the parameters from event object are pass to the notification object and send to the defined recipient(s) and channel (notification type).
