@@ -638,13 +638,10 @@
 * Missing location data for test notification. 
 * Users online widget. 
 * Remove var dumps.  
-
-##### Internal
-
-* Remove unused code.  
-
+  
 **Other**
 
+* Remove unused code.
 * Update composer.json. 
 * Merge pull request #7 from antaresproject/0.9.2-laravel5.5. 
 * Merge remote-tracking branch 'origin/0.9.2' into 0.9.2. 
