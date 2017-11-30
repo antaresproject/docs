@@ -60,14 +60,17 @@ pages:
    - Webpack: services/webpack.md  
    - UI Component: services/ui_component.md
  - Core modules:
-   - Automation: core_modules/automation.md
    - Acl: core_modules/acl.md
+   - Automation: core_modules/automation.md
+   - Branding: core_modules/branding.md
+   - Installer: core_modules/installer.md
    - Logger: core_modules/logger.md
    - Notifications: core_modules/notifications.md
    - Translations: core_modules/translations.md
-   - Branding: core_modules/branding.md
    - Users: core_modules/users.md
-   - Installer: core_modules/installer.md
+ - Additional Modules:
+   - Search: additional_modules/search.md
+
  - Tutorials:
    - Sample module: tutorials/sample_module.md
    - Sample UI Component: tutorials/sample_ui_component.md

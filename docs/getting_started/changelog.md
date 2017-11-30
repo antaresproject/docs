@@ -499,7 +499,7 @@
 
 * Update composer.json.
 
-## Brands
+## Branding
 
 ##### New
 
@@ -528,7 +528,7 @@
 
 * Update composer.json. 
 * Merge pull request #1 from antaresproject/0.9.2-laravel5.5. 
-* Merge branch '0.9.2' of https://github.com/antaresproject/branding into 0.9.2. 
+* Merge branch '0.9.2' of https://github.com/antaresproject/branding into 0.9.2.ing
 
 ## Custom fields
 
