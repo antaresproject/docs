@@ -1,6 +1,4 @@
-# Change Log
-
-## Change Log (0.9.2)
+# Change Log (0.9.2)
 
 [TOC]
 
@@ -319,7 +317,7 @@
 
 ## Acl
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -329,7 +327,7 @@
 * Description of module in composer.json. 
 * Initial commit. 
 
-##### Changes
+**Changes**
 
 * Integration for new grid layout and frontend improvements. 
 * :book: update of README.md. 
@@ -338,7 +336,7 @@
 * Module preview. 
 * Description of README.md. 
 
-##### Fixes
+**Fixes**
 
 * Rwd for lists in mobile. 
 * More fixes for RWD in release. 
@@ -346,7 +344,7 @@
 * ControlServiceProvider, fixes for route. 
 * Control vs acl naming. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #2 from antaresproject/0.9.2-laravel5.5. 
@@ -354,7 +352,7 @@
 
 ## Api
 
-##### New
+**New**
 
 * Packages version. 
 * Backend integration with new frontend. 
@@ -478,30 +476,30 @@
 
 ## Ban Management
 
-##### New
+**New**
 
 * Unit tests refactoring.
 * Custom URL for settings form.
 
-##### Changes
+**Changes**
 
 * Readme.md structure change.
 * Added homepage and friendly names to components.
 * Updated ACL file.
 
-##### Fixes
+**Fixes**
 
 * Wrong method name.
 * Settings form.
 * Fixes for named routes.
 
-##### Other
+**Other**
 
 * Update composer.json.
 
 ## Branding
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -509,7 +507,7 @@
 * Brands styler update. 
 * Support for time and date formatters based on brand settings. 
 
-##### Changes
+**Changes**
 
 * Remove unused lines. 
 * Added to gitignore /.idea directory. 
@@ -519,12 +517,12 @@
 * Minor refactoring. 
 * :book: update of README.md.
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 * Date format label.  
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #1 from antaresproject/0.9.2-laravel5.5. 
@@ -532,7 +530,7 @@
 
 ## Custom fields
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -541,20 +539,20 @@
 * Frontend integration. 
 * Installation steps. 
 
-##### Changes
+**Changes**
 
 * Update of barryvdh/laravel-cors. 
 * Integration for new grid layout and frontend improvements. 
 * :book: update of README.md. 
 * Phpunit refactoring. 
 
-##### Fixes
+**Fixes**
 
 * Remove unused command. 
 * Installation progress. 
 * Regex password validation. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #3 from antaresproject/0.9.2-laravel5.5. 
@@ -564,7 +562,7 @@
 
 ## Installer
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -572,17 +570,17 @@
 * Support for nginx. 
 * Backend integration with new frontend. 
 
-##### Changes
+**Changes**
 
 * Update of barryvdh/laravel-cors. 
 * Integration for new grid layout and frontend improvements. 
 * :book: update of README.md. 
 
-##### Fixes
+**Fixes**
 
 * Remove unused command. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #3 from antaresproject/0.9.2-laravel5.5. 
@@ -590,7 +588,7 @@
 
 ## Logger
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -616,7 +614,7 @@
 * Activity logs with type and search. 
 * Extend activity logs. 
 
-##### Changes
+**Changes**
 
 * Removed unused any more type declaration. 
 * Recipients. 
@@ -633,7 +631,7 @@
 * Minor and major changes. 
 * :book: update of README.md. 
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 * Fixes for backend integration. 
@@ -645,7 +643,7 @@
 
 * Remove unused code.  
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #7 from antaresproject/0.9.2-laravel5.5. 
@@ -661,7 +659,7 @@
 
 ## Notifications
  
- ##### New
+ **New**
  
  * Descriptions to notification form. 
  * Packages version. 
@@ -684,7 +682,7 @@
  * Extend notification templates. 
  * New module structure.
  
- ##### Changes
+ **Changes**
  
  * Commented code for later investigation. 
  * Store system notifications as compiled. 
@@ -723,7 +721,7 @@
  * Large refactorization about building notification templates which includes variables declaration, Laravel notification class structure, fixes for datatables. 
  
  
- ##### Fixes
+ **Fixes**
  
  * Fade timeout for dropdowns FIX: send notification or alert when source is null. 
  * Exception notification. 
@@ -742,7 +740,7 @@
  * Exception notification FIX: wrong alert type checker. 
  * Config. 
  
- ##### Other
+ **Other**
  
  * Update composer.json. 
  * Merge pull request #7 from antaresproject/0.9.2-laravel5.5. 
@@ -755,7 +753,7 @@
 
 ## Sample module
 
-##### New
+**New**
 
 * Packages version. 
 * Review project for missing frontend changes. 
@@ -763,19 +761,19 @@
 * Dt filters. 
 * Frontend integration.
 
-##### Changes
+**Changes**
 
 * Removed unused any more type declaration. 
 * Up versions in licenses CHG: events as objects CHG: new notification with removing old seed files. 
 * Module integration for new grid layout. 
 * :book: update of README.md.
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 * Installation fixes. 
 
-##### Other
+**Other**
 
 * Merge branch '0.9.2' of https://github.com/antaresproject/sample_module into 0.9.2. 
 * Merge remote-tracking branch 'origin/0.9.2' into 0.9.2. 
@@ -784,42 +782,42 @@
 
 ## Search
 
-##### New
+**New**
 
 * Packages version. 
 * Frontend integration.
 
-##### Changes
+**Changes**
 
 * Search integration. 
 * :book: update of README.md.  
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #1 from antaresproject/0.9.2-laravel5.5. 
 
 ## Tester
 
-##### New
+**New**
 
 * Packages version. 
 * Backend integration with new frontend.
 
-##### Changes
+**Changes**
 
 * Add param for customized js scripts. 
 * Integration for new grid layout and frontend improvements. 
 * Change message when code is not available. 
 * :book: update of README.md. 
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 * Checking email. 
 * Getting component model. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #6 from antaresproject/0.9.2-laravel5.5. 
@@ -829,48 +827,48 @@
 
 ## Translations
 
-##### New
+**New**
 
 * Packages version. 
 * PHPDoc for Languages model. ADD: icon_code attribute for languages flags. 
 * Review project for missing frontend changes. 
 * Backend integration with new frontend. 
 
-##### Changes
+**Changes**
 
 * Update of area implementation. 
 * Backend integration with frontend. 
 * Integration for new grid layout and frontend improvements. 
 * :book: update of README.md. 
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #3 from antaresproject/0.9.2-laravel5.5. 
 
 ## Two factor auth
 
-##### New
+**New**
 
 * Packages version. 
 * Backend integration with new frontend. 
 
-##### Changes
+**Changes**
 
 * Change cols from max 16 to 24. 
 * :book: update of README.md. 
 
-##### Fixes
+**Fixes**
 
 * Fixes for backend integration. 
 * Fix for AreaContract. 
 * Installation fixes. 
 
-##### Other
+**Other**
 
 * Update composer.json. 
 * Merge pull request #4 from antaresproject/0.9.2-laravel5.5. 
@@ -878,7 +876,7 @@
 
 ## Users
 
-##### New
+**New**
 
 * Packages version. 
 * Client recipient for part of events. 
@@ -887,7 +885,7 @@
 * Notifications CHG: service provider. 
 * Support for api. 
 
-##### Changes
+**Changes**
 
 * Removed unused any more type declaration. 
 * Update of version. 
@@ -895,12 +893,12 @@
 * Backend integration with frontend. 
 * Events. 
 
-##### Fixes
+**Fixes**
 
 * More fixes for RWD in release. 
 * Event labels for notifications.  
 
-##### Other
+**Other**
 
 * Merge branch '0.9.2' of https://github.com/antaresproject/users into 0.9.2. 
 * Update composer.json. 
